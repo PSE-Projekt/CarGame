@@ -1,13 +1,15 @@
 package view.navigation;
 
+import javafx.scene.layout.Pane;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class Selectable {
+public abstract class Selectable extends Pane {
 
     private boolean selected;
 
-    private Map<Direction,Selectable> neighbours =  new HashMap<>();
+    private final Map<Direction,Selectable> neighbours =  new HashMap<>();
 
     public Selectable(){
         neighbours.put(Direction.UP, null);

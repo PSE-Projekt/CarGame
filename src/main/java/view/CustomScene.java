@@ -1,14 +1,13 @@
 package view;
 
 
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 
 public abstract class CustomScene extends Scene {
-    private final APIHandler apiHandler;
+    private final ApiHandler apiHandler;
 
-    public CustomScene(APIHandler apiHandler) {
+    public CustomScene(ApiHandler apiHandler) {
         super(new VBox());
         this.apiHandler = apiHandler;
     }

@@ -1,12 +1,13 @@
 package view.navigation;
 
-public abstract class SceneButton extends Selectable, Pane implements Clickable{
-
+public abstract class SceneButton extends Selectable implements Clickable{
+//TODO
+    /*
     private image defaultDisplay;
     private image displayOnSelection;
     private image display;
 
-
+*/
 
     @Override
     public abstract void onClick(Object apiHandler, String playerID);
@@ -14,12 +15,12 @@ public abstract class SceneButton extends Selectable, Pane implements Clickable{
     @Override
     public void select() {
         toggleSelected();
-        display = displayOnSelection;
+      //  display = displayOnSelection;
     }
 
     @Override
     public void deselect(){
         toggleSelected();
-        display = defaultDisplay;
+      //  display = defaultDisplay;
     }
 }

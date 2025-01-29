@@ -9,7 +9,7 @@ public class BackToMenuButton extends SceneButton implements Clickable {
 
     @Override
     public void onClick(Object apiHandler, String playerID) {
-        apiHandler.setGameState(MAIN_MENU);
-        apiHandler.setGameMode(NOT_SET);
+        apiHandler.getGameStateApi().setGameState(MAIN_MENU);
+        apiHandler.getGameModeApi().setGameMode(NOT_SET);
     }
 }
