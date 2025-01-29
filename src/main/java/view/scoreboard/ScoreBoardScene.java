@@ -11,6 +11,7 @@ public class ScoreBoardScene extends CustomScene {
     private Navigator assignedNavigator;
 
     public ScoreBoardScene(APIHandler apiHandler){
+        super();
         this.assignedNavigator = new ScoreBoardNavigator(apiHandler);
         Selectable dummy = assignedNavigator.getCurrentSelectable();
         Selectable backToMenu = new BackToMenuButton();

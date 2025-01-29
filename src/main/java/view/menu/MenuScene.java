@@ -1,5 +1,6 @@
 package view.menu;
 
+import javafx.scene.layout.VBox;
 import view.CustomScene;
 import view.navigation.Direction;
 import view.navigation.Navigator;
@@ -9,6 +10,7 @@ public class MenuScene extends CustomScene {
     private Navigator assignedNavigator;
 
     public MenuScene(APIHandler apiHandler){
+        super();
         this.assignedNavigator = new MenuNavigator(apiHandler);
         Selectable dummy = assignedNavigator.getCurrentSelectable();
         Selectable singlePlayer = new MultiPlayerButton();
