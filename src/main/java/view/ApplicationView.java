@@ -10,4 +10,8 @@ public class ApplicationView extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.show();
     }
+
+    public void render() {
+        // meant to be called from the controller
+    }
 }
