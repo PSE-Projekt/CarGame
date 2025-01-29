@@ -1,5 +1,14 @@
 package mockController.api;
 
+import mockController.entity.GameMode;
+import mockController.entity.GameState;
+
 public interface GameStateApi {
-    GameState getCurrentGameState();
+    GameMode getGameMode();
+
+    void setGameMode(GameMode gameMode);
+
+    GameState getGameState();
+
+    void setGameState(GameState gameState);
 }

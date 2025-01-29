@@ -1,5 +1,7 @@
 package view.navigation;
 
+import view.ApiHandler;
+
 public abstract class SceneButton extends Selectable implements Clickable{
 //TODO
     /*
@@ -10,7 +12,7 @@ public abstract class SceneButton extends Selectable implements Clickable{
 */
 
     @Override
-    public abstract void onClick(Object apiHandler, String playerID);
+    public abstract void onClick(ApiHandler apiHandler, String playerID);
 
     @Override
     public void select() {

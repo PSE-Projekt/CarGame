@@ -5,12 +5,13 @@ import javafx.stage.Stage;
 import mockController.api.GameInstanceApi;
 import mockController.api.GameStateApi;
 import mockController.api.PlayerApi;
+import mockController.entity.GameState;
 
 import java.util.Map;
 
 public class ApplicationView extends Application {
     private final ApiHandler apiHandler;
-    private final Map<GameState, CustomScene> sceneMap;
+    private final Map<GameState, CustomScene> sceneMap;//TODO
     private CustomScene currentScene;
     private Stage stage;
 
@@ -31,7 +32,7 @@ public class ApplicationView extends Application {
     }
 
     public void render() {
-        currentScene = sceneMap.get(apiHandler.getGameStateAPI().getCurrentGameState());
+        currentScene = sceneMap.get(apiHandler.getGameStateApi().getGameState());
         this.stage.setScene(currentScene);
         currentScene.render();
     }
