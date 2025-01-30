@@ -8,7 +8,6 @@ import de.cargame.model.GameInstance;
 import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.model.entity.player.PlayerObserver;
 import de.cargame.model.service.PlayerService;
-import de.cargame.view.TestView;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -19,7 +18,6 @@ public class GameApplicationManager {
     private final PlayerAPI playerAPI = new PlayerController(new PlayerService());
     private final GameInstanceAPI gameInstanceAPI = new GameInstanceController(this, gameStateAPI, playerAPI);
 
-    private TestView testView;
 
     public GameApplicationManager() {
         run();
@@ -36,11 +34,6 @@ public class GameApplicationManager {
     }
 
 
-    public PlayerObserver getPlayerObserver() {
-        return testView.getJPanel();
-    }
-
-
     public void startGame() {
         GameMode gameMode = gameStateAPI.getGameMode();
         if (gameMode == GameMode.SINGLEPLAYER) {
@@ -51,7 +44,7 @@ public class GameApplicationManager {
     }
 
     public void initUI() {
-        testView = new TestView(gameStateAPI);
+        //todo
     }
 
 
@@ -62,7 +55,7 @@ public class GameApplicationManager {
      * @param gameInstance the current instance of the game, encapsulating the game's state and model data
      */
     public void renderGameInstance(GameInstance gameInstance) {
-        testView.render(gameInstance);
+        //todo
     }
 
 
@@ -91,7 +84,7 @@ public class GameApplicationManager {
 
     //TODO REMOVE
     private void dummyChangesToMakeThisShitWork() {
-        playerAPI.registerPlayerObserver(testView.getJPanel());
+        //playerAPI.registerPlayerObserver(testView.getJPanel());
         gameStateAPI.setGameMode(GameMode.SINGLEPLAYER);
         playerAPI.createPlayerKeyboard();
         String playerId = playerAPI.getKeyboardPlayerId();
