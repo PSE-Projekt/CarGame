@@ -11,6 +11,7 @@ import de.cargame.view.menu.MenuScene;
 import de.cargame.view.scoreboard.ScoreBoardScene;
 import de.cargame.view.selection.SelectionScene;
 
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +35,11 @@ public class ApplicationView extends Application {
     public void start(Stage primaryStage) throws Exception {
         this.stage = primaryStage;
         this.stage.setTitle("Car Game");
+
+        MenuScene menuScene = new MenuScene(apiHandler);
+
+        this.stage.setScene(menuScene);
+
         this.stage.show();
     }
 
@@ -42,6 +48,4 @@ public class ApplicationView extends Application {
         this.stage.setScene(currentScene);
         currentScene.render();
     }
-
-    private void setUp() {}
 }

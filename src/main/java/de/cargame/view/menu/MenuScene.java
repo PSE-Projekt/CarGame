@@ -5,6 +5,7 @@ import de.cargame.view.CustomScene;
 import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import de.cargame.view.navigation.Selectable;
+import javafx.scene.text.Text;
 
 public class MenuScene extends CustomScene {
     private Navigator assignedNavigator;
@@ -22,6 +23,8 @@ public class MenuScene extends CustomScene {
         singlePlayer.setNeighbour(Direction.RIGHT, multiPlayer);
         multiPlayer.setNeighbour(Direction.LEFT, singlePlayer);
 
+
+        this.getRoot().getChildren().add(new Text("Welcome to CarGame Menu!"));
     }
 
     @Override
