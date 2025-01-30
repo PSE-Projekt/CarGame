@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="attempt: fixing incompatible history of main and frontend branches">
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="added TODOs to Applicationview; function creating scenes + sceneSwitch needed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/ApplicationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/game/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/game/GameScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/menu/MenuNavigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/menu/MenuNavigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/menu/MenuScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/menu/MenuScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/navigation/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/navigation/Navigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/scoreboard/ScoreBoardNavigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/scoreboard/ScoreBoardNavigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/scoreboard/ScoreBoardScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/scoreboard/ScoreBoardScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/selection/SelectionInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/selection/SelectionInstanceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/selection/SelectionScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/selection/SelectionScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,28 +60,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.ApplicationView.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Maven.CarGameOfficial_v2 [javafx:run].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "frontend",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/malik/IdeaProjects/CarGameOfficial_v2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Application.ApplicationView.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CarGameOfficial_v2 [javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;frontend&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/malik/IdeaProjects/CarGameOfficial_v2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn javafx:run" />
@@ -176,7 +183,8 @@
       <workItem from="1738169054524" duration="641000" />
       <workItem from="1738169710156" duration="158000" />
       <workItem from="1738169906541" duration="93000" />
-      <workItem from="1738202386786" duration="223000" />
+      <workItem from="1738202386786" duration="295000" />
+      <workItem from="1738253600526" duration="745000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -258,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738169834041</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added TODOs to Applicationview; function creating scenes + sceneSwitch needed">
+      <option name="closed" value="true" />
+      <created>1738202627712</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1738202627712</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,6 +301,7 @@
     <MESSAGE value="implemented first attempt of APIHandler and ApplicationView" />
     <MESSAGE value="attempt: fixing incompatible history of main and frontend branches" />
     <MESSAGE value="improved controllerDummy, fixed some errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="improved controllerDummy, fixed some errors" />
+    <MESSAGE value="added TODOs to Applicationview; function creating scenes + sceneSwitch needed" />
+    <option name="LAST_COMMIT_MESSAGE" value="added TODOs to Applicationview; function creating scenes + sceneSwitch needed" />
   </component>
 </project>

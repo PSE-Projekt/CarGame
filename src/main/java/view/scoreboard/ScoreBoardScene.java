@@ -1,5 +1,6 @@
 package view.scoreboard;
 
+import view.ApiHandler;
 import view.CustomScene;
 import view.navigation.Direction;
 import view.navigation.Navigator;
@@ -10,8 +11,8 @@ public class ScoreBoardScene extends CustomScene {
 
     private Navigator assignedNavigator;
 
-    public ScoreBoardScene(APIHandler apiHandler){
-        super();
+    public ScoreBoardScene(ApiHandler apiHandler){
+        super(apiHandler);
         this.assignedNavigator = new ScoreBoardNavigator(apiHandler);
         Selectable dummy = assignedNavigator.getCurrentSelectable();
         Selectable backToMenu = new BackToMenuButton();

@@ -1,5 +1,6 @@
 package view.selection;
 
+import view.ApiHandler;
 import view.common.BackToMenuButton;
 import view.menu.MenuNavigator;
 import view.navigation.Direction;
@@ -9,7 +10,7 @@ import view.navigation.Selectable;
 public class SelectionInstanceView {
 
     private Navigator assignedNavigator;
-    public SelectionInstanceView(APIHandler apiHandler){
+    public SelectionInstanceView(ApiHandler apiHandler){
         this.assignedNavigator = new MenuNavigator(apiHandler);
         Selectable dummy = assignedNavigator.getCurrentSelectable();
 

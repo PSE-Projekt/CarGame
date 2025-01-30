@@ -1,9 +1,11 @@
 package view.navigation;
 
+import view.ApiHandler;
+
 public abstract class Navigator {
     private Selectable currentSelection;
 
-    public Navigator(APIHandler apiHandler) {
+    public Navigator(ApiHandler apiHandler) {
         this.currentSelection = new DummySelectable(null, null, null, null);
     }
 
