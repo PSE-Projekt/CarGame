@@ -1,8 +1,9 @@
 package de.cargame.view.navigation;
 
 import de.cargame.controller.input.UserInputBundle;
+import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 
-public class InputReceiver {
+public class InputReceiver implements UserInputObserver {
     private String playerID;
     private Navigator navigator;
 

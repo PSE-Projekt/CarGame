@@ -2,10 +2,10 @@ package de.cargame.view;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import de.cargame.mockController.api.GameInstanceApi;
-import de.cargame.mockController.api.GameStateApi;
-import de.cargame.mockController.api.PlayerApi;
-import de.cargame.mockController.entity.GameState;
+import de.cargame.controller.api.GameInstanceApi;
+import de.cargame.controller.api.GameStateApi;
+import de.cargame.controller.api.PlayerApi;
+import de.cargame.controller.entity.GameState;
 import de.cargame.view.game.GameScene;
 import de.cargame.view.menu.MenuScene;
 import de.cargame.view.scoreboard.ScoreBoardScene;

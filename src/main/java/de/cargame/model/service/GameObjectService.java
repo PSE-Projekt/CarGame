@@ -1,6 +1,6 @@
 package de.cargame.model.service;
 
-import de.cargame.controller.api.GameStateAPI;
+import de.cargame.controller.api.GameStateApi;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.entity.GameState;
 import de.cargame.model.entity.gameobject.*;
@@ -40,13 +40,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class GameObjectService {
     private final CollisionHandler collisionHandler;
     private final GameObjectCreationService gameObjectCreationService;
-    private final GameStateAPI gameStateController;
+    private final GameStateApi gameStateController;
     private final PlayerHandler playerHandler;
     private final GameObjectSpawnScheduler gameObjectSpawnScheduler;
     private final List<GameObject> gameObjects = new CopyOnWriteArrayList<>();
 
 
-    public GameObjectService(GameStateAPI gameStateController, PlayerHandler playerHandler) {
+    public GameObjectService(GameStateApi gameStateController, PlayerHandler playerHandler) {
         this.playerHandler = playerHandler;
         this.gameStateController = gameStateController;
         this.collisionHandler = new CollisionHandler(playerHandler);

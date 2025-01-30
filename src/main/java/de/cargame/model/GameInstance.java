@@ -2,7 +2,7 @@ package de.cargame.model;
 
 import de.cargame.config.GameConfig;
 import de.cargame.controller.GameApplicationManager;
-import de.cargame.controller.api.GameStateAPI;
+import de.cargame.controller.api.GameStateApi;
 import de.cargame.controller.entity.GameModelData;
 import de.cargame.controller.entity.GameState;
 import de.cargame.model.entity.player.Player;
@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GameInstance implements Runnable {
 
-    private final GameStateAPI gameStateController;
+    private final GameStateApi gameStateController;
     private final PlayerHandler playerHandler;
     private final GameApplicationManager gameApplicationManager;
     private final GameObjectService gameObjectService;
@@ -23,7 +23,7 @@ public class GameInstance implements Runnable {
     private boolean isFinished = false;
 
 
-    public GameInstance(GameStateAPI gameStateController, GameApplicationManager gameApplicationManager, Player player) {
+    public GameInstance(GameStateApi gameStateController, GameApplicationManager gameApplicationManager, Player player) {
         this.gameStateController = gameStateController;
         this.gameApplicationManager = gameApplicationManager;
         this.playerHandler = new PlayerHandler(player);
