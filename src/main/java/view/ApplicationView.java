@@ -22,6 +22,9 @@ public class ApplicationView extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        //TODO: erzeuge zu jeder Scene eine Instanz
+        //TODO: schreibe methode, die Szenenwechsel erlaubt (+refreshed?), womöglich applicationview als Param übergeben
     }
 
     @Override
