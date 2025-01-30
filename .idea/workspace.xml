@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="added TODOs to Applicationview; function creating scenes + sceneSwitch needed">
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="Fixed NameConvention in some classes, etc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/game/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/game/GameScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/menu/MenuNavigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/menu/MenuNavigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/menu/MenuScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/menu/MenuScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/navigation/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/navigation/Navigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/scoreboard/ScoreBoardNavigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/scoreboard/ScoreBoardNavigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/scoreboard/ScoreBoardScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/scoreboard/ScoreBoardScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/selection/SelectionInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/selection/SelectionInstanceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/selection/SelectionScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/selection/SelectionScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,6 +177,7 @@
       <workItem from="1738169906541" duration="93000" />
       <workItem from="1738202386786" duration="295000" />
       <workItem from="1738253600526" duration="745000" />
+      <workItem from="1738254371382" duration="299000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -274,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738202627712</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fixed NameConvention in some classes, etc">
+      <option name="closed" value="true" />
+      <created>1738254454952</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1738254454952</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +286,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/frontend" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -302,6 +320,7 @@
     <MESSAGE value="attempt: fixing incompatible history of main and frontend branches" />
     <MESSAGE value="improved controllerDummy, fixed some errors" />
     <MESSAGE value="added TODOs to Applicationview; function creating scenes + sceneSwitch needed" />
-    <option name="LAST_COMMIT_MESSAGE" value="added TODOs to Applicationview; function creating scenes + sceneSwitch needed" />
+    <MESSAGE value="Fixed NameConvention in some classes, etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed NameConvention in some classes, etc" />
   </component>
 </project>
