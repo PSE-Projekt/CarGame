@@ -5,26 +5,26 @@ import de.cargame.view.CustomScene;
 import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import de.cargame.view.navigation.Selectable;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class MenuScene extends CustomScene {
-    private Navigator assignedNavigator;
 
     public MenuScene(ApiHandler apiHandler){
         super(apiHandler);
-        this.assignedNavigator = new MenuNavigator(apiHandler);
+        Navigator assignedNavigator = new MenuNavigator(apiHandler);
         Selectable dummy = assignedNavigator.getCurrentSelectable();
-        Selectable singlePlayer = new MultiPlayerButton();
-        Selectable multiPlayer = new SinglePlayerButton();
+        Selectable multiPlayerButton = new MultiPlayerButton();
+        Selectable singlePlayerButton = new SinglePlayerButton();
         
-        dummy.setNeighbour(Direction.LEFT, singlePlayer);
-        dummy.setNeighbour(Direction.RIGHT, multiPlayer);
+        dummy.setNeighbour(Direction.LEFT, singlePlayerButton);
+        dummy.setNeighbour(Direction.RIGHT, multiPlayerButton);
 
-        singlePlayer.setNeighbour(Direction.RIGHT, multiPlayer);
-        multiPlayer.setNeighbour(Direction.LEFT, singlePlayer);
+        singlePlayerButton.setNeighbour(Direction.RIGHT, multiPlayerButton);
+        multiPlayerButton.setNeighbour(Direction.LEFT, singlePlayerButton);
 
 
-        this.getRoot().getChildren().add(new Text("Welcome to CarGame Menu!"));
+        ((VBox)this.getRoot()).getChildren().add(new Text("Welcome to CarGame Menu!"));
     }
 
     @Override

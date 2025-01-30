@@ -35,6 +35,7 @@ public class ApplicationView extends Application {
     public void start(Stage primaryStage) throws Exception {
         this.stage = primaryStage;
         this.stage.setTitle("Car Game");
+        stage.setResizable(false);
 
         MenuScene menuScene = new MenuScene(apiHandler);
 

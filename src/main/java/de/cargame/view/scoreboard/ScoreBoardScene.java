@@ -7,11 +7,9 @@ import de.cargame.view.navigation.Navigator;
 
 public class ScoreBoardScene extends CustomScene {
 
-    private final Navigator navigator;
-
     public ScoreBoardScene(ApiHandler apiHandler){
         super(apiHandler);
-        this.navigator = new ScoreBoardNavigator(apiHandler);
+        Navigator navigator = new ScoreBoardNavigator(apiHandler);
     }
 
     @Override

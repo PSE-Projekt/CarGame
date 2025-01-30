@@ -9,26 +9,25 @@ import de.cargame.view.navigation.Selectable;
 
 public class SelectionInstanceView {
 
-    private Navigator assignedNavigator;
     public SelectionInstanceView(ApiHandler apiHandler){
-        this.assignedNavigator = new MenuNavigator(apiHandler);
+        Navigator assignedNavigator = new MenuNavigator(apiHandler);
         Selectable dummy = assignedNavigator.getCurrentSelectable();
 
 
-        Selectable backButton = new BackToMenuButton();
-        Selectable  fastCarButton = new CarSelectionPanel();
-        Selectable  agileCarButton = new CarSelectionPanel();
+        Selectable backToMenuButton = new BackToMenuButton();
+        Selectable fastCarButton = new CarSelectionPanel();
+        Selectable agileCarButton = new CarSelectionPanel();
 
         dummy.setNeighbour(Direction.LEFT, fastCarButton);
         dummy.setNeighbour(Direction.RIGHT, agileCarButton);
 
         fastCarButton.setNeighbour(Direction.RIGHT, agileCarButton);
-        fastCarButton.setNeighbour(Direction.DOWN, backButton);
+        fastCarButton.setNeighbour(Direction.DOWN, backToMenuButton);
 
         agileCarButton.setNeighbour(Direction.LEFT, fastCarButton);
-        agileCarButton.setNeighbour(Direction.DOWN, backButton);
+        agileCarButton.setNeighbour(Direction.DOWN, backToMenuButton);
 
-        backButton.setNeighbour(Direction.UP, fastCarButton);
+        backToMenuButton.setNeighbour(Direction.UP, fastCarButton);
 
     }
 }
