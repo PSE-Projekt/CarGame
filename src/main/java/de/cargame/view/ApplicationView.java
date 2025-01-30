@@ -11,28 +11,23 @@ import de.cargame.view.menu.MenuScene;
 import de.cargame.view.scoreboard.ScoreBoardScene;
 import de.cargame.view.selection.SelectionScene;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class ApplicationView extends Application {
-    private final ApiHandler apiHandler;
+    private ApiHandler apiHandler;
     private final Map<GameState, CustomScene> sceneMap;
     private CustomScene currentScene;
     private Stage stage;
 
-    public ApplicationView(GameInstanceApi gameInstanceApi, GameStateApi gameStateApi, PlayerApi playerApi) {
-        this.apiHandler = new ApiHandler(gameInstanceApi, gameStateApi, playerApi);
+    public ApplicationView() {
         try {
             stage = new Stage();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        sceneMap = Map.of(
-            GameState.MAIN_MENU, new MenuScene(apiHandler),
-            GameState.CAR_SELECTION, new SelectionScene(apiHandler),
-            GameState.IN_GAME, new GameScene(apiHandler),
-            GameState.SCORE_BOARD, new ScoreBoardScene(apiHandler)
-        );
+        this.sceneMap = new HashMap<>();
     }
 
     @Override
@@ -47,4 +42,6 @@ public class ApplicationView extends Application {
         this.stage.setScene(currentScene);
         currentScene.render();
     }
+
+    private void setUp() {}
 }
