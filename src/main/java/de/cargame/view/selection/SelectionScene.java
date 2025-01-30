@@ -8,6 +8,7 @@ public class SelectionScene extends CustomScene {
     private Navigator assignedNavigator;
 
     public SelectionScene(ApiHandler apiHandler) {
+        super(apiHandler);
 
 
     }

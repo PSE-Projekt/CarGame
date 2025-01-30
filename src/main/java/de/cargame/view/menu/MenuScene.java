@@ -2,7 +2,7 @@ package de.cargame.view.menu;
 
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
-import view.navigation.Direction;
+import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import de.cargame.view.navigation.Selectable;
 
