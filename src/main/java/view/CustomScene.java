@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 
 public abstract class CustomScene extends Scene {
-    private final ApiHandler apiHandler;
+    protected final ApiHandler apiHandler;
 
     public CustomScene(ApiHandler apiHandler) {
         super(new VBox());

@@ -9,21 +9,11 @@ import view.common.BackToMenuButton;
 
 public class ScoreBoardScene extends CustomScene {
 
-    private Navigator assignedNavigator;
+    private final Navigator navigator;
 
     public ScoreBoardScene(ApiHandler apiHandler){
         super(apiHandler);
-        this.assignedNavigator = new ScoreBoardNavigator(apiHandler);
-        Selectable dummy = assignedNavigator.getCurrentSelectable();
-        Selectable backToMenu = new BackToMenuButton();
-        Selectable playAgain = new PlayAgainButton();
-
-        dummy.setNeighbour(Direction.LEFT, playAgain);
-        dummy.setNeighbour(Direction.RIGHT, backToMenu);
-
-        playAgain.setNeighbour(Direction.RIGHT, backToMenu);
-        backToMenu.setNeighbour(Direction.LEFT, playAgain);
-
+        this.navigator = new ScoreBoardNavigator(apiHandler);
     }
 
     @Override
