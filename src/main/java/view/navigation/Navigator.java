@@ -1,5 +1,7 @@
 package view.navigation;
 
+import view.APIHandler;
+
 public abstract class Navigator {
     private Selectable currentSelection;
 

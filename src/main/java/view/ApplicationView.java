@@ -6,12 +6,16 @@ import mockController.api.GameInstanceApi;
 import mockController.api.GameStateApi;
 import mockController.api.PlayerApi;
 import mockController.entity.GameState;
+import view.game.GameScene;
+import view.menu.MenuScene;
+import view.scoreboard.ScoreBoardScene;
+import view.selection.SelectionScene;
 
 import java.util.Map;
 
 public class ApplicationView extends Application {
     private final ApiHandler apiHandler;
-    private final Map<GameState, CustomScene> sceneMap;//TODO
+    private final Map<GameState, CustomScene> sceneMap;
     private CustomScene currentScene;
     private Stage stage;
 
@@ -23,8 +27,12 @@ public class ApplicationView extends Application {
             e.printStackTrace();
         }
 
-        //TODO: erzeuge zu jeder Scene eine Instanz
-        //TODO: schreibe methode, die Szenenwechsel erlaubt (+refreshed?), womöglich applicationview als Param übergeben
+        sceneMap = Map.of(
+            GameState.MAIN_MENU, new MenuScene(apiHandler),
+            GameState.CAR_SELECTION, new SelectionScene(apiHandler),
+            GameState.IN_GAME, new GameScene(apiHandler),
+            GameState.SCORE_BOARD, new ScoreBoardScene(apiHandler)
+        );
     }
 
     @Override
