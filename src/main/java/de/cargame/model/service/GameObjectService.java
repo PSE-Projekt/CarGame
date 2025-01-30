@@ -26,11 +26,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * This class works in conjunction with other game components such as the
  * {@code CollisionHandler}, {@code GameObjectCreationService},
  * {@code GameObjectSpawnScheduler}, and {@code PlayerHandler}.
- *
+ * <p>
  * Responsibilities of this class include:
  * - Managing active game objects in a thread-safe manner.
  * - Spawning specific game objects such as player cars, AI cars, buildings,
- *   road marks, obstacles, and rewards.
+ * road marks, obstacles, and rewards.
  * - Updating the positions and states of game objects over time.
  * - Handling object despawning when objects move outside a certain boundary.
  * - Delegating collision handling to the {@code CollisionHandler}.

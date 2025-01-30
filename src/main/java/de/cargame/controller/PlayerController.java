@@ -20,7 +20,7 @@ public class PlayerController implements PlayerAPI {
     private final PlayerService playerService;
 
 
-    public PlayerController(PlayerService playerService){
+    public PlayerController(PlayerService playerService) {
         this.playerService = playerService;
     }
 
@@ -47,7 +47,7 @@ public class PlayerController implements PlayerAPI {
     @Override
     public Player getKeyboardPlayer() {
         Player keyboardPlayer = playerService.getKeyboardPlayer();
-        if(keyboardPlayer == null){
+        if (keyboardPlayer == null) {
             throw new PlayerNotFoundException("Player not present");
         }
         return keyboardPlayer;
@@ -56,7 +56,7 @@ public class PlayerController implements PlayerAPI {
     @Override
     public Player getGamepadPlayer() {
         Player gamePadPlayer = playerService.getGamepadPlayer();
-        if(gamePadPlayer == null){
+        if (gamePadPlayer == null) {
             throw new PlayerNotFoundException("Player not present");
         }
         return gamePadPlayer;

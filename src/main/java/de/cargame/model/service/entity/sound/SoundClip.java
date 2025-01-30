@@ -47,8 +47,8 @@ public abstract class SoundClip {
     /**
      * Adjusts the global gain by the given {@param delta} value.
      */
-    private void adjustLoudness(Float delta){
-        FloatControl gainControl = (FloatControl)  clip.getControl(FloatControl.Type.MASTER_GAIN);
+    private void adjustLoudness(Float delta) {
+        FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         gainControl.setValue(delta);// Reduce volume by 10 decibels.
     }
 
