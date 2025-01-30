@@ -1,8 +1,8 @@
 package de.cargame.view;
 
-import de.cargame.mockController.api.GameInstanceApi;
-import de.cargame.mockController.api.GameStateApi;
-import de.cargame.mockController.api.PlayerApi;
+import de.cargame.controller.api.GameInstanceApi;
+import de.cargame.controller.api.GameStateApi;
+import de.cargame.controller.api.PlayerApi;
 
 public class ApiHandler {
     private final GameInstanceApi gameInstanceApi;

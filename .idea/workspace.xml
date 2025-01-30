@@ -4,9 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="InputReceiver added">
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="InputReceiver added, Interface-dependencies added to PlayerStats &amp; InputReceiver">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/InputReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/InputReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameInstanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameInstanceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameStateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameStateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/api/GameInstanceAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/api/GameInstanceApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/api/GameStateAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/api/GameStateApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/api/PlayerAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/api/PlayerApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/mockController/api/GameInstanceApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/mockController/api/GameStateApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/mockController/api/PlayerApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/mockController/entity/GameMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/mockController/entity/GameModelData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/mockController/entity/GameState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/GameInstance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/GameInstance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameInstanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameInstanceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameObjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameObjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApiHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/common/BackToMenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/common/BackToMenuButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MultiPlayerButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MultiPlayerButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/SinglePlayerButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/SinglePlayerButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/PlayAgainButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/PlayAgainButton.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -320,7 +341,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738257773437</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="InputReceiver added, Interface-dependencies added to PlayerStats &amp; InputReceiver">
+      <option name="closed" value="true" />
+      <created>1738257958316</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1738257958316</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,6 +387,7 @@
     <MESSAGE value="Fehler auskommentiert, um zu testen" />
     <MESSAGE value="Fehler auskommentiert und imports behoben, um zu testen" />
     <MESSAGE value="InputReceiver added" />
-    <option name="LAST_COMMIT_MESSAGE" value="InputReceiver added" />
+    <MESSAGE value="InputReceiver added, Interface-dependencies added to PlayerStats &amp; InputReceiver" />
+    <option name="LAST_COMMIT_MESSAGE" value="InputReceiver added, Interface-dependencies added to PlayerStats &amp; InputReceiver" />
   </component>
 </project>

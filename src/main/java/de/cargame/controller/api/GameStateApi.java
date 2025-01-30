@@ -9,7 +9,7 @@ import de.cargame.controller.entity.GameState;
  * should provide functionality to retrieve and update these states dynamically
  * as the game progresses.
  */
-public interface GameStateAPI {
+public interface GameStateApi {
 
     GameMode getGameMode();
 

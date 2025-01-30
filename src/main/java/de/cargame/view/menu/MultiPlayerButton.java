@@ -1,7 +1,7 @@
 package de.cargame.view.menu;
 
-import de.cargame.mockController.entity.GameMode;
-import de.cargame.mockController.entity.GameState;
+import de.cargame.controller.entity.GameMode;
+import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.navigation.Clickable;
 import de.cargame.view.navigation.SceneButton;

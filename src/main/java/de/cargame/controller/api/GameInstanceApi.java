@@ -11,7 +11,7 @@ import java.util.List;
  * players using different input devices, resetting game instances,
  * and retrieving game model data.
  */
-public interface GameInstanceAPI {
+public interface GameInstanceApi {
 
     /**
      * Initiates a game session for a keyboard-controlled player.
