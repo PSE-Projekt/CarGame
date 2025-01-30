@@ -3,7 +3,7 @@ package de.cargame.view.selection;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.common.BackToMenuButton;
 import de.cargame.view.menu.MenuNavigator;
-import view.navigation.Direction;
+import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import de.cargame.view.navigation.Selectable;
 

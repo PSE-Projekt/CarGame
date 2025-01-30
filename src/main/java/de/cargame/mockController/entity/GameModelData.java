@@ -1,5 +1,7 @@
 package de.cargame.mockController.entity;
 
+import de.cargame.model.entity.gameobject.GameObject;
+
 import java.util.List;
 
 public class GameModelData {
