@@ -39,7 +39,6 @@ public class ApplicationView extends Application {
 
 
         MenuScene menuScene = new MenuScene(apiHandler);
-
         this.stage.setScene(menuScene);
 
         this.stage.show();

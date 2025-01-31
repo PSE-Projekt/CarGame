@@ -16,6 +16,6 @@ public class InputReceiver implements UserInputObserver {
     }
 
     public void assignNavigator(Navigator navigator){
-
+        this.navigator = navigator;
     }
 }
