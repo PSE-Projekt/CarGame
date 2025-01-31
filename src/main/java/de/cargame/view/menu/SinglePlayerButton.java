@@ -8,7 +8,7 @@ import de.cargame.view.navigation.SceneButton;
 
 public class SinglePlayerButton extends SceneButton implements Clickable {
     public SinglePlayerButton() {
-        super();
+        super("/frontend/singleP_default.png", "/frontend/singleP_selected.png");
     }
 
     @Override

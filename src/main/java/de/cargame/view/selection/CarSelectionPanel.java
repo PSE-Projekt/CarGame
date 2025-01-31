@@ -6,6 +6,10 @@ import de.cargame.view.navigation.SceneButton;
 
 public class CarSelectionPanel extends SceneButton implements Clickable {
 
+    public CarSelectionPanel() {
+        super(null, null); //TODO:
+    }
+
     @Override
     public void onClick(ApiHandler apiHandler, String playerID) {
         /*setSelectedCar TODO:

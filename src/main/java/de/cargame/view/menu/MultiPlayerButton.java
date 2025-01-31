@@ -8,7 +8,7 @@ import de.cargame.view.navigation.SceneButton;
 
 public class MultiPlayerButton extends SceneButton implements Clickable {
     public MultiPlayerButton() {
-        super();
+        super("/frontend/multiP_default.png", "/frontend/multiP_selected.png");
     }
 
     @Override

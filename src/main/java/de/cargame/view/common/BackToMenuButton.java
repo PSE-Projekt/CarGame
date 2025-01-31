@@ -10,6 +10,10 @@ import de.cargame.view.navigation.SceneButton;
 public class BackToMenuButton extends SceneButton implements Clickable {
 
 
+    public BackToMenuButton() {
+        super("/frontend/backToMenu_default.png", "/frontend/backToMenu_selected.png");
+    }
+
     @Override
     public void onClick(ApiHandler apiHandler, String playerID) {
         apiHandler.getGameStateApi().setGameState(GameState.MAIN_MENU);
