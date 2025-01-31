@@ -33,7 +33,7 @@ public class GameInstanceService {
     public void startGame(Player player) {
         GameInstance gameInstance = new GameInstance(gameStateController, gameApplicationManager, player);
         addGameInstance(gameInstance);
-        gameInstance.run();
+        new Thread(gameInstance).start();
         boolean allGamesFinished = getFinishedGameInstances().size() == gameInstances.size();
         if (allGamesFinished) {
             gameStateController.setGameState(GameState.SCORE_BOARD);
