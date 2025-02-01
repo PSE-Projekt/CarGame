@@ -31,12 +31,13 @@ public class GameInstanceService {
     }
 
     public void startGame(Player player) {
-        GameInstance gameInstance = new GameInstance(gameStateController, gameApplicationManager, player);
+        GameInstance gameInstance = new GameInstance(this, gameStateController, gameApplicationManager, player);
         addGameInstance(gameInstance);
         new Thread(gameInstance).start();
         boolean allGamesFinished = getFinishedGameInstances().size() == gameInstances.size();
         if (allGamesFinished) {
             gameStateController.setGameState(GameState.SCORE_BOARD);
+
         }
     }
 
@@ -50,6 +51,17 @@ public class GameInstanceService {
         return gameModels;
     }
 
+
+    public void checkGameState() {
+        for (GameInstance gameInstance : gameInstances) {
+            if (!gameInstance.isFinished()) {
+                return;
+            }
+        }
+        gameStateController.setGameState(GameState.SCORE_BOARD);
+        SoundService.getInstance().stopCarRaceSoundLoop();
+    }
+
     public void resetGameInstances() {
         gameInstances.clear();
     }
@@ -59,4 +71,6 @@ public class GameInstanceService {
                 .filter(GameInstance::isFinished)
                 .toList();
     }
+
+
 }

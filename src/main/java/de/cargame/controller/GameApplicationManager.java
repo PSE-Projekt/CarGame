@@ -8,6 +8,7 @@ import de.cargame.model.GameInstance;
 import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.model.entity.player.PlayerObserver;
 import de.cargame.model.service.PlayerService;
+import de.cargame.model.service.SoundService;
 import de.cargame.view.TestView;
 import lombok.extern.slf4j.Slf4j;
 
@@ -42,6 +43,7 @@ public class GameApplicationManager {
 
 
     public void startGame() {
+        SoundService.getInstance().playCarRaceSoundLoop();
         GameMode gameMode = gameStateAPI.getGameMode();
         if (gameMode == GameMode.SINGLEPLAYER) {
             startGameSingleplayerMode();
