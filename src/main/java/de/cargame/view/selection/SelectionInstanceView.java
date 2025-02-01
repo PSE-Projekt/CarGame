@@ -6,8 +6,10 @@ import de.cargame.view.menu.MenuNavigator;
 import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import de.cargame.view.navigation.Selectable;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
-public class SelectionInstanceView {
+public class SelectionInstanceView { //TODO:could also extend Pane? was meinst du Malik?
 
     public SelectionInstanceView(ApiHandler apiHandler){
         Navigator assignedNavigator = new MenuNavigator(apiHandler);
@@ -29,5 +31,8 @@ public class SelectionInstanceView {
 
         backToMenuButton.setNeighbour(Direction.UP, fastCarButton);
 
+        Text menuText = new Text("CarGame");
+        menuText.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-fill: #009783;");
+        menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 30));
     }
 }

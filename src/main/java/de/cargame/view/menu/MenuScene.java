@@ -44,7 +44,7 @@ public class MenuScene extends CustomScene {
         sceneContent.setPrefSize(SCREEN_WIDTH,SCREEN_HEIGHT/2);
 
         //TODO: css oder so damit das kürzer ist & 2 farben hat
-        Text menuText = new Text("Welcome to CarGame Menu!");
+        Text menuText = new Text("CarGame");
         menuText.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-fill: #009783;");
         menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 30));
         sceneContent.getChildren().addAll(singlePlayerButton,menuText, multiPlayerButton);
