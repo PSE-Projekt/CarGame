@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="Added some TODOs in SelectionInstanceView, Malik pls look">
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/PlayerStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/PlayerStats.java" afterDir="false" />
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="removed magic strings in PlayerStats">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,14 +160,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -193,6 +186,7 @@
       <workItem from="1738254371382" duration="299000" />
       <workItem from="1738255381170" duration="145000" />
       <workItem from="1738255530213" duration="310000" />
+      <workItem from="1738452587029" duration="213000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />

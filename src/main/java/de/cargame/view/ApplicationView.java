@@ -38,8 +38,13 @@ public class ApplicationView extends Application {
         stage.setResizable(false);
 
 
-        MenuScene menuScene = new MenuScene(apiHandler);
-        this.stage.setScene(menuScene);
+        MenuScene currentScene = new MenuScene(apiHandler);
+
+        /*TODO: create 2 InputReceiverObservers for the players, assign them to the currentScene and
+           create a method for mapping them to another scene. necessary so other scenes in background are
+           rendered inactive
+        */
+        this.stage.setScene(currentScene);
 
         this.stage.show();
     }
