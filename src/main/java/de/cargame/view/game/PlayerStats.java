@@ -6,12 +6,16 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
 public class PlayerStats extends Pane implements PlayerObserver {
+    private static final String HEALTH_INDICATOR = "Health: ";
+    private static final String SCORE_INDICATOR = "Score: ";
     private Text score;
     private Text health;
 
+
+
     public PlayerStats(){
-        this.score = new Text("Score: 0");
-        this.health = new Text("Health: 3");
+        this.score = new Text(SCORE_INDICATOR + 0);
+        this.health = new Text(HEALTH_INDICATOR + 3);
         getChildren().addAll(score, health);
     }
 
@@ -20,7 +24,7 @@ public class PlayerStats extends Pane implements PlayerObserver {
         int newScore = playerUpdate.getScoreValue();
         int newHealth = playerUpdate.getLives();
 
-        score.setText("Score: " + newScore);
-        health.setText("Health: " + newHealth);
+        score.setText(SCORE_INDICATOR + newScore);
+        health.setText(HEALTH_INDICATOR + newHealth);
     }
 }
