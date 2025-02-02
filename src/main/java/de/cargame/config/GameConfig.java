@@ -11,8 +11,8 @@ public abstract class GameConfig {
     //----------------------GENERAL-------------------------
 
     public static final int MAX_LIVES = 3;
-    public static final int GAME_SPEED = 150;
-    public static final int GAME_SPEED_FAST_FORWARD = 200;
+    public static final int GAME_SPEED = 400;
+    public static final int GAME_SPEED_FAST_FORWARD = GAME_SPEED + 50;
     public static final int CRASH_COOLDOWN_TIME = 3000;
     public static final double SCORE_INCREASE_NORMAL_SPEED = 0.1;
     public static final double SCORE_INCREASE_FAST_FORWARD_SPEED = 0.15;
@@ -30,9 +30,9 @@ public abstract class GameConfig {
 
     public static final int AI_CAR_WIDTH = 100;
     public static final int AI_CAR_HEIGHT = 60;
-    public static final double AI_CAR_SPEED = 2;
-    public static final int AI_CAR_SPAWN_TIME_MIN = 400;
-    public static final int AI_CAR_SPAWN_TIME_MAX = 1500;
+    public static final double AI_CAR_SPEED = 1.5;
+    public static final int AI_CAR_SPAWN_TIME_MIN = 300;
+    public static final int AI_CAR_SPAWN_TIME_MAX = 500;
 
     //----------------------AI CAR GENERAL-------------------
     //----------------------FAST CAR-------------------------
@@ -52,22 +52,23 @@ public abstract class GameConfig {
 
     //----------------------AGILE CAR------------------------
     //----------------------BUILDING------------------------
-    public static final int BUILDING_WIDTH = 60;
-    public static final int BUILDING_HEIGHT = 66;
+    public static final int BUILDING_WIDTH = 65;
+    public static final int BUILDING_HEIGHT = 65
+            ;
     /**
      * Pixelcount how wide the spawn area for buildings is
      */
-    public static final int BUILDING_SPAWN_WIDTH = 15;
-    public static final int BUILDING_SPAWN_TIME_MIN = 300;
-    public static final int BUILDING_SPAWN_TIME_MAX = 1200;
+    public static final int BUILDING_SPAWN_AREA_WIDTH = 15;
+    public static final int BUILDING_SPAWN_TIME_MIN = 100;
+    public static final int BUILDING_SPAWN_TIME_MAX = 300;
 
     //----------------------BUILDING------------------------
     //----------------------ROAD MARK-----------------------
 
     public static final int ROAD_MARK_WIDTH = 40;
     public static final int ROAD_MARK_HEIGHT = 10;
-    public static final int ROAD_MARK_SPAWN_TIME_MIN = 1000;
-    public static final int ROAD_MARK_SPAWN_TIME_MAX = 1001;
+    public static final int ROAD_MARK_SPAWN_TIME_MIN = 500;
+    public static final int ROAD_MARK_SPAWN_TIME_MAX = 501;
 
     //----------------------ROAD MARK-----------------------
     //----------------------OBSTACLE------------------------
@@ -83,8 +84,8 @@ public abstract class GameConfig {
 
     public static final int REWARD_WIDTH = 52;
     public static final int REWARD_HEIGHT = 40;
-    public static final int REWARD_SPAWN_TIME_MIN = 1000;
-    public static final int REWARD_SPAWN_TIME_MAX = 2000;
+    public static final int REWARD_SPAWN_TIME_MIN = 15000;
+    public static final int REWARD_SPAWN_TIME_MAX = 20000;
 
     //----------------------REWARD-------------------------
 

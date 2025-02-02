@@ -8,6 +8,7 @@ import de.cargame.model.entity.player.Player;
 import de.cargame.model.service.SoundService;
 
 import java.awt.*;
+import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,14 +46,9 @@ public class CollisionHandler {
             Shape playerCarBound = playerCar.getBound();
             Shape collidableObjectBound = collidableObject.getBound();
 
-            if (collidableObjectBound instanceof Rectangle2D) {
-                boolean intersects = playerCarBound.intersects((Rectangle2D) collidableObjectBound);
-                if (intersects) {
-                    handleCollision(playerCar, collidableObject);
-                }
-            } else {
-                System.out.println("The collision detection algorithm does not support this kind of collision detection yet.");
-                throw new IllegalGameObjectBoundException("The collision detection algorithm does not support this kind of collision detection yet.");
+            boolean collision = shapesIntersect(playerCarBound, collidableObjectBound);
+            if (collision) {
+                handleCollision(playerCar, collidableObject);
             }
         }
     }
@@ -115,4 +111,12 @@ public class CollisionHandler {
                 .toList());
     }
 
+    private boolean shapesIntersect(Shape shape1, Shape shape2) {
+            Area area1 = new Area(shape1);
+            area1.intersect(new Area(shape2));
+            return !area1.isEmpty();
+    }
+
 }
+
+

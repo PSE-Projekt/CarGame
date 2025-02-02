@@ -49,19 +49,19 @@ public class MultiplayerSpawningStrategy extends GameObjectSpawningStrategy {
 
 
     private List<SpawnArea> generateRoadSpawnAreas(int customHeight) {
-        SpawnArea upperRoadSpawnArea = new SpawnArea(GameConfig.SCREEN_WIDTH, GameConfig.BUILDING_HEIGHT + GameConfig.BUILDING_SPAWN_WIDTH, GameConfig.SCREEN_WIDTH, SCREEN_HALVE_Y - GameConfig.BUILDING_SPAWN_WIDTH - GameConfig.BUILDING_HEIGHT - customHeight);
-        SpawnArea lowerRoadSpawnArea = new SpawnArea(GameConfig.SCREEN_WIDTH, SCREEN_HALVE_Y + GameConfig.BUILDING_SPAWN_WIDTH, GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT - GameConfig.BUILDING_SPAWN_WIDTH - GameConfig.BUILDING_HEIGHT - customHeight);
+        SpawnArea upperRoadSpawnArea = new SpawnArea(GameConfig.SCREEN_WIDTH, GameConfig.BUILDING_HEIGHT + GameConfig.BUILDING_SPAWN_AREA_WIDTH, GameConfig.SCREEN_WIDTH, SCREEN_HALVE_Y - GameConfig.BUILDING_SPAWN_AREA_WIDTH - GameConfig.BUILDING_HEIGHT - customHeight);
+        SpawnArea lowerRoadSpawnArea = new SpawnArea(GameConfig.SCREEN_WIDTH, SCREEN_HALVE_Y + GameConfig.BUILDING_SPAWN_AREA_WIDTH, GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT - GameConfig.BUILDING_SPAWN_AREA_WIDTH - GameConfig.BUILDING_HEIGHT - customHeight);
 
         return List.of(upperRoadSpawnArea, lowerRoadSpawnArea);
     }
 
     private SpawnAreaList generateBuildingSpawnAreas() {
         this.buildingSpawnAreas = new SpawnAreaList();
-        buildingSpawnAreas.add(new SpawnArea(GameConfig.SCREEN_WIDTH, 0, GameConfig.SCREEN_WIDTH, GameConfig.BUILDING_SPAWN_WIDTH));
-        buildingSpawnAreas.add(new SpawnArea(GameConfig.SCREEN_WIDTH, SCREEN_HALVE_Y - GameConfig.BUILDING_HEIGHT - GameConfig.BUILDING_SPAWN_WIDTH, GameConfig.SCREEN_WIDTH, SCREEN_HALVE_Y - GameConfig.BUILDING_HEIGHT));
+        buildingSpawnAreas.add(new SpawnArea(GameConfig.SCREEN_WIDTH, 0, GameConfig.SCREEN_WIDTH, GameConfig.BUILDING_SPAWN_AREA_WIDTH));
+        buildingSpawnAreas.add(new SpawnArea(GameConfig.SCREEN_WIDTH, SCREEN_HALVE_Y - GameConfig.BUILDING_HEIGHT - GameConfig.BUILDING_SPAWN_AREA_WIDTH, GameConfig.SCREEN_WIDTH, SCREEN_HALVE_Y - GameConfig.BUILDING_HEIGHT));
 
-        buildingSpawnAreas.add(new SpawnArea(GameConfig.SCREEN_WIDTH, SCREEN_HALVE_Y, GameConfig.SCREEN_WIDTH, SCREEN_HALVE_Y + GameConfig.BUILDING_SPAWN_WIDTH));
-        buildingSpawnAreas.add(new SpawnArea(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT - GameConfig.BUILDING_HEIGHT - GameConfig.BUILDING_SPAWN_WIDTH, GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT - GameConfig.BUILDING_HEIGHT));
+        buildingSpawnAreas.add(new SpawnArea(GameConfig.SCREEN_WIDTH, SCREEN_HALVE_Y, GameConfig.SCREEN_WIDTH, SCREEN_HALVE_Y + GameConfig.BUILDING_SPAWN_AREA_WIDTH));
+        buildingSpawnAreas.add(new SpawnArea(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT - GameConfig.BUILDING_HEIGHT - GameConfig.BUILDING_SPAWN_AREA_WIDTH, GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT - GameConfig.BUILDING_HEIGHT));
         return buildingSpawnAreas;
     }
 }

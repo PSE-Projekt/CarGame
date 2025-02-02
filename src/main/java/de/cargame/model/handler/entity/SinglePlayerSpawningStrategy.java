@@ -4,8 +4,11 @@ import de.cargame.config.GameConfig;
 
 public class SinglePlayerSpawningStrategy extends GameObjectSpawningStrategy {
 
-    private final int ROADMARK_Y1 = GameConfig.BUILDING_WIDTH + (GameConfig.SCREEN_HEIGHT - 2 * (GameConfig.BUILDING_HEIGHT)) / 3;
-    private final int ROADMARK_Y2 = ROADMARK_Y1 * 2;
+    private final int BUILDING_SPAWN_WIDTH = GameConfig.BUILDING_HEIGHT + GameConfig.BUILDING_SPAWN_AREA_WIDTH;
+    private final int ROAD_WIDTH = GameConfig.SCREEN_HEIGHT - 2 * (BUILDING_SPAWN_WIDTH);
+
+    private final int ROADMARK_Y1 = ROAD_WIDTH / 3 - (GameConfig.ROAD_MARK_HEIGHT/2) + BUILDING_SPAWN_WIDTH;
+    private final int ROADMARK_Y2 = ROAD_WIDTH /3 +ROADMARK_Y1;
 
     public SinglePlayerSpawningStrategy() {
         super();
@@ -49,13 +52,13 @@ public class SinglePlayerSpawningStrategy extends GameObjectSpawningStrategy {
 
 
     private SpawnArea generateRoadSpawnArea(int customHeight) {
-        return new SpawnArea(GameConfig.SCREEN_WIDTH, GameConfig.BUILDING_HEIGHT + GameConfig.BUILDING_SPAWN_WIDTH, GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT - GameConfig.BUILDING_SPAWN_WIDTH - GameConfig.BUILDING_HEIGHT - customHeight);
+        return new SpawnArea(GameConfig.SCREEN_WIDTH, BUILDING_SPAWN_WIDTH, GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT - BUILDING_SPAWN_WIDTH - customHeight);
     }
 
     private SpawnAreaList generateBuildingSpawnAreas() {
         this.buildingSpawnAreas = new SpawnAreaList();
-        buildingSpawnAreas.add(new SpawnArea(GameConfig.SCREEN_WIDTH, 0, GameConfig.SCREEN_WIDTH, GameConfig.BUILDING_SPAWN_WIDTH));
-        buildingSpawnAreas.add(new SpawnArea(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT - GameConfig.BUILDING_HEIGHT - GameConfig.BUILDING_SPAWN_WIDTH, GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT - GameConfig.BUILDING_HEIGHT));
+        buildingSpawnAreas.add(new SpawnArea(GameConfig.SCREEN_WIDTH, 0, GameConfig.SCREEN_WIDTH, GameConfig.BUILDING_SPAWN_AREA_WIDTH));
+        buildingSpawnAreas.add(new SpawnArea(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT - BUILDING_SPAWN_WIDTH, GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT - GameConfig.BUILDING_HEIGHT));
 
         return buildingSpawnAreas;
     }

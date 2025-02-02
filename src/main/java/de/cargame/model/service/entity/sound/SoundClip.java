@@ -27,7 +27,12 @@ public abstract class SoundClip {
         new Thread(clip::start).start();
     }
 
+    public void loop(int count){
+        clip.loop(count);
+    }
+
     public void reset() {
+        clip.stop();
         clip.setMicrosecondPosition(0);
     }
 
