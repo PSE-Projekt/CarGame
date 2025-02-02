@@ -1,24 +1,36 @@
 package de.cargame.view.game.sprites;
 
-import javax.swing.text.html.ImageView;
-import java.awt.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class GameSprites {
-    private List<String> paths;
+    protected final List<String> paths;
+    protected final List<ImageView> imageViews;
 
-    private Image loadSprite() {
-        // TODO: implement
-        return null;
+    public GameSprites() {
+        this.paths = new ArrayList<>();
+        this.imageViews = new ArrayList<>();
+
+        setPaths();
+        paths.forEach(path -> imageViews.add(loadSprite(path)));
     }
 
-    private void setPaths(List<String> paths) {
-        this.paths.addAll(paths);
+    private ImageView loadSprite(String path) throws RuntimeException {
+        try {
+            Image image = new Image(Objects.requireNonNull(getClass().getResource(path)).toExternalForm());
+            return new ImageView(image);
+        } catch (NullPointerException e) {
+            throw new RuntimeException("Could not load sprite from path: " + path);
+        }
     }
+
+    protected abstract void setPaths();
 
     public ImageView getRandomSprite(String gameObjectId) {
-        // TODO: implement
-        return null;
+        return imageViews.get(Math.abs(gameObjectId.hashCode()) % imageViews.size());
     }
 }

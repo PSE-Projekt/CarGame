@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="Added some TODOs in SelectionInstanceView, Malik pls look">
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/PlayerStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/PlayerStats.java" afterDir="false" />
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="First attempt: implemeentation of skeleton for GameScene and associated components">
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/AgileCarSprites.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/BuildingSprites.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/FastCarSprites.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/KamikazeCarSprites.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/LifeSprites.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/ObstacleSprites.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/RoadMarkSprites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/GameSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/GameSprites.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="adc8934080b03885f3e321b2892b4384cc92b777" />
+        <entry key="$PROJECT_DIR$" value="frontend" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -82,7 +90,38 @@
       <command value="mvn javafx:run" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ApplicationView">
+    <configuration name="ApplicationView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.cargame.view.ApplicationView" />
+      <module name="CarGameTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.cargame.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.Main" />
+      <module name="CarGameOfficial_v2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="CarGameOfficial_v2" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="CarGameOfficial_v2" />
       <option name="ENV_FILES" value="" />
@@ -133,26 +172,9 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.Main" />
-      <module name="CarGameOfficial_v2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="CarGameOfficial_v2" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ApplicationView" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
@@ -193,6 +215,9 @@
       <workItem from="1738254371382" duration="299000" />
       <workItem from="1738255381170" duration="145000" />
       <workItem from="1738255530213" duration="310000" />
+      <workItem from="1738411050503" duration="694000" />
+      <workItem from="1738411847828" duration="4000" />
+      <workItem from="1738412032435" duration="2746000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -330,13 +355,13 @@
       <option name="project" value="LOCAL" />
       <updated>1738344496613</updated>
     </task>
-    <task id="LOCAL-00018" summary="Added some TODOs in SelectionInstanceView, Malik pls look">
+    <task id="LOCAL-00018" summary="First attempt: implemeentation of skeleton for GameScene and associated components">
       <option name="closed" value="true" />
-      <created>1738372661543</created>
+      <created>1738349454174</created>
       <option name="number" value="00018" />
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
-      <updated>1738372661543</updated>
+      <updated>1738349454174</updated>
     </task>
     <option name="localTasksCounter" value="19" />
     <servers />
@@ -378,7 +403,7 @@
     <MESSAGE value="tested ApplicationView and javaFX functionality" />
     <MESSAGE value="added workspace.xml to gitignore" />
     <MESSAGE value="Implementation of PlayerStats" />
-    <MESSAGE value="Added some TODOs in SelectionInstanceView, Malik pls look" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some TODOs in SelectionInstanceView, Malik pls look" />
+    <MESSAGE value="First attempt: implemeentation of skeleton for GameScene and associated components" />
+    <option name="LAST_COMMIT_MESSAGE" value="First attempt: implemeentation of skeleton for GameScene and associated components" />
   </component>
 </project>
