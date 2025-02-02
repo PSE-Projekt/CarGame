@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="Configured height and width of game instances">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreViewMultiplayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreViewSinglePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="Worked on several parts of core frontend functionality. Full prototype implementation of ScoreBoardScene">
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApiHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/InputReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/InputReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuNavigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuNavigator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Navigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardNavigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardNavigator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +220,7 @@
       <workItem from="1738411847828" duration="4000" />
       <workItem from="1738412032435" duration="2746000" />
       <workItem from="1738505165436" duration="7439000" />
-      <workItem from="1738533412489" duration="3013000" />
+      <workItem from="1738533412489" duration="4470000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -403,7 +398,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738515241536</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Worked on several parts of core frontend functionality. Full prototype implementation of ScoreBoardScene">
+      <option name="closed" value="true" />
+      <created>1738536640114</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1738536640114</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,6 +451,7 @@
     <MESSAGE value="Full prototype implementation of GameSprites and associated modules" />
     <MESSAGE value="Added handling for non-present sprites in GameSprites" />
     <MESSAGE value="Configured height and width of game instances" />
-    <option name="LAST_COMMIT_MESSAGE" value="Configured height and width of game instances" />
+    <MESSAGE value="Worked on several parts of core frontend functionality. Full prototype implementation of ScoreBoardScene" />
+    <option name="LAST_COMMIT_MESSAGE" value="Worked on several parts of core frontend functionality. Full prototype implementation of ScoreBoardScene" />
   </component>
 </project>

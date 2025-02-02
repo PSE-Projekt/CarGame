@@ -1,22 +1,25 @@
 package de.cargame.view.navigation;
 
+import de.cargame.controller.input.UserInputBundle;
 import de.cargame.view.ApiHandler;
 import lombok.Getter;
 import lombok.Setter;
 
 public abstract class Navigator {
+    protected final ApiHandler apiHandler;
     @Getter
     private final Selectable initialSelectable;
     @Setter
     @Getter
-    private Selectable currentSelection;
+    protected Selectable currentSelection;
 
     public Navigator(ApiHandler apiHandler) {
         this.currentSelection = new DummySelectable();
         this.initialSelectable = this.currentSelection;
+        this.apiHandler = apiHandler;
     }
 
-    public abstract void receiveInput(Object userInputBundle, String playerID);
+    public abstract void receiveInput(UserInputBundle userInputBundle, String playerID);
     /*TODO
     if(UserInputBundle.getRecent matches Direction){
         Direction dir = UserInputBundle.getRecent();

@@ -15,10 +15,11 @@ import javafx.scene.layout.VBox;
 public class ScoreBoardScene extends CustomScene {
     private final BackToMenuButton backToMenuButton;
     private final PlayAgainButton playAgainButton;
+    private final ScoreBoardNavigator navigator;
 
     public ScoreBoardScene(ApiHandler apiHandler){
         super(apiHandler);
-        Navigator navigator = new ScoreBoardNavigator(apiHandler);
+        this.navigator = new ScoreBoardNavigator(apiHandler);
 
         this.playAgainButton = new PlayAgainButton();
         this.backToMenuButton = new BackToMenuButton();
@@ -26,8 +27,8 @@ public class ScoreBoardScene extends CustomScene {
         this.playAgainButton.setNeighbour(Direction.LEFT, this.backToMenuButton);
         this.backToMenuButton.setNeighbour(Direction.RIGHT, this.playAgainButton);
 
-        navigator.getInitialSelectable().setNeighbour(Direction.LEFT, this.backToMenuButton);
-        navigator.getInitialSelectable().setNeighbour(Direction.RIGHT, this.playAgainButton);
+        this.navigator.getInitialSelectable().setNeighbour(Direction.LEFT, this.backToMenuButton);
+        this.navigator.getInitialSelectable().setNeighbour(Direction.RIGHT, this.playAgainButton);
     }
 
     public void setup() throws IllegalStateException {
@@ -42,6 +43,9 @@ public class ScoreBoardScene extends CustomScene {
         Parent scoreView = getScoreView(gameStateApi);
 
         ((VBox) this.getRoot()).getChildren().addAll(scoreView, this.playAgainButton, this.backToMenuButton);
+
+        // reset navigator
+        this.navigator.setCurrentSelection(navigator.getInitialSelectable());
     }
 
     private Parent getScoreView(GameStateApi gameStateApi) {
