@@ -1,5 +1,6 @@
 package de.cargame.view.game;
 
+import de.cargame.config.GameConfig;
 import de.cargame.controller.entity.GameModelData;
 import de.cargame.model.entity.gameobject.*;
 import de.cargame.model.entity.gameobject.car.ai.KamikazeCar;
@@ -29,6 +30,9 @@ public class GameInstanceView extends Pane {
         if (this.modelData == null) {
             throw new IllegalArgumentException("Player ID not found in game model data");
         }
+
+        this.setHeight((double) GameConfig.SCREEN_HEIGHT / 2);
+        this.setWidth(GameConfig.SCREEN_WIDTH);
 
         this.getChildren().add(stats);
     }
