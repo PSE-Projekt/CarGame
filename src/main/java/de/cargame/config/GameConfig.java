@@ -52,8 +52,9 @@ public abstract class GameConfig {
 
     //----------------------AGILE CAR------------------------
     //----------------------BUILDING------------------------
-    public static final int BUILDING_WIDTH = 60;
-    public static final int BUILDING_HEIGHT = 66;
+    public static final int BUILDING_WIDTH = 65;
+    public static final int BUILDING_HEIGHT = 65
+            ;
     /**
      * Pixelcount how wide the spawn area for buildings is
      */
