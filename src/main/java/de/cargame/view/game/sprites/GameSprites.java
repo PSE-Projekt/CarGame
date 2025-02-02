@@ -16,14 +16,20 @@ public abstract class GameSprites {
         this.imageViews = new ArrayList<>();
 
         setPaths();
-        paths.forEach(path -> imageViews.add(loadSprite(path)));
+        paths.forEach(path -> {
+            try {
+                imageViews.add(loadSprite(path));
+            } catch (RuntimeException e) {
+                System.err.println(e.getMessage());
+            }
+        });
     }
 
     private ImageView loadSprite(String path) throws RuntimeException {
         try {
             Image image = new Image(Objects.requireNonNull(getClass().getResource(path)).toExternalForm());
             return new ImageView(image);
-        } catch (NullPointerException e) {
+        } catch (NullPointerException | IllegalArgumentException e) {
             throw new RuntimeException("Could not load sprite from path: " + path);
         }
     }

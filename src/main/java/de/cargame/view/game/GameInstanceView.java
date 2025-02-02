@@ -42,24 +42,39 @@ public class GameInstanceView extends Pane {
             //  or to implement a GameObjectType used by all GameObject elements
             
             // first try to use instance of
+            ImageView objectView;
 
             if (gameObject instanceof Building) {
                 // render building
+                objectView = spriteService.getRandomBuildingSprite(gameObject.getId());
             } else if (gameObject instanceof Obstacle) {
                 // render obstacle
+                objectView = spriteService.getRandomObstacleSprite(gameObject.getId());
             } else if (gameObject instanceof Life) {
                 // render life
+                objectView = spriteService.getRandomLifeSprite(gameObject.getId());
             } else if (gameObject instanceof KamikazeCar) {
                 // render kamikaze car
+                objectView = spriteService.getRandomKamikazeSprite(gameObject.getId());
             } else if (gameObject instanceof AgileCar) {
                 // render agile player car
+                objectView = spriteService.getRandomAgileCarSprite(gameObject.getId());
             } else if (gameObject instanceof FastCar) {
                 // render fast player car
+                objectView = spriteService.getRandomFastCarSprite(gameObject.getId());
             } else if(gameObject instanceof RoadMark) {
                 // render road mark
+                objectView = spriteService.getRandomRoadMarkSprite(gameObject.getId());
             } else {
                 throw new IllegalArgumentException("Unknown game object type");
             }
+
+            objectView.setX(gameObject.getX());
+            objectView.setY(gameObject.getY());
+            objectView.setFitWidth(gameObject.getWidth());
+            objectView.setFitHeight(gameObject.getHeight());
+
+            this.getChildren().add(objectView);
         });
     }
 

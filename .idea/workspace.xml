@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="First attempt: implemeentation of skeleton for GameScene and associated components">
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/AgileCarSprites.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/BuildingSprites.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/FastCarSprites.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/KamikazeCarSprites.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/LifeSprites.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/ObstacleSprites.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/RoadMarkSprites.java" afterDir="false" />
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="First attempt: implemetation of gamesprites">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/GameSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/GameSprites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/SpriteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/SpriteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/BuildingSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/BuildingSprites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/FastCarSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/FastCarSprites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/KamikazeCarSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/KamikazeCarSprites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/LifeSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/LifeSprites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/ObstacleSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/ObstacleSprites.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/RoadMarkSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/RoadMarkSprites.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,6 +218,7 @@
       <workItem from="1738411050503" duration="694000" />
       <workItem from="1738411847828" duration="4000" />
       <workItem from="1738412032435" duration="2746000" />
+      <workItem from="1738505165436" duration="1409000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -363,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738349454174</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="First attempt: implemetation of gamesprites">
+      <option name="closed" value="true" />
+      <created>1738505325549</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1738505325549</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,6 +413,7 @@
     <MESSAGE value="added workspace.xml to gitignore" />
     <MESSAGE value="Implementation of PlayerStats" />
     <MESSAGE value="First attempt: implemeentation of skeleton for GameScene and associated components" />
-    <option name="LAST_COMMIT_MESSAGE" value="First attempt: implemeentation of skeleton for GameScene and associated components" />
+    <MESSAGE value="First attempt: implemetation of gamesprites" />
+    <option name="LAST_COMMIT_MESSAGE" value="First attempt: implemetation of gamesprites" />
   </component>
 </project>
