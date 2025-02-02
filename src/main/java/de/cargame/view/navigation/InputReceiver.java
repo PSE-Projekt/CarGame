@@ -15,7 +15,7 @@ public class InputReceiver implements UserInputObserver {
         navigator.receiveInput(userInputBundle, playerID);
     }
 
-    public void assignNavigator(Navigator navigator){
+    public void assignNavigator(Navigator navigator) {
         this.navigator = navigator;
     }
 }

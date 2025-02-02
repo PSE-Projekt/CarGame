@@ -1,34 +1,47 @@
 package de.cargame.view.game;
 
+import de.cargame.config.GameConfig;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
+import javafx.geometry.Pos;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class GameScene extends CustomScene {
-    private List<GameInstanceView> gameInstanceViews;
+    private final List<GameInstanceView> gameInstanceViews;
 
     public GameScene(ApiHandler apiHandler) {
         super(apiHandler);
+        this.gameInstanceViews = new ArrayList<>();
     }
 
-    public void setup(String playerOneID, Optional<String> playerTwoID) throws IllegalArgumentException {
-        if (this.apiHandler.getGameStateApi().getGameMode().equals(GameMode.SINGLEPLAYER)) {
-            gameInstanceViews.add(new GameInstanceView(apiHandler, playerOneID));
-        }
+    public void setup(String playerOneId) {
+        gameInstanceViews.add(new GameInstanceView(apiHandler, playerOneId));
+    }
 
-        if (this.apiHandler.getGameStateApi().getGameMode().equals(GameMode.MULTIPLAYER)) {
-            if (playerTwoID.isEmpty()) {
-                throw new IllegalArgumentException("Player two ID is missing");
-            }
-            gameInstanceViews.add(new GameInstanceView(apiHandler, playerTwoID.get()));
-        }
+    public void setup(String playerOneId, String playerTwoId) {
+        gameInstanceViews.add(new GameInstanceView(apiHandler, playerOneId));
+        this.gameInstanceViews.add(new GameInstanceView(apiHandler, playerTwoId));
+        this.configureSceneRoot();
+    }
 
-        ((VBox) this.getRoot()).getChildren().addAll(gameInstanceViews);
+    private void configureSceneRoot() {
+        VBox configurableRoot = ((VBox) this.getRoot());
+
+        configurableRoot.setMaxHeight(GameConfig.SCREEN_HEIGHT);
+        configurableRoot.setMinHeight(GameConfig.SCREEN_HEIGHT);
+        configurableRoot.setPrefHeight(GameConfig.SCREEN_WIDTH);
+        configurableRoot.setMaxWidth(GameConfig.SCREEN_WIDTH);
+        configurableRoot.setMinWidth(GameConfig.SCREEN_WIDTH);
+        configurableRoot.setPrefWidth(GameConfig.SCREEN_WIDTH);
+        configurableRoot.setAlignment(Pos.CENTER);
+
+        configurableRoot.getChildren().addAll(gameInstanceViews);
     }
 
     @Override
