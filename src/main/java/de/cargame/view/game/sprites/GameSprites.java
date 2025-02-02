@@ -25,13 +25,19 @@ public abstract class GameSprites {
         });
     }
 
-    private ImageView loadSprite(String path) throws RuntimeException {
+    private ImageView loadSprite(String path) throws IllegalArgumentException, NullPointerException {
+        Image image;
+
         try {
-            Image image = new Image(Objects.requireNonNull(getClass().getResource(path)).toExternalForm());
-            return new ImageView(image);
+            image = new Image(Objects.requireNonNull(getClass().getResource(path)).toExternalForm());
         } catch (NullPointerException | IllegalArgumentException e) {
-            throw new RuntimeException("Could not load sprite from path: " + path);
+            System.err.println("Could not load sprite from path: " + path);
+            image = new Image(Objects.requireNonNull(
+                    getClass().getResource("/sprites/missing.png")).toExternalForm()
+            );
         }
+
+        return new ImageView(image);
     }
 
     protected abstract void setPaths();

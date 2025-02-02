@@ -7,6 +7,7 @@ module cargame {
     requires jinput;
 
     opens de.cargame.view to javafx.fxml;
+    opens de.cargame.view.fxtests to javafx.graphics;
 
     exports de.cargame.view;
     exports de.cargame.model;
