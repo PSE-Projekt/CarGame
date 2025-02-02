@@ -23,8 +23,7 @@ public class TestView extends JFrame implements GamePlayScene {
     public TestView(GameStateAPI gameStateController) {
 
         this.gameStateController = (GameStateController) gameStateController;
-        setSize(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT);
-        setPreferredSize(new Dimension(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT));
+        setPreferredSize(new Dimension(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT+28));
         setMinimumSize(new Dimension(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT));
 
         layeredPane.setLayout(null);

@@ -57,7 +57,7 @@ public abstract class GameConfig {
     /**
      * Pixelcount how wide the spawn area for buildings is
      */
-    public static final int BUILDING_SPAWN_WIDTH = 15;
+    public static final int BUILDING_SPAWN_AREA_WIDTH = 15;
     public static final int BUILDING_SPAWN_TIME_MIN = 100;
     public static final int BUILDING_SPAWN_TIME_MAX = 300;
 

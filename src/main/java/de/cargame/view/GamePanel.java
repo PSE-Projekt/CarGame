@@ -1,5 +1,6 @@
 package de.cargame.view;
 
+import de.cargame.config.GameConfig;
 import de.cargame.controller.entity.GameModelData;
 import de.cargame.model.entity.gameobject.*;
 import de.cargame.model.entity.gameobject.car.ai.AICar;
@@ -8,6 +9,7 @@ import de.cargame.model.entity.gameobject.car.player.PlayerCar;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
@@ -92,4 +94,6 @@ public abstract class GamePanel extends JPanel {
         g2d.drawImage(image, x, y, width, height, null);
         g2d.setComposite(oldComposite);
     }
+
+
 }
