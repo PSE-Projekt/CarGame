@@ -45,8 +45,17 @@ public class ApplicationView extends Application {
         this.stage.show();
     }
 
-    public void render() {
-        currentScene = sceneMap.get(apiHandler.getGameStateApi().getGameState());
+    public void render() throws IllegalStateException {
+        GameState currentGameState = apiHandler.getGameStateApi().getGameState();
+
+        currentScene = sceneMap.get(currentGameState);
+
+        if (currentScene == null) {
+            throw new IllegalStateException(
+                    "scene is not set for specified for current game mode: " + currentGameState
+            );
+        }
+
         this.stage.setScene(currentScene);
         currentScene.setup();
         currentScene.render();

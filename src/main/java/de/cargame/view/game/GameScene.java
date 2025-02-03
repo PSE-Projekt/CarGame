@@ -1,7 +1,6 @@
 package de.cargame.view.game;
 
 import de.cargame.config.GameConfig;
-import de.cargame.controller.api.GameStateApi;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
@@ -10,8 +9,6 @@ import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
 
 public class GameScene extends CustomScene {
     private final List<GameInstanceView> gameInstanceViews;
