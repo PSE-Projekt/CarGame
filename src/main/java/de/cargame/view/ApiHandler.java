@@ -1,21 +1,19 @@
 package de.cargame.view;
 
-import de.cargame.controller.api.GameInstanceApi;
-import de.cargame.controller.api.GameStateApi;
-import de.cargame.controller.api.PlayerApi;
-import de.cargame.model.entity.player.Player;
+import de.cargame.controller.api.GameInstanceAPI;
+import de.cargame.controller.api.GameStateAPI;
+import de.cargame.controller.api.PlayerAPI;
 import de.cargame.view.navigation.InputReceiver;
-import de.cargame.view.navigation.Navigator;
 import lombok.Getter;
 import lombok.Setter;
 
 public class ApiHandler {
     @Getter
-    private final GameInstanceApi gameInstanceApi;
+    private final GameInstanceAPI gameInstanceApi;
     @Getter
-    private final GameStateApi gameStateApi;
+    private final GameStateAPI gameStateApi;
     @Getter
-    private final PlayerApi playerApi;
+    private final PlayerAPI playerApi;
 
     @Getter
     private final InputReceiver inputReceiverKeyboard;
@@ -27,7 +25,7 @@ public class ApiHandler {
     @Setter
     private String playerOneId;
 
-    public ApiHandler(GameInstanceApi gameInstanceApi, GameStateApi gameStateApi, PlayerApi playerApi) {
+    public ApiHandler(GameInstanceAPI gameInstanceApi, GameStateAPI gameStateApi, PlayerAPI playerApi) {
         this.gameInstanceApi = gameInstanceApi;
         this.gameStateApi = gameStateApi;
         this.playerApi = playerApi;

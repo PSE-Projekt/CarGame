@@ -1,7 +1,7 @@
 package de.cargame.model.service;
 
 import de.cargame.controller.GameApplicationManager;
-import de.cargame.controller.api.GameStateApi;
+import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.entity.GameModelData;
 import de.cargame.controller.entity.GameState;
 import de.cargame.model.GameInstance;
@@ -16,10 +16,10 @@ public class GameInstanceService {
     private final List<GameInstance> gameInstances = new CopyOnWriteArrayList<>();
 
     private final GameApplicationManager gameApplicationManager;
-    private final GameStateApi gameStateController;
+    private final GameStateAPI gameStateController;
 
 
-    public GameInstanceService(GameApplicationManager gameApplicationManager, GameStateApi gameStateController) {
+    public GameInstanceService(GameApplicationManager gameApplicationManager, GameStateAPI gameStateController) {
         this.gameApplicationManager = gameApplicationManager;
         this.gameStateController = gameStateController;
     }

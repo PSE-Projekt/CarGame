@@ -1,8 +1,8 @@
 package de.cargame.view;
 
-import de.cargame.controller.api.GameInstanceApi;
-import de.cargame.controller.api.GameStateApi;
-import de.cargame.controller.api.PlayerApi;
+import de.cargame.controller.api.GameInstanceAPI;
+import de.cargame.controller.api.GameStateAPI;
+import de.cargame.controller.api.PlayerAPI;
 import de.cargame.view.game.GameScene;
 import de.cargame.view.scoreboard.ScoreBoardScene;
 import de.cargame.view.selection.SelectionScene;
@@ -19,7 +19,7 @@ public class ApplicationView extends Application {
     private CustomScene currentScene;
     private Stage stage;
 
-    public ApplicationView(GameInstanceApi gameInstanceApi, GameStateApi gameStateApi, PlayerApi playerApi) {
+    public ApplicationView(GameInstanceAPI gameInstanceApi, GameStateAPI gameStateApi, PlayerAPI playerApi) {
         try {
             stage = new Stage();
         } catch (Exception e) {

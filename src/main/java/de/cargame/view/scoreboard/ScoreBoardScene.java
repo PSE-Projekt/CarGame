@@ -1,6 +1,6 @@
 package de.cargame.view.scoreboard;
 
-import de.cargame.controller.api.GameStateApi;
+import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
@@ -32,7 +32,7 @@ public class ScoreBoardScene extends CustomScene {
     }
 
     public void setup() throws IllegalStateException { // TODO: erweiterbarer gestalten
-        GameStateApi gameStateApi = this.apiHandler.getGameStateApi();
+        GameStateAPI gameStateApi = this.apiHandler.getGameStateApi();
 
         if (!gameStateApi.getGameState().equals(GameState.SCORE_BOARD)) {
             throw new IllegalStateException(
@@ -49,7 +49,7 @@ public class ScoreBoardScene extends CustomScene {
         this.apiHandler.getInputReceiverKeyboard().assignNavigator(this.navigator);
     }
 
-    private Parent getScoreView(GameStateApi gameStateApi) {
+    private Parent getScoreView(GameStateAPI gameStateApi) {
         Parent scoreView;
 
         if (gameStateApi.getGameMode().equals(GameMode.SINGLEPLAYER)) {

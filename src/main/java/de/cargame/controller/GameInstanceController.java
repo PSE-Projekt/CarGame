@@ -1,24 +1,24 @@
 package de.cargame.controller;
 
-import de.cargame.controller.api.GameInstanceApi;
-import de.cargame.controller.api.GameStateApi;
-import de.cargame.controller.api.PlayerApi;
+import de.cargame.controller.api.GameInstanceAPI;
+import de.cargame.controller.api.GameStateAPI;
+import de.cargame.controller.api.PlayerAPI;
 import de.cargame.controller.entity.GameModelData;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.service.GameInstanceService;
 
 import java.util.List;
 
-public class GameInstanceController implements GameInstanceApi {
+public class GameInstanceController implements GameInstanceAPI {
 
 
     private final GameInstanceService gameInstanceService;
-    private final PlayerApi playerAPI;
+    private final PlayerAPI playerAPI;
 
 
     public GameInstanceController(GameApplicationManager gameApplicationManager,
-                                  GameStateApi gameStateController,
-                                  PlayerApi playerAPI) {
+                                  GameStateAPI gameStateController,
+                                  PlayerAPI playerAPI) {
         this.gameInstanceService = new GameInstanceService(gameApplicationManager, gameStateController);
         this.playerAPI = playerAPI;
     }

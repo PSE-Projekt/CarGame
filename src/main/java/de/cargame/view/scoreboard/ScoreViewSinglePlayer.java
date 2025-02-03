@@ -1,6 +1,6 @@
 package de.cargame.view.scoreboard;
 
-import de.cargame.controller.api.PlayerApi;
+import de.cargame.controller.api.PlayerAPI;
 import de.cargame.model.entity.player.Player;
 import de.cargame.view.ApiHandler;
 import javafx.scene.layout.VBox;
@@ -11,7 +11,7 @@ public class ScoreViewSinglePlayer extends VBox {
         this.setSpacing(10);
 
         String playerId = apiHandler.getPlayerOneId();
-        PlayerApi playerApi = apiHandler.getPlayerApi();
+        PlayerAPI playerApi = apiHandler.getPlayerApi();
         Player player;
 
         if (playerApi.getKeyboardPlayerId().equals(playerId)) {

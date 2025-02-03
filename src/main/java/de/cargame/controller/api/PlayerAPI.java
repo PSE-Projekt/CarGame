@@ -10,7 +10,7 @@ import de.cargame.model.entity.player.PlayerObserver;
  * The PlayerAPI interface provides methods to manage player creation, retrieve player information,
  * and configure player state in the game. It supports operations for both keyboard and gamepad-controlled players.
  */
-public interface PlayerApi {
+public interface PlayerAPI {
 
 
     void createPlayerKeyboard();

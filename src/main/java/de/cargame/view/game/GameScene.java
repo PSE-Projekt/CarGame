@@ -1,9 +1,8 @@
 package de.cargame.view.game;
 
 import de.cargame.config.GameConfig;
-import de.cargame.controller.api.PlayerApi;
+import de.cargame.controller.api.PlayerAPI;
 import de.cargame.controller.entity.GameMode;
-import de.cargame.model.entity.player.Player;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
 import javafx.geometry.Pos;
@@ -44,7 +43,7 @@ public class GameScene extends CustomScene {
     @Override
     public void setup() throws IllegalStateException {
         GameMode currentGameMode = this.apiHandler.getGameStateApi().getGameMode();
-        PlayerApi playerApi = this.apiHandler.getPlayerApi();
+        PlayerAPI playerApi = this.apiHandler.getPlayerApi();
 
         if (currentGameMode.equals(GameMode.MULTIPLAYER)) {
 

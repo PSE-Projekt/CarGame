@@ -1,7 +1,7 @@
 package de.cargame.view.selection;
 
 import de.cargame.config.GameConfig;
-import de.cargame.controller.api.PlayerApi;
+import de.cargame.controller.api.PlayerAPI;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.common.BackToMenuButton;
 import de.cargame.view.navigation.Direction;
@@ -55,7 +55,7 @@ public class SelectionInstanceView extends Pane {
     }
 
     public void setup() {
-        PlayerApi playerApi = this.apiHandler.getPlayerApi();
+        PlayerAPI playerApi = this.apiHandler.getPlayerApi();
 
         if (this.playerId.equals(playerApi.getGamepadPlayerId())) {
             this.apiHandler.getInputReceiverGamePad().assignNavigator(assignedNavigator);
