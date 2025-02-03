@@ -7,30 +7,31 @@ import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import de.cargame.view.navigation.Selectable;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class MenuScene extends CustomScene {
-
     private final Navigator assignedNavigator;
+
+    private final Selectable singlePlayerButton;
+    private final Selectable multiPlayerButton;
+
     public MenuScene(ApiHandler apiHandler){
         super(apiHandler);
         assignedNavigator = new MenuNavigator(apiHandler);
+
+        multiPlayerButton = new MultiPlayerButton();
+        singlePlayerButton = new SinglePlayerButton();
         prepareSceneContent();
     }
 
     private void prepareSceneContent() {
-        Selectable dummy = this.assignedNavigator.getCurrentSelection();
-        Selectable multiPlayerButton = new MultiPlayerButton();
-        Selectable singlePlayerButton = new SinglePlayerButton();
-
-        dummy.setNeighbour(Direction.LEFT, singlePlayerButton);
-        dummy.setNeighbour(Direction.RIGHT, multiPlayerButton);
-
         singlePlayerButton.setNeighbour(Direction.RIGHT, multiPlayerButton);
         multiPlayerButton.setNeighbour(Direction.LEFT, singlePlayerButton);
+
+        assignedNavigator.getInitialSelectable().setNeighbour(Direction.LEFT, singlePlayerButton);
+        assignedNavigator.getInitialSelectable().setNeighbour(Direction.RIGHT, multiPlayerButton);
 
         VBox root = (VBox) this.getRoot();
 
@@ -45,14 +46,7 @@ public class MenuScene extends CustomScene {
         menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 30));
         sceneContent.getChildren().addAll(singlePlayerButton,menuText, multiPlayerButton);
 
-        root.getChildren().addAll(createBorder(),sceneContent,createBorder());
-    }
-
-    private Pane createBorder() {
-        Pane border = new Pane();
-        border.setStyle("-fx-background-color: black;");
-        border.setPrefSize(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT / 4);
-        return border;
+        root.getChildren().addAll(sceneContent);
     }
 
     @Override
