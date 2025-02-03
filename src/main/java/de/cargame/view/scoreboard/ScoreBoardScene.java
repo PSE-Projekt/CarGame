@@ -7,8 +7,6 @@ import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
 import de.cargame.view.common.BackToMenuButton;
 import de.cargame.view.navigation.Direction;
-import de.cargame.view.navigation.Navigator;
-import de.cargame.view.navigation.Selectable;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 
@@ -44,8 +42,9 @@ public class ScoreBoardScene extends CustomScene {
 
         ((VBox) this.getRoot()).getChildren().addAll(scoreView, this.playAgainButton, this.backToMenuButton);
 
-        // reset navigator
-        this.navigator.setCurrentSelection(navigator.getInitialSelectable());
+        this.navigator.reset();
+        this.apiHandler.getInputReceiverGamePad().assignNavigator(this.navigator);
+        this.apiHandler.getInputReceiverKeyboard().assignNavigator(this.navigator);
     }
 
     private Parent getScoreView(GameStateApi gameStateApi) {

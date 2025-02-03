@@ -1,6 +1,7 @@
 package de.cargame.view.game;
 
 import de.cargame.config.GameConfig;
+import de.cargame.controller.api.GameStateApi;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
@@ -18,16 +19,6 @@ public class GameScene extends CustomScene {
     public GameScene(ApiHandler apiHandler) {
         super(apiHandler);
         this.gameInstanceViews = new ArrayList<>();
-    }
-
-    public void setup(String playerOneId) {
-        gameInstanceViews.add(new GameInstanceView(apiHandler, playerOneId));
-    }
-
-    public void setup(String playerOneId, String playerTwoId) {
-        gameInstanceViews.add(new GameInstanceView(apiHandler, playerOneId));
-        this.gameInstanceViews.add(new GameInstanceView(apiHandler, playerTwoId));
-        this.configureSceneRoot();
     }
 
     private void configureSceneRoot() {
@@ -49,5 +40,31 @@ public class GameScene extends CustomScene {
         for (GameInstanceView gameInstanceView : gameInstanceViews) {
             gameInstanceView.render();
         }
+    }
+
+    @Override
+    public void setup() throws IllegalStateException {
+        GameMode currentGameMode = this.apiHandler.getGameStateApi().getGameMode();
+
+        if (this.apiHandler.getPlayerOne() == null) {
+            throw new IllegalStateException("Player One not set");
+        }
+
+        if (currentGameMode.equals(GameMode.MULTIPLAYER)) {
+
+            if (this.apiHandler.getPlayerTwo() == null) {
+                throw new IllegalStateException("Player Two not set");
+            }
+
+            gameInstanceViews.add(new GameInstanceView(apiHandler, this.apiHandler.getPlayerOne().getId()));
+            this.gameInstanceViews.add(new GameInstanceView(apiHandler, this.apiHandler.getPlayerTwo().getId()));
+
+        } else if (currentGameMode.equals(GameMode.SINGLEPLAYER)) {
+            gameInstanceViews.add(new GameInstanceView(apiHandler, this.apiHandler.getPlayerOne().getId()));
+        } else {
+            throw new IllegalStateException("Game mode not specified yet");
+        }
+
+        this.configureSceneRoot();
     }
 }

@@ -11,7 +11,6 @@ import javafx.stage.Stage;
 import de.cargame.controller.entity.GameState;
 import de.cargame.view.menu.MenuScene;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class ApplicationView extends Application {
@@ -43,15 +42,13 @@ public class ApplicationView extends Application {
         this.stage = primaryStage;
         this.stage.setTitle("Car Game");
         stage.setResizable(false);
-
-        // TODO: implement whole functionality of ApplicationView
-
         this.stage.show();
     }
 
     public void render() {
         currentScene = sceneMap.get(apiHandler.getGameStateApi().getGameState());
         this.stage.setScene(currentScene);
+        currentScene.setup();
         currentScene.render();
     }
 }
