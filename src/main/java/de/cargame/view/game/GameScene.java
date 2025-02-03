@@ -50,4 +50,9 @@ public class GameScene extends CustomScene {
             gameInstanceView.render();
         }
     }
+
+    @Override
+    public void setup() {
+
+    }
 }

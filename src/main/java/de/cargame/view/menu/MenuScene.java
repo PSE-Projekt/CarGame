@@ -26,7 +26,7 @@ public class MenuScene extends CustomScene {
     }
 
     private void prepareSceneContent() {
-        Selectable dummy = assignedNavigator.getCurrentSelectable();
+        Selectable dummy = this.assignedNavigator.getCurrentSelection();
         Selectable multiPlayerButton = new MultiPlayerButton();
         Selectable singlePlayerButton = new SinglePlayerButton();
 
@@ -62,5 +62,10 @@ public class MenuScene extends CustomScene {
     @Override
     public void render() {
         //TODO
+    }
+
+    @Override
+    public void setup() {
+        
     }
 }

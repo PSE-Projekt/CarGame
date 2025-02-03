@@ -37,4 +37,9 @@ public class SelectionScene extends CustomScene {
 
     }
 
+    @Override
+    public void setup() {
+
+    }
+
 }

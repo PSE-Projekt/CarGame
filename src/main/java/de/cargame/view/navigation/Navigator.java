@@ -28,7 +28,7 @@ public abstract class Navigator {
         UserInputType latestInputType = userInputBundle.getLatestInput().get().getUserInputType();
 
         if (latestInputType.equals(UserInputType.CONFIRM) && this.currentSelection instanceof Clickable) {
-            ((Clickable) this.currentSelection).onClick(this.apiHandler, playerID);
+             ((Clickable) this.currentSelection).onClick(this.apiHandler, playerID);
         }
 
         Selectable newSelection = null;
