@@ -15,5 +15,6 @@ public class MultiPlayerButton extends SceneButton implements Clickable {
     public void onClick(ApiHandler apiHandler, String playerID) {
         apiHandler.getGameStateApi().setGameState(GameState.CAR_SELECTION);
         apiHandler.getGameStateApi().setGameMode(GameMode.MULTIPLAYER);
+        apiHandler.switchScene(GameState.CAR_SELECTION);
     }
 }

@@ -42,8 +42,11 @@ public class GameScene extends CustomScene {
 
     @Override
     public void setup() throws IllegalStateException {
+        this.gameInstanceViews.clear();
+
         GameMode currentGameMode = this.apiHandler.getGameStateApi().getGameMode();
         PlayerAPI playerApi = this.apiHandler.getPlayerApi();
+
 
         if (currentGameMode.equals(GameMode.MULTIPLAYER)) {
 

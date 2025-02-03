@@ -18,5 +18,6 @@ public class BackToMenuButton extends SceneButton implements Clickable {
     public void onClick(ApiHandler apiHandler, String playerID) {
         apiHandler.getGameStateApi().setGameState(GameState.MAIN_MENU);
         apiHandler.getGameStateApi().setGameMode(GameMode.NOT_SET);
+        apiHandler.switchScene(GameState.MAIN_MENU);
     }
 }
