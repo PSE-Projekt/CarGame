@@ -22,24 +22,11 @@ public abstract class Selectable extends Pane {
         neighbours.put(dir, neighbour);
     }
 
-    public void toggleSelected() {
-        if(selected){
-            selected = false;
-        } else {
-            selected = true;
-        }
-    }
-
-    public void select() {
-        toggleSelected();
-    }
-
-    public void deselect(){
-        toggleSelected();
-    }
-
     public Selectable getNeighbour(Direction direction){
         return neighbours.get(direction);
     }
 
+    public abstract void deselect();
+
+    public abstract void select();
 }

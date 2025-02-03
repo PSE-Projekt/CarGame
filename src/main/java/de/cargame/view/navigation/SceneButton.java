@@ -30,12 +30,10 @@ public SceneButton(String pathDefaultImg, String pathSelectedImg) {
 
     @Override
     public void select() {
-        toggleSelected();
         display.setImage(displayOnSelection);
     }
 
     @Override
     public void deselect(){
-        toggleSelected();
         display.setImage(defaultDisplay);    }
 }
