@@ -1,6 +1,6 @@
 package de.cargame.controller;
 
-import de.cargame.controller.api.PlayerAPI;
+import de.cargame.controller.api.PlayerApi;
 import de.cargame.exception.PlayerNotFoundException;
 import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
@@ -15,7 +15,7 @@ import de.cargame.model.service.PlayerService;
  * Players can be controlled using either a keyboard or a gamepad, and the class
  * provides methods to manage both types.
  */
-public class PlayerController implements PlayerAPI {
+public class PlayerController implements PlayerApi {
 
     private final PlayerService playerService;
 
