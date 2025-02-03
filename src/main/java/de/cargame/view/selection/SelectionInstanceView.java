@@ -12,8 +12,8 @@ import javafx.scene.text.Text;
 public class SelectionInstanceView { //TODO:could also extend Pane? was meinst du Malik?
 
     public SelectionInstanceView(ApiHandler apiHandler){
-        Navigator assignedNavigator = new MenuNavigator(apiHandler);
-        Selectable dummy = assignedNavigator.getCurrentSelectable();
+        Navigator assignedNavigator = new SelectionNavigator(apiHandler);
+        Selectable dummy = assignedNavigator.getCurrentSelection();
 
 
         Selectable backToMenuButton = new BackToMenuButton();
