@@ -20,7 +20,7 @@ public class CarSelectionPanel extends SceneButton implements Clickable {
     @Override
     public void onClick(ApiHandler apiHandler, String playerID) {
         apiHandler.getPlayerApi().setCarSelection(playerID, this.carType);
+        setLockedInSelection(true);
         instanceView.confirmChoice();
-        //TODO: pending oder so
     }
 }

@@ -52,6 +52,7 @@ public abstract class Navigator {
     }
 
     public void reset() {
+        this.currentSelection.setLockedInSelection(false); //TODO: maybe?
         this.currentSelection.deselect();
         this.currentSelection = this.initialSelectable;
         this.currentSelection.select();
