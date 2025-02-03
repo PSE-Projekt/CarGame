@@ -1,20 +1,16 @@
 package de.cargame.view.menu;
 
+import de.cargame.config.GameConfig;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
 import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import de.cargame.view.navigation.Selectable;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-
-import static de.cargame.config.GameConfig.SCREEN_HEIGHT;
-import static de.cargame.config.GameConfig.SCREEN_WIDTH;
 
 public class MenuScene extends CustomScene {
 
@@ -41,7 +37,7 @@ public class MenuScene extends CustomScene {
         HBox sceneContent = new HBox();
 
         sceneContent.setStyle("-fx-background-color: #131d34;");
-        sceneContent.setPrefSize(SCREEN_WIDTH,SCREEN_HEIGHT/2);
+        sceneContent.setPrefSize(GameConfig.SCREEN_WIDTH,GameConfig.SCREEN_HEIGHT/2);
 
         //TODO: css oder so damit das kürzer ist & 2 farben hat
         Text menuText = new Text("CarGame");
@@ -55,7 +51,7 @@ public class MenuScene extends CustomScene {
     private Pane createBorder() {
         Pane border = new Pane();
         border.setStyle("-fx-background-color: black;");
-        border.setPrefSize(SCREEN_WIDTH, SCREEN_HEIGHT / 4);
+        border.setPrefSize(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT / 4);
         return border;
     }
 
@@ -66,6 +62,8 @@ public class MenuScene extends CustomScene {
 
     @Override
     public void setup() {
-        
+        assignedNavigator.reset();
+        this.apiHandler.getInputReceiverGamePad().assignNavigator(this.assignedNavigator);
+        this.apiHandler.getInputReceiverKeyboard().assignNavigator(this.assignedNavigator);
     }
 }

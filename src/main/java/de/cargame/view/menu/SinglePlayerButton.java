@@ -15,5 +15,6 @@ public class SinglePlayerButton extends SceneButton implements Clickable {
     public void onClick(ApiHandler apiHandler, String playerID) {
         apiHandler.getGameStateApi().setGameState(GameState.CAR_SELECTION);
         apiHandler.getGameStateApi().setGameMode(GameMode.SINGLEPLAYER);
+        apiHandler.setPlayerOneId(playerID);
     }
 }
