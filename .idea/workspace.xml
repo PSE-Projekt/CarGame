@@ -6,12 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="changes of render system of frontend. Generation of presentation layer in CarGameApplication.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/CustomScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/CustomScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/common/BackToMenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/common/BackToMenuButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MultiPlayerButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MultiPlayerButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/SinglePlayerButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/SinglePlayerButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/PlayAgainButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/PlayAgainButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Navigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Selectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Selectable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/CarSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/CarSelectionPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,38 +92,7 @@
       <command value="mvn javafx:run" />
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="ApplicationView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="de.cargame.view.ApplicationView" />
-      <module name="CarGameTest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.cargame.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.Main" />
-      <module name="CarGameOfficial_v2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="CarGameOfficial_v2" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Application.ApplicationView">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="CarGameOfficial_v2" />
       <option name="ENV_FILES" value="" />
@@ -175,6 +141,37 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ApplicationView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.cargame.view.ApplicationView" />
+      <module name="CarGameTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.cargame.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.Main" />
+      <module name="CarGameOfficial_v2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="CarGameOfficial_v2" />
+      <option name="filePath" />
       <method v="2" />
     </configuration>
     <recent_temporary>

@@ -4,6 +4,8 @@ import de.cargame.view.ApiHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.Objects;
+
 public abstract class SceneButton extends Selectable implements Clickable{
     private final Image defaultDisplay;
     private final Image displayOnSelection;
@@ -16,13 +18,14 @@ public SceneButton(String pathDefaultImg, String pathSelectedImg) {
 
     this.getChildren().add(display);
 }
-//TODO: schau ob loadImage nicht besser gemacht werden kann.
-    private Image loadImage(String path) {
+    private Image loadImage(String path){
+        Image image = null;
         try {
-            return new Image(getClass().getResourceAsStream(path));
-        } catch (Exception e) {
-            throw new IllegalArgumentException("Bild konnte nicht geladen werden: " + path);
+            image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(path)));
+        } catch (NullPointerException | IllegalArgumentException e) {
+            System.err.println("image in path: " + path +" couldnt be loaded");
         }
+        return image;
     }
 
     @Override
