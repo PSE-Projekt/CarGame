@@ -2,6 +2,7 @@ package de.cargame.view.selection;
 
 import de.cargame.config.GameConfig;
 import de.cargame.controller.api.PlayerAPI;
+import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.common.BackToMenuButton;
 import de.cargame.view.navigation.Direction;
@@ -13,6 +14,7 @@ import javafx.scene.text.Text;
 
 public class SelectionInstanceView extends Pane {
     private final Navigator assignedNavigator;
+    private final SelectionScene handlingScene;
 
     private final Selectable backToMenuButton;
     private final Selectable fastCarButton;
@@ -20,17 +22,29 @@ public class SelectionInstanceView extends Pane {
     private final String playerId;
     private final ApiHandler apiHandler;
 
+    private boolean carChoiceMade = false;
 
-    public SelectionInstanceView(ApiHandler apiHandler, String playerId){
+
+    public SelectionInstanceView(SelectionScene handlingScene, ApiHandler apiHandler, String playerId){
         this.assignedNavigator = new SelectionNavigator(apiHandler);
+        this.handlingScene = handlingScene;
         this.apiHandler = apiHandler;
 
         backToMenuButton = new BackToMenuButton();
-        fastCarButton = new CarSelectionPanel();
-        agileCarButton = new CarSelectionPanel();
+        fastCarButton = new CarSelectionPanel(CarType.FAST_CAR, this);
+        agileCarButton = new CarSelectionPanel(CarType.AGILE_CAR, this);
         this.playerId = playerId;
 
         preparePaneContents();
+    }
+
+    boolean isReady(){
+        return carChoiceMade;
+    }
+
+    void confirmChoice(){
+        carChoiceMade = true;
+        handlingScene.proceedToGame();
     }
 
     private void preparePaneContents() {
@@ -45,7 +59,7 @@ public class SelectionInstanceView extends Pane {
         assignedNavigator.getInitialSelectable().setNeighbour(Direction.LEFT, fastCarButton);
         assignedNavigator.getInitialSelectable().setNeighbour(Direction.RIGHT, agileCarButton);
 
-        Text menuText = new Text("CarGame");
+        Text menuText = new Text("CarSelection");
         menuText.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-fill: #009783;");
         menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 30));
         this.setHeight((double) GameConfig.SCREEN_HEIGHT / 2);
@@ -56,7 +70,7 @@ public class SelectionInstanceView extends Pane {
 
     public void setup() {
         PlayerAPI playerApi = this.apiHandler.getPlayerApi();
-
+        carChoiceMade = false;
         if (this.playerId.equals(playerApi.getGamepadPlayerId())) {
             this.apiHandler.getInputReceiverGamePad().assignNavigator(assignedNavigator);
         } else if (this.playerId.equals(playerApi.getKeyboardPlayerId())) {

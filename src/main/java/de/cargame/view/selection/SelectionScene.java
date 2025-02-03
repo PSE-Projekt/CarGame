@@ -1,6 +1,8 @@
 package de.cargame.view.selection;
 
 import de.cargame.config.GameConfig;
+import de.cargame.controller.entity.GameMode;
+import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
 import javafx.geometry.Pos;
@@ -31,11 +33,31 @@ public class SelectionScene extends CustomScene {
         configurableRoot.getChildren().addAll(selectionInstanceViews);
     }
 
+    void proceedToGame(){
+        for(SelectionInstanceView view : selectionInstanceViews){
+            if(!view.isReady()){
+                return;
+            }
+        }
+        apiHandler.getGameStateApi().setGameState(GameState.IN_GAME);
+        apiHandler.switchScene(GameState.IN_GAME);
+    }
+
     @Override
     public void setup() {
+        selectionInstanceViews.clear();
+        GameMode currentGameMode = apiHandler.getGameStateApi().getGameMode();
+        if (currentGameMode.equals(GameMode.MULTIPLAYER)) {
+            this.selectionInstanceViews.add(new SelectionInstanceView(this, apiHandler, apiHandler.getPlayerApi().getKeyboardPlayerId()));
+            this.selectionInstanceViews.add(new SelectionInstanceView(this, apiHandler, apiHandler.getPlayerApi().getGamepadPlayerId()));
+
+        } else if (currentGameMode.equals(GameMode.SINGLEPLAYER)) {
+            selectionInstanceViews.add(new SelectionInstanceView(this, apiHandler, this.apiHandler.getPlayerOneId()));
+        }
         for (SelectionInstanceView selectionInstanceView : selectionInstanceViews) {
             selectionInstanceView.setup();
         }
+        configureSceneRoot();
     }
 
 }

@@ -3,12 +3,12 @@ package de.cargame.view;
 import de.cargame.controller.api.GameInstanceAPI;
 import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.api.PlayerAPI;
+import de.cargame.controller.entity.GameState;
 import de.cargame.view.game.GameScene;
+import de.cargame.view.menu.MenuScene;
 import de.cargame.view.scoreboard.ScoreBoardScene;
 import de.cargame.view.selection.SelectionScene;
 import javafx.stage.Stage;
-import de.cargame.controller.entity.GameState;
-import de.cargame.view.menu.MenuScene;
 
 import java.util.Map;
 
