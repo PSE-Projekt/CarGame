@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="fixed and reworked Navigator">
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="throw exceptions on invalid render calls in ApplicationView. Imports fix.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +219,7 @@
       <workItem from="1738412032435" duration="2746000" />
       <workItem from="1738505165436" duration="7439000" />
       <workItem from="1738533412489" duration="5600000" />
-      <workItem from="1738582434682" duration="3138000" />
+      <workItem from="1738582434682" duration="5676000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -423,7 +421,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738583854982</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="GameScene: encapsulation of Scene setup&#10;ScoreBoardScene: assign naviigator to input receivers of both input types&#10;ApplicationView: call setup on active scene on render call">
+      <option name="closed" value="true" />
+      <created>1738586023851</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1738586023851</updated>
+    </task>
+    <task id="LOCAL-00027" summary="throw exceptions on invalid render calls in ApplicationView. Imports fix.">
+      <option name="closed" value="true" />
+      <created>1738586490629</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1738586490629</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initialized working javaFX project for initial state of the project" />
     <MESSAGE value="first working javafx window, nearly ready for merge with main branch" />
     <MESSAGE value="declaration of render method" />
     <MESSAGE value="test with calling launch of ApplicationView" />
@@ -471,6 +484,8 @@
     <MESSAGE value="Worked on several parts of core frontend functionality. Full prototype implementation of ScoreBoardScene" />
     <MESSAGE value="Stuck" />
     <MESSAGE value="fixed and reworked Navigator" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed and reworked Navigator" />
+    <MESSAGE value="GameScene: encapsulation of Scene setup&#10;ScoreBoardScene: assign naviigator to input receivers of both input types&#10;ApplicationView: call setup on active scene on render call" />
+    <MESSAGE value="throw exceptions on invalid render calls in ApplicationView. Imports fix." />
+    <option name="LAST_COMMIT_MESSAGE" value="throw exceptions on invalid render calls in ApplicationView. Imports fix." />
   </component>
 </project>

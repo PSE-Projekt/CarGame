@@ -19,7 +19,7 @@ public class GameScene extends CustomScene {
     }
 
     private void configureSceneRoot() {
-        VBox configurableRoot = ((VBox) this.getRoot());
+        VBox configurableRoot = (VBox) this.getRoot();
 
         configurableRoot.setMaxHeight(GameConfig.SCREEN_HEIGHT);
         configurableRoot.setMinHeight(GameConfig.SCREEN_HEIGHT);

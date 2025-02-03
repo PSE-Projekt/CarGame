@@ -47,6 +47,7 @@ public class ApplicationView extends Application {
 
     public void render() throws IllegalStateException {
         GameState currentGameState = apiHandler.getGameStateApi().getGameState();
+        CustomScene previousScene = currentScene;
 
         currentScene = sceneMap.get(currentGameState);
 
@@ -57,7 +58,11 @@ public class ApplicationView extends Application {
         }
 
         this.stage.setScene(currentScene);
-        currentScene.setup();
+
+        if (!currentScene.equals(previousScene)) {
+            currentScene.setup();
+        }
+
         currentScene.render();
     }
 }
