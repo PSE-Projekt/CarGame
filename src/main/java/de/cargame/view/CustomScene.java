@@ -16,7 +16,5 @@ public abstract class CustomScene extends Scene {
         this.apiHandler = apiHandler;
     }
 
-    public abstract void render();
-
     public abstract void setup();
 }

@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="Fixed ScoreViewSinglePlayer">
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameApplicationManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameInstanceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameInstanceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameStateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameStateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/api/GameInstanceApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/api/GameInstanceAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/api/GameStateApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/api/GameStateAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/api/PlayerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/api/PlayerAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameInstanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameInstanceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameObjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameObjectService.java" afterDir="false" />
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="reset of inputreceivers in SelectionInstanceView">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/CarGameApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/CarGameApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApiHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/CustomScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/CustomScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/GamePanel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/TestView.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreViewSinglePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreViewSinglePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="frontend" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,35 +64,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.ApplicationView.executor": "Run",
-    "Application.CarGameApplication.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.TestApp.executor": "Run",
-    "Maven.CarGameOfficial_v2 [javafx:run].executor": "Run",
-    "Maven.CarGameTest [clean].executor": "Run",
-    "Maven.CarGameTest [compile].executor": "Run",
-    "Maven.CarGameTest [dependency::resolve].executor": "Run",
-    "Maven.CarGameTest [install].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/malik/IdeaProjects/CarGameOfficial_v2/src/main/resources/sprites",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;Application.ApplicationView.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CarGameApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestApp.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CarGameOfficial_v2 [javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/malik/IdeaProjects/CarGameOfficial_v2/src/main/resources/sprites&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\malik\IdeaProjects\CarGameOfficial_v2\src\main\resources\sprites" />
@@ -106,7 +99,38 @@
       <command value="mvn javafx:run" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.CarGameApplication">
+  <component name="RunManager">
+    <configuration name="ApplicationView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.cargame.view.ApplicationView" />
+      <module name="CarGameTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.cargame.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.Main" />
+      <module name="CarGameOfficial_v2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="CarGameOfficial_v2" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="CarGameOfficial_v2" />
       <option name="ENV_FILES" value="" />
@@ -157,53 +181,8 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <method v="2" />
     </configuration>
-    <configuration name="ApplicationView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="de.cargame.view.ApplicationView" />
-      <module name="CarGameTest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.cargame.view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CarGameApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="de.cargame.CarGameApplication" />
-      <module name="CarGameTest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.cargame.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.Main" />
-      <module name="CarGameOfficial_v2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="CarGameOfficial_v2" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CarGameApplication" />
         <item itemvalue="Application.ApplicationView" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
@@ -250,7 +229,7 @@
       <workItem from="1738412032435" duration="2746000" />
       <workItem from="1738505165436" duration="7439000" />
       <workItem from="1738533412489" duration="5600000" />
-      <workItem from="1738582434682" duration="10241000" />
+      <workItem from="1738582434682" duration="17650000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -492,7 +471,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738593737050</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="reset of inputreceivers in SelectionInstanceView">
+      <option name="closed" value="true" />
+      <created>1738594341130</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1738594341130</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deleted Main class that was meant for testing purposes" />
     <MESSAGE value="implemented abstract CustomScene" />
     <MESSAGE value="implemented first attempt of APIHandler and ApplicationView" />
     <MESSAGE value="attempt: fixing incompatible history of main and frontend branches" />
@@ -541,6 +527,7 @@
     <MESSAGE value="fixed setup call in ApplicationView render" />
     <MESSAGE value="Fixes in ApiHandler for string player info. GameScene display changes." />
     <MESSAGE value="Fixed ScoreViewSinglePlayer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed ScoreViewSinglePlayer" />
+    <MESSAGE value="reset of inputreceivers in SelectionInstanceView" />
+    <option name="LAST_COMMIT_MESSAGE" value="reset of inputreceivers in SelectionInstanceView" />
   </component>
 </project>

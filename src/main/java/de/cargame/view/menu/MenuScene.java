@@ -50,11 +50,6 @@ public class MenuScene extends CustomScene {
     }
 
     @Override
-    public void render() {
-        //TODO
-    }
-
-    @Override
     public void setup() {
         assignedNavigator.reset();
         this.apiHandler.getInputReceiverGamePad().assignNavigator(this.assignedNavigator);

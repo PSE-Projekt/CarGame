@@ -63,10 +63,4 @@ public class ScoreBoardScene extends CustomScene {
         }
         return scoreView;
     }
-
-    @Override
-    public void render() {
-        // this method does nothing because no rendering in relation to frequency is needed for this scene due
-        // to it only having static content
-    }
 }

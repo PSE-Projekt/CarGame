@@ -6,63 +6,53 @@ import de.cargame.controller.api.PlayerAPI;
 import de.cargame.view.game.GameScene;
 import de.cargame.view.scoreboard.ScoreBoardScene;
 import de.cargame.view.selection.SelectionScene;
-import javafx.application.Application;
 import javafx.stage.Stage;
 import de.cargame.controller.entity.GameState;
 import de.cargame.view.menu.MenuScene;
 
 import java.util.Map;
 
-public class ApplicationView extends Application {
+public class ApplicationView {
     private final ApiHandler apiHandler;
     private final Map<GameState, CustomScene> sceneMap;
     private CustomScene currentScene;
     private Stage stage;
 
-    public ApplicationView(GameInstanceAPI gameInstanceApi, GameStateAPI gameStateApi, PlayerAPI playerApi) {
-        try {
-            stage = new Stage();
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-
-
-        this.apiHandler = new ApiHandler(gameInstanceApi, gameStateApi, playerApi);
-
+    public ApplicationView(GameInstanceAPI gameInstanceApi, GameStateAPI gameStateApi, PlayerAPI playerApi, Stage stage) {
+        this.stage = stage;
+        this.apiHandler = new ApiHandler(gameInstanceApi, gameStateApi, playerApi, this);
         this.sceneMap = Map.of(
                 GameState.MAIN_MENU, new MenuScene(this.apiHandler),
                 GameState.CAR_SELECTION, new SelectionScene(apiHandler),
                 GameState.IN_GAME, new GameScene(apiHandler),
                 GameState.SCORE_BOARD, new ScoreBoardScene(apiHandler)
         );
-    }
 
-    @Override
-    public void start(Stage primaryStage) {
-        this.stage = primaryStage;
         this.stage.setTitle("Car Game");
         stage.setResizable(false);
         this.stage.show();
     }
 
-    public void render() throws IllegalStateException {
-        GameState currentGameState = apiHandler.getGameStateApi().getGameState();
-        CustomScene previousScene = currentScene;
-
-        currentScene = sceneMap.get(currentGameState);
+    void switchScene(GameState newGameState) {
+        currentScene = sceneMap.get(newGameState);
 
         if (currentScene == null) {
             throw new IllegalStateException(
-                    "scene is not set for specified for current game mode: " + currentGameState
+                    "scene is not set for specified for current game mode: " + newGameState
             );
         }
 
         this.stage.setScene(currentScene);
+        currentScene.setup();
+    }
 
-        if (!currentScene.equals(previousScene)) {
-            currentScene.setup();
+    public void renderGame() {
+        if (!this.apiHandler.getGameStateApi().getGameState().equals(GameState.IN_GAME)) {
+            throw new IllegalStateException("Game state is not in game");
+        } else if (!(this.currentScene instanceof GameScene)) {
+            throw new IllegalStateException("the current scene is not the game scene");
         }
 
-        currentScene.render();
+        ((GameScene) currentScene).render();
     }
 }
