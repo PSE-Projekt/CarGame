@@ -38,6 +38,9 @@ public class SelectionScene extends CustomScene {
 
     @Override
     public void setup() {
+
+
+
         for (SelectionInstanceView selectionInstanceView : selectionInstanceViews) {
             selectionInstanceView.setup();
         }

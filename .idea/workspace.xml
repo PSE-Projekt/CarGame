@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="Fixes in ApiHandler for string player info. GameScene display changes." />
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="Fixed ScoreViewSinglePlayer" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -216,7 +216,7 @@
       <workItem from="1738412032435" duration="2746000" />
       <workItem from="1738505165436" duration="7439000" />
       <workItem from="1738533412489" duration="5600000" />
-      <workItem from="1738582434682" duration="9632000" />
+      <workItem from="1738582434682" duration="10241000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -450,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738593036181</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Fixed ScoreViewSinglePlayer">
+      <option name="closed" value="true" />
+      <created>1738593737050</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1738593737050</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +482,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test with calling launch of ApplicationView" />
     <MESSAGE value="deleted Main class that was meant for testing purposes" />
     <MESSAGE value="implemented abstract CustomScene" />
     <MESSAGE value="implemented first attempt of APIHandler and ApplicationView" />
@@ -499,6 +506,7 @@
     <MESSAGE value="throw exceptions on invalid render calls in ApplicationView. Imports fix." />
     <MESSAGE value="fixed setup call in ApplicationView render" />
     <MESSAGE value="Fixes in ApiHandler for string player info. GameScene display changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes in ApiHandler for string player info. GameScene display changes." />
+    <MESSAGE value="Fixed ScoreViewSinglePlayer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed ScoreViewSinglePlayer" />
   </component>
 </project>

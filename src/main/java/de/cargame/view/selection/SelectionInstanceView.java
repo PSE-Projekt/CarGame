@@ -1,6 +1,7 @@
 package de.cargame.view.selection;
 
 import de.cargame.config.GameConfig;
+import de.cargame.controller.api.PlayerApi;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.common.BackToMenuButton;
 import de.cargame.view.navigation.Direction;
@@ -17,10 +18,12 @@ public class SelectionInstanceView extends Pane {
     private final Selectable fastCarButton;
     private final Selectable agileCarButton;
     private final String playerId;
+    private final ApiHandler apiHandler;
 
 
     public SelectionInstanceView(ApiHandler apiHandler, String playerId){
         this.assignedNavigator = new SelectionNavigator(apiHandler);
+        this.apiHandler = apiHandler;
 
         backToMenuButton = new BackToMenuButton();
         fastCarButton = new CarSelectionPanel();
@@ -51,7 +54,17 @@ public class SelectionInstanceView extends Pane {
         this.getChildren().addAll(backToMenuButton, fastCarButton, menuText, agileCarButton);
     }
 
-    public void setup(){
+    public void setup() {
+        PlayerApi playerApi = this.apiHandler.getPlayerApi();
+
+        if (this.playerId.equals(playerApi.getGamepadPlayerId())) {
+            this.apiHandler.getInputReceiverGamePad().assignNavigator(assignedNavigator);
+        } else if (this.playerId.equals(playerApi.getKeyboardPlayerId())) {
+            this.apiHandler.getInputReceiverKeyboard().assignNavigator(assignedNavigator);
+        } else {
+            throw new IllegalStateException("the id of this selection instance belongs to no player");
+        }
+
         assignedNavigator.reset();
     }
 }
