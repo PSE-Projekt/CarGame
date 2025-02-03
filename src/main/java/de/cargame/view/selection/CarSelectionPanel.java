@@ -1,20 +1,26 @@
 package de.cargame.view.selection;
 
+import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.navigation.Clickable;
 import de.cargame.view.navigation.SceneButton;
 
 public class CarSelectionPanel extends SceneButton implements Clickable {
 
-    public CarSelectionPanel() {
-        super(null, null); //TODO:
+    private final CarType carType;
+    private final SelectionInstanceView instanceView;
+
+    public CarSelectionPanel(CarType carType, SelectionInstanceView instanceView) {
+
+        super(null, null); //TODO: image
+        this.carType = carType;
+        this.instanceView = instanceView;
     }
 
     @Override
     public void onClick(ApiHandler apiHandler, String playerID) {
-        /*setSelectedCar TODO:
-
-        apiHandler.getGameStateApi().setGameState();
-        apiHandler.getGameStateApi().setGameMode();*/
+        apiHandler.getPlayerApi().setCarSelection(playerID, this.carType);
+        instanceView.confirmChoice();
+        //TODO: pending oder so
     }
 }

@@ -5,7 +5,6 @@ import de.cargame.controller.api.PlayerAPI;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
-import javafx.animation.AnimationTimer;
 import javafx.geometry.Pos;
 import javafx.scene.layout.VBox;
 
