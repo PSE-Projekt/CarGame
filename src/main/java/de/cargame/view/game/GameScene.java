@@ -63,5 +63,7 @@ public class GameScene extends CustomScene {
         }
 
         this.configureSceneRoot();
+        this.apiHandler.getInputReceiverKeyboard().assignNavigator(null);
+        this.apiHandler.getInputReceiverGamePad().assignNavigator(null);
     }
 }

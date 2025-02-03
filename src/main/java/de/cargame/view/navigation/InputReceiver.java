@@ -12,6 +12,10 @@ public class InputReceiver implements UserInputObserver {
     }
 
     public void update(UserInputBundle userInputBundle){
+        if (navigator == null) {
+            return;
+        }
+
         navigator.receiveInput(userInputBundle, playerID);
     }
 
