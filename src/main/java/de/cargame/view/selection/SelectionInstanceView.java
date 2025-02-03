@@ -16,13 +16,16 @@ public class SelectionInstanceView extends Pane {
     private final Selectable backToMenuButton;
     private final Selectable fastCarButton;
     private final Selectable agileCarButton;
-    public SelectionInstanceView(ApiHandler apiHandler){
+    private final String playerId;
 
+
+    public SelectionInstanceView(ApiHandler apiHandler, String playerId){
         this.assignedNavigator = new SelectionNavigator(apiHandler);
 
         backToMenuButton = new BackToMenuButton();
         fastCarButton = new CarSelectionPanel();
         agileCarButton = new CarSelectionPanel();
+        this.playerId = playerId;
 
         preparePaneContents();
     }
