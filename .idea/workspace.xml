@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="throw exceptions on invalid render calls in ApplicationView. Imports fix.">
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="fixed setup call in ApplicationView render">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApiHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreViewMultiplayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreViewMultiplayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +222,7 @@
       <workItem from="1738412032435" duration="2746000" />
       <workItem from="1738505165436" duration="7439000" />
       <workItem from="1738533412489" duration="5600000" />
-      <workItem from="1738582434682" duration="5676000" />
+      <workItem from="1738582434682" duration="8526000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -437,7 +440,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738586490629</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fixed setup call in ApplicationView render">
+      <option name="closed" value="true" />
+      <created>1738589262816</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1738589262816</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -461,7 +472,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first working javafx window, nearly ready for merge with main branch" />
     <MESSAGE value="declaration of render method" />
     <MESSAGE value="test with calling launch of ApplicationView" />
     <MESSAGE value="deleted Main class that was meant for testing purposes" />
@@ -486,6 +496,7 @@
     <MESSAGE value="fixed and reworked Navigator" />
     <MESSAGE value="GameScene: encapsulation of Scene setup&#10;ScoreBoardScene: assign naviigator to input receivers of both input types&#10;ApplicationView: call setup on active scene on render call" />
     <MESSAGE value="throw exceptions on invalid render calls in ApplicationView. Imports fix." />
-    <option name="LAST_COMMIT_MESSAGE" value="throw exceptions on invalid render calls in ApplicationView. Imports fix." />
+    <MESSAGE value="fixed setup call in ApplicationView render" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed setup call in ApplicationView render" />
   </component>
 </project>

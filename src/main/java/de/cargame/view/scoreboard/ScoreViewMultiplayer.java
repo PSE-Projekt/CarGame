@@ -9,15 +9,15 @@ public class ScoreViewMultiplayer extends VBox {
     public ScoreViewMultiplayer(ApiHandler apiHandler) throws IllegalStateException {
         this.setSpacing(10);
 
-        Player playerOne = apiHandler.getPlayerOne();
-        Player playerTwo = apiHandler.getPlayerTwo();
+        Player playerKeyboard = apiHandler.getPlayerApi().getKeyboardPlayer();
+        Player playerGamePad = apiHandler.getPlayerApi().getGamepadPlayer();
 
-        if (playerOne == null || playerTwo == null) {
+        if (playerKeyboard == null || playerGamePad == null) {
             throw new IllegalStateException("Player one or two are not declared");
         }
 
-        Text scoreTextPlayerOne = new Text("Score: " + playerOne.getScore());
-        Text scoreTextPlayerTwo = new Text("Score: " + playerTwo.getScore());
+        Text scoreTextPlayerOne = new Text("Score: " + playerKeyboard.getScore());
+        Text scoreTextPlayerTwo = new Text("Score: " + playerGamePad.getScore());
 
         this.getChildren().addAll(scoreTextPlayerOne, scoreTextPlayerTwo);
     }

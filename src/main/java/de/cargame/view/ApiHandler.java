@@ -18,26 +18,19 @@ public class ApiHandler {
     private final PlayerApi playerApi;
 
     @Getter
-    @Setter
-    private Player playerOne;
-
-    @Getter
-    @Setter
-    private Player playerTwo;
-
-    @Getter
     private final InputReceiver inputReceiverKeyboard;
 
     @Getter
     private final InputReceiver inputReceiverGamePad;
 
+    @Getter
+    @Setter
+    private String playerOneId;
+
     public ApiHandler(GameInstanceApi gameInstanceApi, GameStateApi gameStateApi, PlayerApi playerApi) {
         this.gameInstanceApi = gameInstanceApi;
         this.gameStateApi = gameStateApi;
         this.playerApi = playerApi;
-
-        this.playerOne = null;
-        this.playerTwo = null;
 
         this.inputReceiverGamePad = new InputReceiver(playerApi.getGamepadPlayerId());
         this.inputReceiverKeyboard = new InputReceiver(playerApi.getKeyboardPlayerId());

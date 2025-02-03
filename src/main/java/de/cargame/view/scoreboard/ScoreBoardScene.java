@@ -7,15 +7,17 @@ import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
 import de.cargame.view.common.BackToMenuButton;
 import de.cargame.view.navigation.Direction;
+import de.cargame.view.navigation.Navigator;
+import de.cargame.view.navigation.Selectable;
 import javafx.scene.Parent;
 import javafx.scene.layout.VBox;
 
 public class ScoreBoardScene extends CustomScene {
-    private final BackToMenuButton backToMenuButton;
-    private final PlayAgainButton playAgainButton;
-    private final ScoreBoardNavigator navigator;
+    private final Selectable backToMenuButton;
+    private final Selectable playAgainButton;
+    private final Navigator navigator;
 
-    public ScoreBoardScene(ApiHandler apiHandler){
+    public ScoreBoardScene(ApiHandler apiHandler) {
         super(apiHandler);
         this.navigator = new ScoreBoardNavigator(apiHandler);
 
@@ -29,7 +31,7 @@ public class ScoreBoardScene extends CustomScene {
         this.navigator.getInitialSelectable().setNeighbour(Direction.RIGHT, this.playAgainButton);
     }
 
-    public void setup() throws IllegalStateException {
+    public void setup() throws IllegalStateException { // TODO: erweiterbarer gestalten
         GameStateApi gameStateApi = this.apiHandler.getGameStateApi();
 
         if (!gameStateApi.getGameState().equals(GameState.SCORE_BOARD)) {

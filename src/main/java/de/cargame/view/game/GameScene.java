@@ -1,7 +1,9 @@
 package de.cargame.view.game;
 
 import de.cargame.config.GameConfig;
+import de.cargame.controller.api.PlayerApi;
 import de.cargame.controller.entity.GameMode;
+import de.cargame.model.entity.player.Player;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
 import javafx.geometry.Pos;
@@ -42,22 +44,19 @@ public class GameScene extends CustomScene {
     @Override
     public void setup() throws IllegalStateException {
         GameMode currentGameMode = this.apiHandler.getGameStateApi().getGameMode();
-
-        if (this.apiHandler.getPlayerOne() == null) {
-            throw new IllegalStateException("Player One not set");
-        }
+        PlayerApi playerApi = this.apiHandler.getPlayerApi();
 
         if (currentGameMode.equals(GameMode.MULTIPLAYER)) {
 
-            if (this.apiHandler.getPlayerTwo() == null) {
-                throw new IllegalStateException("Player Two not set");
+            if (playerApi.getKeyboardPlayer() == null || playerApi.getGamepadPlayer() == null) {
+                throw new IllegalStateException("One of the players does not exist");
             }
 
-            gameInstanceViews.add(new GameInstanceView(apiHandler, this.apiHandler.getPlayerOne().getId()));
-            this.gameInstanceViews.add(new GameInstanceView(apiHandler, this.apiHandler.getPlayerTwo().getId()));
+            this.gameInstanceViews.add(new GameInstanceView(apiHandler, playerApi.getKeyboardPlayerId()));
+            this.gameInstanceViews.add(new GameInstanceView(apiHandler, playerApi.getGamepadPlayerId()));
 
         } else if (currentGameMode.equals(GameMode.SINGLEPLAYER)) {
-            gameInstanceViews.add(new GameInstanceView(apiHandler, this.apiHandler.getPlayerOne().getId()));
+            gameInstanceViews.add(new GameInstanceView(apiHandler, this.apiHandler.getPlayerOneId()));
         } else {
             throw new IllegalStateException("Game mode not specified yet");
         }
