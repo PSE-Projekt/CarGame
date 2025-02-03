@@ -4,7 +4,7 @@ import de.cargame.controller.input.UserInputBundle;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 
 public class InputReceiver implements UserInputObserver {
-    private String playerID;
+    private final String playerID;
     private Navigator navigator;
 
     public InputReceiver(String playerID){

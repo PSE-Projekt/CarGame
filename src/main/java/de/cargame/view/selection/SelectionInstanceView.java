@@ -1,28 +1,33 @@
 package de.cargame.view.selection;
 
+import de.cargame.config.GameConfig;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.common.BackToMenuButton;
-import de.cargame.view.menu.MenuNavigator;
 import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import de.cargame.view.navigation.Selectable;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class SelectionInstanceView { //TODO:could also extend Pane? was meinst du Malik?
+public class SelectionInstanceView extends Pane {
+    private final Navigator assignedNavigator;
 
+    private final Selectable backToMenuButton;
+    private final Selectable fastCarButton;
+    private final Selectable agileCarButton;
     public SelectionInstanceView(ApiHandler apiHandler){
-        Navigator assignedNavigator = new SelectionNavigator(apiHandler);
-        Selectable dummy = assignedNavigator.getCurrentSelection();
 
+        this.assignedNavigator = new SelectionNavigator(apiHandler);
 
-        Selectable backToMenuButton = new BackToMenuButton();
-        Selectable fastCarButton = new CarSelectionPanel();
-        Selectable agileCarButton = new CarSelectionPanel();
+        backToMenuButton = new BackToMenuButton();
+        fastCarButton = new CarSelectionPanel();
+        agileCarButton = new CarSelectionPanel();
 
-        dummy.setNeighbour(Direction.LEFT, fastCarButton);
-        dummy.setNeighbour(Direction.RIGHT, agileCarButton);
+        preparePaneContents();
+    }
 
+    private void preparePaneContents() {
         fastCarButton.setNeighbour(Direction.RIGHT, agileCarButton);
         fastCarButton.setNeighbour(Direction.DOWN, backToMenuButton);
 
@@ -31,8 +36,19 @@ public class SelectionInstanceView { //TODO:could also extend Pane? was meinst d
 
         backToMenuButton.setNeighbour(Direction.UP, fastCarButton);
 
+        assignedNavigator.getInitialSelectable().setNeighbour(Direction.LEFT, fastCarButton);
+        assignedNavigator.getInitialSelectable().setNeighbour(Direction.RIGHT, agileCarButton);
+
         Text menuText = new Text("CarGame");
         menuText.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-fill: #009783;");
         menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 30));
+        this.setHeight((double) GameConfig.SCREEN_HEIGHT / 2);
+        this.setWidth(GameConfig.SCREEN_WIDTH);
+
+        this.getChildren().addAll(backToMenuButton, fastCarButton, menuText, agileCarButton);
+    }
+
+    public void setup(){
+        assignedNavigator.reset();
     }
 }
