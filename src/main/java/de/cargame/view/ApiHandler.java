@@ -37,6 +37,15 @@ public class ApiHandler {
         this.inputReceiverGamePad = new InputReceiver(playerApi.getGamepadPlayerId());
         this.inputReceiverKeyboard = new InputReceiver(playerApi.getKeyboardPlayerId());
 
+
+        playerApi.createPlayerKeyboard();
+        playerApi.createPlayerGamepad();
+
+        String keyboardPlayerId = playerApi.getKeyboardPlayerId();
+        playerApi.registerInputObserver(inputReceiverKeyboard, keyboardPlayerId);
+
+        String gamepadPlayerId = playerApi.getGamepadPlayerId();
+        playerApi.registerInputObserver(inputReceiverGamePad, gamepadPlayerId);
         // TODO: register InputReceivers as Observers in backend
     }
 

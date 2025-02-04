@@ -20,7 +20,7 @@ public class GamePad extends InputDevice {
 
     public GamePad(String id) {
         super(id);
-        initController();
+        //initController(); //Todo fix
     }
 
     public void initController() {
