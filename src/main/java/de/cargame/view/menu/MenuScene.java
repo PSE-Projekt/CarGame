@@ -38,7 +38,7 @@ public class MenuScene extends CustomScene {
         HBox sceneContent = new HBox();
 
         sceneContent.setStyle("-fx-background-color: #131d34;");
-        sceneContent.setPrefSize(GameConfig.SCREEN_WIDTH,GameConfig.SCREEN_HEIGHT/2);
+        sceneContent.setPrefSize(SCREEN_WIDTH,SCREEN_HEIGHT/2);
 
         //TODO: css oder so damit das kürzer ist & 2 farben hat
         Text menuText = new Text("CarGame");

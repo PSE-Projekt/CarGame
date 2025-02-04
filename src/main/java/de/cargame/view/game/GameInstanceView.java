@@ -1,6 +1,8 @@
 package de.cargame.view.game;
 
+import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfig;
+import de.cargame.config.GameConfigService;
 import de.cargame.controller.entity.GameModelData;
 import de.cargame.model.entity.gameobject.*;
 import de.cargame.model.entity.gameobject.car.ai.KamikazeCar;
@@ -14,12 +16,20 @@ public class GameInstanceView extends Pane {
     private final SpriteService spriteService;
     private GameModelData modelData;
 
+
+    private final int SCREEN_WIDTH;
+    private final int SCREEN_HEIGHT;
+
     public GameInstanceView(ApiHandler apiHandler, String playerID) {
+
+        SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
+        SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
+
         this.spriteService = new SpriteService();
 
         // add player stats to view and register in backend as observer
         PlayerStats stats = new PlayerStats();
-        apiHandler.getPlayerApi().registerPlayerObserver(stats); // TODO: discuss with backend team
+        apiHandler.getPlayerApi().registerPlayerObserver(stats, playerID); // TODO: discuss with backend team
 
         for (GameModelData modelData : apiHandler.getGameInstanceApi().getModel()) {
             if (modelData.getPlayerId().equals(playerID)) {
@@ -31,8 +41,8 @@ public class GameInstanceView extends Pane {
             throw new IllegalArgumentException("Player ID not found in game model data");
         }
 
-        this.setHeight((double) GameConfig.SCREEN_HEIGHT / 2);
-        this.setWidth(GameConfig.SCREEN_WIDTH);
+        this.setHeight((double) SCREEN_HEIGHT / 2);
+        this.setWidth(SCREEN_WIDTH);
 
         this.getChildren().add(stats);
     }

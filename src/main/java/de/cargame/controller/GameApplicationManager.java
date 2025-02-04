@@ -24,7 +24,7 @@ public class GameApplicationManager {
     private ApplicationView applicationView;
 
     public GameApplicationManager() {
-        run();
+    //    run();
     }
 
     private void run() {

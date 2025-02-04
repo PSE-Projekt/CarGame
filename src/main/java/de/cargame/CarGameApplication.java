@@ -36,14 +36,14 @@ public class CarGameApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        GameStateAPI gameStateAPI = this.gameApplicationManager.getGameStateAPI();
-        GameInstanceAPI gameInstanceAPI = this.gameApplicationManager.getGameInstanceAPI();
-        PlayerAPI playerAPI = this.gameApplicationManager.getPlayerAPI();
+      GameStateAPI gameStateAPI = this.gameApplicationManager.getGameStateAPI();
+      GameInstanceAPI gameInstanceAPI = this.gameApplicationManager.getGameInstanceAPI();
+      PlayerAPI playerAPI = this.gameApplicationManager.getPlayerAPI();
 
-        // the applicationView will handle further rendering from now on once the stage is handed over and the applicationView
+      //the applicationView will handle further rendering from now on once the stage is handed over and the applicationView
         // is registered in the gameApplicationManager
-        ApplicationView applicationView = new ApplicationView(gameInstanceAPI, gameStateAPI, playerAPI, primaryStage);
-        this.gameApplicationManager.registerApplicationView(applicationView);
+      ApplicationView applicationView = new ApplicationView(gameInstanceAPI, gameStateAPI, playerAPI, primaryStage);
+      this.gameApplicationManager.registerApplicationView(applicationView);
 
 
         /*

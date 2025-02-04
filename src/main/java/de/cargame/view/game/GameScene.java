@@ -22,12 +22,12 @@ public class GameScene extends CustomScene {
     private void configureSceneRoot() {
         VBox configurableRoot = (VBox) this.getRoot();
 
-        configurableRoot.setMaxHeight(GameConfig.SCREEN_HEIGHT);
-        configurableRoot.setMinHeight(GameConfig.SCREEN_HEIGHT);
-        configurableRoot.setPrefHeight(GameConfig.SCREEN_WIDTH);
-        configurableRoot.setMaxWidth(GameConfig.SCREEN_WIDTH);
-        configurableRoot.setMinWidth(GameConfig.SCREEN_WIDTH);
-        configurableRoot.setPrefWidth(GameConfig.SCREEN_WIDTH);
+        configurableRoot.setMaxHeight(SCREEN_HEIGHT);
+        configurableRoot.setMinHeight(SCREEN_HEIGHT);
+        configurableRoot.setPrefHeight(SCREEN_WIDTH);
+        configurableRoot.setMaxWidth(SCREEN_WIDTH);
+        configurableRoot.setMinWidth(SCREEN_WIDTH);
+        configurableRoot.setPrefWidth(SCREEN_WIDTH);
         configurableRoot.setAlignment(Pos.CENTER);
 
         configurableRoot.getChildren().addAll(gameInstanceViews);

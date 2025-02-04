@@ -1,6 +1,8 @@
 package de.cargame.view.selection;
 
+import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfig;
+import de.cargame.config.GameConfigService;
 import de.cargame.controller.api.PlayerAPI;
 import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.view.ApiHandler;
@@ -24,8 +26,15 @@ public class SelectionInstanceView extends Pane {
 
     private boolean carChoiceMade = false;
 
+    private final int SCREEN_WIDTH;
+    private final int SCREEN_HEIGHT;
+
 
     public SelectionInstanceView(SelectionScene handlingScene, ApiHandler apiHandler, String playerId){
+
+        SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
+        SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
+
         this.assignedNavigator = new SelectionNavigator(apiHandler);
         this.handlingScene = handlingScene;
         this.apiHandler = apiHandler;
@@ -62,8 +71,8 @@ public class SelectionInstanceView extends Pane {
         Text menuText = new Text("CarSelection");
         menuText.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-fill: #009783;");
         menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 30));
-        this.setHeight((double) GameConfig.SCREEN_HEIGHT / 2);
-        this.setWidth(GameConfig.SCREEN_WIDTH);
+        this.setHeight((double) SCREEN_HEIGHT / 2);
+        this.setWidth(SCREEN_WIDTH);
 
         this.getChildren().addAll(backToMenuButton, fastCarButton, menuText, agileCarButton);
     }
