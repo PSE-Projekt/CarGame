@@ -33,6 +33,7 @@ public class ScoreBoardScene extends CustomScene {
 
         // configure root to have a vertical layout and black background and configured size
         this.configureRoot();
+
     }
 
     public void setup() throws IllegalStateException { // TODO: erweiterbarer gestalten

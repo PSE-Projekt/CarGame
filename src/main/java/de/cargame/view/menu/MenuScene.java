@@ -28,6 +28,7 @@ public class MenuScene extends CustomScene {
         singlePlayerButton = new SinglePlayerButton();
         this.configureRoot();
         prepareSceneContent();
+        setup();
     }
 
     private void prepareSceneContent() {
@@ -68,7 +69,7 @@ public class MenuScene extends CustomScene {
     @Override
     public void setup() {
         assignedNavigator.reset();
-        this.apiHandler.getInputReceiverGamePad().assignNavigator(this.assignedNavigator);
         this.apiHandler.getInputReceiverKeyboard().assignNavigator(this.assignedNavigator);
+        this.apiHandler.getInputReceiverGamePad().assignNavigator(this.assignedNavigator);
     }
 }
