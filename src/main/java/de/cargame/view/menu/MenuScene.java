@@ -6,6 +6,7 @@ import de.cargame.view.CustomScene;
 import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import de.cargame.view.navigation.Selectable;
+import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -35,10 +36,12 @@ public class MenuScene extends CustomScene {
 
         VBox root = (VBox) this.getRoot();
 
+        this.configureRoot();
+
         HBox sceneContent = new HBox();
 
         sceneContent.setStyle("-fx-background-color: #131d34;");
-        sceneContent.setPrefSize(GameConfig.SCREEN_WIDTH,GameConfig.SCREEN_HEIGHT/2);
+        sceneContent.setPrefSize(GameConfig.SCREEN_WIDTH, (double) GameConfig.SCREEN_HEIGHT /2);
 
         //TODO: css oder so damit das kürzer ist & 2 farben hat
         Text menuText = new Text("CarGame");

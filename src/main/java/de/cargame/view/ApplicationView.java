@@ -16,8 +16,9 @@ import java.util.Map;
 public class ApplicationView {
     private final ApiHandler apiHandler;
     private final Map<GameState, CustomScene> sceneMap;
+    private final Stage stage;
     private CustomScene currentScene;
-    private Stage stage;
+
 
     public ApplicationView(GameInstanceAPI gameInstanceApi, GameStateAPI gameStateApi, PlayerAPI playerApi, Stage stage) {
         this.stage = stage;
