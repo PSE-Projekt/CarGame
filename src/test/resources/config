@@ -1,0 +1,85 @@
+ //----------------------UI------------------------------
+
+    SCREEN_WIDTH=1280
+    SCREEN_HEIGHT=720
+
+    //----------------------UI------------------------------
+    //----------------------GENERAL-------------------------
+
+    MAX_LIVES=3
+    GAME_SPEED=400
+    GAME_SPEED_FAST_FORWARD=480
+    CRASH_COOLDOWN_TIME=3000
+    SCORE_INCREASE_NORMAL_SPEED=0.1
+    SCORE_INCREASE_FAST_FORWARD_SPEED=0.15
+
+    /**
+     * Value:
+     * 8 -> ~120 FPS
+     * 16 -> ~60 FPS
+     * 32 -> ~30 FPS
+     */
+    FPS=8
+
+    //----------------------GENERAL--------------------------
+    //----------------------AI CAR GENERAL-------------------
+
+    AI_CAR_WIDTH=100
+    AI_CAR_HEIGHT=60
+    AI_CAR_SPEED=1.5
+    AI_CAR_SPAWN_TIME_MIN=300
+    AI_CAR_SPAWN_TIME_MAX=500
+
+    //----------------------AI CAR GENERAL-------------------
+    //----------------------FAST CAR-------------------------
+
+    FAST_CAR_WIDTH=90
+    FAST_CAR_HEIGHT=45
+    FAST_CAR_SPEED=350
+    FAST_CAR_INERTIA=100
+
+    //----------------------FAST CAR-------------------------
+    //----------------------AGILE CAR------------------------
+
+    AGILE_CAR_WIDTH=80
+    AGILE_CAR_HEIGHT=36
+    AGILE_CAR_SPEED=170
+    AGILE_CAR_INERTIA=70
+
+    //----------------------AGILE CAR------------------------
+    //----------------------BUILDING------------------------
+    BUILDING_WIDTH=65
+    BUILDING_HEIGHT=65
+    /**
+     * Pixelcount how wide the spawn area for buildings is
+     */
+    BUILDING_SPAWN_AREA_WIDTH=15
+    BUILDING_SPAWN_TIME_MIN=100
+    BUILDING_SPAWN_TIME_MAX=300
+
+    //----------------------BUILDING------------------------
+    //----------------------ROAD MARK-----------------------
+
+    ROAD_MARK_WIDTH=40
+    ROAD_MARK_HEIGHT=10
+    ROAD_MARK_SPAWN_TIME_MIN=500
+    ROAD_MARK_SPAWN_TIME_MAX=501
+
+    //----------------------ROAD MARK-----------------------
+    //----------------------OBSTACLE------------------------
+
+    OBSTACLE_WIDTH=100
+    OBSTACLE_HEIGHT=55
+    OBSTACLE_SPAWN_TIME_MIN=700
+    OBSTACLE_SPAWN_TIME_MAX=1400
+
+
+    //----------------------OBSTACLE-----------------------
+    //----------------------REWARD-------------------------
+
+    REWARD_WIDTH=52
+    REWARD_HEIGHT=40
+    REWARD_SPAWN_TIME_MIN=15000
+    REWARD_SPAWN_TIME_MAX=20000
+
+    //----------------------REWARD-------------------------

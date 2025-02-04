@@ -5,9 +5,11 @@ import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.entity.player.PlayerObserver;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
+@Slf4j
 public class PlayerService {
 
     private final InputService inputService = new InputService();
@@ -29,14 +31,23 @@ public class PlayerService {
         inputService.registerGamePadObserver(gamepadPlayer);
     }
 
-    public void registerPlayerObservers(PlayerObserver observer) {
-        keyboardPlayer.addObserver(observer);
-        gamepadPlayer.addObserver(observer);
+    public void registerPlayerObserver(PlayerObserver observer, String playerId) {
+        if (playerId.equals(keyboardPlayer.getId())) {
+            keyboardPlayer.addObserver(observer);
+        } else if (playerId.equals(gamepadPlayer.getId())) {
+            gamepadPlayer.addObserver(observer);
+        }
+        log.warn("For the player with id '{}' could no player-observer be registered, because there is no player with this id.", playerId);
+
     }
 
-    public void registerInputObservers(UserInputObserver observer) {
-        inputService.registerKeyboardObserver(observer);
-        inputService.registerGamePadObserver(observer);
+    public void registerInputObserver(UserInputObserver observer, String playerId) {
+        if (playerId.equals(keyboardPlayer.getId())) {
+            inputService.registerKeyboardObserver(observer);
+        } else if (playerId.equals(gamepadPlayer.getId())) {
+            inputService.registerGamePadObserver(observer);
+        }
+        log.warn("For the player with id '{}' could no input-observer be registered, because there is no player with this id.", playerId);
     }
 
 

@@ -27,7 +27,7 @@ public abstract class SoundClip {
         new Thread(clip::start).start();
     }
 
-    public void loop(int count){
+    public void loop(int count) {
         clip.loop(count);
     }
 

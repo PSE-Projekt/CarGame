@@ -1,7 +1,7 @@
 package de.cargame.model.handler;
 
-
-import de.cargame.config.GameConfig;
+import de.cargame.config.ConfigKey;
+import de.cargame.config.GameConfigService;
 import de.cargame.model.service.GameObjectService;
 
 import java.util.concurrent.Executors;
@@ -11,14 +11,44 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
 public class GameObjectSpawnScheduler {
-    private final double fastForwardSpeedFactor = (double) GameConfig.GAME_SPEED / GameConfig.GAME_SPEED_FAST_FORWARD;
+
+
     private final GameObjectService gameObjectService;
     private final PlayerHandler playerHandler;
+    private final int GAME_SPEED;
+    private final int GAME_SPEED_FAST_FORWARD;
+    private final int AI_CAR_SPAWN_TIME_MIN;
+    private final int AI_CAR_SPAWN_TIME_MAX;
+    private final int OBSTACLE_SPAWN_TIME_MIN;
+    private final int OBSTACLE_SPAWN_TIME_MAX;
+    private final int REWARD_SPAWN_TIME_MIN;
+    private final int REWARD_SPAWN_TIME_MAX;
+    private final int BUILDING_SPAWN_TIME_MIN;
+    private final int BUILDING_SPAWN_TIME_MAX;
+    private final int ROAD_MARK_SPAWN_TIME_MIN;
+    private final int ROAD_MARK_SPAWN_TIME_MAX;
+    private final double fastForwardSpeedFactor;
     private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
     public GameObjectSpawnScheduler(PlayerHandler playerHandler, GameObjectService gameObjectService) {
         this.playerHandler = playerHandler;
         this.gameObjectService = gameObjectService;
+
+        GAME_SPEED = GameConfigService.getInstance().loadInteger(ConfigKey.GAME_SPEED);
+        GAME_SPEED_FAST_FORWARD = GameConfigService.getInstance().loadInteger(ConfigKey.GAME_SPEED_FAST_FORWARD);
+        AI_CAR_SPAWN_TIME_MIN = GameConfigService.getInstance().loadInteger(ConfigKey.AI_CAR_SPAWN_TIME_MIN);
+        AI_CAR_SPAWN_TIME_MAX = GameConfigService.getInstance().loadInteger(ConfigKey.AI_CAR_SPAWN_TIME_MAX);
+        OBSTACLE_SPAWN_TIME_MIN = GameConfigService.getInstance().loadInteger(ConfigKey.OBSTACLE_SPAWN_TIME_MIN);
+        OBSTACLE_SPAWN_TIME_MAX = GameConfigService.getInstance().loadInteger(ConfigKey.OBSTACLE_SPAWN_TIME_MAX);
+        REWARD_SPAWN_TIME_MIN = GameConfigService.getInstance().loadInteger(ConfigKey.REWARD_SPAWN_TIME_MIN);
+        REWARD_SPAWN_TIME_MAX = GameConfigService.getInstance().loadInteger(ConfigKey.REWARD_SPAWN_TIME_MAX);
+        BUILDING_SPAWN_TIME_MIN = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_TIME_MIN);
+        BUILDING_SPAWN_TIME_MAX = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_TIME_MAX);
+        ROAD_MARK_SPAWN_TIME_MIN = GameConfigService.getInstance().loadInteger(ConfigKey.ROAD_MARK_SPAWN_TIME_MIN);
+        ROAD_MARK_SPAWN_TIME_MAX = GameConfigService.getInstance().loadInteger(ConfigKey.ROAD_MARK_SPAWN_TIME_MAX);
+
+
+        fastForwardSpeedFactor = (double) GAME_SPEED / GAME_SPEED_FAST_FORWARD;
     }
 
 
@@ -44,28 +74,28 @@ public class GameObjectSpawnScheduler {
      * Schedules the spawning of AI Cars at randomized intervals within predefined time ranges.
      */
     private void scheduleAICar() {
-        scheduleSpawn(() -> gameObjectService::spawnAICar, GameConfig.AI_CAR_SPAWN_TIME_MIN, GameConfig.AI_CAR_SPAWN_TIME_MAX);
+        scheduleSpawn(() -> gameObjectService::spawnAICar, AI_CAR_SPAWN_TIME_MIN, AI_CAR_SPAWN_TIME_MAX);
     }
 
     /**
      * Schedules the spawning of obstacles at randomized intervals within predefined time ranges.
      */
     private void scheduleObstacle() {
-        scheduleSpawn(() -> gameObjectService::spawnObstacle, GameConfig.OBSTACLE_SPAWN_TIME_MIN, GameConfig.OBSTACLE_SPAWN_TIME_MAX);
+        scheduleSpawn(() -> gameObjectService::spawnObstacle, OBSTACLE_SPAWN_TIME_MIN, OBSTACLE_SPAWN_TIME_MAX);
     }
 
     /**
      * Schedules the spawning of rewards at randomized intervals within predefined time ranges.
      */
     private void scheduleReward() {
-        scheduleSpawn(() -> gameObjectService::spawnReward, GameConfig.REWARD_SPAWN_TIME_MIN, GameConfig.REWARD_SPAWN_TIME_MAX);
+        scheduleSpawn(() -> gameObjectService::spawnReward, REWARD_SPAWN_TIME_MIN, REWARD_SPAWN_TIME_MAX);
     }
 
     /**
      * Schedules the spawning of buildings at randomized intervals within predefined time ranges.
      */
     private void scheduleBuilding() {
-        scheduleSpawn(() -> gameObjectService::spawnBuilding, GameConfig.BUILDING_SPAWN_TIME_MIN, GameConfig.BUILDING_SPAWN_TIME_MAX);
+        scheduleSpawn(() -> gameObjectService::spawnBuilding, BUILDING_SPAWN_TIME_MIN, BUILDING_SPAWN_TIME_MAX);
     }
 
 
@@ -73,7 +103,7 @@ public class GameObjectSpawnScheduler {
      * Schedules the spawning of road marks at randomized intervals within predefined time ranges.
      */
     private void scheduleRoadMark() {
-        scheduleSpawn(() -> gameObjectService::spawnRoadMarks, GameConfig.ROAD_MARK_SPAWN_TIME_MIN, GameConfig.ROAD_MARK_SPAWN_TIME_MAX);
+        scheduleSpawn(() -> gameObjectService::spawnRoadMarks, ROAD_MARK_SPAWN_TIME_MIN, ROAD_MARK_SPAWN_TIME_MAX);
     }
 
 

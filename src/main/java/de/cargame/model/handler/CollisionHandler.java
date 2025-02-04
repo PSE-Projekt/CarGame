@@ -1,6 +1,5 @@
 package de.cargame.model.handler;
 
-import de.cargame.exception.IllegalGameObjectBoundException;
 import de.cargame.model.entity.gameobject.GameObject;
 import de.cargame.model.entity.gameobject.Reward;
 import de.cargame.model.entity.gameobject.car.player.PlayerCar;
@@ -9,7 +8,6 @@ import de.cargame.model.service.SoundService;
 
 import java.awt.*;
 import java.awt.geom.Area;
-import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,9 +110,9 @@ public class CollisionHandler {
     }
 
     private boolean shapesIntersect(Shape shape1, Shape shape2) {
-            Area area1 = new Area(shape1);
-            area1.intersect(new Area(shape2));
-            return !area1.isEmpty();
+        Area area1 = new Area(shape1);
+        area1.intersect(new Area(shape2));
+        return !area1.isEmpty();
     }
 
 }

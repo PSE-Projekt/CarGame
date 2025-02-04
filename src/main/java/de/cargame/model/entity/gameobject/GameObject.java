@@ -1,6 +1,7 @@
 package de.cargame.model.entity.gameobject;
 
-import de.cargame.config.GameConfig;
+import de.cargame.config.ConfigKey;
+import de.cargame.config.GameConfigService;
 import de.cargame.model.entity.gameobject.interfaces.Collidable;
 import de.cargame.model.entity.gameobject.interfaces.Despawnable;
 import lombok.Getter;
@@ -33,6 +34,10 @@ import java.util.UUID;
 public abstract class GameObject implements Collidable, Despawnable {
 
 
+    protected final double GAME_SPEED;
+    protected final double GAME_SPEED_FAST_FORWARD;
+    protected final int SCREEN_WIDTH;
+    protected final int SCREEN_HEIGHT;
     private final String id = UUID.randomUUID().toString();
     protected GameObjectBound gameObjectBound;
     protected boolean isStatic;
@@ -40,6 +45,11 @@ public abstract class GameObject implements Collidable, Despawnable {
     protected boolean isCollidable;
 
     public GameObject(double x, double y, int width, int height, GameObjectBoundType gameObjectBoundType) {
+        GAME_SPEED = GameConfigService.getInstance().loadDouble(ConfigKey.GAME_SPEED);
+        GAME_SPEED_FAST_FORWARD = GameConfigService.getInstance().loadDouble(ConfigKey.GAME_SPEED_FAST_FORWARD);
+        SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
+        SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
+
         setDespawnable();
         setIsStatic();
         setCollidable();
@@ -106,7 +116,7 @@ public abstract class GameObject implements Collidable, Despawnable {
         double xNew = gameObjectBound.getCoordinate().getX();
         double yNew = gameObjectBound.getCoordinate().getY();
 
-        if (xNew < 0 || xNew + objectWidth > GameConfig.SCREEN_WIDTH || yNew < 0 || yNew + objectHeight > GameConfig.SCREEN_HEIGHT) {
+        if (xNew < 0 || xNew + objectWidth > SCREEN_WIDTH || yNew < 0 || yNew + objectHeight > SCREEN_HEIGHT) {
             gameObjectBound.getCoordinate().setX(xOld);
             gameObjectBound.getCoordinate().setY(yOld);
         }

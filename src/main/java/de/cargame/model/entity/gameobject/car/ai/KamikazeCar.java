@@ -1,6 +1,5 @@
 package de.cargame.model.entity.gameobject.car.ai;
 
-import de.cargame.config.GameConfig;
 import de.cargame.model.entity.gameobject.Coordinate;
 import de.cargame.model.entity.gameobject.Dimension;
 import de.cargame.model.entity.gameobject.GameObjectBoundType;
@@ -27,9 +26,9 @@ public class KamikazeCar extends AICar {
     public void move(double deltaTime, boolean isFastForwarding) {
         double aiCarSpeed;
         if (isFastForwarding) {
-            aiCarSpeed = getSpeed() * GameConfig.GAME_SPEED_FAST_FORWARD;
+            aiCarSpeed = getSpeed() * GAME_SPEED_FAST_FORWARD;
         } else {
-            aiCarSpeed = getSpeed() * GameConfig.GAME_SPEED;
+            aiCarSpeed = getSpeed() * GAME_SPEED;
         }
         MovementStrategy movementStrategy = getMovementStrategy();
 
@@ -50,6 +49,6 @@ public class KamikazeCar extends AICar {
 
     @Override
     protected void setSpeed() {
-        this.speed = GameConfig.AI_CAR_SPEED;
+        this.speed = AI_CAR_SPEED;
     }
 }

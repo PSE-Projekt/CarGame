@@ -1,6 +1,7 @@
 package de.cargame.model.entity.gameobject.car.player;
 
-import de.cargame.config.GameConfig;
+import de.cargame.config.ConfigKey;
+import de.cargame.config.GameConfigService;
 import de.cargame.controller.input.UserInput;
 import de.cargame.controller.input.UserInputType;
 import de.cargame.model.entity.gameobject.Coordinate;
@@ -27,6 +28,9 @@ import java.util.Optional;
 public abstract class PlayerCar extends Car {
 
 
+    private final double SCORE_INCREASE_NORMAL_SPEED;
+    private final double SCORE_INCREASE_FAST_FORWARD_SPEED;
+    private final int CRASH_COOLDOWN_TIME;
     private String playerId;
     private double inertia;
     private long lastCrashTime;
@@ -36,6 +40,10 @@ public abstract class PlayerCar extends Car {
     public PlayerCar(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType) {
         super(coordinate, dimension, gameObjectBoundType);
         setPlayerHandler(playerHandler);
+
+        SCORE_INCREASE_NORMAL_SPEED = GameConfigService.getInstance().loadDouble(ConfigKey.SCORE_INCREASE_NORMAL_SPEED);
+        SCORE_INCREASE_FAST_FORWARD_SPEED = GameConfigService.getInstance().loadDouble(ConfigKey.SCORE_INCREASE_FAST_FORWARD_SPEED);
+        CRASH_COOLDOWN_TIME = GameConfigService.getInstance().loadInteger(ConfigKey.CRASH_COOLDOWN_TIME);
     }
 
 
@@ -105,10 +113,10 @@ public abstract class PlayerCar extends Car {
      */
     private double calculateDistance(double deltaTime, boolean isFastForwarding) {
         double baseDistance = getSpeed() * deltaTime;
-        double scoreIncrement = isFastForwarding ? GameConfig.SCORE_INCREASE_FAST_FORWARD_SPEED : GameConfig.SCORE_INCREASE_NORMAL_SPEED;
+        double scoreIncrement = isFastForwarding ? SCORE_INCREASE_FAST_FORWARD_SPEED : SCORE_INCREASE_NORMAL_SPEED;
 
         playerHandler.increaseScore(scoreIncrement);
-        return isFastForwarding ? baseDistance + GameConfig.SCORE_INCREASE_FAST_FORWARD_SPEED : baseDistance;
+        return isFastForwarding ? baseDistance + SCORE_INCREASE_FAST_FORWARD_SPEED : baseDistance;
     }
 
     private void moveCar(UserInputType userInputType, double distance, double gameObjectWidth, double gameObjectHeight) {
@@ -140,7 +148,7 @@ public abstract class PlayerCar extends Car {
      */
     public boolean hasCrashCooldown() {
         long now = System.currentTimeMillis();
-        return (now - lastCrashTime) < GameConfig.CRASH_COOLDOWN_TIME;
+        return (now - lastCrashTime) < CRASH_COOLDOWN_TIME;
     }
 
 

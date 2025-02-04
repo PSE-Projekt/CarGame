@@ -1,6 +1,7 @@
 package de.cargame.model;
 
-import de.cargame.config.GameConfig;
+import de.cargame.config.ConfigKey;
+import de.cargame.config.GameConfigService;
 import de.cargame.controller.GameApplicationManager;
 import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.entity.GameModelData;
@@ -19,6 +20,8 @@ public class GameInstance implements Runnable {
     private final GameApplicationManager gameApplicationManager;
     private final GameObjectService gameObjectService;
 
+    private final int FPS;
+
     @Getter
     private boolean isFinished = false;
 
@@ -28,6 +31,8 @@ public class GameInstance implements Runnable {
         this.gameApplicationManager = gameApplicationManager;
         this.playerHandler = new PlayerHandler(player);
         this.gameObjectService = new GameObjectService(gameStateController, playerHandler);
+
+        FPS = GameConfigService.getInstance().loadInteger(ConfigKey.FPS);
     }
 
     /**
@@ -57,7 +62,7 @@ public class GameInstance implements Runnable {
             gameObjectService.update(deltaTime);
             gameApplicationManager.renderGameInstance(this);
             try {
-                Thread.sleep(GameConfig.FPS);
+                Thread.sleep(FPS);
             } catch (InterruptedException e) {
                 log.error(e.getMessage());
             }
