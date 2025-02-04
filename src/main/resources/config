@@ -36,14 +36,14 @@
     FAST_CAR_WIDTH=90
     FAST_CAR_HEIGHT=45
     FAST_CAR_SPEED=350
-    FAST_CAR_INERTIA=100
+    FAST_CAR_INERTIA=150
 
     //----------------------FAST CAR-------------------------
     //----------------------AGILE CAR------------------------
 
     AGILE_CAR_WIDTH=80
     AGILE_CAR_HEIGHT=36
-    AGILE_CAR_SPEED=170
+    AGILE_CAR_SPEED=200
     AGILE_CAR_INERTIA=70
 
     //----------------------AGILE CAR------------------------
