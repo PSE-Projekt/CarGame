@@ -8,6 +8,7 @@ import de.cargame.view.game.GameScene;
 import de.cargame.view.menu.MenuScene;
 import de.cargame.view.scoreboard.ScoreBoardScene;
 import de.cargame.view.selection.SelectionScene;
+import javafx.application.Platform;
 import javafx.stage.Stage;
 
 import java.util.Map;
@@ -29,7 +30,12 @@ public class ApplicationView {
         );
 
         this.stage.setTitle("Car Game");
+        this.stage.setOnCloseRequest(event -> {
+            Platform.exit(); // Ensure JavaFX exits completely
+            System.exit(0);  // (Optional) Forcefully terminate the JVM
+        });
         stage.setResizable(false);
+        this.stage.setScene(sceneMap.get(GameState.MAIN_MENU));
         this.stage.show();
     }
 

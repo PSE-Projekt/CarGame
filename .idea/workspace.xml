@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="changes of render system of frontend. Generation of presentation layer in CarGameApplication.">
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="reset input receivers in GameScene for ignoring inputs in game and correct InputReceiver.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/InputReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/InputReceiver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +88,7 @@
       <command value="mvn javafx:run" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ApplicationView">
     <configuration name="ApplicationView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.cargame.view.ApplicationView" />
       <module name="CarGameTest" />
@@ -220,7 +218,8 @@
       <workItem from="1738412032435" duration="2746000" />
       <workItem from="1738505165436" duration="7439000" />
       <workItem from="1738533412489" duration="5600000" />
-      <workItem from="1738582434682" duration="22108000" />
+      <workItem from="1738582434682" duration="22623000" />
+      <workItem from="1738659245774" duration="1695000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -486,7 +485,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738617538445</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="reset input receivers in GameScene for ignoring inputs in game and correct InputReceiver.">
+      <option name="closed" value="true" />
+      <created>1738619515731</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1738619515731</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -510,7 +517,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented first attempt of APIHandler and ApplicationView" />
     <MESSAGE value="attempt: fixing incompatible history of main and frontend branches" />
     <MESSAGE value="improved controllerDummy, fixed some errors" />
     <MESSAGE value="added TODOs to Applicationview; function creating scenes + sceneSwitch needed" />
@@ -535,6 +541,7 @@
     <MESSAGE value="Fixed ScoreViewSinglePlayer" />
     <MESSAGE value="reset of inputreceivers in SelectionInstanceView" />
     <MESSAGE value="changes of render system of frontend. Generation of presentation layer in CarGameApplication." />
-    <option name="LAST_COMMIT_MESSAGE" value="changes of render system of frontend. Generation of presentation layer in CarGameApplication." />
+    <MESSAGE value="reset input receivers in GameScene for ignoring inputs in game and correct InputReceiver." />
+    <option name="LAST_COMMIT_MESSAGE" value="reset input receivers in GameScene for ignoring inputs in game and correct InputReceiver." />
   </component>
 </project>
