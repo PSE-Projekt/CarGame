@@ -49,9 +49,12 @@ public class ApplicationView {
             );
         }
 
-        this.stage.setScene(currentScene);
-        currentScene.setup();
+        Platform.runLater(() -> {
+            this.stage.setScene(currentScene);
+            currentScene.setup();
+        });
     }
+
 
     public void renderGame() {
         GameState currentState = this.apiHandler.getGameStateApi().getGameState();

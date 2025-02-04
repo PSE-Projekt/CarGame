@@ -93,7 +93,7 @@ public class Player implements UserInputObserver, PlayerObservable {
     }
 
     public Optional<UserInput> getUserInput() {
-        return this.userInputBundle.getLatestInput();
+        return this.userInputBundle.getLatestInputWithoutConfirm();
     }
 
     @Override

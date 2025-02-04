@@ -39,6 +39,7 @@ public class UserInputBundle {
 
         if (userInput.getUserInputType().equals(UserInputType.CONFIRM)) {
             fastForward = true;
+            this.userInputs.add(userInput);
         } else {
             if (!userInputs.contains(userInput)) {
                 this.userInputs.add(userInput);
@@ -58,6 +59,7 @@ public class UserInputBundle {
 
         if (userInputType.equals(UserInputType.CONFIRM)) {
             fastForward = false;
+            this.userInputs.remove(USER_INPUT_NONE);
         } else {
             userInputs.stream()
                     .filter(input -> input.getUserInputType().equals(userInputType))
@@ -72,15 +74,13 @@ public class UserInputBundle {
     }
 
 
-    /**
-     * Retrieves the most recent user input from the list of user inputs, excluding any inputs of type
-     * {@code UserInputType.CONFIRM}. The method determines the latest input based on the
-     * time associated with each {@code UserInput}, returning the one with the most recent timestamp.
-     *
-     * @return an {@code Optional} containing the latest {@code UserInput} if available, or an empty
-     * {@code Optional} if no applicable user inputs are present.
-     */
+
     public Optional<UserInput> getLatestInput() {
+        return userInputs.stream()
+                .min((o1, o2) -> Long.compare(o2.getPressedTimeStamp(), o1.getPressedTimeStamp()));
+    }
+
+    public Optional<UserInput> getLatestInputWithoutConfirm() {
         return userInputs.stream()
                 .filter(input -> input.getUserInputType() != UserInputType.CONFIRM)
                 .min((o1, o2) -> Long.compare(o2.getPressedTimeStamp(), o1.getPressedTimeStamp()));
