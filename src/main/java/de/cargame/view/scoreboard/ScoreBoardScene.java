@@ -21,6 +21,7 @@ public class ScoreBoardScene extends CustomScene {
         super(apiHandler);
         this.navigator = new ScoreBoardNavigator(apiHandler);
 
+        // instantiate navigation graph and static UI elements
         this.playAgainButton = new PlayAgainButton();
         this.backToMenuButton = new BackToMenuButton();
 
@@ -29,9 +30,15 @@ public class ScoreBoardScene extends CustomScene {
 
         this.navigator.getInitialSelectable().setNeighbour(Direction.LEFT, this.backToMenuButton);
         this.navigator.getInitialSelectable().setNeighbour(Direction.RIGHT, this.playAgainButton);
+
+        // configure root to have a vertical layout and black background and configured size
+        this.configureRoot();
     }
 
     public void setup() throws IllegalStateException { // TODO: erweiterbarer gestalten
+        VBox root = (VBox) this.getRoot();
+        root.getChildren().clear();
+
         GameStateAPI gameStateApi = this.apiHandler.getGameStateApi();
 
         if (!gameStateApi.getGameState().equals(GameState.SCORE_BOARD)) {
@@ -42,7 +49,7 @@ public class ScoreBoardScene extends CustomScene {
 
         Parent scoreView = getScoreView(gameStateApi);
 
-        ((VBox) this.getRoot()).getChildren().addAll(scoreView, this.playAgainButton, this.backToMenuButton);
+        root.getChildren().addAll(scoreView, this.playAgainButton, this.backToMenuButton);
 
         this.navigator.reset();
         this.apiHandler.getInputReceiverGamePad().assignNavigator(this.navigator);

@@ -19,20 +19,6 @@ public class GameScene extends CustomScene {
         this.gameInstanceViews = new ArrayList<>();
     }
 
-    private void configureSceneRoot() {
-        VBox configurableRoot = (VBox) this.getRoot();
-
-        configurableRoot.setMaxHeight(GameConfig.SCREEN_HEIGHT);
-        configurableRoot.setMinHeight(GameConfig.SCREEN_HEIGHT);
-        configurableRoot.setPrefHeight(GameConfig.SCREEN_WIDTH);
-        configurableRoot.setMaxWidth(GameConfig.SCREEN_WIDTH);
-        configurableRoot.setMinWidth(GameConfig.SCREEN_WIDTH);
-        configurableRoot.setPrefWidth(GameConfig.SCREEN_WIDTH);
-        configurableRoot.setAlignment(Pos.CENTER);
-
-        configurableRoot.getChildren().addAll(gameInstanceViews);
-    }
-
     public void render() {
         for (GameInstanceView gameInstanceView : gameInstanceViews) {
             gameInstanceView.render();
@@ -41,7 +27,10 @@ public class GameScene extends CustomScene {
 
     @Override
     public void setup() throws IllegalStateException {
+        VBox root = (VBox) this.getRoot();
         this.gameInstanceViews.clear();
+        root.getChildren().clear();
+
 
         GameMode currentGameMode = this.apiHandler.getGameStateApi().getGameMode();
         PlayerAPI playerApi = this.apiHandler.getPlayerApi();
@@ -62,7 +51,11 @@ public class GameScene extends CustomScene {
             throw new IllegalStateException("Game mode not specified yet");
         }
 
-        this.configureSceneRoot();
+        this.configureRoot();
+
+
+        root.getChildren().addAll(gameInstanceViews);
+
         this.apiHandler.getInputReceiverKeyboard().assignNavigator(null);
         this.apiHandler.getInputReceiverGamePad().assignNavigator(null);
     }

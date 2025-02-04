@@ -2,18 +2,12 @@ package de.cargame;
 
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
-import de.cargame.config.GameConfig;
 import de.cargame.controller.GameApplicationManager;
 import de.cargame.controller.api.GameInstanceAPI;
 import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.api.PlayerAPI;
 import de.cargame.view.ApplicationView;
 import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 
@@ -36,30 +30,18 @@ public class CarGameApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+        ApplicationView applicationView = getApplicationView(primaryStage);
+        this.gameApplicationManager.registerApplicationView(applicationView);
+    }
+
+    private ApplicationView getApplicationView(Stage primaryStage) {
         GameStateAPI gameStateAPI = this.gameApplicationManager.getGameStateAPI();
         GameInstanceAPI gameInstanceAPI = this.gameApplicationManager.getGameInstanceAPI();
         PlayerAPI playerAPI = this.gameApplicationManager.getPlayerAPI();
 
         // the applicationView will handle further rendering from now on once the stage is handed over and the applicationView
         // is registered in the gameApplicationManager
-        ApplicationView applicationView = new ApplicationView(gameInstanceAPI, gameStateAPI, playerAPI, primaryStage);
-        this.gameApplicationManager.registerApplicationView(applicationView);
-
-
-        /*
-            for testing purposes
-
-            primaryStage.setTitle("Car Game");
-            VBox root = new VBox();
-            root.getChildren().add(new Text("init was called correctly: " + (this.gameApplicationManager != null)));
-            Scene testScene = new Scene(root, GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT);
-
-            primaryStage.setScene(testScene);
-
-            primaryStage.show();
-         */
-
-
+        return new ApplicationView(gameInstanceAPI, gameStateAPI, playerAPI, primaryStage);
     }
 
     @Override

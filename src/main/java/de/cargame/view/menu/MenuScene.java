@@ -24,6 +24,7 @@ public class MenuScene extends CustomScene {
 
         multiPlayerButton = new MultiPlayerButton();
         singlePlayerButton = new SinglePlayerButton();
+        this.configureRoot();
         prepareSceneContent();
     }
 
@@ -35,9 +36,6 @@ public class MenuScene extends CustomScene {
         assignedNavigator.getInitialSelectable().setNeighbour(Direction.RIGHT, multiPlayerButton);
 
         VBox root = (VBox) this.getRoot();
-
-        this.configureRoot();
-
         HBox sceneContent = new HBox();
 
         sceneContent.setStyle("-fx-background-color: #131d34;");

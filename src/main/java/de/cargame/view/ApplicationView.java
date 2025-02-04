@@ -54,7 +54,11 @@ public class ApplicationView {
     }
 
     public void renderGame() {
-        if (!this.apiHandler.getGameStateApi().getGameState().equals(GameState.IN_GAME)) {
+        GameState currentState = this.apiHandler.getGameStateApi().getGameState();
+
+        if (currentState.equals(GameState.SCORE_BOARD)) {
+            this.switchScene(GameState.SCORE_BOARD);
+        } else if (!currentState.equals(GameState.IN_GAME)) {
             throw new IllegalStateException("Game state is not in game");
         } else if (!(this.currentScene instanceof GameScene)) {
             throw new IllegalStateException("the current scene is not the game scene");
