@@ -1,6 +1,7 @@
 package de.cargame.view;
 
-import de.cargame.config.GameConfig;
+import de.cargame.config.ConfigKey;
+import de.cargame.config.GameConfigService;
 import de.cargame.controller.GameStateController;
 import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.entity.GameModelData;
@@ -23,13 +24,13 @@ public class TestView extends JFrame implements GamePlayScene {
     public TestView(GameStateAPI gameStateController) {
 
         this.gameStateController = (GameStateController) gameStateController;
-        setPreferredSize(new Dimension(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT+28));
-        setMinimumSize(new Dimension(GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT));
+        setPreferredSize(new Dimension(GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT)+28));
+        setMinimumSize(new Dimension(GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT)));
 
         layeredPane.setLayout(null);
 
-        backgroundPanel.setBounds(0, 0, GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT);
-        foregroundPanel.setBounds(0, 0, GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT);
+        backgroundPanel.setBounds(0, 0, GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT));
+        foregroundPanel.setBounds(0, 0, GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT));
 
         backgroundPanel.setVisible(true);
         foregroundPanel.setVisible(true);

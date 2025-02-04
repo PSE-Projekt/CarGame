@@ -1,6 +1,7 @@
 package de.cargame.model.entity.gameobject;
 
-import de.cargame.config.GameConfig;
+import de.cargame.config.ConfigKey;
+import de.cargame.config.GameConfigService;
 import de.cargame.model.handler.PlayerHandler;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,9 +30,9 @@ public abstract class Reward extends GameObject {
     @Override
     public void move(double deltaTime, boolean isFastForwarding) {
         if (isFastForwarding) {
-            moveBy(-GameConfig.GAME_SPEED_FAST_FORWARD * deltaTime, 0);
+            moveBy(-GAME_SPEED_FAST_FORWARD * deltaTime, 0);
         } else {
-            moveBy(-GameConfig.GAME_SPEED * deltaTime, 0);
+            moveBy(-GAME_SPEED * deltaTime, 0);
         }
     }
 

@@ -1,7 +1,8 @@
 package de.cargame.model.entity.player;
 
 
-import de.cargame.config.GameConfig;
+import de.cargame.config.ConfigKey;
+import de.cargame.config.GameConfigService;
 import de.cargame.controller.input.UserInput;
 import de.cargame.controller.input.UserInputBundle;
 import de.cargame.model.PlayerObservable;
@@ -40,11 +41,14 @@ public class Player implements UserInputObserver, PlayerObservable {
     private CarType carSelection;
     private List<PlayerObserver> playerObservers = new ArrayList<>();
 
+    private final int MAX_LIVES;
+
     public Player() {
         this.id = UUID.randomUUID().toString();
         this.userInputBundle = new UserInputBundle();
-        setDefaultValues();
         this.isPlaying = false;
+        this.MAX_LIVES = GameConfigService.getInstance().loadInteger(ConfigKey.MAX_LIVES);
+        setDefaultValues();
     }
 
     @Override
@@ -60,7 +64,7 @@ public class Player implements UserInputObserver, PlayerObservable {
     public void setDefaultValues() {
         this.userInputBundle.reset();
         this.score = new Score();
-        this.lives = GameConfig.MAX_LIVES;
+        this.lives = MAX_LIVES;
         this.isPlaying = false;
         notifyPlayerObserversWithCurrentValues();
     }
