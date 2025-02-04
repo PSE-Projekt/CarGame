@@ -8,8 +8,11 @@ import de.cargame.model.GameInstance;
 import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.model.service.PlayerService;
 import de.cargame.model.service.SoundService;
+import de.cargame.view.ApplicationView;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+@Getter
 @Slf4j
 public class GameApplicationManager {
 
@@ -18,6 +21,7 @@ public class GameApplicationManager {
     private final PlayerAPI playerAPI = new PlayerController(new PlayerService());
     private final GameInstanceAPI gameInstanceAPI = new GameInstanceController(this, gameStateAPI, playerAPI);
 
+    private ApplicationView applicationView;
 
     public GameApplicationManager() {
         run();
@@ -56,7 +60,7 @@ public class GameApplicationManager {
      * @param gameInstance the current instance of the game, encapsulating the game's state and model data
      */
     public void renderGameInstance(GameInstance gameInstance) {
-        //todo
+        applicationView.renderGame();
     }
 
 
@@ -91,5 +95,9 @@ public class GameApplicationManager {
         String playerId = playerAPI.getKeyboardPlayerId();
         playerAPI.setPlaying(playerId, true);
         playerAPI.setCarSelection(playerId, CarType.FAST_CAR);
+    }
+
+    public void registerApplicationView(ApplicationView applicationView) {
+        this.applicationView = applicationView;
     }
 }
