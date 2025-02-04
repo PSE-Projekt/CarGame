@@ -10,8 +10,5 @@ public class SelectionNavigator extends Navigator {
         super(apiHandler);
     }
 
-    @Override
-    public void receiveInput(UserInputBundle userInputBundle, String playerID) {
 
-    }
 }
