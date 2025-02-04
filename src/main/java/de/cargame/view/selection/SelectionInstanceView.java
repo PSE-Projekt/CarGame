@@ -1,7 +1,6 @@
 package de.cargame.view.selection;
 
 import de.cargame.config.ConfigKey;
-import de.cargame.config.GameConfig;
 import de.cargame.config.GameConfigService;
 import de.cargame.controller.api.PlayerAPI;
 import de.cargame.model.entity.gameobject.car.player.CarType;
@@ -23,14 +22,12 @@ public class SelectionInstanceView extends Pane {
     private final Selectable agileCarButton;
     private final String playerId;
     private final ApiHandler apiHandler;
-
-    private boolean carChoiceMade = false;
-
     private final int SCREEN_WIDTH;
     private final int SCREEN_HEIGHT;
+    private boolean carChoiceMade = false;
 
 
-    public SelectionInstanceView(SelectionScene handlingScene, ApiHandler apiHandler, String playerId){
+    public SelectionInstanceView(SelectionScene handlingScene, ApiHandler apiHandler, String playerId) {
 
         SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
         SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
@@ -47,11 +44,11 @@ public class SelectionInstanceView extends Pane {
         preparePaneContents();
     }
 
-    boolean isReady(){
+    boolean isReady() {
         return carChoiceMade;
     }
 
-    void confirmChoice(){
+    void confirmChoice() {
         carChoiceMade = true;
         handlingScene.proceedToGame();
     }

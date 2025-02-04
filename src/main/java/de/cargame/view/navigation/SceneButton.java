@@ -6,24 +6,25 @@ import javafx.scene.image.ImageView;
 
 import java.util.Objects;
 
-public abstract class SceneButton extends Selectable implements Clickable{
+public abstract class SceneButton extends Selectable implements Clickable {
     private final Image defaultDisplay;
     private final Image displayOnSelection;
     private final ImageView display;
 
-public SceneButton(String pathDefaultImg, String pathSelectedImg) {
-    this.defaultDisplay =  loadImage(pathDefaultImg);
-    this.displayOnSelection =  loadImage(pathSelectedImg);
-    this.display =  new ImageView(defaultDisplay);
+    public SceneButton(String pathDefaultImg, String pathSelectedImg) {
+        this.defaultDisplay = loadImage(pathDefaultImg);
+        this.displayOnSelection = loadImage(pathSelectedImg);
+        this.display = new ImageView(defaultDisplay);
 
-    this.getChildren().add(display);
-}
-    private Image loadImage(String path){
+        this.getChildren().add(display);
+    }
+
+    private Image loadImage(String path) {
         Image image = null;
         try {
             image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(path)));
         } catch (NullPointerException | IllegalArgumentException e) {
-            System.err.println("image in path: " + path +" couldnt be loaded");
+            System.err.println("image in path: " + path + " couldnt be loaded");
         }
         return image;
     }
@@ -37,6 +38,7 @@ public SceneButton(String pathDefaultImg, String pathSelectedImg) {
     }
 
     @Override
-    public void deselect(){
-        display.setImage(defaultDisplay);    }
+    public void deselect() {
+        display.setImage(defaultDisplay);
+    }
 }

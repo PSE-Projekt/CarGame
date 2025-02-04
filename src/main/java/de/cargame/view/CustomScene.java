@@ -3,7 +3,6 @@ package de.cargame.view;
 
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
-import de.cargame.config.GameConfig;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.Background;

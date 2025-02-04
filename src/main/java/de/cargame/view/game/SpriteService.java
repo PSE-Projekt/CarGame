@@ -1,7 +1,6 @@
 package de.cargame.view.game;
 
 import de.cargame.view.game.sprites.*;
-
 import javafx.scene.image.ImageView;
 
 public class SpriteService {

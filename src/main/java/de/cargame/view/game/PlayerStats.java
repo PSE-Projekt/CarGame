@@ -12,8 +12,7 @@ public class PlayerStats extends Pane implements PlayerObserver {
     private Text health;
 
 
-
-    public PlayerStats(){
+    public PlayerStats() {
         this.score = new Text(SCORE_INDICATOR + 0);
         this.health = new Text(HEALTH_INDICATOR + 3);
         getChildren().addAll(score, health);

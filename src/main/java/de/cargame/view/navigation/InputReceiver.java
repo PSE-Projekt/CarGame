@@ -7,11 +7,11 @@ public class InputReceiver implements UserInputObserver {
     private final String playerID;
     private Navigator navigator;
 
-    public InputReceiver(String playerID){
+    public InputReceiver(String playerID) {
         this.playerID = playerID;
     }
 
-    public void update(UserInputBundle userInputBundle){
+    public void update(UserInputBundle userInputBundle) {
         if (navigator == null) {
             return;
         }

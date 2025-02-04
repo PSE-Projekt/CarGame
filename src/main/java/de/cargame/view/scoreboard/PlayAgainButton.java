@@ -4,7 +4,6 @@ import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.navigation.Clickable;
 import de.cargame.view.navigation.SceneButton;
-import javafx.scene.image.ImageView;
 
 public class PlayAgainButton extends SceneButton implements Clickable {
     public PlayAgainButton() {

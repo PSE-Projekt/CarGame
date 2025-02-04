@@ -1,6 +1,5 @@
 package de.cargame.view.selection;
 
-import de.cargame.config.GameConfig;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
@@ -33,9 +32,9 @@ public class SelectionScene extends CustomScene {
         configurableRoot.getChildren().addAll(selectionInstanceViews);
     }
 
-    void proceedToGame(){
-        for(SelectionInstanceView view : selectionInstanceViews){
-            if(!view.isReady()){
+    void proceedToGame() {
+        for (SelectionInstanceView view : selectionInstanceViews) {
+            if (!view.isReady()) {
                 return;
             }
         }

@@ -1,12 +1,10 @@
 package de.cargame.view.menu;
 
-import de.cargame.config.GameConfig;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
 import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import de.cargame.view.navigation.Selectable;
-import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -18,7 +16,7 @@ public class MenuScene extends CustomScene {
     private final Selectable singlePlayerButton;
     private final Selectable multiPlayerButton;
 
-    public MenuScene(ApiHandler apiHandler){
+    public MenuScene(ApiHandler apiHandler) {
         super(apiHandler);
         assignedNavigator = new MenuNavigator(apiHandler);
 
@@ -39,13 +37,13 @@ public class MenuScene extends CustomScene {
         HBox sceneContent = new HBox();
 
         sceneContent.setStyle("-fx-background-color: #131d34;");
-        sceneContent.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT /2);
+        sceneContent.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT / 2);
 
         //TODO: css oder so damit das kürzer ist & 2 farben hat
         Text menuText = new Text("CarGame");
         menuText.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-fill: #009783;");
         menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 30));
-        sceneContent.getChildren().addAll(singlePlayerButton,menuText, multiPlayerButton);
+        sceneContent.getChildren().addAll(singlePlayerButton, menuText, multiPlayerButton);
 
         root.getChildren().addAll(sceneContent);
     }

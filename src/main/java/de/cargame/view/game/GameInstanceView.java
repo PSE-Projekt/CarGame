@@ -1,10 +1,12 @@
 package de.cargame.view.game;
 
 import de.cargame.config.ConfigKey;
-import de.cargame.config.GameConfig;
 import de.cargame.config.GameConfigService;
 import de.cargame.controller.entity.GameModelData;
-import de.cargame.model.entity.gameobject.*;
+import de.cargame.model.entity.gameobject.Building;
+import de.cargame.model.entity.gameobject.Life;
+import de.cargame.model.entity.gameobject.Obstacle;
+import de.cargame.model.entity.gameobject.RoadMark;
 import de.cargame.model.entity.gameobject.car.ai.KamikazeCar;
 import de.cargame.model.entity.gameobject.car.player.AgileCar;
 import de.cargame.model.entity.gameobject.car.player.FastCar;
@@ -14,11 +16,9 @@ import javafx.scene.layout.Pane;
 
 public class GameInstanceView extends Pane {
     private final SpriteService spriteService;
-    private GameModelData modelData;
-
-
     private final int SCREEN_WIDTH;
     private final int SCREEN_HEIGHT;
+    private GameModelData modelData;
 
     public GameInstanceView(ApiHandler apiHandler, String playerID) {
 
@@ -63,7 +63,7 @@ public class GameInstanceView extends Pane {
                 objectView = spriteService.getRandomAgileCarSprite(gameObject.getId());
             } else if (gameObject instanceof FastCar) {
                 objectView = spriteService.getRandomFastCarSprite(gameObject.getId());
-            } else if(gameObject instanceof RoadMark) {
+            } else if (gameObject instanceof RoadMark) {
                 objectView = spriteService.getRandomRoadMarkSprite(gameObject.getId());
             } else {
                 throw new IllegalArgumentException("Unknown game object type");
