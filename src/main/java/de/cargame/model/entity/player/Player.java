@@ -33,6 +33,7 @@ import java.util.UUID;
 public class Player implements UserInputObserver, PlayerObservable {
 
     private final String id;
+    private final int MAX_LIVES;
     private UserInputBundle userInputBundle;
     private Score score;
     private PlayerCar playerCar;
@@ -40,8 +41,6 @@ public class Player implements UserInputObserver, PlayerObservable {
     private boolean isPlaying;
     private CarType carSelection;
     private List<PlayerObserver> playerObservers = new ArrayList<>();
-
-    private final int MAX_LIVES;
 
     public Player() {
         this.id = UUID.randomUUID().toString();

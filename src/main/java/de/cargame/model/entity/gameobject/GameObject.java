@@ -34,17 +34,15 @@ import java.util.UUID;
 public abstract class GameObject implements Collidable, Despawnable {
 
 
+    protected final double GAME_SPEED;
+    protected final double GAME_SPEED_FAST_FORWARD;
+    protected final int SCREEN_WIDTH;
+    protected final int SCREEN_HEIGHT;
     private final String id = UUID.randomUUID().toString();
     protected GameObjectBound gameObjectBound;
     protected boolean isStatic;
     protected boolean isDespawnable;
     protected boolean isCollidable;
-
-
-    protected final double GAME_SPEED;
-    protected final double GAME_SPEED_FAST_FORWARD;
-    protected final int SCREEN_WIDTH ;
-    protected final int SCREEN_HEIGHT;
 
     public GameObject(double x, double y, int width, int height, GameObjectBoundType gameObjectBoundType) {
         GAME_SPEED = GameConfigService.getInstance().loadDouble(ConfigKey.GAME_SPEED);

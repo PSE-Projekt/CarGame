@@ -110,9 +110,9 @@ public class CollisionHandler {
     }
 
     private boolean shapesIntersect(Shape shape1, Shape shape2) {
-            Area area1 = new Area(shape1);
-            area1.intersect(new Area(shape2));
-            return !area1.isEmpty();
+        Area area1 = new Area(shape1);
+        area1.intersect(new Area(shape2));
+        return !area1.isEmpty();
     }
 
 }

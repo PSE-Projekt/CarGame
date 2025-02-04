@@ -7,8 +7,8 @@ import java.util.Optional;
 @Slf4j
 public class GameConfigService {
 
-    private final GameConfig gameConfig = new GameConfig();
     private static GameConfigService INSTANCE = new GameConfigService();
+    private final GameConfig gameConfig = new GameConfig();
 
 
     private GameConfigService() {
@@ -21,7 +21,7 @@ public class GameConfigService {
 
     public int loadInteger(ConfigKey configKey) {
         Optional<String> value = gameConfig.getValueKey(configKey);
-        if(value.isEmpty()){
+        if (value.isEmpty()) {
             log.warn("Failed to load value for key: {}", configKey);
             return -1;
         }
@@ -37,7 +37,7 @@ public class GameConfigService {
 
     public double loadDouble(ConfigKey configKey) {
         Optional<String> value = gameConfig.getValueKey(configKey);
-        if(value.isEmpty()){
+        if (value.isEmpty()) {
             log.warn("Failed to load value for key: {}", configKey);
             return -1;
         }

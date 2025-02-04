@@ -1,7 +1,5 @@
 package de.cargame.model.entity.gameobject;
 
-import de.cargame.config.ConfigKey;
-import de.cargame.config.GameConfigService;
 import de.cargame.model.handler.PlayerHandler;
 import lombok.Getter;
 import lombok.Setter;

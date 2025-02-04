@@ -1,7 +1,5 @@
 package de.cargame.model.entity.gameobject.car.ai;
 
-import de.cargame.config.ConfigKey;
-import de.cargame.config.GameConfigService;
 import de.cargame.model.entity.gameobject.Coordinate;
 
 import java.util.Random;

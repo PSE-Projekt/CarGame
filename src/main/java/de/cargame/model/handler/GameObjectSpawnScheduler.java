@@ -13,11 +13,8 @@ import java.util.function.Supplier;
 public class GameObjectSpawnScheduler {
 
 
-
     private final GameObjectService gameObjectService;
     private final PlayerHandler playerHandler;
-    private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
-
     private final int GAME_SPEED;
     private final int GAME_SPEED_FAST_FORWARD;
     private final int AI_CAR_SPAWN_TIME_MIN;
@@ -30,9 +27,8 @@ public class GameObjectSpawnScheduler {
     private final int BUILDING_SPAWN_TIME_MAX;
     private final int ROAD_MARK_SPAWN_TIME_MIN;
     private final int ROAD_MARK_SPAWN_TIME_MAX;
-
-
     private final double fastForwardSpeedFactor;
+    private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
     public GameObjectSpawnScheduler(PlayerHandler playerHandler, GameObjectService gameObjectService) {
         this.playerHandler = playerHandler;
@@ -50,8 +46,6 @@ public class GameObjectSpawnScheduler {
         BUILDING_SPAWN_TIME_MAX = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_TIME_MAX);
         ROAD_MARK_SPAWN_TIME_MIN = GameConfigService.getInstance().loadInteger(ConfigKey.ROAD_MARK_SPAWN_TIME_MIN);
         ROAD_MARK_SPAWN_TIME_MAX = GameConfigService.getInstance().loadInteger(ConfigKey.ROAD_MARK_SPAWN_TIME_MAX);
-
-
 
 
         fastForwardSpeedFactor = (double) GAME_SPEED / GAME_SPEED_FAST_FORWARD;

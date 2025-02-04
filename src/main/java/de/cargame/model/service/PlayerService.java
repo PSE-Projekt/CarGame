@@ -32,9 +32,9 @@ public class PlayerService {
     }
 
     public void registerPlayerObserver(PlayerObserver observer, String playerId) {
-        if( playerId.equals(keyboardPlayer.getId())){
+        if (playerId.equals(keyboardPlayer.getId())) {
             keyboardPlayer.addObserver(observer);
-        }else if(playerId.equals(gamepadPlayer.getId())){
+        } else if (playerId.equals(gamepadPlayer.getId())) {
             gamepadPlayer.addObserver(observer);
         }
         log.warn("For the player with id '{}' could no player-observer be registered, because there is no player with this id.", playerId);
@@ -42,9 +42,9 @@ public class PlayerService {
     }
 
     public void registerInputObserver(UserInputObserver observer, String playerId) {
-        if( playerId.equals(keyboardPlayer.getId())){
+        if (playerId.equals(keyboardPlayer.getId())) {
             inputService.registerKeyboardObserver(observer);
-        }else if(playerId.equals(gamepadPlayer.getId())){
+        } else if (playerId.equals(gamepadPlayer.getId())) {
             inputService.registerGamePadObserver(observer);
         }
         log.warn("For the player with id '{}' could no input-observer be registered, because there is no player with this id.", playerId);

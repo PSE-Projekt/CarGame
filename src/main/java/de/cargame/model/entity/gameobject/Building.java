@@ -1,9 +1,5 @@
 package de.cargame.model.entity.gameobject;
 
-import de.cargame.config.ConfigKey;
-import de.cargame.config.GameConfigService;
-
-
 /**
  * Represents a Building object in the game world.
  * <p>

@@ -22,10 +22,6 @@ import java.util.Random;
 @Slf4j
 public class GameObjectCreationService {
 
-    @Setter
-    private GameObjectSpawningStrategy gameObjectSpawningStrategy;
-
-
     private final int FAST_CAR_WIDTH;
     private final int AGILE_CAR_WIDTH;
     private final int BUILDING_WIDTH;
@@ -33,7 +29,6 @@ public class GameObjectCreationService {
     private final int OBSTACLE_WIDTH;
     private final int REWARD_WIDTH;
     private final int AI_CAR_WIDTH;
-
     private final int FAST_CAR_HEIGHT;
     private final int AGILE_CAR_HEIGHT;
     private final int BUILDING_HEIGHT;
@@ -41,6 +36,8 @@ public class GameObjectCreationService {
     private final int OBSTACLE_HEIGHT;
     private final int REWARD_HEIGHT;
     private final int AI_CAR_HEIGHT;
+    @Setter
+    private GameObjectSpawningStrategy gameObjectSpawningStrategy;
 
 
     public GameObjectCreationService() {
@@ -60,7 +57,6 @@ public class GameObjectCreationService {
         this.AI_CAR_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.AI_CAR_HEIGHT);
 
     }
-
 
 
     public PlayerCar createPlayerCar(CarType carType) {

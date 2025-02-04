@@ -31,7 +31,7 @@ public abstract class GameObjectSpawningStrategy {
 
     }
 
-    protected void init(){
+    protected void init() {
         setBuildingSpawnArea();
         setObstacleSpawnArea();
         setRewardSpawnArea();

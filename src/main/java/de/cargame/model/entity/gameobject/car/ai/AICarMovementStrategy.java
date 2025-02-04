@@ -7,9 +7,8 @@ import de.cargame.model.entity.gameobject.Coordinate;
 public abstract class AICarMovementStrategy implements MovementStrategy {
 
     protected final Coordinate gameObjectSpawnCoordinate;
-    protected Coordinate targetPos;
-
     protected final int SCREEN_HEIGHT;
+    protected Coordinate targetPos;
 
 
     public AICarMovementStrategy(Coordinate gameObjectSpawnCoordinate) {

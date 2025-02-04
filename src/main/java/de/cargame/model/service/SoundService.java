@@ -43,13 +43,12 @@ public class SoundService {
         playSound(changeSelectionSoundClip);
     }
 
-    public void playRewardCollectedSound()
-    {
+    public void playRewardCollectedSound() {
         playSound(collectRewardSoundClip);
     }
 
 
-    public void playCarRaceSoundLoop(){
+    public void playCarRaceSoundLoop() {
         playSoundAndWaitForFinish(carRaceSoundClip);
     }
 

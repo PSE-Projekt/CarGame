@@ -3,11 +3,7 @@ package de.cargame.model.handler.entity;
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
 
-import java.time.LocalDateTime;
-
 public class SinglePlayerSpawningStrategy extends GameObjectSpawningStrategy {
-
-
 
 
     private final int BUILDING_HEIGHT;
@@ -30,7 +26,7 @@ public class SinglePlayerSpawningStrategy extends GameObjectSpawningStrategy {
         BUILDING_SPAWN_WIDTH = BUILDING_HEIGHT + BUILDING_SPAWN_AREA_WIDTH;
         ROAD_WIDTH = SCREEN_HEIGHT - 2 * (BUILDING_SPAWN_WIDTH);
 
-        ROADMARK_Y1 = ROAD_WIDTH / 3 - (ROAD_MARK_HEIGHT/ 2) + BUILDING_SPAWN_WIDTH;
+        ROADMARK_Y1 = ROAD_WIDTH / 3 - (ROAD_MARK_HEIGHT / 2) + BUILDING_SPAWN_WIDTH;
         ROADMARK_Y2 = ROAD_WIDTH / 3 + ROADMARK_Y1;
 
         super.init();

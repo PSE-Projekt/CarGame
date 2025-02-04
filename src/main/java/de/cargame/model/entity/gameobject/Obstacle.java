@@ -1,9 +1,5 @@
 package de.cargame.model.entity.gameobject;
 
-import de.cargame.config.ConfigKey;
-import de.cargame.config.GameConfigService;
-import de.cargame.model.handler.entity.GameObjectSpawningStrategy;
-
 /**
  * Represents an obstacle object within the game world, extending from {@link GameObject}.
  * Obstacles are stationary objects that flow in the game scene and interact with the players car
