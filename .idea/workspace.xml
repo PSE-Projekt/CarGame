@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="changes of render system of frontend. Generation of presentation layer in CarGameApplication.">
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="Almost finished Selection Package, only images for CarPanel need to be implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Navigator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Selectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Selectable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/CarSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/CarSelectionPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,14 +180,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -223,6 +212,7 @@
       <workItem from="1738505165436" duration="7439000" />
       <workItem from="1738533412489" duration="5600000" />
       <workItem from="1738582434682" duration="20376000" />
+      <workItem from="1738630213186" duration="1238000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -480,7 +470,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738613973525</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Almost finished Selection Package, only images for CarPanel need to be implemented">
+      <option name="closed" value="true" />
+      <created>1738619434596</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1738619434596</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,7 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implemented first attempt of APIHandler and ApplicationView" />
     <MESSAGE value="attempt: fixing incompatible history of main and frontend branches" />
     <MESSAGE value="improved controllerDummy, fixed some errors" />
     <MESSAGE value="added TODOs to Applicationview; function creating scenes + sceneSwitch needed" />
@@ -529,6 +526,7 @@
     <MESSAGE value="Fixed ScoreViewSinglePlayer" />
     <MESSAGE value="reset of inputreceivers in SelectionInstanceView" />
     <MESSAGE value="changes of render system of frontend. Generation of presentation layer in CarGameApplication." />
-    <option name="LAST_COMMIT_MESSAGE" value="changes of render system of frontend. Generation of presentation layer in CarGameApplication." />
+    <MESSAGE value="Almost finished Selection Package, only images for CarPanel need to be implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Almost finished Selection Package, only images for CarPanel need to be implemented" />
   </component>
 </project>

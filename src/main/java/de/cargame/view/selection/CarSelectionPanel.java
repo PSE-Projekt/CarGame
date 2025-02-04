@@ -12,9 +12,26 @@ public class CarSelectionPanel extends SceneButton implements Clickable {
 
     public CarSelectionPanel(CarType carType, SelectionInstanceView instanceView) {
 
-        super(null, null); //TODO: image
+
+        super(getDefaultCarImg(carType), getSelectedCarImg(carType)); //TODO: image
         this.carType = carType;
         this.instanceView = instanceView;
+    }
+
+    private static String getDefaultCarImg(CarType carType) { //TODO: static + switch best option?
+        return switch (carType) {
+            case AGILE_CAR -> "/frontend/agileCar_default.png";
+            case FAST_CAR -> "/frontend/fastCar_default.png";
+            default -> null;
+        };
+    }
+
+    private static String getSelectedCarImg(CarType carType) {
+        return switch (carType) {
+            case AGILE_CAR -> "/frontend/agileCar_selected.png";
+            case FAST_CAR -> "/frontend/fastCar_selected.png";
+            default -> null;
+        };
     }
 
     @Override
