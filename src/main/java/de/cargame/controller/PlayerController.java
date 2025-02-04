@@ -78,12 +78,12 @@ public class PlayerController implements PlayerAPI {
     }
 
     @Override
-    public void registerInputObserver(UserInputObserver observer) {
-        playerService.registerInputObservers(observer);
+    public void registerInputObserver(UserInputObserver observer, String playerId) {
+        playerService.registerInputObserver(observer, playerId);
     }
 
     @Override
-    public void registerPlayerObserver(PlayerObserver observer) {
-        playerService.registerPlayerObservers(observer);
+    public void registerPlayerObserver(PlayerObserver observer, String playerId) {
+        playerService.registerPlayerObserver(observer, playerId);
     }
 }

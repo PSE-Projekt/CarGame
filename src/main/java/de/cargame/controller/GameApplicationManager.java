@@ -93,9 +93,9 @@ public class GameApplicationManager {
 
     //TODO REMOVE
     private void dummyChangesToMakeThisShitWork() {
-        playerAPI.registerPlayerObserver(testView.getJPanel());
-        gameStateAPI.setGameMode(GameMode.SINGLEPLAYER);
         playerAPI.createPlayerKeyboard();
+        playerAPI.registerPlayerObserver(testView.getJPanel(), playerAPI.getKeyboardPlayerId());
+        gameStateAPI.setGameMode(GameMode.SINGLEPLAYER);
         String playerId = playerAPI.getKeyboardPlayerId();
         playerAPI.setPlaying(playerId, true);
         playerAPI.setCarSelection(playerId, CarType.FAST_CAR);

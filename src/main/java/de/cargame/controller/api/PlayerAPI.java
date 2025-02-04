@@ -31,8 +31,8 @@ public interface PlayerAPI {
 
     boolean isPlaying(String playerId);
 
-    void registerInputObserver(UserInputObserver observer);
+    void registerInputObserver(UserInputObserver observer, String playerId);
 
-    void registerPlayerObserver(PlayerObserver observer);
+    void registerPlayerObserver(PlayerObserver observer, String playerId);
 
 }
