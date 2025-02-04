@@ -41,7 +41,10 @@ public class GameScene extends CustomScene {
 
     @Override
     public void setup() throws IllegalStateException {
+        VBox root = (VBox) this.getRoot();
         this.gameInstanceViews.clear();
+        root.getChildren().clear();
+
 
         GameMode currentGameMode = this.apiHandler.getGameStateApi().getGameMode();
         PlayerAPI playerApi = this.apiHandler.getPlayerApi();
@@ -62,7 +65,11 @@ public class GameScene extends CustomScene {
             throw new IllegalStateException("Game mode not specified yet");
         }
 
-        this.configureSceneRoot();
+        this.configureRoot();
+
+
+        root.getChildren().addAll(gameInstanceViews);
+
         this.apiHandler.getInputReceiverKeyboard().assignNavigator(null);
         this.apiHandler.getInputReceiverGamePad().assignNavigator(null);
     }

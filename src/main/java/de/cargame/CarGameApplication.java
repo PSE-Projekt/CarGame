@@ -36,30 +36,18 @@ public class CarGameApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-      GameStateAPI gameStateAPI = this.gameApplicationManager.getGameStateAPI();
-      GameInstanceAPI gameInstanceAPI = this.gameApplicationManager.getGameInstanceAPI();
-      PlayerAPI playerAPI = this.gameApplicationManager.getPlayerAPI();
+        ApplicationView applicationView = getApplicationView(primaryStage);
+        this.gameApplicationManager.registerApplicationView(applicationView);
+    }
 
-      //the applicationView will handle further rendering from now on once the stage is handed over and the applicationView
+    private ApplicationView getApplicationView(Stage primaryStage) {
+        GameStateAPI gameStateAPI = this.gameApplicationManager.getGameStateAPI();
+        GameInstanceAPI gameInstanceAPI = this.gameApplicationManager.getGameInstanceAPI();
+        PlayerAPI playerAPI = this.gameApplicationManager.getPlayerAPI();
+
+        // the applicationView will handle further rendering from now on once the stage is handed over and the applicationView
         // is registered in the gameApplicationManager
-      ApplicationView applicationView = new ApplicationView(gameInstanceAPI, gameStateAPI, playerAPI, primaryStage);
-      this.gameApplicationManager.registerApplicationView(applicationView);
-
-
-        /*
-            for testing purposes
-
-            primaryStage.setTitle("Car Game");
-            VBox root = new VBox();
-            root.getChildren().add(new Text("init was called correctly: " + (this.gameApplicationManager != null)));
-            Scene testScene = new Scene(root, GameConfig.SCREEN_WIDTH, GameConfig.SCREEN_HEIGHT);
-
-            primaryStage.setScene(testScene);
-
-            primaryStage.show();
-         */
-
-
+        return new ApplicationView(gameInstanceAPI, gameStateAPI, playerAPI, primaryStage);
     }
 
     @Override

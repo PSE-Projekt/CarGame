@@ -8,9 +8,4 @@ public class MenuNavigator extends Navigator {
     public MenuNavigator(ApiHandler apiHandler) {
         super(apiHandler);
     }
-
-    @Override
-    public void receiveInput(UserInputBundle userInputBundle, String playerID) {
-
-    }
 }

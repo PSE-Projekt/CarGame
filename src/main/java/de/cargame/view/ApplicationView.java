@@ -16,8 +16,9 @@ import java.util.Map;
 public class ApplicationView {
     private final ApiHandler apiHandler;
     private final Map<GameState, CustomScene> sceneMap;
+    private final Stage stage;
     private CustomScene currentScene;
-    private Stage stage;
+
 
     public ApplicationView(GameInstanceAPI gameInstanceApi, GameStateAPI gameStateApi, PlayerAPI playerApi, Stage stage) {
         this.stage = stage;
@@ -53,7 +54,11 @@ public class ApplicationView {
     }
 
     public void renderGame() {
-        if (!this.apiHandler.getGameStateApi().getGameState().equals(GameState.IN_GAME)) {
+        GameState currentState = this.apiHandler.getGameStateApi().getGameState();
+
+        if (currentState.equals(GameState.SCORE_BOARD)) {
+            this.switchScene(GameState.SCORE_BOARD);
+        } else if (!currentState.equals(GameState.IN_GAME)) {
             throw new IllegalStateException("Game state is not in game");
         } else if (!(this.currentScene instanceof GameScene)) {
             throw new IllegalStateException("the current scene is not the game scene");

@@ -12,4 +12,5 @@ module cargame {
     exports de.cargame.view;
     exports de.cargame.model;
     exports de.cargame.controller;
+    exports de.cargame.controller.api;
 }
