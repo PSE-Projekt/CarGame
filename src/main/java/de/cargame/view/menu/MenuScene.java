@@ -41,7 +41,7 @@ public class MenuScene extends CustomScene {
 
         VBox sceneContent = new VBox();
         sceneContent.setStyle("-fx-background-color: #131d34;");
-        sceneContent.setPrefSize(GameConfig.SCREEN_WIDTH, (double) GameConfig.SCREEN_HEIGHT /2);
+        sceneContent.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT /2);
         sceneContent.setAlignment(Pos.CENTER);
 
         StackPane titleContainer = new StackPane();
@@ -49,13 +49,13 @@ public class MenuScene extends CustomScene {
         menuText.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-fill: #009783;");
         menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 50));
         titleContainer.getChildren().add(menuText);
-        titleContainer.setPrefSize(GameConfig.SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
+        titleContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
 
         Pane spacer = new Pane();
-        spacer.setPrefSize(GameConfig.SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
+        spacer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
 
         HBox buttonContainer = new HBox(30);
-        buttonContainer.setPrefSize(GameConfig.SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
+        buttonContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
         buttonContainer.setAlignment(Pos.CENTER);
         buttonContainer.getChildren().addAll(singlePlayerButton, multiPlayerButton);
 
