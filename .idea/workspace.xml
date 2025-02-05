@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="Improved display for the SelectionInstanceView, but not finished">
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="Added some Images for the game, improved code layout in SelectionInstanceView">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/CarGameApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/CarGameApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/CarSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/CarSelectionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sprites/agile_car.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sprites/agile_car.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sprites/fast_car.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sprites/fast_car.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sprites/kamikaze_car#1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sprites/kamikaze_car#1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sprites/kamikaze_car#2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sprites/kamikaze_car#2.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +216,8 @@
       <workItem from="1738533412489" duration="5600000" />
       <workItem from="1738582434682" duration="22623000" />
       <workItem from="1738659245774" duration="1695000" />
-      <workItem from="1738764083971" duration="3362000" />
+      <workItem from="1738764083971" duration="3982000" />
+      <workItem from="1738778093336" duration="834000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -498,7 +499,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738704996435</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Added some Images for the game, improved code layout in SelectionInstanceView">
+      <option name="closed" value="true" />
+      <created>1738770760717</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1738770760717</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +531,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="improved controllerDummy, fixed some errors" />
     <MESSAGE value="added TODOs to Applicationview; function creating scenes + sceneSwitch needed" />
     <MESSAGE value="Fixed NameConvention in some classes, etc" />
     <MESSAGE value="Fehler auskommentiert, um zu testen" />
@@ -547,6 +555,7 @@
     <MESSAGE value="changes of render system of frontend. Generation of presentation layer in CarGameApplication." />
     <MESSAGE value="reset input receivers in GameScene for ignoring inputs in game and correct InputReceiver." />
     <MESSAGE value="Improved display for the SelectionInstanceView, but not finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved display for the SelectionInstanceView, but not finished" />
+    <MESSAGE value="Added some Images for the game, improved code layout in SelectionInstanceView" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some Images for the game, improved code layout in SelectionInstanceView" />
   </component>
 </project>
