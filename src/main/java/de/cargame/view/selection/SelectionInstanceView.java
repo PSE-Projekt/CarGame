@@ -64,34 +64,35 @@ public class SelectionInstanceView extends Pane {
         agileCarButton.setNeighbour(Direction.RIGHT, fastCarButton);
         agileCarButton.setNeighbour(Direction.DOWN, backToMenuButton);
 
-        backToMenuButton.setNeighbour(Direction.UP, fastCarButton);
+        backToMenuButton.setNeighbour(Direction.UP, agileCarButton);
 
         assignedNavigator.getInitialSelectable().setNeighbour(Direction.LEFT, agileCarButton);
         assignedNavigator.getInitialSelectable().setNeighbour(Direction.RIGHT, fastCarButton);
+        assignedNavigator.getInitialSelectable().setNeighbour(Direction.DOWN, backToMenuButton);
 
 
         VBox sceneContent = new VBox();
         sceneContent.setStyle("-fx-background-color: #131d34;");
         sceneContent.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT / 2);
+        sceneContent.setAlignment(Pos.CENTER);
 
         StackPane titleContainer = new StackPane();
         Text menuText = new Text("CarSelection");
         menuText.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-fill: #009783;");
         menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 30));
         titleContainer.getChildren().add(menuText);
-        //titleContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
+        titleContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
 
         HBox selectionContainer = new HBox(30);
-        //selectionContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 4);
+        selectionContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
         selectionContainer.getChildren().addAll(agileCarButton, menuText, fastCarButton);
-        selectionContainer.setAlignment(Pos.CENTER);
 
         HBox buttonContainer = new HBox(30);
-        buttonContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 4);
+        buttonContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
         buttonContainer.setAlignment(Pos.CENTER);
         buttonContainer.getChildren().addAll(backToMenuButton);
 
-        sceneContent.getChildren().addAll( selectionContainer, backToMenuButton);
+        sceneContent.getChildren().addAll(titleContainer, selectionContainer,  buttonContainer);
 
         this.getChildren().addAll(sceneContent);
     }

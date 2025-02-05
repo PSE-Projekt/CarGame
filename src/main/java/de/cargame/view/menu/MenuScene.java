@@ -60,7 +60,7 @@ public class MenuScene extends CustomScene {
         buttonContainer.setAlignment(Pos.CENTER);
         buttonContainer.getChildren().addAll(singlePlayerButton, multiPlayerButton);
 
-        //TODO: css oder so damit das kürzer ist & 2 farben hat
+        //TODO: css oder so damit das 2 farben hat
 
         sceneContent.getChildren().addAll(titleContainer, spacer, buttonContainer);
         root.getChildren().addAll(sceneContent);

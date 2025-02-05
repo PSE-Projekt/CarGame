@@ -51,8 +51,6 @@ public class SelectionScene extends CustomScene {
         String gamepadPlayerId = playerApi.getGamepadPlayerId();
         switch (gameMode){
             case SINGLEPLAYER:
-
-
                 String playerOneId = apiHandler.getPlayerOneId();
 
                 if(playerOneId.equals(keyboardPlayerId)){
