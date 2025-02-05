@@ -2,6 +2,7 @@ package de.cargame.model.entity.gameobject.car.player;
 
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
+import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.input.UserInput;
 import de.cargame.controller.input.UserInputType;
 import de.cargame.model.entity.gameobject.Coordinate;
@@ -37,8 +38,8 @@ public abstract class PlayerCar extends Car {
     private PlayerHandler playerHandler;
     private UserInputType currentUserInput = UserInputType.NONE;
 
-    public PlayerCar(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType) {
-        super(coordinate, dimension, gameObjectBoundType);
+    public PlayerCar(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
+        super(coordinate, dimension, gameObjectBoundType, gameMode);
         setPlayerHandler(playerHandler);
 
         SCORE_INCREASE_NORMAL_SPEED = GameConfigService.getInstance().loadDouble(ConfigKey.SCORE_INCREASE_NORMAL_SPEED);

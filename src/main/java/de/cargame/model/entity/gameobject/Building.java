@@ -1,5 +1,7 @@
 package de.cargame.model.entity.gameobject;
 
+import de.cargame.controller.entity.GameMode;
+
 /**
  * Represents a Building object in the game world.
  * <p>
@@ -9,8 +11,8 @@ package de.cargame.model.entity.gameobject;
  */
 public class Building extends GameObject {
 
-    public Building(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType) {
-        super(coordinate, dimension, gameObjectBoundType);
+    public Building(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
+        super(coordinate, dimension, gameObjectBoundType, gameMode);
     }
 
     @Override

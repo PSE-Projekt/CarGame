@@ -2,6 +2,7 @@ package de.cargame.model.service;
 
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
+import de.cargame.controller.entity.GameMode;
 import de.cargame.exception.InvalidCarSelectionException;
 import de.cargame.model.entity.gameobject.*;
 import de.cargame.model.entity.gameobject.car.ai.*;
@@ -38,23 +39,26 @@ public class GameObjectCreationService {
     private final int AI_CAR_HEIGHT;
     @Setter
     private GameObjectSpawningStrategy gameObjectSpawningStrategy;
+    @Setter
+    private GameMode gameMode;
 
+    private final GameConfigService configService = GameConfigService.getInstance();
 
     public GameObjectCreationService() {
-        this.FAST_CAR_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.FAST_CAR_WIDTH);
-        this.AGILE_CAR_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.AGILE_CAR_WIDTH);
-        this.BUILDING_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_WIDTH);
-        this.ROAD_MARK_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.ROAD_MARK_WIDTH);
-        this.OBSTACLE_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.OBSTACLE_WIDTH);
-        this.REWARD_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.REWARD_WIDTH);
-        this.AI_CAR_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.AI_CAR_WIDTH);
-        this.FAST_CAR_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.FAST_CAR_HEIGHT);
-        this.AGILE_CAR_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.AGILE_CAR_HEIGHT);
-        this.BUILDING_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT);
-        this.ROAD_MARK_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.ROAD_MARK_HEIGHT);
-        this.OBSTACLE_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.OBSTACLE_HEIGHT);
-        this.REWARD_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.REWARD_HEIGHT);
-        this.AI_CAR_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.AI_CAR_HEIGHT);
+        this.FAST_CAR_WIDTH = configService.loadInteger(ConfigKey.FAST_CAR_WIDTH);
+        this.AGILE_CAR_WIDTH = configService.loadInteger(ConfigKey.AGILE_CAR_WIDTH);
+        this.BUILDING_WIDTH = configService.loadInteger(ConfigKey.BUILDING_WIDTH);
+        this.ROAD_MARK_WIDTH = configService.loadInteger(ConfigKey.ROAD_MARK_WIDTH);
+        this.OBSTACLE_WIDTH = configService.loadInteger(ConfigKey.OBSTACLE_WIDTH);
+        this.REWARD_WIDTH = configService.loadInteger(ConfigKey.REWARD_WIDTH);
+        this.AI_CAR_WIDTH = configService.loadInteger(ConfigKey.AI_CAR_WIDTH);
+        this.FAST_CAR_HEIGHT = configService.loadInteger(ConfigKey.FAST_CAR_HEIGHT);
+        this.AGILE_CAR_HEIGHT = configService.loadInteger(ConfigKey.AGILE_CAR_HEIGHT);
+        this.BUILDING_HEIGHT = configService.loadInteger(ConfigKey.BUILDING_HEIGHT);
+        this.ROAD_MARK_HEIGHT = configService.loadInteger(ConfigKey.ROAD_MARK_HEIGHT);
+        this.OBSTACLE_HEIGHT = configService.loadInteger(ConfigKey.OBSTACLE_HEIGHT);
+        this.REWARD_HEIGHT = configService.loadInteger(ConfigKey.REWARD_HEIGHT);
+        this.AI_CAR_HEIGHT = configService.loadInteger(ConfigKey.AI_CAR_HEIGHT);
 
     }
 
@@ -69,10 +73,10 @@ public class GameObjectCreationService {
         switch (carType) {
             case FAST_CAR:
                 dimension = new Dimension(FAST_CAR_WIDTH, FAST_CAR_HEIGHT);
-                return new FastCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE);
+                return new FastCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, gameMode);
             case AGILE_CAR:
                 dimension = new Dimension(AGILE_CAR_WIDTH, AGILE_CAR_HEIGHT);
-                return new AgileCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE);
+                return new AgileCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, gameMode);
         }
         log.error("No valid car-selection has been made");
         throw new InvalidCarSelectionException("No valid car-selection has been made");
@@ -83,7 +87,7 @@ public class GameObjectCreationService {
         SpawnAreaList spawnAreas = gameObjectSpawningStrategy.getBuildingSpawnAreas();
         List<Coordinate> spawnCoordinates = spawnAreas.getRandomCoordinateOfEach();
         return spawnCoordinates.stream()
-                .map(c -> new Building(c, dimension, GameObjectBoundType.RECTANGLE))
+                .map(c -> new Building(c, dimension, GameObjectBoundType.RECTANGLE, gameMode))
                 .toList();
     }
 
@@ -94,7 +98,7 @@ public class GameObjectCreationService {
         List<Coordinate> spawnCoordinates = spawnAreas.getRandomCoordinateOfEach();
         Dimension dimension = new Dimension(ROAD_MARK_WIDTH, ROAD_MARK_HEIGHT);
         return spawnCoordinates.stream()
-                .map(c -> new RoadMark(c, dimension, GameObjectBoundType.RECTANGLE))
+                .map(c -> new RoadMark(c, dimension, GameObjectBoundType.RECTANGLE, gameMode))
                 .toList();
     }
 
@@ -104,7 +108,7 @@ public class GameObjectCreationService {
         List<Coordinate> spawnCoordinates = spawnAreas.getRandomCoordinateOfEach();
         Dimension dimension = new Dimension(OBSTACLE_WIDTH, OBSTACLE_HEIGHT);
         return spawnCoordinates.stream()
-                .map(c -> new Obstacle(c, dimension, GameObjectBoundType.RECTANGLE))
+                .map(c -> new Obstacle(c, dimension, GameObjectBoundType.RECTANGLE, gameMode))
                 .toList();
 
     }
@@ -113,7 +117,7 @@ public class GameObjectCreationService {
         SpawnAreaList spawnAreas = gameObjectSpawningStrategy.getRewardSpawnAreas();
         Coordinate spawnCoordinate = spawnAreas.getRandomCoordinate();
         Dimension dimension = new Dimension(REWARD_WIDTH, REWARD_HEIGHT);
-        return new Life(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE);
+        return new Life(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, gameMode);
     }
 
 
@@ -126,9 +130,9 @@ public class GameObjectCreationService {
 
         return switch (aiCarType) {
             case CROSS_MOVING ->
-                    new KamikazeCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, new CrossMovementStrategy(spawnCoordinate));
+                    new KamikazeCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, new CrossMovementStrategy(spawnCoordinate), gameMode);
             case STRAIGHT_MOVING ->
-                    new KamikazeCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, new StraightMovementStrategy(spawnCoordinate));
+                    new KamikazeCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, new StraightMovementStrategy(spawnCoordinate), gameMode);
         };
     }
 

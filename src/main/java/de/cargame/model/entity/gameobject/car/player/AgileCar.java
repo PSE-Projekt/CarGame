@@ -2,6 +2,7 @@ package de.cargame.model.entity.gameobject.car.player;
 
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
+import de.cargame.controller.entity.GameMode;
 import de.cargame.model.entity.gameobject.Coordinate;
 import de.cargame.model.entity.gameobject.Dimension;
 import de.cargame.model.entity.gameobject.GameObjectBoundType;
@@ -19,8 +20,8 @@ public class AgileCar extends PlayerCar {
     private final double AGILE_CAR_SPEED;
     private final double AGILE_CAR_INERTIA;
 
-    public AgileCar(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType) {
-        super(coordinate, dimension, gameObjectBoundType);
+    public AgileCar(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
+        super(coordinate, dimension, gameObjectBoundType, gameMode);
         AGILE_CAR_SPEED = GameConfigService.getInstance().loadDouble(ConfigKey.AGILE_CAR_SPEED);
         AGILE_CAR_INERTIA = GameConfigService.getInstance().loadDouble(ConfigKey.AGILE_CAR_INERTIA);
         setSpeed();

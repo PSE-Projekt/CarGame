@@ -7,9 +7,31 @@ import java.util.List;
 
 public class MultiplayerSpawningStrategy extends GameObjectSpawningStrategy {
 
-    private final int ROADMARK_Y1 = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_WIDTH) + (SCREEN_HALVE_Y - 2 * (GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT))) / 3;
-    private final int ROADMARK_Y2 = ROADMARK_Y1 * 2;
+    private final int BUILDING_HEIGHT;
+    private final int BUILDING_SPAWN_AREA_WIDTH;
 
+    private final int ROAD_MARK_HEIGHT;
+
+    private final int BUILDING_SPAWN_WIDTH;
+    private final int ROAD_WIDTH;
+
+    private final int ROADMARK_Y1;
+    private final int ROADMARK_Y2;
+
+    public MultiplayerSpawningStrategy() {
+
+        BUILDING_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT);
+        BUILDING_SPAWN_AREA_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH);
+        ROAD_MARK_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.ROAD_MARK_HEIGHT);
+
+        BUILDING_SPAWN_WIDTH = BUILDING_HEIGHT + BUILDING_SPAWN_AREA_WIDTH;
+        ROAD_WIDTH = SCREEN_HALVE_Y - 2 * (BUILDING_SPAWN_WIDTH);
+
+        ROADMARK_Y1 = ROAD_WIDTH / 3 - (ROAD_MARK_HEIGHT / 2) + BUILDING_SPAWN_WIDTH;
+        ROADMARK_Y2 = ROAD_WIDTH / 3 + ROADMARK_Y1;
+
+        super.init();
+    }
 
     @Override
     protected void setBuildingSpawnArea() {
@@ -18,51 +40,45 @@ public class MultiplayerSpawningStrategy extends GameObjectSpawningStrategy {
 
     @Override
     protected void setObstacleSpawnArea() {
-        this.obstacleSpawnAreas.addAll(generateRoadSpawnAreas(GameConfigService.getInstance().loadInteger(ConfigKey.OBSTACLE_HEIGHT)));
+        int OBSTACLE_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.OBSTACLE_HEIGHT);
+        this.obstacleSpawnAreas.add(generateRoadSpawnArea(OBSTACLE_HEIGHT));
     }
 
     @Override
     protected void setRewardSpawnArea() {
-        this.rewardSpawnAreas.addAll(generateRoadSpawnAreas(GameConfigService.getInstance().loadInteger(ConfigKey.REWARD_HEIGHT)));
+        this.rewardSpawnAreas.add(generateRoadSpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.REWARD_HEIGHT)));
     }
 
     @Override
     protected void setRoadMarkSpawnArea() {
-        SpawnArea spawnArea1 = new SpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), ROADMARK_Y1, GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), ROADMARK_Y1);
-        SpawnArea spawnArea2 = new SpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), ROADMARK_Y2, GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), ROADMARK_Y2);
-
+        SpawnArea spawnArea1 = new SpawnArea(SCREEN_WIDTH, ROADMARK_Y1, SCREEN_WIDTH, ROADMARK_Y1);
+        SpawnArea spawnArea2 = new SpawnArea(SCREEN_WIDTH, ROADMARK_Y2, SCREEN_WIDTH, ROADMARK_Y2);
         this.roadSpawnAreas.add(spawnArea1);
         this.roadSpawnAreas.add(spawnArea2);
+
     }
 
     @Override
     protected void setPlayerSpawnArea() {
-        SpawnArea upperPlayerSpawnArea = new SpawnArea(PLAYER_SPAWN_X, SCREEN_QUARTER_Y, PLAYER_SPAWN_X, SCREEN_QUARTER_Y);
-        SpawnArea lowerPlayerSpawnArea = new SpawnArea(PLAYER_SPAWN_X, SCREEN_QUARTER_Y * 3, PLAYER_SPAWN_X, SCREEN_QUARTER_Y * 3);
-        this.playerSpawnAreas.add(upperPlayerSpawnArea);
-        this.playerSpawnAreas.add(lowerPlayerSpawnArea);
+        SpawnArea spawnArea = new SpawnArea(PLAYER_SPAWN_X, SCREEN_QUARTER_Y, PLAYER_SPAWN_X, SCREEN_QUARTER_Y);
+        this.playerSpawnAreas.add(spawnArea);
     }
 
     @Override
     protected void setAiCarSpawnArea() {
-
+        this.aiCarSpawnAreas.add(generateRoadSpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.AI_CAR_HEIGHT)));
     }
 
 
-    private List<SpawnArea> generateRoadSpawnAreas(int customHeight) {
-        SpawnArea upperRoadSpawnArea = new SpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT) + GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), SCREEN_HALVE_Y - GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH) - GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT) - customHeight);
-        SpawnArea lowerRoadSpawnArea = new SpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), SCREEN_HALVE_Y + GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT) - GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH) - GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT) - customHeight);
-
-        return List.of(upperRoadSpawnArea, lowerRoadSpawnArea);
+    private SpawnArea generateRoadSpawnArea(int customHeight) {
+        return new SpawnArea(SCREEN_WIDTH, BUILDING_SPAWN_WIDTH, SCREEN_WIDTH, SCREEN_HALVE_Y - BUILDING_SPAWN_WIDTH - customHeight);
     }
 
     private SpawnAreaList generateBuildingSpawnAreas() {
         this.buildingSpawnAreas = new SpawnAreaList();
-        buildingSpawnAreas.add(new SpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), 0, GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH)));
-        buildingSpawnAreas.add(new SpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), SCREEN_HALVE_Y - GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT) - GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), SCREEN_HALVE_Y - GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT)));
+        buildingSpawnAreas.add(new SpawnArea(SCREEN_WIDTH, 0, SCREEN_WIDTH, BUILDING_SPAWN_AREA_WIDTH));
+        buildingSpawnAreas.add(new SpawnArea(SCREEN_WIDTH, SCREEN_HALVE_Y - BUILDING_SPAWN_WIDTH, SCREEN_WIDTH, SCREEN_HALVE_Y - BUILDING_HEIGHT));
 
-        buildingSpawnAreas.add(new SpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), SCREEN_HALVE_Y, GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), SCREEN_HALVE_Y + GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH)));
-        buildingSpawnAreas.add(new SpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT) - GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT) - GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH), GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT) - GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT)));
         return buildingSpawnAreas;
     }
 }

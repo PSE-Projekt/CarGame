@@ -1,13 +1,14 @@
 package de.cargame.model.entity.gameobject.car.ai;
 
+import de.cargame.controller.entity.GameMode;
 import de.cargame.model.entity.gameobject.Coordinate;
 import de.cargame.model.entity.gameobject.Dimension;
 import de.cargame.model.entity.gameobject.GameObjectBoundType;
 
 public class KamikazeCar extends AICar {
 
-    public KamikazeCar(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, MovementStrategy movementStrategy) {
-        super(coordinate, dimension, gameObjectBoundType, movementStrategy);
+    public KamikazeCar(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, MovementStrategy movementStrategy, GameMode gameMode) {
+        super(coordinate, dimension, gameObjectBoundType, movementStrategy, gameMode);
         setSpeed();
     }
 

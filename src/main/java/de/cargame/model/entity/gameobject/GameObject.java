@@ -2,6 +2,7 @@ package de.cargame.model.entity.gameobject;
 
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
+import de.cargame.controller.entity.GameMode;
 import de.cargame.model.entity.gameobject.interfaces.Collidable;
 import de.cargame.model.entity.gameobject.interfaces.Despawnable;
 import lombok.Getter;
@@ -43,12 +44,14 @@ public abstract class GameObject implements Collidable, Despawnable {
     protected boolean isStatic;
     protected boolean isDespawnable;
     protected boolean isCollidable;
+    protected GameMode gameMode;
 
-    public GameObject(double x, double y, int width, int height, GameObjectBoundType gameObjectBoundType) {
+    public GameObject(double x, double y, int width, int height, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
         GAME_SPEED = GameConfigService.getInstance().loadDouble(ConfigKey.GAME_SPEED);
         GAME_SPEED_FAST_FORWARD = GameConfigService.getInstance().loadDouble(ConfigKey.GAME_SPEED_FAST_FORWARD);
         SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
         SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
+        this.gameMode = gameMode;
 
         setDespawnable();
         setIsStatic();
@@ -61,8 +64,8 @@ public abstract class GameObject implements Collidable, Despawnable {
         log.error("A hitbox was tried to initialize with an illegal shape");
     }
 
-    public GameObject(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType) {
-        this(coordinate.getX(), coordinate.getY(), dimension.getWidth(), dimension.getHeight(), gameObjectBoundType);
+    public GameObject(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
+        this(coordinate.getX(), coordinate.getY(), dimension.getWidth(), dimension.getHeight(), gameObjectBoundType ,gameMode);
     }
 
     protected abstract void setIsStatic();
@@ -116,7 +119,10 @@ public abstract class GameObject implements Collidable, Despawnable {
         double xNew = gameObjectBound.getCoordinate().getX();
         double yNew = gameObjectBound.getCoordinate().getY();
 
-        if (xNew < 0 || xNew + objectWidth > SCREEN_WIDTH || yNew < 0 || yNew + objectHeight > SCREEN_HEIGHT) {
+
+        int heightBound = gameMode == GameMode.MULTIPLAYER ? SCREEN_HEIGHT / 2 : SCREEN_HEIGHT;
+
+        if (yNew < 0 || yNew + objectHeight > heightBound) {
             gameObjectBound.getCoordinate().setX(xOld);
             gameObjectBound.getCoordinate().setY(yOld);
         }

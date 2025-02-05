@@ -1,5 +1,6 @@
 package de.cargame.model.entity.gameobject;
 
+import de.cargame.controller.entity.GameMode;
 import de.cargame.model.handler.PlayerHandler;
 
 /**
@@ -13,8 +14,8 @@ import de.cargame.model.handler.PlayerHandler;
  */
 public class Life extends Reward {
 
-    public Life(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType) {
-        super(coordinate, dimension, gameObjectBoundType);
+    public Life(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
+        super(coordinate, dimension, gameObjectBoundType, gameMode);
     }
 
     @Override

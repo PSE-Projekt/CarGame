@@ -1,5 +1,7 @@
 package de.cargame.model.entity.gameobject;
 
+import de.cargame.controller.entity.GameMode;
+
 /**
  * Represents an obstacle object within the game world, extending from {@link GameObject}.
  * Obstacles are stationary objects that flow in the game scene and interact with the players car
@@ -7,8 +9,8 @@ package de.cargame.model.entity.gameobject;
  */
 public class Obstacle extends GameObject {
 
-    public Obstacle(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType) {
-        super(coordinate, dimension, gameObjectBoundType);
+    public Obstacle(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
+        super(coordinate, dimension, gameObjectBoundType, gameMode);
     }
 
 
