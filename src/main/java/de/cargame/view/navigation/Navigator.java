@@ -2,6 +2,7 @@ package de.cargame.view.navigation;
 
 import de.cargame.controller.input.UserInputBundle;
 import de.cargame.controller.input.UserInputType;
+import de.cargame.model.service.SoundService;
 import de.cargame.view.ApiHandler;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +14,7 @@ public abstract class Navigator {
     @Setter
     @Getter
     protected Selectable currentSelection;
+    protected SoundService soundService = new SoundService();
 
     public Navigator(ApiHandler apiHandler) {
         this.currentSelection = new DummySelectable();
@@ -28,6 +30,7 @@ public abstract class Navigator {
         UserInputType latestInputType = userInputBundle.getLatestInput().get().getUserInputType();
 
         if (userInputBundle.isFastForward() && this.currentSelection instanceof Clickable) {
+            soundService.playSelectSound();
             ((Clickable) this.currentSelection).onClick(this.apiHandler, playerID);
         }
 
@@ -44,7 +47,8 @@ public abstract class Navigator {
         }
 
         if (newSelection != null) {
-            // TODO: play select sound
+
+            soundService.playChangeSelectionSound();
             this.currentSelection.deselect();
             this.currentSelection = newSelection;
             this.currentSelection.select();
