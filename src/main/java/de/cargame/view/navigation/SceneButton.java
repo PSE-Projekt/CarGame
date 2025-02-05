@@ -45,14 +45,11 @@ public abstract class SceneButton extends Selectable implements Clickable {
                 throw new IOException("Failed to decode image at path: " + path);
             }
             System.out.println("Successfully loaded: " + path);
-            WritableImage wr = null;
-            if (image != null) {
-                wr = new WritableImage(image.getWidth(), image.getHeight());
-                PixelWriter pw = wr.getPixelWriter();
-                for (int x = 0; x < image.getWidth(); x++) {
-                    for (int y = 0; y < image.getHeight(); y++) {
-                        pw.setArgb(x, y, image.getRGB(x, y));
-                    }
+            WritableImage wr = new WritableImage(image.getWidth(), image.getHeight());
+            PixelWriter pw = wr.getPixelWriter();
+            for (int x = 0; x < image.getWidth(); x++) {
+                for (int y = 0; y < image.getHeight(); y++) {
+                    pw.setArgb(x, y, image.getRGB(x, y));
                 }
             }
 

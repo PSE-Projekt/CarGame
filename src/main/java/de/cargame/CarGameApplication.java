@@ -55,7 +55,7 @@ public class CarGameApplication extends Application {
         try {
             System.setProperty("jna.library.path", "target/natives");
         } catch (Exception e) {
-            e.printStackTrace();
+            e.printStackTrace(); //TODO: improve
         }
         try {
             GlobalScreen.registerNativeHook();

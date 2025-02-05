@@ -58,16 +58,17 @@ public class SelectionInstanceView extends Pane {
     }
 
     private void preparePaneContents() {
-        fastCarButton.setNeighbour(Direction.RIGHT, agileCarButton);
+        fastCarButton.setNeighbour(Direction.LEFT, agileCarButton);
         fastCarButton.setNeighbour(Direction.DOWN, backToMenuButton);
 
-        agileCarButton.setNeighbour(Direction.LEFT, fastCarButton);
+        agileCarButton.setNeighbour(Direction.RIGHT, fastCarButton);
         agileCarButton.setNeighbour(Direction.DOWN, backToMenuButton);
 
         backToMenuButton.setNeighbour(Direction.UP, fastCarButton);
 
-        assignedNavigator.getInitialSelectable().setNeighbour(Direction.LEFT, fastCarButton);
-        assignedNavigator.getInitialSelectable().setNeighbour(Direction.RIGHT, agileCarButton);
+        assignedNavigator.getInitialSelectable().setNeighbour(Direction.LEFT, agileCarButton);
+        assignedNavigator.getInitialSelectable().setNeighbour(Direction.RIGHT, fastCarButton);
+
 
         VBox sceneContent = new VBox();
         sceneContent.setStyle("-fx-background-color: #131d34;");

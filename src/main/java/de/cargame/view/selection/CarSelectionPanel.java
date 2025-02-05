@@ -13,7 +13,7 @@ public class CarSelectionPanel extends SceneButton implements Clickable {
     public CarSelectionPanel(CarType carType, SelectionInstanceView instanceView) {
 
 
-        super(getDefaultCarImg(carType), getSelectedCarImg(carType)); //TODO: image
+        super(getDefaultCarImg(carType), getSelectedCarImg(carType));
         this.carType = carType;
         this.instanceView = instanceView;
     }

@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="reset input receivers in GameScene for ignoring inputs in game and correct InputReceiver.">
+    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="Improved display for the SelectionInstanceView, but not finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/CarGameApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/CarGameApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/CarSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/CarSelectionPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,14 +183,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -222,6 +216,7 @@
       <workItem from="1738533412489" duration="5600000" />
       <workItem from="1738582434682" duration="22623000" />
       <workItem from="1738659245774" duration="1695000" />
+      <workItem from="1738764083971" duration="3362000" />
     </task>
     <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
       <option name="closed" value="true" />
@@ -495,7 +490,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738619515731</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Improved display for the SelectionInstanceView, but not finished">
+      <option name="closed" value="true" />
+      <created>1738704996435</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1738704996435</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +522,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="attempt: fixing incompatible history of main and frontend branches" />
     <MESSAGE value="improved controllerDummy, fixed some errors" />
     <MESSAGE value="added TODOs to Applicationview; function creating scenes + sceneSwitch needed" />
     <MESSAGE value="Fixed NameConvention in some classes, etc" />
@@ -544,6 +546,7 @@
     <MESSAGE value="reset of inputreceivers in SelectionInstanceView" />
     <MESSAGE value="changes of render system of frontend. Generation of presentation layer in CarGameApplication." />
     <MESSAGE value="reset input receivers in GameScene for ignoring inputs in game and correct InputReceiver." />
-    <option name="LAST_COMMIT_MESSAGE" value="reset input receivers in GameScene for ignoring inputs in game and correct InputReceiver." />
+    <MESSAGE value="Improved display for the SelectionInstanceView, but not finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved display for the SelectionInstanceView, but not finished" />
   </component>
 </project>
