@@ -1,7 +1,7 @@
  //----------------------UI------------------------------
 
-    SCREEN_WIDTH=1280
-    SCREEN_HEIGHT=720
+    SCREEN_WIDTH=1366
+    SCREEN_HEIGHT=768
 
     //----------------------UI------------------------------
     //----------------------GENERAL-------------------------
@@ -26,8 +26,8 @@
 
     AI_CAR_WIDTH_SINGLEPLAYER=100
     AI_CAR_HEIGHT_SINGLEPLAYER=60
-    AI_CAR_WIDTH_MULTIPLAYER=75
-    AI_CAR_HEIGHT_MULTIPLAYER=45
+    AI_CAR_WIDTH_MULTIPLAYER=67
+    AI_CAR_HEIGHT_MULTIPLAYER=40
     AI_CAR_SPEED=1.5
     AI_CAR_SPAWN_TIME_MIN=300
     AI_CAR_SPAWN_TIME_MAX=500

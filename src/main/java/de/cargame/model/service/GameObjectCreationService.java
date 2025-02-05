@@ -152,9 +152,9 @@ public class GameObjectCreationService {
 
         return switch (aiCarType) {
             case CROSS_MOVING ->
-                    new KamikazeCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, new CrossMovementStrategy(spawnCoordinate), gameMode);
+                    new KamikazeCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, new CrossMovementStrategy(spawnCoordinate, gameMode), gameMode);
             case STRAIGHT_MOVING ->
-                    new KamikazeCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, new StraightMovementStrategy(spawnCoordinate), gameMode);
+                    new KamikazeCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, new StraightMovementStrategy(spawnCoordinate, gameMode), gameMode);
         };
     }
 
