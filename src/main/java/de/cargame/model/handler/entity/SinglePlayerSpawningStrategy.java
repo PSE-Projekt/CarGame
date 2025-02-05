@@ -19,9 +19,9 @@ public class SinglePlayerSpawningStrategy extends GameObjectSpawningStrategy {
 
     public SinglePlayerSpawningStrategy() {
 
-        BUILDING_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT);
-        BUILDING_SPAWN_AREA_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH);
-        ROAD_MARK_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.ROAD_MARK_HEIGHT);
+        BUILDING_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT_SINGLEPLAYER);
+        BUILDING_SPAWN_AREA_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_SINGLEPLAYER);
+        ROAD_MARK_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.ROAD_MARK_HEIGHT_SINGLEPLAYER);
 
         BUILDING_SPAWN_WIDTH = BUILDING_HEIGHT + BUILDING_SPAWN_AREA_WIDTH;
         ROAD_WIDTH = SCREEN_HEIGHT - 2 * (BUILDING_SPAWN_WIDTH);
@@ -39,13 +39,13 @@ public class SinglePlayerSpawningStrategy extends GameObjectSpawningStrategy {
 
     @Override
     protected void setObstacleSpawnArea() {
-        int OBSTACLE_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.OBSTACLE_HEIGHT);
+        int OBSTACLE_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.OBSTACLE_HEIGHT_SINGLEPLAYER);
         this.obstacleSpawnAreas.add(generateRoadSpawnArea(OBSTACLE_HEIGHT));
     }
 
     @Override
     protected void setRewardSpawnArea() {
-        this.rewardSpawnAreas.add(generateRoadSpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.REWARD_HEIGHT)));
+        this.rewardSpawnAreas.add(generateRoadSpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.REWARD_HEIGHT_SINGLEPLAYER)));
     }
 
     @Override
@@ -65,7 +65,7 @@ public class SinglePlayerSpawningStrategy extends GameObjectSpawningStrategy {
 
     @Override
     protected void setAiCarSpawnArea() {
-        this.aiCarSpawnAreas.add(generateRoadSpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.AI_CAR_HEIGHT)));
+        this.aiCarSpawnAreas.add(generateRoadSpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.AI_CAR_HEIGHT_SINGLEPLAYER)));
     }
 
 

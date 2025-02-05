@@ -29,8 +29,10 @@ public enum ConfigKey {
     //----------------------GENERAL--------------------------
     //----------------------AI CAR GENERAL-------------------
 
-    AI_CAR_WIDTH,
-    AI_CAR_HEIGHT,
+    AI_CAR_WIDTH_SINGLEPLAYER,
+    AI_CAR_HEIGHT_SINGLEPLAYER,
+    AI_CAR_WIDTH_MULTIPLAYER,
+    AI_CAR_HEIGHT_MULTIPLAYER,
     AI_CAR_SPEED,
     AI_CAR_SPAWN_TIME_MIN,
     AI_CAR_SPAWN_TIME_MAX,
@@ -38,43 +40,54 @@ public enum ConfigKey {
     //----------------------AI CAR GENERAL-------------------
     //----------------------FAST CAR-------------------------
 
-    FAST_CAR_WIDTH,
-    FAST_CAR_HEIGHT,
+    FAST_CAR_WIDTH_SINGLEPLAYER,
+    FAST_CAR_HEIGHT_SINGLEPLAYER,
+    FAST_CAR_WIDTH_MULTIPLAYER,
+    FAST_CAR_HEIGHT_MULTIPLAYER,
     FAST_CAR_SPEED,
     FAST_CAR_INERTIA,
 
     //----------------------FAST CAR-------------------------
     //----------------------AGILE CAR------------------------
 
-    AGILE_CAR_WIDTH,
-    AGILE_CAR_HEIGHT,
+    AGILE_CAR_WIDTH_SINGLEPLAYER,
+    AGILE_CAR_HEIGHT_SINGLEPLAYER,
+    AGILE_CAR_WIDTH_MULTIPLAYER,
+    AGILE_CAR_HEIGHT_MULTIPLAYER,
     AGILE_CAR_SPEED,
     AGILE_CAR_INERTIA,
 
     //----------------------AGILE CAR------------------------
     //----------------------BUILDING------------------------
-    BUILDING_WIDTH,
-    BUILDING_HEIGHT,
+    BUILDING_WIDTH_SINGLEPLAYER,
+    BUILDING_HEIGHT_SINGLEPLAYER,
+    BUILDING_WIDTH_MULTIPLAYER,
+    BUILDING_HEIGHT_MULTIPLAYER,
     /**
      * Pixelcount how wide the spawn area for buildings is
      */
-    BUILDING_SPAWN_AREA_WIDTH,
+    BUILDING_SPAWN_AREA_WIDTH_SINGLEPLAYER,
+    BUILDING_SPAWN_AREA_WIDTH_MULTIPLAYER,
     BUILDING_SPAWN_TIME_MIN,
     BUILDING_SPAWN_TIME_MAX,
 
     //----------------------BUILDING------------------------
     //----------------------ROAD MARK-----------------------
 
-    ROAD_MARK_WIDTH,
-    ROAD_MARK_HEIGHT,
+    ROAD_MARK_WIDTH_SINGLEPLAYER,
+    ROAD_MARK_HEIGHT_SINGLEPLAYER,
+    ROAD_MARK_WIDTH_MULTIPLAYER,
+    ROAD_MARK_HEIGHT_MULTIPLAYER,
     ROAD_MARK_SPAWN_TIME_MIN,
     ROAD_MARK_SPAWN_TIME_MAX,
 
     //----------------------ROAD MARK-----------------------
     //----------------------OBSTACLE------------------------
 
-    OBSTACLE_WIDTH,
-    OBSTACLE_HEIGHT,
+    OBSTACLE_WIDTH_SINGLEPLAYER,
+    OBSTACLE_HEIGHT_SINGLEPLAYER,
+    OBSTACLE_WIDTH_MULTIPLAYER,
+    OBSTACLE_HEIGHT_MULTIPLAYER,
     OBSTACLE_SPAWN_TIME_MIN,
     OBSTACLE_SPAWN_TIME_MAX,
 
@@ -82,8 +95,10 @@ public enum ConfigKey {
     //----------------------OBSTACLE-----------------------
     //----------------------REWARD-------------------------
 
-    REWARD_WIDTH,
-    REWARD_HEIGHT,
+    REWARD_WIDTH_SINGLEPLAYER,
+    REWARD_HEIGHT_SINGLEPLAYER,
+    REWARD_WIDTH_MULTIPLAYER,
+    REWARD_HEIGHT_MULTIPLAYER,
     REWARD_SPAWN_TIME_MIN,
     REWARD_SPAWN_TIME_MAX,
 

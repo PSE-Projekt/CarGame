@@ -23,20 +23,20 @@ import java.util.Random;
 @Slf4j
 public class GameObjectCreationService {
 
-    private final int FAST_CAR_WIDTH;
-    private final int AGILE_CAR_WIDTH;
-    private final int BUILDING_WIDTH;
-    private final int ROAD_MARK_WIDTH;
-    private final int OBSTACLE_WIDTH;
-    private final int REWARD_WIDTH;
-    private final int AI_CAR_WIDTH;
-    private final int FAST_CAR_HEIGHT;
-    private final int AGILE_CAR_HEIGHT;
-    private final int BUILDING_HEIGHT;
-    private final int ROAD_MARK_HEIGHT;
-    private final int OBSTACLE_HEIGHT;
-    private final int REWARD_HEIGHT;
-    private final int AI_CAR_HEIGHT;
+    private  int FAST_CAR_WIDTH;
+    private  int AGILE_CAR_WIDTH;
+    private  int BUILDING_WIDTH;
+    private  int ROAD_MARK_WIDTH;
+    private  int OBSTACLE_WIDTH;
+    private  int REWARD_WIDTH;
+    private  int AI_CAR_WIDTH;
+    private  int FAST_CAR_HEIGHT;
+    private  int AGILE_CAR_HEIGHT;
+    private  int BUILDING_HEIGHT;
+    private  int ROAD_MARK_HEIGHT;
+    private  int OBSTACLE_HEIGHT;
+    private  int REWARD_HEIGHT;
+    private  int AI_CAR_HEIGHT;
     @Setter
     private GameObjectSpawningStrategy gameObjectSpawningStrategy;
     @Setter
@@ -45,21 +45,43 @@ public class GameObjectCreationService {
     private final GameConfigService configService = GameConfigService.getInstance();
 
     public GameObjectCreationService() {
-        this.FAST_CAR_WIDTH = configService.loadInteger(ConfigKey.FAST_CAR_WIDTH);
-        this.AGILE_CAR_WIDTH = configService.loadInteger(ConfigKey.AGILE_CAR_WIDTH);
-        this.BUILDING_WIDTH = configService.loadInteger(ConfigKey.BUILDING_WIDTH);
-        this.ROAD_MARK_WIDTH = configService.loadInteger(ConfigKey.ROAD_MARK_WIDTH);
-        this.OBSTACLE_WIDTH = configService.loadInteger(ConfigKey.OBSTACLE_WIDTH);
-        this.REWARD_WIDTH = configService.loadInteger(ConfigKey.REWARD_WIDTH);
-        this.AI_CAR_WIDTH = configService.loadInteger(ConfigKey.AI_CAR_WIDTH);
-        this.FAST_CAR_HEIGHT = configService.loadInteger(ConfigKey.FAST_CAR_HEIGHT);
-        this.AGILE_CAR_HEIGHT = configService.loadInteger(ConfigKey.AGILE_CAR_HEIGHT);
-        this.BUILDING_HEIGHT = configService.loadInteger(ConfigKey.BUILDING_HEIGHT);
-        this.ROAD_MARK_HEIGHT = configService.loadInteger(ConfigKey.ROAD_MARK_HEIGHT);
-        this.OBSTACLE_HEIGHT = configService.loadInteger(ConfigKey.OBSTACLE_HEIGHT);
-        this.REWARD_HEIGHT = configService.loadInteger(ConfigKey.REWARD_HEIGHT);
-        this.AI_CAR_HEIGHT = configService.loadInteger(ConfigKey.AI_CAR_HEIGHT);
 
+
+    }
+
+
+    public void init(){
+        if(gameMode == GameMode.SINGLEPLAYER) {
+            this.FAST_CAR_WIDTH = configService.loadInteger(ConfigKey.FAST_CAR_WIDTH_SINGLEPLAYER);
+            this.AGILE_CAR_WIDTH = configService.loadInteger(ConfigKey.AGILE_CAR_WIDTH_SINGLEPLAYER);
+            this.BUILDING_WIDTH = configService.loadInteger(ConfigKey.BUILDING_WIDTH_SINGLEPLAYER);
+            this.ROAD_MARK_WIDTH = configService.loadInteger(ConfigKey.ROAD_MARK_WIDTH_SINGLEPLAYER);
+            this.OBSTACLE_WIDTH = configService.loadInteger(ConfigKey.OBSTACLE_WIDTH_SINGLEPLAYER);
+            this.REWARD_WIDTH = configService.loadInteger(ConfigKey.REWARD_WIDTH_SINGLEPLAYER);
+            this.AI_CAR_WIDTH = configService.loadInteger(ConfigKey.AI_CAR_WIDTH_SINGLEPLAYER);
+            this.FAST_CAR_HEIGHT = configService.loadInteger(ConfigKey.FAST_CAR_HEIGHT_SINGLEPLAYER);
+            this.AGILE_CAR_HEIGHT = configService.loadInteger(ConfigKey.AGILE_CAR_HEIGHT_SINGLEPLAYER);
+            this.BUILDING_HEIGHT = configService.loadInteger(ConfigKey.BUILDING_HEIGHT_SINGLEPLAYER);
+            this.ROAD_MARK_HEIGHT = configService.loadInteger(ConfigKey.ROAD_MARK_HEIGHT_SINGLEPLAYER);
+            this.OBSTACLE_HEIGHT = configService.loadInteger(ConfigKey.OBSTACLE_HEIGHT_SINGLEPLAYER);
+            this.REWARD_HEIGHT = configService.loadInteger(ConfigKey.REWARD_HEIGHT_SINGLEPLAYER);
+            this.AI_CAR_HEIGHT = configService.loadInteger(ConfigKey.AI_CAR_HEIGHT_SINGLEPLAYER);
+        }else {
+            this.FAST_CAR_WIDTH = configService.loadInteger(ConfigKey.FAST_CAR_WIDTH_MULTIPLAYER);
+            this.AGILE_CAR_WIDTH = configService.loadInteger(ConfigKey.AGILE_CAR_WIDTH_MULTIPLAYER);
+            this.BUILDING_WIDTH = configService.loadInteger(ConfigKey.BUILDING_WIDTH_MULTIPLAYER);
+            this.ROAD_MARK_WIDTH = configService.loadInteger(ConfigKey.ROAD_MARK_WIDTH_MULTIPLAYER);
+            this.OBSTACLE_WIDTH = configService.loadInteger(ConfigKey.OBSTACLE_WIDTH_MULTIPLAYER);
+            this.REWARD_WIDTH = configService.loadInteger(ConfigKey.REWARD_WIDTH_MULTIPLAYER);
+            this.AI_CAR_WIDTH = configService.loadInteger(ConfigKey.AI_CAR_WIDTH_MULTIPLAYER);
+            this.FAST_CAR_HEIGHT = configService.loadInteger(ConfigKey.FAST_CAR_HEIGHT_MULTIPLAYER);
+            this.AGILE_CAR_HEIGHT = configService.loadInteger(ConfigKey.AGILE_CAR_HEIGHT_MULTIPLAYER);
+            this.BUILDING_HEIGHT = configService.loadInteger(ConfigKey.BUILDING_HEIGHT_MULTIPLAYER);
+            this.ROAD_MARK_HEIGHT = configService.loadInteger(ConfigKey.ROAD_MARK_HEIGHT_MULTIPLAYER);
+            this.OBSTACLE_HEIGHT = configService.loadInteger(ConfigKey.OBSTACLE_HEIGHT_MULTIPLAYER);
+            this.REWARD_HEIGHT = configService.loadInteger(ConfigKey.REWARD_HEIGHT_MULTIPLAYER);
+            this.AI_CAR_HEIGHT = configService.loadInteger(ConfigKey.AI_CAR_HEIGHT_MULTIPLAYER);
+        }
     }
 
 

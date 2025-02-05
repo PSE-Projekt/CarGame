@@ -68,6 +68,7 @@ public class GameObjectService {
             gameObjectCreationService.setGameObjectSpawningStrategy(multiplayerSpawningStrategy);
             gameObjectCreationService.setGameMode(GameMode.MULTIPLAYER);
         }
+        gameObjectCreationService.init();
         spawnPlayerCar(player.getId(), player.getCarSelection());
 
         playerHandler.resetScore();
