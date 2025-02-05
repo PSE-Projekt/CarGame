@@ -21,6 +21,7 @@ public class SelectionScene extends CustomScene {
 
     private void configureSceneRoot() {
         VBox configurableRoot = ((VBox) this.getRoot());
+        configurableRoot.getChildren().clear();
 
         configurableRoot.setMaxHeight(SCREEN_HEIGHT);
         configurableRoot.setMinHeight(SCREEN_HEIGHT);

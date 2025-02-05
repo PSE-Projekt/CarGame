@@ -31,6 +31,7 @@ public class GameInstanceService {
     }
 
     public void startGame(Player player) {
+        player.resetScore();
         GameInstance gameInstance = new GameInstance(this, gameStateController, gameApplicationManager, player);
         addGameInstance(gameInstance);
         new Thread(gameInstance).start();

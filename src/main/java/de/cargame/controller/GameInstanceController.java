@@ -27,12 +27,14 @@ public class GameInstanceController implements GameInstanceAPI {
     @Override
     public void startGamePlayerKeyboard() {
         Player player = playerAPI.getKeyboardPlayer();
+        player.resetLives();
         gameInstanceService.startGame(player);
     }
 
     @Override
     public void startGamePlayerGamePad() {
         Player player = playerAPI.getGamepadPlayer();
+        player.resetLives();
         gameInstanceService.startGame(player);
     }
 

@@ -40,6 +40,7 @@ public class ScoreBoardScene extends CustomScene {
         VBox root = (VBox) this.getRoot();
         root.getChildren().clear();
 
+
         GameStateAPI gameStateApi = this.apiHandler.getGameStateApi();
 
         if (!gameStateApi.getGameState().equals(GameState.SCORE_BOARD)) {

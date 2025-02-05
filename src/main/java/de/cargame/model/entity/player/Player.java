@@ -68,6 +68,11 @@ public class Player implements UserInputObserver, PlayerObservable {
         notifyPlayerObserversWithCurrentValues();
     }
 
+    public void resetLives() {
+        this.lives = MAX_LIVES;
+        notifyPlayerObserversWithCurrentValues();
+    }
+
     public void resetScore() {
         score.reset();
         notifyPlayerObserversWithCurrentValues();

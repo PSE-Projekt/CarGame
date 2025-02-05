@@ -19,7 +19,6 @@ public class ApplicationView {
     private final Stage stage;
     private CustomScene currentScene;
 
-
     public ApplicationView(GameInstanceAPI gameInstanceApi, GameStateAPI gameStateApi, PlayerAPI playerApi, Stage stage) {
         this.stage = stage;
         this.apiHandler = new ApiHandler(gameInstanceApi, gameStateApi, playerApi, this);
@@ -55,18 +54,22 @@ public class ApplicationView {
         });
     }
 
-
     public void renderGame() {
         GameState currentState = this.apiHandler.getGameStateApi().getGameState();
 
+        // Handle each state explicitly
         if (currentState.equals(GameState.SCORE_BOARD)) {
+            // Switch to the ScoreBoardScene
             this.switchScene(GameState.SCORE_BOARD);
-        } else if (!currentState.equals(GameState.IN_GAME)) {
-            throw new IllegalStateException("Game state is not in game");
-        } else if (!(this.currentScene instanceof GameScene)) {
-            throw new IllegalStateException("the current scene is not the game scene");
+        } else if (currentState.equals(GameState.IN_GAME)) {
+            // Ensure the current scene is an instance of GameScene
+            if (!(this.currentScene instanceof GameScene)) {
+                throw new IllegalStateException("The current scene is not the game scene");
+            }
+            ((GameScene) currentScene).render();
+        } else {
+            // Invalid game state for rendering
+            throw new IllegalStateException("Game state is not valid for rendering the game");
         }
-
-        ((GameScene) currentScene).render();
     }
 }
