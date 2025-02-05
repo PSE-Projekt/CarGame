@@ -1,5 +1,7 @@
 package de.cargame.view.selection;
 
+import de.cargame.controller.api.GameInstanceAPI;
+import de.cargame.controller.api.PlayerAPI;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
@@ -35,22 +37,42 @@ public class SelectionScene extends CustomScene {
     }
 
     void proceedToGame() {
+
+        PlayerAPI playerApi = apiHandler.getPlayerApi();
+        GameInstanceAPI gameInstanceApi = apiHandler.getGameInstanceApi();
+
         for (SelectionInstanceView view : selectionInstanceViews) {
             if (!view.isReady()) {
                 return;
             }
         }
         GameMode gameMode = apiHandler.getGameStateApi().getGameMode();
+        String keyboardPlayerId = playerApi.getKeyboardPlayerId();
+        String gamepadPlayerId = playerApi.getGamepadPlayerId();
         switch (gameMode){
             case SINGLEPLAYER:
-                String keyboardPlayerId = apiHandler.getPlayerApi().getKeyboardPlayerId();
-                apiHandler.getPlayerApi().setPlaying(keyboardPlayerId, true);
-                apiHandler.getGameInstanceApi().startGamePlayerKeyboard(); //todo fix so right player game gets started
-            break;
+
+
+                String playerOneId = apiHandler.getPlayerOneId();
+
+                if(playerOneId.equals(keyboardPlayerId)){
+                    playerApi.setPlaying(keyboardPlayerId, true);
+                    playerApi.setPlaying(gamepadPlayerId, false);
+                    gameInstanceApi.startGamePlayerKeyboard();
+
+                } else if (playerOneId.equals(gamepadPlayerId)) {
+                    playerApi.setPlaying(keyboardPlayerId, false);
+                    playerApi.setPlaying(gamepadPlayerId, true);
+                    gameInstanceApi.startGamePlayerGamePad();
+                }
+                break;
+
             case MULTIPLAYER:
-                apiHandler.getGameInstanceApi().startGamePlayerKeyboard();
-                apiHandler.getGameInstanceApi().startGamePlayerGamePad();
-            break;
+                playerApi.setPlaying(gamepadPlayerId, true);
+                playerApi.setPlaying(keyboardPlayerId, true);
+                gameInstanceApi.startGamePlayerKeyboard();
+                gameInstanceApi.startGamePlayerGamePad();
+                break;
 
         }
         apiHandler.getGameStateApi().setGameState(GameState.IN_GAME);
