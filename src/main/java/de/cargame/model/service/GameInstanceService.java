@@ -34,11 +34,6 @@ public class GameInstanceService {
         GameInstance gameInstance = new GameInstance(this, gameStateController, gameApplicationManager, player);
         addGameInstance(gameInstance);
         new Thread(gameInstance).start();
-        boolean allGamesFinished = getFinishedGameInstances().size() == gameInstances.size();
-        if (allGamesFinished) {
-            gameStateController.setGameState(GameState.SCORE_BOARD);
-
-        }
     }
 
 
@@ -52,14 +47,15 @@ public class GameInstanceService {
     }
 
 
-    public void checkGameState() {
+    public boolean checkGameState() {
         for (GameInstance gameInstance : gameInstances) {
             if (!gameInstance.isFinished()) {
-                return;
+                return false;
             }
         }
         gameStateController.setGameState(GameState.SCORE_BOARD);
         SoundService.getInstance().stopCarRaceSoundLoop();
+        return true;
     }
 
     public void resetGameInstances() {

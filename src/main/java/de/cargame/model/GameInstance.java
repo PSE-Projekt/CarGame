@@ -60,7 +60,7 @@ public class GameInstance implements Runnable {
             lastTime = currentTime;
 
             gameObjectService.update(deltaTime);
-            gameApplicationManager.renderGameInstance(this);
+            gameApplicationManager.renderGameInstance();
             try {
                 Thread.sleep(FPS);
             } catch (InterruptedException e) {
@@ -68,7 +68,10 @@ public class GameInstance implements Runnable {
             }
         }
         isFinished = true;
-        gameInstanceService.checkGameState();
+        boolean allGamesFinished = gameInstanceService.checkGameState();
+        if(allGamesFinished){
+            gameApplicationManager.renderGameInstance();
+        }
     }
 
     public int getScore() {
