@@ -62,10 +62,12 @@ public class GameInstanceView extends Pane {
                 objectView = spriteService.getRandomLifeSprite(gameObject.getId());
             } else if (gameObject instanceof KamikazeCar) {
                 objectView = spriteService.getRandomKamikazeSprite(gameObject.getId());
-            } else if (gameObject instanceof AgileCar) {
+            } else if (gameObject instanceof AgileCar agileCar) {
                 objectView = spriteService.getRandomAgileCarSprite(gameObject.getId());
-            } else if (gameObject instanceof FastCar) {
+                objectView.setOpacity(agileCar.hasCrashCooldown() ? 0.5 : 1);
+            } else if (gameObject instanceof FastCar fastCar) {
                 objectView = spriteService.getRandomFastCarSprite(gameObject.getId());
+                objectView.setOpacity(fastCar.hasCrashCooldown() ? 0.5 : 1);
             } else if (gameObject instanceof RoadMark) {
                 objectView = spriteService.getRandomRoadMarkSprite(gameObject.getId());
             } else {
