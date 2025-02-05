@@ -15,21 +15,7 @@ public class GameScene extends CustomScene {
 
     public GameScene(ApiHandler apiHandler) {
         super(apiHandler);
-        configureSceneRoot();
-    }
-
-    private void configureSceneRoot() {
-        VBox configurableRoot = (VBox) this.getRoot();
-
-        configurableRoot.setMaxHeight(SCREEN_HEIGHT);
-        configurableRoot.setMinHeight(SCREEN_HEIGHT);
-        configurableRoot.setPrefHeight(SCREEN_WIDTH);
-        configurableRoot.setMaxWidth(SCREEN_WIDTH);
-        configurableRoot.setMinWidth(SCREEN_WIDTH);
-        configurableRoot.setPrefWidth(SCREEN_WIDTH);
-        configurableRoot.setAlignment(Pos.CENTER);
-
-        configurableRoot.getChildren().addAll(gameInstanceViews);
+        this.configureRoot();
     }
 
     public void render() {

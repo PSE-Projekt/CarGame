@@ -35,18 +35,18 @@ public class GameInstanceView extends Pane {
             }
         }
 
+        int playerCount = apiHandler.getGameInstanceApi().getModel().size();
+
         if (this.modelData == null) {
             throw new IllegalArgumentException("Player ID not found in game model data");
         }
 
-        this.setHeight((double) SCREEN_HEIGHT / 2);
-        this.setWidth(SCREEN_WIDTH);
+        this.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT / playerCount);
         this.setStyle("-fx-background-color: grey;");
         this.getChildren().add(stats);
     }
 
     public void render() {
-
         this.getChildren().clear();
         for (GameObject gameObject : modelData.getGameObjects()) {
             ImageView objectView;

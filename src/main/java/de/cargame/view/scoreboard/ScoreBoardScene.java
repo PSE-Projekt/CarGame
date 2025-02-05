@@ -6,40 +6,61 @@ import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
 import de.cargame.view.common.BackToMenuButton;
+import de.cargame.view.config.TextConfig;
 import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
-import de.cargame.view.navigation.Selectable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class ScoreBoardScene extends CustomScene {
-    private final Selectable backToMenuButton;
-    private final Selectable playAgainButton;
+    private final HBox buttonContainer;
     private final Navigator navigator;
+    private final VBox sceneContent;
 
     public ScoreBoardScene(ApiHandler apiHandler) {
         super(apiHandler);
+        sceneContent = new VBox();
+        sceneContent.setStyle("-fx-background-color: #131d34;");
+        sceneContent.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT /2);
+        sceneContent.setAlignment(Pos.CENTER);
+
         this.navigator = new ScoreBoardNavigator(apiHandler);
 
         // instantiate navigation graph and static UI elements
-        this.playAgainButton = new PlayAgainButton();
-        this.backToMenuButton = new BackToMenuButton();
+        PlayAgainButton playAgainButton = new PlayAgainButton();
+        BackToMenuButton backToMenuButton = new BackToMenuButton();
 
-        this.playAgainButton.setNeighbour(Direction.LEFT, this.backToMenuButton);
-        this.backToMenuButton.setNeighbour(Direction.RIGHT, this.playAgainButton);
+        playAgainButton.setNeighbour(Direction.LEFT, backToMenuButton);
+        backToMenuButton.setNeighbour(Direction.RIGHT, playAgainButton);
 
-        this.navigator.getInitialSelectable().setNeighbour(Direction.LEFT, this.backToMenuButton);
-        this.navigator.getInitialSelectable().setNeighbour(Direction.RIGHT, this.playAgainButton);
+        this.navigator.getInitialSelectable().setNeighbour(Direction.LEFT, backToMenuButton);
+        this.navigator.getInitialSelectable().setNeighbour(Direction.RIGHT, playAgainButton);
+
+        this.buttonContainer = new HBox(50);
+        this.buttonContainer.getChildren().addAll(backToMenuButton, playAgainButton);
+        this.buttonContainer.setAlignment(Pos.CENTER);
+        this.buttonContainer.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / 3);
+
+        ((VBox) this.getRoot()).getChildren().add(sceneContent);
 
         // configure root to have a vertical layout and black background and configured size
         this.configureRoot();
 
     }
 
-    public void setup() throws IllegalStateException { // TODO: erweiterbarer gestalten
-        VBox root = (VBox) this.getRoot();
-        root.getChildren().clear();
+    public void setup() throws IllegalStateException {
+        sceneContent.getChildren().clear();
 
+        Text scoreTitle = TextConfig.makeH1("Score Board");
+
+        VBox titleContainer = new VBox();
+        titleContainer.setAlignment(Pos.CENTER);
+        titleContainer.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / 3);
+        titleContainer.getChildren().add(scoreTitle);
 
         GameStateAPI gameStateApi = this.apiHandler.getGameStateApi();
 
@@ -49,27 +70,13 @@ public class ScoreBoardScene extends CustomScene {
             );
         }
 
-        Parent scoreView = getScoreView(gameStateApi);
+        ScoreView scoreView = new ScoreView(this.apiHandler);
+        scoreView.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / 3);
 
-        root.getChildren().addAll(scoreView, this.playAgainButton, this.backToMenuButton);
+        sceneContent.getChildren().addAll(titleContainer, scoreView, this.buttonContainer);
 
         this.navigator.reset();
         this.apiHandler.getInputReceiverGamePad().assignNavigator(this.navigator);
         this.apiHandler.getInputReceiverKeyboard().assignNavigator(this.navigator);
-    }
-
-    private Parent getScoreView(GameStateAPI gameStateApi) {
-        Parent scoreView;
-
-        if (gameStateApi.getGameMode().equals(GameMode.SINGLEPLAYER)) {
-            scoreView = new ScoreViewSinglePlayer(this.apiHandler);
-        } else if (gameStateApi.getGameMode().equals(GameMode.MULTIPLAYER)) {
-            scoreView = new ScoreViewMultiplayer(this.apiHandler);
-        } else {
-            throw new IllegalStateException(
-                    "Game mode not set yet. This implicates a wrong control flow of changing game related information."
-            );
-        }
-        return scoreView;
     }
 }

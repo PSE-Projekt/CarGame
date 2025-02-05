@@ -60,6 +60,7 @@ public class ApplicationView {
         // Handle each state explicitly
         if (currentState.equals(GameState.SCORE_BOARD)) {
             // Switch to the ScoreBoardScene
+            // (GameScene) currentScene.renderGameOverAnimation();
             this.switchScene(GameState.SCORE_BOARD);
         } else if (currentState.equals(GameState.IN_GAME)) {
             // Ensure the current scene is an instance of GameScene
