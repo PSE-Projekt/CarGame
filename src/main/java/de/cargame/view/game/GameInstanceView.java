@@ -48,6 +48,8 @@ public class GameInstanceView extends Pane {
     }
 
     public void render() {
+
+        this.getChildren().clear();
         modelData.getGameObjects().forEach(gameObject -> {
             ImageView objectView;
 

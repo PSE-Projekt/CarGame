@@ -9,6 +9,7 @@ import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.model.service.PlayerService;
 import de.cargame.model.service.SoundService;
 import de.cargame.view.ApplicationView;
+import javafx.application.Platform;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -60,7 +61,10 @@ public class GameApplicationManager {
      * @param gameInstance the current instance of the game, encapsulating the game's state and model data
      */
     public void renderGameInstance(GameInstance gameInstance) {
-        applicationView.renderGame();
+        Platform.runLater(() -> {
+                applicationView.renderGame();
+        });
+
     }
 
 

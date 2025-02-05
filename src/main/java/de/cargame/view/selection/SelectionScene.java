@@ -42,6 +42,8 @@ public class SelectionScene extends CustomScene {
         GameMode gameMode = apiHandler.getGameStateApi().getGameMode();
         switch (gameMode){
             case SINGLEPLAYER:
+                String keyboardPlayerId = apiHandler.getPlayerApi().getKeyboardPlayerId();
+                apiHandler.getPlayerApi().setPlaying(keyboardPlayerId, true);
                 apiHandler.getGameInstanceApi().startGamePlayerKeyboard(); //todo fix so right player game gets started
             break;
             case MULTIPLAYER:

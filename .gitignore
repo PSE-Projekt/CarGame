@@ -9,6 +9,7 @@
 .idea/**/shelf
 .idea/**
 target/**
+.idea
 
 
 # AWS User-specific

@@ -9,23 +9,22 @@ import java.util.Objects;
 
 public abstract class GameSprites {
     protected final List<String> paths;
-    protected final List<ImageView> imageViews;
+    protected final List<Image> images = new ArrayList<>();
 
     public GameSprites() {
         this.paths = new ArrayList<>();
-        this.imageViews = new ArrayList<>();
 
         setPaths();
         paths.forEach(path -> {
             try {
-                imageViews.add(loadSprite(path));
+                images.add(loadSprite(path));
             } catch (RuntimeException e) {
                 System.err.println(e.getMessage());
             }
         });
     }
 
-    private ImageView loadSprite(String path) {
+    private Image loadSprite(String path) {
         Image image;
 
         try {
@@ -37,12 +36,12 @@ public abstract class GameSprites {
             );
         }
 
-        return new ImageView(image);
+        return image;
     }
 
     protected abstract void setPaths();
 
     public ImageView getRandomSprite(String gameObjectId) {
-        return imageViews.get(Math.abs(gameObjectId.hashCode()) % imageViews.size());
+        return new ImageView(images.get(Math.abs(gameObjectId.hashCode()) % images.size()));
     }
 }
