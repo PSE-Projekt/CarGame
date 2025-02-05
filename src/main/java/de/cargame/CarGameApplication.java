@@ -2,6 +2,7 @@ package de.cargame;
 
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
+import com.github.kwhat.jnativehook.dispatcher.SwingDispatchService;
 import de.cargame.controller.GameApplicationManager;
 import de.cargame.controller.api.GameInstanceAPI;
 import de.cargame.controller.api.GameStateAPI;
@@ -46,6 +47,7 @@ public class CarGameApplication extends Application {
 
     @Override
     public void init() {
+
         // Set java.library.path to include the extracted native libraries
         System.setProperty("java.library.path", "target/natives");
 
@@ -57,6 +59,8 @@ public class CarGameApplication extends Application {
         }
         try {
             GlobalScreen.registerNativeHook();
+            GlobalScreen.setEventDispatcher(new SwingDispatchService());
+
         } catch (NativeHookException e) {
             throw new RuntimeException(e);
         }

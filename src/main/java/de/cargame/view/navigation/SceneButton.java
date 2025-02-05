@@ -3,7 +3,13 @@ package de.cargame.view.navigation;
 import de.cargame.view.ApiHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Objects;
 
 public abstract class SceneButton extends Selectable implements Clickable {
@@ -24,10 +30,39 @@ public abstract class SceneButton extends Selectable implements Clickable {
         try {
             image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(path)));
         } catch (NullPointerException | IllegalArgumentException e) {
-            System.err.println("image in path: " + path + " couldnt be loaded");
+            System.err.println("image in path: " + path + " couldn't be loaded");
         }
         return image;
     }
+
+    private static Image loadAndDisplayImage(String path) {
+        try (InputStream input = SceneButton.class.getClassLoader().getResourceAsStream(path)) {
+            if (input == null) {
+                throw new IOException("Image not found at path: " + path);
+            }
+            BufferedImage image = ImageIO.read(input);
+            if (image == null) {
+                throw new IOException("Failed to decode image at path: " + path);
+            }
+            System.out.println("Successfully loaded: " + path);
+            WritableImage wr = null;
+            if (image != null) {
+                wr = new WritableImage(image.getWidth(), image.getHeight());
+                PixelWriter pw = wr.getPixelWriter();
+                for (int x = 0; x < image.getWidth(); x++) {
+                    for (int y = 0; y < image.getHeight(); y++) {
+                        pw.setArgb(x, y, image.getRGB(x, y));
+                    }
+                }
+            }
+
+            return new ImageView(wr).getImage();
+        } catch (IOException e) {
+            System.err.println("Error loading image: " + e.getMessage());
+        }
+        throw new RuntimeException("Could not load image at path: " + path);
+    }
+
 
     @Override
     public abstract void onClick(ApiHandler apiHandler, String playerID);

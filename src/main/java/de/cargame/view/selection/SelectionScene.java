@@ -39,6 +39,17 @@ public class SelectionScene extends CustomScene {
                 return;
             }
         }
+        GameMode gameMode = apiHandler.getGameStateApi().getGameMode();
+        switch (gameMode){
+            case SINGLEPLAYER:
+                apiHandler.getGameInstanceApi().startGamePlayerKeyboard(); //todo fix so right player game gets started
+            break;
+            case MULTIPLAYER:
+                apiHandler.getGameInstanceApi().startGamePlayerKeyboard();
+                apiHandler.getGameInstanceApi().startGamePlayerGamePad();
+            break;
+
+        }
         apiHandler.getGameStateApi().setGameState(GameState.IN_GAME);
         apiHandler.switchScene(GameState.IN_GAME);
     }

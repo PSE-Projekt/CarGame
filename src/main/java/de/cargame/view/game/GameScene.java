@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GameScene extends CustomScene {
-    private final List<GameInstanceView> gameInstanceViews;
+    private final List<GameInstanceView> gameInstanceViews = new ArrayList<>();;
 
     public GameScene(ApiHandler apiHandler) {
         super(apiHandler);
-        this.gameInstanceViews = new ArrayList<>();
+        configureSceneRoot();
     }
 
     private void configureSceneRoot() {

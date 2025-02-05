@@ -25,7 +25,7 @@ public abstract class GameSprites {
         });
     }
 
-    private ImageView loadSprite(String path) throws IllegalArgumentException, NullPointerException {
+    private ImageView loadSprite(String path) {
         Image image;
 
         try {
