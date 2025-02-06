@@ -7,7 +7,10 @@ import de.cargame.controller.entity.GameState;
 import de.cargame.view.navigation.InputReceiver;
 import lombok.Getter;
 import lombok.Setter;
-
+/**
+ * Class handling the APIs handed out by the Controller component. Will be created in
+ * ApplicationView and passed on to the different CustomScenes.
+ */
 public class ApiHandler {
     @Getter
     private final GameInstanceAPI gameInstanceApi;
@@ -28,6 +31,9 @@ public class ApiHandler {
     @Setter
     private String playerOneId;
 
+    /**
+     * Creates a new ApiHandler using the APIs handed out by the Controller component.
+     */
     public ApiHandler(GameInstanceAPI gameInstanceApi, GameStateAPI gameStateApi, PlayerAPI playerApi, ApplicationView applicationView) {
         this.gameInstanceApi = gameInstanceApi;
         this.gameStateApi = gameStateApi;
@@ -48,6 +54,9 @@ public class ApiHandler {
         playerApi.registerInputObserver(inputReceiverGamePad, gamepadPlayerId);
     }
 
+    /**
+     * Calls the ApplicationView to switch scenes.
+     */
     public void switchScene(GameState newGameState) {
         this.applicationView.switchScene(newGameState);
     }

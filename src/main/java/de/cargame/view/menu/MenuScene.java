@@ -13,18 +13,27 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+/**
+ * This scene is displayed upon launching the application and includes two buttons - one
+ * for singleplayer mode and one for multiplayer mode. Both buttons will be redirecting the
+ * player(s) to the according SelectionScene.
+ */
 public class MenuScene extends CustomScene {
     private final Navigator assignedNavigator;
 
     private final Selectable singlePlayerButton;
     private final Selectable multiPlayerButton;
 
+    /**
+     * Creates a new MenuScene, which will be used at the start of the application.
+     * @param apiHandler An instance of {@code ApiHandler} that provides functionality
+     *                   for managing game state transitions as well as other key operations.
+     */
     public MenuScene(ApiHandler apiHandler){
         super(apiHandler);
         assignedNavigator = new MenuNavigator(apiHandler);
-
-        multiPlayerButton = new MultiPlayerButton();
         singlePlayerButton = new SinglePlayerButton();
+        multiPlayerButton = new MultiPlayerButton();
         this.configureRoot();
         prepareSceneContent();
         setup();
@@ -44,7 +53,7 @@ public class MenuScene extends CustomScene {
         sceneContent.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT /2);
         sceneContent.setAlignment(Pos.CENTER);
 
-        StackPane titleContainer = new StackPane();
+        Pane titleContainer = new StackPane();
         Text menuText = new Text("CarGame");
         menuText.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-fill: #009783;");
         menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 50));
@@ -58,8 +67,6 @@ public class MenuScene extends CustomScene {
         buttonContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
         buttonContainer.setAlignment(Pos.CENTER);
         buttonContainer.getChildren().addAll(singlePlayerButton, multiPlayerButton);
-
-        //TODO: css oder so damit das 2 farben hat
 
         sceneContent.getChildren().addAll(titleContainer, spacer, buttonContainer);
         root.getChildren().addAll(sceneContent);
