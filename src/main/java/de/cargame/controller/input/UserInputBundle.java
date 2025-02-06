@@ -22,7 +22,7 @@ public class UserInputBundle {
     }
 
     public void reset() {
-        this.userInputs.removeAll(this.userInputs);
+        this.userInputs.clear();
         this.fastForward = false;
     }
 

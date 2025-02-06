@@ -6,9 +6,11 @@ import de.cargame.controller.entity.GameState;
 import de.cargame.model.handler.GameStateHandler;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
 @Setter
+@Slf4j
 public class GameStateController implements GameStateAPI {
 
     private final GameStateHandler gameStateHandler;
@@ -39,6 +41,7 @@ public class GameStateController implements GameStateAPI {
      */
     @Override
     public void setGameMode(GameMode gameMode) {
+        log.info("Setting game mode to {}", gameMode);
         gameStateHandler.setGameMode(gameMode);
     }
 
@@ -65,6 +68,7 @@ public class GameStateController implements GameStateAPI {
      */
     @Override
     public void setGameState(GameState gameState) {
+        log.debug("Setting game state to {}", gameState);
         this.gameStateHandler.setGameState(gameState);
     }
 }

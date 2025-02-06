@@ -5,12 +5,14 @@ import de.cargame.model.entity.gameobject.Reward;
 import de.cargame.model.entity.gameobject.car.player.PlayerCar;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.service.SoundService;
+import lombok.extern.slf4j.Slf4j;
 
 import java.awt.*;
 import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 public class CollisionHandler {
 
     private final PlayerHandler playerHandler;
@@ -46,6 +48,7 @@ public class CollisionHandler {
 
             boolean collision = shapesIntersect(playerCarBound, collidableObjectBound);
             if (collision) {
+                log.debug("Collision detected between {} and {}", playerCar, collidableObject);
                 handleCollision(playerCar, collidableObject);
             }
         }
@@ -95,9 +98,12 @@ public class CollisionHandler {
      */
     private void handleCollisionCrash(PlayerCar playerCar) {
         if (!playerCar.hasCrashCooldown()) {
+            log.debug("PlayerCar of player {} crashed", playerCar.getPlayerId());
             soundService.playCrashSound();
             playerHandler.decreaseLife();
             playerCar.setLastCrashTime();
+        }else{
+            log.debug("PlayerCar of player {} crashed but is under cooldown -> no live decreased", playerCar.getPlayerId());
         }
     }
 

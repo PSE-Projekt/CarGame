@@ -11,6 +11,7 @@ import de.cargame.model.entity.gameobject.car.player.PlayerCar;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ import java.util.UUID;
  */
 @Getter
 @Setter
+@Slf4j
 public class Player implements UserInputObserver, PlayerObservable {
 
     private final String id;
@@ -65,16 +67,19 @@ public class Player implements UserInputObserver, PlayerObservable {
         this.score = new Score();
         this.lives = MAX_LIVES;
         this.isPlaying = false;
+        log.debug("Default values set for player {}", id);
         notifyPlayerObserversWithCurrentValues();
     }
 
     public void resetLives() {
         this.lives = MAX_LIVES;
+        log.debug("Lives reset for player {}", id);
         notifyPlayerObserversWithCurrentValues();
     }
 
     public void resetScore() {
         score.reset();
+        log.debug("Score reset for player {}", id);
         notifyPlayerObserversWithCurrentValues();
     }
 

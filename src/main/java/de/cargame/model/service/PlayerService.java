@@ -22,16 +22,21 @@ public class PlayerService {
 
 
     public void createPlayerKeyboard() {
+        log.debug("Creating keyboard player");
         inputService.initKeyboard();
         inputService.registerKeyboardObserver(keyboardPlayer);
+        log.debug("Keyboard player created");
     }
 
     public void createPlayerGamepad() {
+        log.debug("Creating gamepad player");
         inputService.initGamepad();
         inputService.registerGamePadObserver(gamepadPlayer);
+        log.debug("Gamepad player created");
     }
 
     public void registerPlayerObserver(PlayerObserver observer, String playerId) {
+        log.debug("Registering player-observer for player with id '{}'", playerId);
         if (playerId.equals(keyboardPlayer.getId())) {
             keyboardPlayer.addObserver(observer);
         } else if (playerId.equals(gamepadPlayer.getId())) {
@@ -42,6 +47,7 @@ public class PlayerService {
     }
 
     public void registerInputObserver(UserInputObserver observer, String playerId) {
+        log.debug("Registering input-observer for player with id '{}'", playerId);
         if (playerId.equals(keyboardPlayer.getId())) {
             inputService.registerKeyboardObserver(observer);
         } else if (playerId.equals(gamepadPlayer.getId())) {
@@ -52,10 +58,12 @@ public class PlayerService {
 
 
     public void setCarSelection(String playerId, CarType carType) {
+        log.debug("Setting car selection '{}' for player with id '{}'", carType, playerId);
         getPlayerById(playerId).ifPresent(player -> player.setCarSelection(carType));
     }
 
     public void setPlaying(String playerId, boolean playing) {
+        log.debug("Setting playing state '{}' for player with id '{}'", playing, playerId);
         getPlayerById(playerId).ifPresent(player -> player.setPlaying(playing));
     }
 

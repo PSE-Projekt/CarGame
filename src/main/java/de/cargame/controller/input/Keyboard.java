@@ -4,11 +4,13 @@ import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 public class Keyboard extends InputDevice implements NativeKeyListener {
 
     private final UserInputBundle userInputBundle = new UserInputBundle();
@@ -51,6 +53,7 @@ public class Keyboard extends InputDevice implements NativeKeyListener {
         Optional<UserInputType> userInputTypeOptional = UserInputType.getUserInputForKeyCode(keyCode);
         if (userInputTypeOptional.isPresent()) {
             UserInputType userInput = userInputTypeOptional.get();
+            log.debug("Valid user input detected: {}", userInput);
             userInputBundle.addUserInput(userInput);
             notifyObservers(userInputBundle);
         }

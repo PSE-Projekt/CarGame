@@ -78,6 +78,7 @@ public class GameObjectService {
     public void stopGame() {
         gameObjectSpawnScheduler.stopSpawning();
         gameObjects.clear();
+        log.debug("Game stopped");
     }
 
 

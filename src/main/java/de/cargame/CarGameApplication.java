@@ -47,7 +47,6 @@ public class CarGameApplication extends Application {
 
     @Override
     public void init() {
-        logExamples();
         // Set java.library.path to include the extracted native libraries
         System.setProperty("java.library.path", "target/natives");
 
@@ -67,12 +66,4 @@ public class CarGameApplication extends Application {
         System.setProperty("sun.java2d.opengl", "true");
         this.gameApplicationManager = new GameApplicationManager();
     }
-
-    public void logExamples() {
-        log.debug("This is a DEBUG log.");
-        log.info("This is an INFO log.");
-        log.warn("This is a WARN log.");
-        log.error("This is an ERROR log.");
-    }
-
 }

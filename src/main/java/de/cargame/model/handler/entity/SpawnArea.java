@@ -3,11 +3,13 @@ package de.cargame.model.handler.entity;
 import de.cargame.model.entity.gameobject.Coordinate;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Getter
+@Slf4j
 @AllArgsConstructor
 public class SpawnArea {
     private Coordinate minCoordinates;
@@ -25,7 +27,11 @@ public class SpawnArea {
     public Coordinate getRandomCoordinateInArea() {
         double randomX = ThreadLocalRandom.current().nextDouble(minCoordinates.getX(), maxCoordinates.getX() + 1);
         double randomY = ThreadLocalRandom.current().nextDouble(minCoordinates.getY(), maxCoordinates.getY() + 1);
-
         return new Coordinate(randomX, randomY);
+    }
+
+    @Override
+    public String toString() {
+        return "SpawnArea [minCoordinates=" + minCoordinates + ", maxCoordinates=" + maxCoordinates + "]";
     }
 }

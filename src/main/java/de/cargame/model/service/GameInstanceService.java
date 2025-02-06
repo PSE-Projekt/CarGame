@@ -6,11 +6,13 @@ import de.cargame.controller.entity.GameModelData;
 import de.cargame.controller.entity.GameState;
 import de.cargame.model.GameInstance;
 import de.cargame.model.entity.player.Player;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+@Slf4j
 public class GameInstanceService {
 
     private final List<GameInstance> gameInstances = new CopyOnWriteArrayList<>();
@@ -55,6 +57,7 @@ public class GameInstanceService {
             }
         }
         gameStateController.setGameState(GameState.SCORE_BOARD);
+        log.debug("All games finished - game state set to SCORE_BOARD");
         SoundService.getInstance().stopCarRaceSoundLoop();
         return true;
     }

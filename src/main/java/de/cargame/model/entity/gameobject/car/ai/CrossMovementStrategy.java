@@ -2,9 +2,11 @@ package de.cargame.model.entity.gameobject.car.ai;
 
 import de.cargame.controller.entity.GameMode;
 import de.cargame.model.entity.gameobject.Coordinate;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Random;
 
+@Slf4j
 public class CrossMovementStrategy extends AICarMovementStrategy {
 
     private final Random random = new Random();

@@ -121,6 +121,7 @@ public abstract class GameObject implements Collidable, Despawnable {
         int heightBound = gameMode == GameMode.MULTIPLAYER ? SCREEN_HEIGHT / 2 : SCREEN_HEIGHT;
 
         if (yNew < 0 || yNew + objectHeight > heightBound) {
+            log.debug("GameObject {} has tried to move outside of the game screen. Reverting to previous position.", id);
             gameObjectBound.getCoordinate().setX(xOld);
             gameObjectBound.getCoordinate().setY(yOld);
         }
@@ -149,5 +150,10 @@ public abstract class GameObject implements Collidable, Despawnable {
 
     public int getHeight() {
         return gameObjectBound.getBound().getBounds().height;
+    }
+
+    @Override
+    public String toString() {
+        return "Type: "+getClass().getSimpleName()+", ID: "+id+", Position: "+getCoordinates();
     }
 }

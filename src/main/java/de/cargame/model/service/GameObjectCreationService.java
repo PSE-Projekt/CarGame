@@ -23,20 +23,20 @@ import java.util.Random;
 @Slf4j
 public class GameObjectCreationService {
 
-    private  int FAST_CAR_WIDTH;
-    private  int AGILE_CAR_WIDTH;
-    private  int BUILDING_WIDTH;
-    private  int ROAD_MARK_WIDTH;
-    private  int OBSTACLE_WIDTH;
-    private  int REWARD_WIDTH;
-    private  int AI_CAR_WIDTH;
-    private  int FAST_CAR_HEIGHT;
-    private  int AGILE_CAR_HEIGHT;
-    private  int BUILDING_HEIGHT;
-    private  int ROAD_MARK_HEIGHT;
-    private  int OBSTACLE_HEIGHT;
-    private  int REWARD_HEIGHT;
-    private  int AI_CAR_HEIGHT;
+    private int FAST_CAR_WIDTH;
+    private int AGILE_CAR_WIDTH;
+    private int BUILDING_WIDTH;
+    private int ROAD_MARK_WIDTH;
+    private int OBSTACLE_WIDTH;
+    private int REWARD_WIDTH;
+    private int AI_CAR_WIDTH;
+    private int FAST_CAR_HEIGHT;
+    private int AGILE_CAR_HEIGHT;
+    private int BUILDING_HEIGHT;
+    private int ROAD_MARK_HEIGHT;
+    private int OBSTACLE_HEIGHT;
+    private int REWARD_HEIGHT;
+    private int AI_CAR_HEIGHT;
     @Setter
     private GameObjectSpawningStrategy gameObjectSpawningStrategy;
     @Setter

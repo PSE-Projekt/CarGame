@@ -55,5 +55,8 @@ public class SpawnAreaList {
         return spawnArea.getRandomCoordinateInArea();
     }
 
-
+    @Override
+    public String toString() {
+        return "SpawnAreaList [spawnAreas=" + spawnAreas + "]";
+    }
 }

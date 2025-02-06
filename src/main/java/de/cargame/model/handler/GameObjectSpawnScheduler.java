@@ -3,6 +3,8 @@ package de.cargame.model.handler;
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
 import de.cargame.model.service.GameObjectService;
+import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -10,6 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
+@Slf4j
 public class GameObjectSpawnScheduler {
 
 
@@ -61,12 +64,13 @@ public class GameObjectSpawnScheduler {
      * The scheduling ensures continuous creation of these objects during gameplay.
      */
     public void startSpawning() {
+        log.debug("Starting scheduled spawning of game objects");
         scheduleAICar();
         scheduleObstacle();
         scheduleReward();
         scheduleBuilding();
         scheduleRoadMark();
-
+        log.debug("Scheduled spawning of game objects started successfully");
     }
 
 

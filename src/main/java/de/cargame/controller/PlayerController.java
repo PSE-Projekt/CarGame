@@ -7,6 +7,7 @@ import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.entity.player.PlayerObserver;
 import de.cargame.model.service.PlayerService;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * The PlayerController class provides implementation for the PlayerAPI interface.
@@ -15,6 +16,7 @@ import de.cargame.model.service.PlayerService;
  * Players can be controlled using either a keyboard or a gamepad, and the class
  * provides methods to manage both types.
  */
+@Slf4j
 public class PlayerController implements PlayerAPI {
 
     private final PlayerService playerService;
@@ -79,11 +81,13 @@ public class PlayerController implements PlayerAPI {
 
     @Override
     public void registerInputObserver(UserInputObserver observer, String playerId) {
+        log.info("Registering input observer for player '{}'", playerId);
         playerService.registerInputObserver(observer, playerId);
     }
 
     @Override
     public void registerPlayerObserver(PlayerObserver observer, String playerId) {
+        log.info("Registering player observer for player '{}'", playerId);
         playerService.registerPlayerObserver(observer, playerId);
     }
 }

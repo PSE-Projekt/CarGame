@@ -3,8 +3,10 @@ package de.cargame.model.handler.entity;
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 @Getter
+@Slf4j
 public abstract class GameObjectSpawningStrategy {
 
     protected final int SCREEN_HEIGHT;
@@ -32,12 +34,14 @@ public abstract class GameObjectSpawningStrategy {
     }
 
     protected void init() {
+        log.debug("Start initializing SpawnAreas");
         setBuildingSpawnArea();
         setObstacleSpawnArea();
         setRewardSpawnArea();
         setRoadMarkSpawnArea();
         setPlayerSpawnArea();
         setAiCarSpawnArea();
+        log.debug("Finished initializing SpawnAreas");
     }
 
     protected abstract void setBuildingSpawnArea();

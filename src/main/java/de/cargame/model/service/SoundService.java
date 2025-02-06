@@ -1,9 +1,11 @@
 package de.cargame.model.service;
 
 import de.cargame.model.service.entity.sound.*;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.sound.sampled.Clip;
 
+@Slf4j
 public class SoundService {
 
     private static SoundService INSTANCE = new SoundService();
@@ -15,11 +17,13 @@ public class SoundService {
     private final SoundClip carRaceSoundClip;
 
     public SoundService() {
+        log.debug("Initializing SoundService");
         this.crashSoundClip = new CrashSound();
         this.selectSoundClip = new SelectSound();
         this.changeSelectionSoundClip = new ChangeSelectionSound();
         this.collectRewardSoundClip = new CollectRewardSound();
         this.carRaceSoundClip = new CarRaceSound();
+        log.debug("SoundService initialized");
     }
 
     public static synchronized SoundService getInstance() {

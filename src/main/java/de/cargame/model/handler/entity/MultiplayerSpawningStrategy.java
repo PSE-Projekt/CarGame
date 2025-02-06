@@ -2,7 +2,9 @@ package de.cargame.model.handler.entity;
 
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class MultiplayerSpawningStrategy extends GameObjectSpawningStrategy {
 
     private final int BUILDING_HEIGHT;
@@ -34,17 +36,21 @@ public class MultiplayerSpawningStrategy extends GameObjectSpawningStrategy {
     @Override
     protected void setBuildingSpawnArea() {
         this.buildingSpawnAreas = generateBuildingSpawnAreas();
+        log.debug("BuildingSpawnAreas: {}", buildingSpawnAreas);
     }
 
     @Override
     protected void setObstacleSpawnArea() {
         int OBSTACLE_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.OBSTACLE_HEIGHT_MULTIPLAYER);
         this.obstacleSpawnAreas.add(generateRoadSpawnArea(OBSTACLE_HEIGHT));
+        log.debug("ObstacleSpawnAreas: {}", obstacleSpawnAreas);
+
     }
 
     @Override
     protected void setRewardSpawnArea() {
         this.rewardSpawnAreas.add(generateRoadSpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.REWARD_HEIGHT_MULTIPLAYER)));
+        log.debug("RewardSpawnAreas: {}", rewardSpawnAreas);
     }
 
     @Override
@@ -54,17 +60,21 @@ public class MultiplayerSpawningStrategy extends GameObjectSpawningStrategy {
         this.roadSpawnAreas.add(spawnArea1);
         this.roadSpawnAreas.add(spawnArea2);
 
+        log.debug("RoadSpawnAreas: {}", roadSpawnAreas);
+
     }
 
     @Override
     protected void setPlayerSpawnArea() {
         SpawnArea spawnArea = new SpawnArea(PLAYER_SPAWN_X, SCREEN_QUARTER_Y, PLAYER_SPAWN_X, SCREEN_QUARTER_Y);
         this.playerSpawnAreas.add(spawnArea);
+        log.debug("PlayerSpawnAreas: {}", playerSpawnAreas);
     }
 
     @Override
     protected void setAiCarSpawnArea() {
         this.aiCarSpawnAreas.add(generateRoadSpawnArea(GameConfigService.getInstance().loadInteger(ConfigKey.AI_CAR_HEIGHT_MULTIPLAYER)));
+        log.debug("AiCarSpawnAreas: {}", aiCarSpawnAreas);
     }
 
 

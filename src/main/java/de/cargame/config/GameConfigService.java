@@ -1,18 +1,16 @@
 package de.cargame.config;
 
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
 @Slf4j
+@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class GameConfigService {
 
     private static GameConfigService INSTANCE = new GameConfigService();
     private final GameConfig gameConfig = new GameConfig();
-
-
-    private GameConfigService() {
-    }
 
 
     public static GameConfigService getInstance() {

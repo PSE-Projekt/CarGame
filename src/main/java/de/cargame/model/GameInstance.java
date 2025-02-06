@@ -52,6 +52,8 @@ public class GameInstance implements Runnable {
      */
     @Override
     public void run() {
+        String playerId = playerHandler.getPlayer().getId();
+        log.info("Starting game instance for player {}", playerId);
         gameObjectService.startGame();
         long lastTime = System.nanoTime();
         while (playerHandler.isPlayerAlive()) {
@@ -67,9 +69,11 @@ public class GameInstance implements Runnable {
                 log.error(e.getMessage());
             }
         }
+        log.info("Player {} has lost all lives -> game for this player ends", playerId);
         isFinished = true;
         boolean allGamesFinished = gameInstanceService.checkGameState();
         if(allGamesFinished){
+            log.info("All games finished -> game ends");
             gameApplicationManager.renderGameInstance();
         }
     }

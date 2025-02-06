@@ -2,6 +2,7 @@ package de.cargame.model.entity.gameobject;
 
 import de.cargame.controller.entity.GameMode;
 import de.cargame.model.handler.PlayerHandler;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Represents a "Life" reward in the game.
@@ -12,6 +13,7 @@ import de.cargame.model.handler.PlayerHandler;
  * The position is represented by coordinates, the size is determined by its dimensions,
  * and the boundary type governs its collision detection.
  */
+@Slf4j
 public class Life extends Reward {
 
     public Life(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
@@ -20,9 +22,12 @@ public class Life extends Reward {
 
     @Override
     public boolean collect(PlayerHandler playerHandler) {
+        String playerId = playerHandler.getPlayer().getId();
+        int lifeCount = playerHandler.getLifeCount();
         if (!isCollected()) {
             playerHandler.increaseLife();
             setCollected(true);
+            log.info("Player {} collected a life. New life count: {}", playerId, lifeCount);
             return true;
         }
         return false;

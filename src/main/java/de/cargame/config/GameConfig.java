@@ -22,11 +22,11 @@ public class GameConfig {
 
     public Optional<String> getValueKey(ConfigKey configKey) {
         return Optional.of(configMap.get(configKey.toString()));
-
     }
 
 
     private void parseConfigFile(String fileName) {
+        log.debug(" Start loading config");
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
              Scanner scanner = new Scanner(inputStream)) {
             while (scanner.hasNextLine()) {
@@ -34,17 +34,17 @@ public class GameConfig {
                 if (!line.isEmpty() && !line.startsWith("#")) { // Skip empty lines and comments
                     String[] parts = line.split("=", 2);
                     if (parts.length == 2) {
-                        System.out.println("Loading value for key: " + parts[0].trim() + " with value: " + parts[1].trim());
+                        log.debug("Loading value for key: {} with value: {}", parts[0].trim(), parts[1].trim());
 
                         configMap.put(parts[0].trim(), parts[1].trim());
                     } else {
-                        log.warn("Skipping invalid config line: " + line);
+                        log.warn("Skipping invalid config line: {}", line);
                     }
                 }
             }
         } catch (Exception e) {
-            log.error("Failed to read configuration file: " + fileName, e);
+            log.error("Failed to read configuration file: {}", fileName, e);
         }
-        System.out.println("Finished loading config " + LocalDateTime.now());
+        log.info("Finished loading config {}", LocalDateTime.now());
     }
 }

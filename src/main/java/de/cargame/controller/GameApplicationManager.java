@@ -23,7 +23,6 @@ public class GameApplicationManager {
 
     public void renderGameInstance() {
         Platform.runLater(() -> applicationView.renderGame());
-
     }
 
     public void registerApplicationView(ApplicationView applicationView) {
