@@ -17,9 +17,10 @@ public abstract class Navigator {
     @Setter
     @Getter
     protected Selectable currentSelection;
-    protected SoundService soundService = new SoundService();
+    protected final SoundService soundService;
 
     protected Navigator(ApiHandler apiHandler) {
+        soundService = SoundService.getInstance();
         this.currentSelection = new DummySelectable();
         this.initialSelectable = this.currentSelection;
         this.apiHandler = apiHandler;

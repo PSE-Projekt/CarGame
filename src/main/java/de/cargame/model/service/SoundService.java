@@ -6,7 +6,7 @@ import javax.sound.sampled.Clip;
 
 public class SoundService {
 
-    private static SoundService INSTANCE;
+    private static SoundService INSTANCE = new SoundService();
 
     private final SoundClip crashSoundClip;
     private final SoundClip selectSoundClip;
@@ -23,9 +23,6 @@ public class SoundService {
     }
 
     public static synchronized SoundService getInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new SoundService();
-        }
         return INSTANCE;
     }
 
