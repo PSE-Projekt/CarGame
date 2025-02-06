@@ -117,6 +117,14 @@ public class SelectionInstanceView extends Pane {
         carChoiceMade = false;
         if (this.playerId.equals(playerApi.getGamepadPlayerId())) {
             this.apiHandler.getInputReceiverGamePad().assignNavigator(assignedNavigator);
+
+            //TODO ---REMOVE---
+            assignedNavigator.getInitialSelectable().getNeighbour(Direction.LEFT).select();
+            carChoiceMade = true;
+            playerApi.setPlaying(playerId, true);
+            playerApi.setCarSelection(playerId, CarType.AGILE_CAR);
+            //TODO ---REMOVE---
+
         } else if (this.playerId.equals(playerApi.getKeyboardPlayerId())) {
             this.apiHandler.getInputReceiverKeyboard().assignNavigator(assignedNavigator);
         } else {
