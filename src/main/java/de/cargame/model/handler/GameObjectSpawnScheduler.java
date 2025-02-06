@@ -3,7 +3,6 @@ package de.cargame.model.handler;
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
 import de.cargame.model.service.GameObjectService;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.Executors;

@@ -81,13 +81,11 @@ public class PlayerController implements PlayerAPI {
 
     @Override
     public void registerInputObserver(UserInputObserver observer, String playerId) {
-        log.info("Registering input observer for player '{}'", playerId);
         playerService.registerInputObserver(observer, playerId);
     }
 
     @Override
     public void registerPlayerObserver(PlayerObserver observer, String playerId) {
-        log.info("Registering player observer for player '{}'", playerId);
         playerService.registerPlayerObserver(observer, playerId);
     }
 }

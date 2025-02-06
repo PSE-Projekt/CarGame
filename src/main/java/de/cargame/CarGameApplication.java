@@ -65,5 +65,6 @@ public class CarGameApplication extends Application {
         }
         System.setProperty("sun.java2d.opengl", "true");
         this.gameApplicationManager = new GameApplicationManager();
+        log.info("Initialized game application");
     }
 }

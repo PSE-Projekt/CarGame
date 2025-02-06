@@ -22,7 +22,6 @@ public enum UserInputType {
     }
 
     public static Optional<UserInputType> getUserInputForKeyCode(int keyCode) {
-        System.out.println(keyCode);
         UserInputType[] values = values();
         for (UserInputType value : values) {
             if (value.getKeyCode() == keyCode) {

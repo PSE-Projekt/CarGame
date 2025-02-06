@@ -9,11 +9,10 @@ import java.util.Random;
 @Slf4j
 public class CrossMovementStrategy extends AICarMovementStrategy {
 
-    private final Random random = new Random();
+
 
     public CrossMovementStrategy(Coordinate gameObjectSpawnCoordinate, GameMode gameMode) {
         super(gameObjectSpawnCoordinate, gameMode);
-
     }
 
     @Override
