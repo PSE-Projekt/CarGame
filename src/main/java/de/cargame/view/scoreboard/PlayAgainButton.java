@@ -13,6 +13,7 @@ public class PlayAgainButton extends SceneButton implements Clickable {
     @Override
     public void onClick(ApiHandler apiHandler, String playerID) {
         apiHandler.getGameStateApi().setGameState(GameState.CAR_SELECTION);
+        apiHandler.getGameInstanceApi().resetGameInstances();
         apiHandler.switchScene(GameState.CAR_SELECTION);
     }
 }

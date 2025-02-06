@@ -28,8 +28,8 @@
     AI_CAR_HEIGHT_SINGLEPLAYER=60
     AI_CAR_WIDTH_MULTIPLAYER=67
     AI_CAR_HEIGHT_MULTIPLAYER=40
-    AI_CAR_SPEED=1.5
-    AI_CAR_SPAWN_TIME_MIN=300
+    AI_CAR_SPEED=1.3
+    AI_CAR_SPAWN_TIME_MIN=350
     AI_CAR_SPAWN_TIME_MAX=500
 
     //----------------------AI CAR GENERAL-------------------
@@ -40,7 +40,7 @@
     FAST_CAR_WIDTH_MULTIPLAYER=60
     FAST_CAR_HEIGHT_MULTIPLAYER=30
     FAST_CAR_SPEED=350
-    FAST_CAR_INERTIA=150
+    FAST_CAR_INERTIA=110
 
     //----------------------FAST CAR-------------------------
     //----------------------AGILE CAR------------------------
