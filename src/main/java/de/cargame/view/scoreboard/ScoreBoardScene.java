@@ -14,12 +14,22 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+/**
+ * Renders the scoreboard view, displaying the scores and rankings as
+ * well as the buttons 'playAgainButton' or 'backToMenuButton'. It will present a summary of
+ * the game’s results in great detail, using data provided by the APIHandler.
+ */
 public class ScoreBoardScene extends CustomScene {
     private final int SceneSegments = 3;
     private final HBox buttonContainer;
     private final Navigator navigator;
     private final VBox sceneContent;
 
+    /**
+     * Creates a new ScoreBoardScene instance.
+     * @param apiHandler An instance of {@code ApiHandler} that provides functionality
+     *                   for managing game state transitions as well as other key operations.
+     */
     public ScoreBoardScene(ApiHandler apiHandler) {
         super(apiHandler);
 
@@ -50,7 +60,7 @@ public class ScoreBoardScene extends CustomScene {
         // configure root to have a vertical layout and black background and configured size
         this.configureRoot();
     }
-
+    @Override
     public void setup() throws IllegalStateException {
         sceneContent.getChildren().clear();
 

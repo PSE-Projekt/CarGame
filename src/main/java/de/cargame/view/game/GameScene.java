@@ -9,14 +9,24 @@ import javafx.scene.layout.VBox;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A class displaying the core game by rendering its contents.
+ */
 public class GameScene extends CustomScene {
     private final List<GameInstanceView> gameInstanceViews = new ArrayList<>();
-
+    /**
+     * Creates a new GameScene, which will display the course of the game.
+     * @param apiHandler An instance of {@code ApiHandler} that provides functionality
+     *                   for managing game state transitions as well as other key operations.
+     */
     public GameScene(ApiHandler apiHandler) {
         super(apiHandler);
         this.configureRoot();
     }
 
+    /**
+     * Renders the game course of each player currently playing.
+     */
     public void render() {
         for (GameInstanceView gameInstanceView : gameInstanceViews) {
             gameInstanceView.render();

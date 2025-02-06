@@ -12,7 +12,10 @@ import de.cargame.view.ApiHandler;
 import de.cargame.view.game.sprites.GameSprites;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-
+/**
+ * Contains the logic and contents of a single game screen instance.
+ * 'render()' will display the instance according to current game data given by the ApiHandler.
+ */
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -25,7 +28,9 @@ public class GameInstanceView extends Pane {
     private final int SCREEN_WIDTH;
     private final PlayerStats stats;
     private GameModelData modelData;
-
+    /**
+     * Creates a new GameInstanceView for the player using the apiHandler as well his playerID
+     */
     public GameInstanceView(ApiHandler apiHandler, String playerID) {
         this.spriteService = new SpriteService();
         this.apiHandler = apiHandler;
@@ -54,7 +59,9 @@ public class GameInstanceView extends Pane {
         this.setStyle("-fx-background-color: grey;");
         this.getChildren().add(stats);
     }
-
+    /**
+     * Renders the contents of this player's game instance.
+     */
     public void render() {
         this.getChildren().clear();
 
