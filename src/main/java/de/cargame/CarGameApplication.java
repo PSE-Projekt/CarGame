@@ -24,7 +24,7 @@ public class CarGameApplication extends Application {
      *
      * @param args the command-line arguments passed to the application, not utilized within the implementation.
      */
-    public static void main(String[] args) {
+    public void run(String[] args) {
         // launch javafx application
         launch(args);
     }
@@ -56,12 +56,11 @@ public class CarGameApplication extends Application {
         } catch (Exception e) {
             e.printStackTrace(); //TODO: improve
         }
-        try {
-            GlobalScreen.registerNativeHook();
+        try {GlobalScreen.registerNativeHook();
             GlobalScreen.setEventDispatcher(new SwingDispatchService());
 
         } catch (NativeHookException e) {
-            throw new RuntimeException(e);
+           throw new RuntimeException(e);
         }
         System.setProperty("sun.java2d.opengl", "true");
         this.gameApplicationManager = new GameApplicationManager();

@@ -9,6 +9,6 @@ public class CarRaceSound extends SoundClip {
 
     @Override
     protected void setPath() {
-        this.path = "src/main/resources/sounds/car_race.wav";
+        this.path = "/sounds/car_race.wav";
     }
 }

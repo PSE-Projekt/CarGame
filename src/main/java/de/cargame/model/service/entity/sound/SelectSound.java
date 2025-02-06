@@ -8,6 +8,6 @@ public class SelectSound extends SoundClip {
 
     @Override
     protected void setPath() {
-        this.path = "src/main/resources/sounds/select.wav";
+        this.path = "/sounds/select.wav";
     }
 }

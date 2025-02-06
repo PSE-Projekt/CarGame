@@ -9,6 +9,6 @@ public class CollectRewardSound extends SoundClip {
 
     @Override
     protected void setPath() {
-        this.path = "src/main/resources/sounds/collect_reward.wav";
+        this.path = "/sounds/collect_reward.wav";
     }
 }

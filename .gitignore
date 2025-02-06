@@ -82,3 +82,4 @@ fabric.properties
 /src/main/java/de/cargame/view/fxtests/
 src/.DS_Store
 .DS_Store
+/dependency-reduced-pom.xml
