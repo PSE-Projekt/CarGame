@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="beauty enhancement">
+    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="improved visibility from selection package by removing public from most things">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/config/TextConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/config/TextConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/PlayerStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/PlayerStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuNavigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuNavigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MultiPlayerButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MultiPlayerButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/SinglePlayerButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/SinglePlayerButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardNavigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardNavigator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +45,9 @@
     &quot;accountId&quot;: &quot;97e744bd-5562-45f1-9e33-25337e03e94f&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -56,25 +57,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.CarGameApplication.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;sonarlint&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CarGameApplication.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "sonarlint",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="CarGameApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.cargame.CarGameApplication" />
-      <module name="CarGameTest" />
+      <module name="CarGameOfficial_v2" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="de.cargame.*" />
@@ -90,14 +92,6 @@
         <item itemvalue="Application.CarGameApplication" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -157,11 +151,30 @@
       <option name="project" value="LOCAL" />
       <updated>1738875186465</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="improved visibility from selection package by removing public from most things">
+      <option name="closed" value="true" />
+      <created>1738883838523</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1738883838524</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Improved display for the SelectionInstanceView, but not finished" />
@@ -172,7 +185,8 @@
     <MESSAGE value="fix bug where after playing again one screen half is black" />
     <MESSAGE value="overworked game render" />
     <MESSAGE value="beauty enhancement" />
-    <option name="LAST_COMMIT_MESSAGE" value="beauty enhancement" />
+    <MESSAGE value="improved visibility from selection package by removing public from most things" />
+    <option name="LAST_COMMIT_MESSAGE" value="improved visibility from selection package by removing public from most things" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -8,10 +8,10 @@ import javafx.scene.text.Text;
 
 import java.util.Objects;
 
-public class ScoreDisplay extends VBox implements Comparable<ScoreDisplay> {
+class ScoreDisplay extends VBox implements Comparable<ScoreDisplay> {
     private final int scoreValue;
 
-    public ScoreDisplay(int score, int playerIndex) {
+    ScoreDisplay(int score, int playerIndex) {
         this.scoreValue = score;
 
         configureSelf();

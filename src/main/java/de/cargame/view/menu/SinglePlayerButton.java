@@ -6,8 +6,8 @@ import de.cargame.view.ApiHandler;
 import de.cargame.view.navigation.Clickable;
 import de.cargame.view.navigation.SceneButton;
 
-public class SinglePlayerButton extends SceneButton implements Clickable {
-    public SinglePlayerButton() {
+class SinglePlayerButton extends SceneButton implements Clickable {
+    SinglePlayerButton() {
         super("/frontend/singleP_default.png", "/frontend/singleP_selected.png");
     }
 

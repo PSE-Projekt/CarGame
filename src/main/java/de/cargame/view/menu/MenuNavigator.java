@@ -6,11 +6,11 @@ import de.cargame.view.navigation.Navigator;
  * Implements the methods provided by Navigator. Purpose is
  * interaction and navigation the button options in the menu scene.
  */
-public class MenuNavigator extends Navigator {
+class MenuNavigator extends Navigator {
     /**
      * Creates a new MenuNavigator instance, and passes a ApiHandler to it.
      */
-    public MenuNavigator(ApiHandler apiHandler) {
+    MenuNavigator(ApiHandler apiHandler) {
         super(apiHandler);
     }
 }
