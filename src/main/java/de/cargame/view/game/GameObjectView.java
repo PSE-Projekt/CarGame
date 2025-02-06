@@ -3,8 +3,6 @@ package de.cargame.view.game;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.util.Comparator;
-
 public class GameObjectView extends ImageView implements Comparable<GameObjectView> {
     private final int weight;
     private final String gameObjectId;

@@ -14,8 +14,8 @@ import javafx.scene.paint.Color;
 public abstract class CustomScene extends Scene {
     protected final ApiHandler apiHandler;
 
-    protected int SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
-    protected int SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
+    protected final int SCREEN_WIDTH;
+    protected final int SCREEN_HEIGHT;
 
     protected CustomScene(ApiHandler apiHandler) {
         super(new VBox(),

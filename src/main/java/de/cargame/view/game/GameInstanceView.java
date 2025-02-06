@@ -2,6 +2,7 @@ package de.cargame.view.game;
 
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
+import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.entity.GameModelData;
 import de.cargame.model.entity.gameobject.*;
 import de.cargame.model.entity.gameobject.car.ai.KamikazeCar;
@@ -19,16 +20,16 @@ import java.util.Queue;
 
 public class GameInstanceView extends Pane {
     private final SpriteService spriteService;
-    private final int SCREEN_WIDTH;
+    private final ApiHandler apiHandler;
     private final int SCREEN_HEIGHT;
+    private final int SCREEN_WIDTH;
     private GameModelData modelData;
 
     public GameInstanceView(ApiHandler apiHandler, String playerID) {
-
-        SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
-        SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
-
         this.spriteService = new SpriteService();
+        this.apiHandler = apiHandler;
+        this.SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
+        this.SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
 
         // add player stats to view and register in backend as observer
         PlayerStats stats = new PlayerStats();
@@ -92,9 +93,55 @@ public class GameInstanceView extends Pane {
 
             gameObjectViews.add(objectView);
         }
+        this.getChildren().addAll(configureGreenArea());
 
         while (!gameObjectViews.isEmpty()) {
             this.getChildren().add(gameObjectViews.poll());
         }
+    }
+
+    private List<Pane> configureGreenArea() {
+        int BUILDING_HEIGHT;
+        int BUILDING_SPAWN_AREA;
+
+        if (apiHandler.getGameStateApi().getGameMode().equals(GameMode.MULTIPLAYER)) {
+            BUILDING_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT_MULTIPLAYER);
+            BUILDING_SPAWN_AREA = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_SINGLEPLAYER);
+        } else if (apiHandler.getGameStateApi().getGameMode().equals(GameMode.SINGLEPLAYER)) {
+            BUILDING_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT_SINGLEPLAYER);
+            BUILDING_SPAWN_AREA = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_MULTIPLAYER);
+        } else {
+            throw new IllegalStateException("Game mode invalid");
+        }
+
+        int greenAreaHeight = BUILDING_SPAWN_AREA + BUILDING_HEIGHT + 10;
+
+        Pane greenAreaUp = new Pane();
+        greenAreaUp.setPrefSize(SCREEN_WIDTH, greenAreaHeight);
+        greenAreaUp.setStyle("-fx-background-color: green;");
+
+        Pane greenAreaDown = new Pane();
+        greenAreaDown.setPrefSize(SCREEN_WIDTH, greenAreaHeight);
+        greenAreaDown.setStyle("-fx-background-color: green;");
+
+        greenAreaUp.setLayoutX(0);
+        greenAreaUp.setLayoutY(0);
+
+        greenAreaDown.setLayoutX(0);
+        greenAreaDown.setLayoutY(SCREEN_HEIGHT - greenAreaHeight);
+
+        Pane sideMarkUp = new Pane();
+        sideMarkUp.setPrefSize(SCREEN_WIDTH, 10);
+        sideMarkUp.setStyle("-fx-background-color: white;");
+        sideMarkUp.setLayoutX(0);
+        sideMarkUp.setLayoutY(greenAreaHeight + 10);
+
+        Pane sideMarkDown = new Pane();
+        sideMarkDown.setPrefSize(SCREEN_WIDTH, 10);
+        sideMarkDown.setStyle("-fx-background-color: white;");
+        sideMarkDown.setLayoutX(0);
+        sideMarkDown.setLayoutY(SCREEN_HEIGHT - greenAreaHeight - 20);
+
+        return List.of(greenAreaUp, greenAreaDown, sideMarkUp, sideMarkDown);
     }
 }

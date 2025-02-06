@@ -33,7 +33,9 @@ public class ScoreDisplay extends VBox implements Comparable<ScoreDisplay> {
         setMinSize(300, 50);
         setPrefSize(300, 50);
         setAlignment(Pos.CENTER);
-        setBorder(new Border(new BorderStroke(ColorConfig.PRIMARY_MAIN, BorderStrokeStyle.SOLID, new CornerRadii(3), new BorderWidths(2))));
+        setBorder(new Border(
+                new BorderStroke(ColorConfig.PRIMARY_MAIN, BorderStrokeStyle.SOLID, new CornerRadii(5), new BorderWidths(2))
+        ));
     }
 
 
