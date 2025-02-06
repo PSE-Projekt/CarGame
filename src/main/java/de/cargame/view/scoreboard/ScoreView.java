@@ -15,7 +15,7 @@ public class ScoreView extends VBox {
         configureSelf();
 
         VBox scoreBox = new VBox();
-        scoreBox.setAlignment(Pos.CENTER);
+        scoreBox.setAlignment(Pos.TOP_CENTER);
         scoreBox.setSpacing(10);
 
         GameMode gameMode = apiHandler.getGameStateApi().getGameMode();

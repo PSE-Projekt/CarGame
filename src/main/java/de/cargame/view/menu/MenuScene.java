@@ -2,6 +2,8 @@ package de.cargame.view.menu;
 
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
+import de.cargame.view.config.ColorConfig;
+import de.cargame.view.config.TextConfig;
 import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import de.cargame.view.navigation.Selectable;
@@ -15,9 +17,9 @@ import javafx.scene.text.Text;
 
 public class MenuScene extends CustomScene {
     private final Navigator assignedNavigator;
-
     private final Selectable singlePlayerButton;
     private final Selectable multiPlayerButton;
+    private final int SegmentCount = 3;
 
     public MenuScene(ApiHandler apiHandler){
         super(apiHandler);
@@ -45,17 +47,16 @@ public class MenuScene extends CustomScene {
         sceneContent.setAlignment(Pos.CENTER);
 
         StackPane titleContainer = new StackPane();
-        Text menuText = new Text("CarGame");
-        menuText.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-fill: #009783;");
-        menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 50));
+        Text menuText = TextConfig.makeH1("CarGame");
+        menuText.setFill(ColorConfig.PRIMARY_MAIN);
         titleContainer.getChildren().add(menuText);
-        titleContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
+        titleContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / SegmentCount);
 
         Pane spacer = new Pane();
-        spacer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
+        spacer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / SegmentCount);
 
         HBox buttonContainer = new HBox(30);
-        buttonContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
+        buttonContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / SegmentCount);
         buttonContainer.setAlignment(Pos.CENTER);
         buttonContainer.getChildren().addAll(singlePlayerButton, multiPlayerButton);
 

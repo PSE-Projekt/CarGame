@@ -6,6 +6,8 @@ import de.cargame.controller.api.PlayerAPI;
 import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.common.BackToMenuButton;
+import de.cargame.view.config.ColorConfig;
+import de.cargame.view.config.TextConfig;
 import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import de.cargame.view.navigation.Selectable;
@@ -77,9 +79,8 @@ public class SelectionInstanceView extends Pane {
         sceneContent.setAlignment(Pos.CENTER);
 
         StackPane titleContainer = new StackPane();
-        Text menuText = new Text("CarSelection");
-        menuText.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-fill: #009783;");
-        menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 30));
+        Text menuText = TextConfig.makeH1("Car Selection");
+        menuText.setFill(ColorConfig.PRIMARY_MAIN);
         titleContainer.getChildren().add(menuText);
         titleContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
 

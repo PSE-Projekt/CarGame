@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="overworked game render">
+    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="beauty enhancement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/CustomScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/CustomScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/config/TextConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/config/TextConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameObjectView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameObjectView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/PlayerStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/PlayerStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738872764126</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="beauty enhancement">
+      <option name="closed" value="true" />
+      <created>1738875186465</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1738875186465</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,7 +171,8 @@
     <MESSAGE value="adjust game screen size and therefore the problem with not enough space in multiplayer" />
     <MESSAGE value="fix bug where after playing again one screen half is black" />
     <MESSAGE value="overworked game render" />
-    <option name="LAST_COMMIT_MESSAGE" value="overworked game render" />
+    <MESSAGE value="beauty enhancement" />
+    <option name="LAST_COMMIT_MESSAGE" value="beauty enhancement" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

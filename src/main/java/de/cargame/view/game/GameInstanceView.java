@@ -23,6 +23,7 @@ public class GameInstanceView extends Pane {
     private final ApiHandler apiHandler;
     private final int SCREEN_HEIGHT;
     private final int SCREEN_WIDTH;
+    private final PlayerStats stats;
     private GameModelData modelData;
 
     public GameInstanceView(ApiHandler apiHandler, String playerID) {
@@ -32,12 +33,12 @@ public class GameInstanceView extends Pane {
         this.SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
 
         // add player stats to view and register in backend as observer
-        PlayerStats stats = new PlayerStats();
+        this.stats = new PlayerStats();
         stats.setLayoutX(0);
         stats.setLayoutY(0);
         apiHandler.getPlayerApi().registerPlayerObserver(stats, playerID);
 
-        for (GameModelData modelData : apiHandler.getGameInstanceApi().getModel()) { //TODO fix namensüberdeckung (modelData)
+        for (GameModelData modelData : apiHandler.getGameInstanceApi().getModel()) {
             if (modelData.getPlayerId().equals(playerID)) {
                 this.modelData = modelData;
             }
@@ -98,6 +99,8 @@ public class GameInstanceView extends Pane {
         while (!gameObjectViews.isEmpty()) {
             this.getChildren().add(gameObjectViews.poll());
         }
+
+        stats.toFront();
     }
 
     private List<Pane> configureGreenArea() {
@@ -142,6 +145,6 @@ public class GameInstanceView extends Pane {
         sideMarkDown.setLayoutX(0);
         sideMarkDown.setLayoutY(SCREEN_HEIGHT - greenAreaHeight - 20);
 
-        return List.of(greenAreaUp, greenAreaDown, sideMarkUp, sideMarkDown);
+        return List.of(greenAreaUp, greenAreaDown, sideMarkUp, sideMarkDown, stats);
     }
 }
