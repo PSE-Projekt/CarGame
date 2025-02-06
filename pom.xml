@@ -19,7 +19,7 @@
 
         <jnativehook.version>2.2.2</jnativehook.version>
         <lombok.version>1.18.36</lombok.version>
-        <jinput.version>2.0.9</jinput.version>
+        <jinput.version>2.0.10</jinput.version>
         <log4j.version>1.6.1</log4j.version>
         <junit.version>5.11.3</junit.version>
         <mockito.version>5.15.2</mockito.version>
@@ -104,7 +104,34 @@
             <artifactId>javafx-fxml</artifactId>
             <version>${openjavafx.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${openjavafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${openjavafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${openjavafx.version}</version>
+            <classifier>win</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${openjavafx.version}</version>
+            <classifier>linux</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${openjavafx.version}</version>
+            <classifier>mac</classifier>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>

@@ -1,7 +1,5 @@
-package de.cargame;
+package de.cargame.config;
 
-import de.cargame.config.ConfigKey;
-import de.cargame.config.GameConfigService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -19,19 +17,19 @@ class GameConfigServiceTest {
     }
 
     @Test
-    void loadIntegerValueGetsCorrectlyLoaded() {
+    void loadIntegerValueGetsCorrectlyLoadedTest() {
         int gameSpeed = gameConfigService.loadInteger(ConfigKey.SCREEN_WIDTH);
         assertEquals(1280, gameSpeed);
     }
 
     @Test
-    void loadDoubleValueGetsCorrectlyLoaded() {
+    void loadDoubleValueGetsCorrectlyLoadedTest() {
         double aiCarSpeed = gameConfigService.loadDouble(ConfigKey.AI_CAR_SPEED);
         assertEquals(1.5, aiCarSpeed);
     }
 
     @Test
-    void loadIntegerValueGetsCorrectlyLoadedNewSingleton() {
+    void loadIntegerValueGetsCorrectlyLoadedNewSingletonTest() {
         GameConfigService gameConfigServiceNew = GameConfigService.getInstance();
         int gameSpeed = gameConfigServiceNew.loadInteger(ConfigKey.SCREEN_WIDTH);
         assertEquals(1280, gameSpeed);

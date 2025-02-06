@@ -13,11 +13,12 @@ import java.util.Optional;
 @Slf4j
 public class Keyboard extends InputDevice implements NativeKeyListener {
 
-    private final UserInputBundle userInputBundle = new UserInputBundle();
+    private final UserInputBundle userInputBundle;
     private final List<UserInputObserver> userInputObservers;
 
     public Keyboard() {
         userInputObservers = new ArrayList<>();
+        userInputBundle = new UserInputBundle();
 
         GlobalScreen.addNativeKeyListener(this);
     }
