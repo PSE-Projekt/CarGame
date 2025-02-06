@@ -6,11 +6,11 @@ import de.cargame.view.navigation.Navigator;
  * Implements the methods provided by Navigator. Purpose is
  * interaction and navigation the button options in the selection scene.
  */
-public class SelectionNavigator extends Navigator {
+class SelectionNavigator extends Navigator {
     /**
      * Creates a new SelectionNavigator instance, and passes a ApiHandler to it.
      */
-    public SelectionNavigator(ApiHandler apiHandler) {
+    SelectionNavigator(ApiHandler apiHandler) {
         super(apiHandler);
     }
 

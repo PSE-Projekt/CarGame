@@ -38,7 +38,7 @@ public class SelectionInstanceView extends Pane {
      * Creates a new SelectionInstanceView for the player using the apiHandler as well his playerID
      */
 
-    public SelectionInstanceView(SelectionScene handlingScene, ApiHandler apiHandler, String playerId) {
+    SelectionInstanceView(SelectionScene handlingScene, ApiHandler apiHandler, String playerId) {
 
         SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
         SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
@@ -112,7 +112,7 @@ public class SelectionInstanceView extends Pane {
         this.getChildren().addAll(sceneContent);
     }
 
-    public void setup() {
+    void setup() {
         PlayerAPI playerApi = this.apiHandler.getPlayerApi();
         carChoiceMade = false;
         if (this.playerId.equals(playerApi.getGamepadPlayerId())) {

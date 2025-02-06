@@ -9,15 +9,9 @@ import de.cargame.model.entity.gameobject.car.ai.KamikazeCar;
 import de.cargame.model.entity.gameobject.car.player.AgileCar;
 import de.cargame.model.entity.gameobject.car.player.FastCar;
 import de.cargame.view.ApiHandler;
-import de.cargame.view.game.sprites.GameSprites;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-/**
- * Contains the logic and contents of a single game screen instance.
- * 'render()' will display the instance according to current game data given by the ApiHandler.
- */
+
 import java.util.List;
-import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
