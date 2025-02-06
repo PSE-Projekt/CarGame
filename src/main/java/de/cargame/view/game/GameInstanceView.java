@@ -8,8 +8,14 @@ import de.cargame.model.entity.gameobject.car.ai.KamikazeCar;
 import de.cargame.model.entity.gameobject.car.player.AgileCar;
 import de.cargame.model.entity.gameobject.car.player.FastCar;
 import de.cargame.view.ApiHandler;
+import de.cargame.view.game.sprites.GameSprites;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class GameInstanceView extends Pane {
     private final SpriteService spriteService;
@@ -26,6 +32,8 @@ public class GameInstanceView extends Pane {
 
         // add player stats to view and register in backend as observer
         PlayerStats stats = new PlayerStats();
+        stats.setLayoutX(0);
+        stats.setLayoutY(0);
         apiHandler.getPlayerApi().registerPlayerObserver(stats, playerID);
 
         for (GameModelData modelData : apiHandler.getGameInstanceApi().getModel()) { //TODO fix namensüberdeckung (modelData)
@@ -47,8 +55,12 @@ public class GameInstanceView extends Pane {
 
     public void render() {
         this.getChildren().clear();
-        for (GameObject gameObject : modelData.getGameObjects()) {
-            ImageView objectView;
+
+        Queue<GameObjectView> gameObjectViews = new PriorityQueue<>(GameObjectView::compareTo);
+        List<GameObject> gameObjects = modelData.getGameObjects();
+
+        for (GameObject gameObject : gameObjects) {
+            GameObjectView objectView;
 
             if (gameObject instanceof Building) {
                 objectView = spriteService.getRandomBuildingSprite(gameObject.getId());
@@ -78,7 +90,11 @@ public class GameInstanceView extends Pane {
             objectView.setFitWidth(gameObject.getWidth());
             objectView.setFitHeight(gameObject.getHeight());
 
-            this.getChildren().add(objectView);
+            gameObjectViews.add(objectView);
+        }
+
+        while (!gameObjectViews.isEmpty()) {
+            this.getChildren().add(gameObjectViews.poll());
         }
     }
 }

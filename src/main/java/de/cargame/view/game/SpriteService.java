@@ -22,31 +22,31 @@ public class SpriteService {
         this.obstacleSprites = new ObstacleSprites();
     }
 
-    public ImageView getRandomLifeSprite(String gameObjectId) {
+    public GameObjectView getRandomLifeSprite(String gameObjectId) {
         return this.lifeSprites.getRandomSprite(gameObjectId);
     }
 
-    public ImageView getRandomObstacleSprite(String gameObjectId) {
+    public GameObjectView getRandomObstacleSprite(String gameObjectId) {
         return this.obstacleSprites.getRandomSprite(gameObjectId);
     }
 
-    public ImageView getRandomKamikazeSprite(String gameObjectId) {
+    public GameObjectView getRandomKamikazeSprite(String gameObjectId) {
         return this.kamikazeCarSprites.getRandomSprite(gameObjectId);
     }
 
-    public ImageView getRandomRoadMarkSprite(String gameObjectId) {
+    public GameObjectView getRandomRoadMarkSprite(String gameObjectId) {
         return this.roadMarkSprites.getRandomSprite(gameObjectId);
     }
 
-    public ImageView getRandomAgileCarSprite(String gameObjectId) {
+    public GameObjectView getRandomAgileCarSprite(String gameObjectId) {
         return this.agileCarSprites.getRandomSprite(gameObjectId);
     }
 
-    public ImageView getRandomFastCarSprite(String gameObjectId) {
+    public GameObjectView getRandomFastCarSprite(String gameObjectId) {
         return this.fastCarSprites.getRandomSprite(gameObjectId);
     }
 
-    public ImageView getRandomBuildingSprite(String gameObjectId) {
+    public GameObjectView getRandomBuildingSprite(String gameObjectId) {
         return this.buildingSprites.getRandomSprite(gameObjectId);
     }
 }

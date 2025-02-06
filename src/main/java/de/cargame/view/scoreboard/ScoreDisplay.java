@@ -22,16 +22,16 @@ public class ScoreDisplay extends VBox implements Comparable<ScoreDisplay> {
             label = "";
         }
 
-        Text scoreText = new Text(label + score);
+        Text scoreText = TextConfig.makeH1(label + scoreValue);
         scoreText.setFill(ColorConfig.SECONDARY_MAIN);
-        scoreText.setStyle("-fx-font-size: 20px;"); // Sets font size to 20px
-        scoreText.setFont(TextConfig.APPLICATION_FONT);
 
         getChildren().add(scoreText);
     }
 
     private void configureSelf() {
-        setPrefSize(300, 100);
+        setMaxSize(300, 50);
+        setMinSize(300, 50);
+        setPrefSize(300, 50);
         setAlignment(Pos.CENTER);
         setBorder(new Border(new BorderStroke(ColorConfig.PRIMARY_MAIN, BorderStrokeStyle.SOLID, new CornerRadii(3), new BorderWidths(2))));
     }
