@@ -38,7 +38,7 @@ public class GameConfig {
 
                         configMap.put(parts[0].trim(), parts[1].trim());
                     } else {
-                        log.warn("Skipping invalid config line: {}", line);
+                        log.trace("Skipping invalid config line: {}", line);
                     }
                 }
             }
