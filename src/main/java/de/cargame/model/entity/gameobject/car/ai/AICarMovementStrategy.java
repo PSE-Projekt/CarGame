@@ -13,15 +13,12 @@ public abstract class AICarMovementStrategy implements MovementStrategy {
     protected GameMode gameMode;
 
 
-    public AICarMovementStrategy(Coordinate gameObjectSpawnCoordinate, GameMode gameMode) {
+    protected AICarMovementStrategy(Coordinate gameObjectSpawnCoordinate, GameMode gameMode) {
         SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
         this.gameMode = gameMode;
         this.gameObjectSpawnCoordinate = gameObjectSpawnCoordinate;
         calcTargetPos();
     }
-
-    @Override
-    public abstract void calcTargetPos();
 
     @Override
 

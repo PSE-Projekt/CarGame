@@ -17,7 +17,7 @@ public abstract class CustomScene extends Scene {
     protected int SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
     protected int SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
 
-    public CustomScene(ApiHandler apiHandler) {
+    protected CustomScene(ApiHandler apiHandler) {
         super(new VBox(),
                 GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH),
                 GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT)

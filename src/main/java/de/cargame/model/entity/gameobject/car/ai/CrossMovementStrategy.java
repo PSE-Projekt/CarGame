@@ -7,6 +7,8 @@ import java.util.Random;
 
 public class CrossMovementStrategy extends AICarMovementStrategy {
 
+    private final Random random = new Random();
+
     public CrossMovementStrategy(Coordinate gameObjectSpawnCoordinate, GameMode gameMode) {
         super(gameObjectSpawnCoordinate, gameMode);
 
@@ -15,7 +17,6 @@ public class CrossMovementStrategy extends AICarMovementStrategy {
     @Override
     public void calcTargetPos() {
 
-        Random random = new Random();
         double randomX = -500;
 
         int targetYPossibleHeight = gameMode == GameMode.SINGLEPLAYER ? SCREEN_HEIGHT : SCREEN_HEIGHT/2;

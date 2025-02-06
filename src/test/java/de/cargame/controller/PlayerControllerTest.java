@@ -15,7 +15,7 @@ import static org.mockito.Mockito.when;
 
 
 @ExtendWith(MockitoExtension.class)
-public class PlayerControllerTest {
+class PlayerControllerTest {
 
 
     Player testPlayer = new Player();
@@ -25,7 +25,7 @@ public class PlayerControllerTest {
     private PlayerController playerController;
 
     @Test
-    public void testGetKeyboardPlayer_KeyboardPlayer_exists() {
+    void testGetKeyboardPlayer_KeyboardPlayer_exists() {
 
         //when
         when(playerService.getKeyboardPlayer()).thenReturn(testPlayer);
@@ -37,7 +37,7 @@ public class PlayerControllerTest {
     }
 
     @Test
-    public void testGetGamePadPlayer_GamePadPlayer_exists() {
+    void testGetGamePadPlayer_GamePadPlayer_exists() {
 
         //when
         when(playerService.getGamepadPlayer()).thenReturn(testPlayer);
@@ -49,12 +49,12 @@ public class PlayerControllerTest {
     }
 
     @Test
-    public void testGetKeyboardPlayer_KeyboardPlayer_doesNotExist() {
+    void testGetKeyboardPlayer_KeyboardPlayer_doesNotExist() {
         assertThrows(PlayerNotFoundException.class, () -> playerController.getKeyboardPlayer());
     }
 
     @Test
-    public void testGetGamePadPlayer_GamePadPlayer_doesNotExist() {
+    void testGetGamePadPlayer_GamePadPlayer_doesNotExist() {
         assertThrows(PlayerNotFoundException.class, () -> playerController.getGamepadPlayer());
     }
 }

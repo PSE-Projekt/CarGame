@@ -6,6 +6,8 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
+import java.util.Objects;
+
 public class ScoreDisplay extends VBox implements Comparable<ScoreDisplay> {
     private final int scoreValue;
 
@@ -38,5 +40,16 @@ public class ScoreDisplay extends VBox implements Comparable<ScoreDisplay> {
     @Override
     public int compareTo(ScoreDisplay o) {
         return Integer.compare(o.scoreValue, this.scoreValue);  // Compares the score values of two ScoreDisplays
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof ScoreDisplay that)) return false;
+        return scoreValue == that.scoreValue;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(scoreValue);
     }
 }

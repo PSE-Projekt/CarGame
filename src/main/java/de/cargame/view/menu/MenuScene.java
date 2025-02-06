@@ -1,6 +1,5 @@
 package de.cargame.view.menu;
 
-import de.cargame.config.GameConfig;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
 import de.cargame.view.navigation.Direction;

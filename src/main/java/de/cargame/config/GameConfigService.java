@@ -26,8 +26,7 @@ public class GameConfigService {
             return -1;
         }
         try {
-            int val = Integer.parseInt(value.get());
-            return val;
+            return Integer.parseInt(value.get());
         } catch (NumberFormatException e) {
             log.warn("Failed to parse value for key: {} as integer: {}", configKey, value);
             return -1;
@@ -42,8 +41,7 @@ public class GameConfigService {
             return -1;
         }
         try {
-            double val = Double.parseDouble(value.get());
-            return val;
+            return Double.parseDouble(value.get());
         } catch (NumberFormatException e) {
             log.warn("Failed to parse value for key: {} as double: {}", configKey, value);
             return -1;

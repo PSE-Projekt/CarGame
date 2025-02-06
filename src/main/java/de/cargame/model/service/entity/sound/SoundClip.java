@@ -14,7 +14,7 @@ public abstract class SoundClip {
     private Clip clip;
 
 
-    public SoundClip() {
+    protected SoundClip() {
         setPath();
         loadSoundFile(path);
         adjustLoudness(-10f);

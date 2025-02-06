@@ -11,6 +11,7 @@ import de.cargame.model.entity.gameobject.GameObjectBoundType;
 import de.cargame.model.entity.gameobject.car.Car;
 import de.cargame.model.handler.PlayerHandler;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Optional;
@@ -38,7 +39,7 @@ public abstract class PlayerCar extends Car {
     private PlayerHandler playerHandler;
     private UserInputType currentUserInput = UserInputType.NONE;
 
-    public PlayerCar(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
+    protected PlayerCar(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
         super(coordinate, dimension, gameObjectBoundType, gameMode);
         setPlayerHandler(playerHandler);
 
@@ -121,9 +122,11 @@ public abstract class PlayerCar extends Car {
     }
 
     private void moveCar(UserInputType userInputType, double distance, double gameObjectWidth, double gameObjectHeight) {
-        switch (userInputType) {
-            case UP -> moveByRespectingGameBoundaries(0, -distance, gameObjectWidth, gameObjectHeight);
-            case DOWN -> moveByRespectingGameBoundaries(0, distance, gameObjectWidth, gameObjectHeight);
+        if (userInputType == UserInputType.UP) {
+            moveByRespectingGameBoundaries(0, -distance, gameObjectWidth, gameObjectHeight);
+
+        } else if (userInputType == UserInputType.DOWN) {
+            moveByRespectingGameBoundaries(0, distance, gameObjectWidth, gameObjectHeight);
         }
     }
 

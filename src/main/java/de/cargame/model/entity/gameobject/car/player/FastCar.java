@@ -5,7 +5,6 @@ import de.cargame.config.GameConfigService;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.model.entity.gameobject.Coordinate;
 import de.cargame.model.entity.gameobject.Dimension;
-import de.cargame.model.entity.gameobject.GameObject;
 import de.cargame.model.entity.gameobject.GameObjectBoundType;
 
 /**

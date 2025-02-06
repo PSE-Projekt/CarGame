@@ -44,11 +44,6 @@ public class GameObjectCreationService {
 
     private final GameConfigService configService = GameConfigService.getInstance();
 
-    public GameObjectCreationService() {
-
-
-    }
-
 
     public void init(){
         if(gameMode == GameMode.SINGLEPLAYER) {
@@ -99,6 +94,10 @@ public class GameObjectCreationService {
             case AGILE_CAR:
                 dimension = new Dimension(AGILE_CAR_WIDTH, AGILE_CAR_HEIGHT);
                 return new AgileCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, gameMode);
+            case NONE:
+                log.error("No valid car-selection has been made");
+                throw new InvalidCarSelectionException("No valid car-selection has been made");
+            default:
         }
         log.error("No valid car-selection has been made");
         throw new InvalidCarSelectionException("No valid car-selection has been made");

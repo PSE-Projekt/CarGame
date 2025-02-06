@@ -4,560 +4,197 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="layouting of MenuScene">
+    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="fix bug where after playing again one screen half is black">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/config/GameConfigService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/config/GameConfigService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameApplicationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/GameApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/input/GamePad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/input/GamePad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/input/InputDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/input/InputDevice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/input/Keyboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/input/Keyboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/exception/CarGameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/exception/CarGameException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/GameObjectBound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/GameObjectBound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/RectangularGameObjectBound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/RectangularGameObjectBound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/Reward.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/Reward.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/car/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/car/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/car/ai/AICar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/car/ai/AICar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/car/ai/AICarMovementStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/car/ai/AICarMovementStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/car/ai/CrossMovementStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/car/ai/CrossMovementStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/car/player/FastCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/car/player/FastCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/car/player/PlayerCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/gameobject/car/player/PlayerCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/player/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/entity/player/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/handler/entity/GameObjectSpawningStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/handler/entity/GameObjectSpawningStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/handler/entity/MultiplayerSpawningStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/handler/entity/MultiplayerSpawningStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/handler/entity/SpawnAreaList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/handler/entity/SpawnAreaList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameInstanceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameInstanceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameObjectCreationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameObjectCreationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameObjectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameObjectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/InputService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/InputService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/PlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/SoundService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/SoundService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/entity/sound/SoundClip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/model/service/entity/sound/SoundClip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApiHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/CustomScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/CustomScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/config/ColorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/config/ColorConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/config/TextConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/config/TextConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/DummySelectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/DummySelectable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Navigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Navigator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Selectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Selectable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionNavigator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionNavigator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/frontend/agileCar_default.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/frontend/agileCar_default.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/frontend/agileCar_selected.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/frontend/agileCar_selected.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/frontend/fastCar_default.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/frontend/fastCar_default.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/frontend/fastCar_selected.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/frontend/fastCar_selected.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/cargame/GameConfigServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cargame/GameConfigServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/cargame/controller/PlayerControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cargame/controller/PlayerControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="module-info" />
-        <option value="Enum" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="main" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;ManOfKott&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "famabenda"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/PSE-Projekt/CarGame.git&quot;,
-    &quot;accountId&quot;: &quot;d50244f2-6752-4609-9ade-cf6d55ff0b7e&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:PSE-Projekt/CarGame.git",
+    "accountId": "97e744bd-5562-45f1-9e33-25337e03e94f"
   }
-}</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2sJ8uTJ6MaF5XYEy1pA1oZcZwC7" />
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2se7M2WIbMubGrvKObd3uZ2Uj4S" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Application.ApplicationView.executor&quot;: &quot;Run&quot;,
-    &quot;Application.CarGameApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestApp.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.CarGameOfficial_v2 [javafx:run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/malik/IdeaProjects/CarGameOfficial_v2/src/main/resources/sprites&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.CarGameApplication.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "sonarlint",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\malik\IdeaProjects\CarGameOfficial_v2\src\main\resources\sprites" />
-    </key>
-  </component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="mvn javafx:run" />
-    </option>
-  </component>
+}]]></component>
   <component name="RunManager">
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="CarGameOfficial_v2" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Python.FlaskServer">
-      <module name="CarGameOfficial_v2" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="CarGameOfficial_v2" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <method v="2" />
-    </configuration>
-    <configuration name="ApplicationView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="de.cargame.view.ApplicationView" />
+    <configuration name="CarGameApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.cargame.CarGameApplication" />
       <module name="CarGameTest" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="de.cargame.view.*" />
+          <option name="PATTERN" value="de.cargame.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.Main" />
-      <module name="CarGameOfficial_v2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="view.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="CarGameOfficial_v2" />
-      <option name="filePath" />
-      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ApplicationView" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.CarGameApplication" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="cba2764c-4002-4865-9424-7373438eb382" name="Changes" comment="" />
-      <created>1738162540358</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1738162540358</updated>
-      <workItem from="1738162542577" duration="492000" />
-      <workItem from="1738163073735" duration="67000" />
-      <workItem from="1738163148318" duration="182000" />
-      <workItem from="1738163337862" duration="722000" />
-      <workItem from="1738164110585" duration="8000" />
-      <workItem from="1738164126486" duration="19000" />
-      <workItem from="1738164155256" duration="45000" />
-      <workItem from="1738164209330" duration="286000" />
-      <workItem from="1738164553727" duration="658000" />
-      <workItem from="1738166903989" duration="2117000" />
-      <workItem from="1738169054524" duration="641000" />
-      <workItem from="1738169710156" duration="158000" />
-      <workItem from="1738169906541" duration="93000" />
-      <workItem from="1738202386786" duration="295000" />
-      <workItem from="1738253600526" duration="745000" />
-      <workItem from="1738254371382" duration="299000" />
-      <workItem from="1738255381170" duration="145000" />
-      <workItem from="1738255530213" duration="310000" />
-      <workItem from="1738411050503" duration="694000" />
-      <workItem from="1738411847828" duration="4000" />
-      <workItem from="1738412032435" duration="2746000" />
-      <workItem from="1738505165436" duration="7439000" />
-      <workItem from="1738533412489" duration="5600000" />
-      <workItem from="1738582434682" duration="22623000" />
-      <workItem from="1738659245774" duration="1695000" />
-      <workItem from="1738774287057" duration="8066000" />
-    </task>
-    <task id="LOCAL-00001" summary="initialized working javaFX project for initial state of the project">
+    <task id="LOCAL-00001" summary="make multiplayer spawning work + fix boundaries of playercars in multiplayer">
       <option name="closed" value="true" />
-      <created>1738163219781</created>
+      <created>1738795077254</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1738163219781</updated>
+      <updated>1738795077254</updated>
     </task>
-    <task id="LOCAL-00002" summary="first working javafx window, nearly ready for merge with main branch">
+    <task id="LOCAL-00002" summary="add different sizes for multiplayer gameobjects">
       <option name="closed" value="true" />
-      <created>1738164789335</created>
+      <created>1738796578720</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1738164789335</updated>
+      <updated>1738796578720</updated>
     </task>
-    <task id="LOCAL-00003" summary="declaration of render method">
+    <task id="LOCAL-00003" summary="adjust game screen size and therefore the problem with not enough space in multiplayer">
       <option name="closed" value="true" />
-      <created>1738164931611</created>
+      <created>1738798584099</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1738164931611</updated>
+      <updated>1738798584099</updated>
     </task>
-    <task id="LOCAL-00004" summary="test with calling launch of ApplicationView">
+    <task id="LOCAL-00004" summary="fix bug where after playing again one screen half is black">
       <option name="closed" value="true" />
-      <created>1738166989538</created>
+      <created>1738802834643</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1738166989538</updated>
+      <updated>1738802834643</updated>
     </task>
-    <task id="LOCAL-00005" summary="deleted Main class that was meant for testing purposes">
-      <option name="closed" value="true" />
-      <created>1738167109636</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1738167109636</updated>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="fix bug where after playing again one screen half is black" />
+      <created>1738804135250</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1738804135250</updated>
+      <workItem from="1738804137572" duration="2894000" />
     </task>
-    <task id="LOCAL-00006" summary="implemented abstract CustomScene">
-      <option name="closed" value="true" />
-      <created>1738167462004</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1738167462004</updated>
-    </task>
-    <task id="LOCAL-00007" summary="implemented first attempt of APIHandler and ApplicationView">
-      <option name="closed" value="true" />
-      <created>1738168389175</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1738168389175</updated>
-    </task>
-    <task id="LOCAL-00008" summary="implemented first attempt of APIHandler and ApplicationView">
-      <option name="closed" value="true" />
-      <created>1738169329966</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1738169329966</updated>
-    </task>
-    <task id="LOCAL-00009" summary="attempt: fixing incompatible history of main and frontend branches">
-      <option name="closed" value="true" />
-      <created>1738169617680</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1738169617680</updated>
-    </task>
-    <task id="LOCAL-00010" summary="attempt: fixing incompatible history of main and frontend branches">
-      <option name="closed" value="true" />
-      <created>1738169834041</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1738169834041</updated>
-    </task>
-    <task id="LOCAL-00011" summary="added TODOs to Applicationview; function creating scenes + sceneSwitch needed">
-      <option name="closed" value="true" />
-      <created>1738202627712</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1738202627712</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Fixed NameConvention in some classes, etc">
-      <option name="closed" value="true" />
-      <created>1738254454952</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1738254454952</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Fehler auskommentiert, um zu testen">
-      <option name="closed" value="true" />
-      <created>1738256736037</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1738256736037</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Fehler auskommentiert und imports behoben, um zu testen">
-      <option name="closed" value="true" />
-      <created>1738256980430</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1738256980430</updated>
-    </task>
-    <task id="LOCAL-00015" summary="tested ApplicationView and javaFX functionality">
-      <option name="closed" value="true" />
-      <created>1738258803099</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1738258803099</updated>
-    </task>
-    <task id="LOCAL-00016" summary="added workspace.xml to gitignore">
-      <option name="closed" value="true" />
-      <created>1738258856824</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1738258856824</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Implementation of PlayerStats">
-      <option name="closed" value="true" />
-      <created>1738344496613</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1738344496613</updated>
-    </task>
-    <task id="LOCAL-00018" summary="First attempt: implemeentation of skeleton for GameScene and associated components">
-      <option name="closed" value="true" />
-      <created>1738349454174</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1738349454174</updated>
-    </task>
-    <task id="LOCAL-00019" summary="First attempt: implemetation of gamesprites">
-      <option name="closed" value="true" />
-      <created>1738505325549</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1738505325549</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Full prototype implementation of GameSprites and associated modules">
-      <option name="closed" value="true" />
-      <created>1738507175238</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1738507175238</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Added handling for non-present sprites in GameSprites">
-      <option name="closed" value="true" />
-      <created>1738515071309</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1738515071309</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Configured height and width of game instances">
-      <option name="closed" value="true" />
-      <created>1738515241536</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1738515241536</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Worked on several parts of core frontend functionality. Full prototype implementation of ScoreBoardScene">
-      <option name="closed" value="true" />
-      <created>1738536640114</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1738536640114</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Stuck">
-      <option name="closed" value="true" />
-      <created>1738538445789</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1738538445789</updated>
-    </task>
-    <task id="LOCAL-00025" summary="fixed and reworked Navigator">
-      <option name="closed" value="true" />
-      <created>1738583854982</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1738583854982</updated>
-    </task>
-    <task id="LOCAL-00026" summary="GameScene: encapsulation of Scene setup&#10;ScoreBoardScene: assign naviigator to input receivers of both input types&#10;ApplicationView: call setup on active scene on render call">
-      <option name="closed" value="true" />
-      <created>1738586023851</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1738586023851</updated>
-    </task>
-    <task id="LOCAL-00027" summary="throw exceptions on invalid render calls in ApplicationView. Imports fix.">
-      <option name="closed" value="true" />
-      <created>1738586490629</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1738586490629</updated>
-    </task>
-    <task id="LOCAL-00028" summary="fixed setup call in ApplicationView render">
-      <option name="closed" value="true" />
-      <created>1738589262816</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1738589262816</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Fixes in ApiHandler for string player info. GameScene display changes.">
-      <option name="closed" value="true" />
-      <created>1738593036181</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1738593036181</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Fixed ScoreViewSinglePlayer">
-      <option name="closed" value="true" />
-      <created>1738593737050</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1738593737050</updated>
-    </task>
-    <task id="LOCAL-00031" summary="reset of inputreceivers in SelectionInstanceView">
-      <option name="closed" value="true" />
-      <created>1738594341130</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1738594341130</updated>
-    </task>
-    <task id="LOCAL-00032" summary="changes of render system of frontend. Generation of presentation layer in CarGameApplication.">
-      <option name="closed" value="true" />
-      <created>1738613973525</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1738613973525</updated>
-    </task>
-    <task id="LOCAL-00033" summary="changes of render system of frontend. Generation of presentation layer in CarGameApplication.">
-      <option name="closed" value="true" />
-      <created>1738617538445</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1738617538445</updated>
-    </task>
-    <task id="LOCAL-00034" summary="reset input receivers in GameScene for ignoring inputs in game and correct InputReceiver.">
-      <option name="closed" value="true" />
-      <created>1738619515731</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1738619515731</updated>
-    </task>
-    <task id="LOCAL-00035" summary="layouting of MenuScene">
-      <option name="closed" value="true" />
-      <created>1738690633189</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1738690633189</updated>
-    </task>
-    <option name="localTasksCounter" value="36" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="CUSTOM_BOOLEAN_PROPERTIES">
-                <map>
-                  <entry key="Show.Git.Branches" value="true" />
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="improved controllerDummy, fixed some errors" />
-    <MESSAGE value="added TODOs to Applicationview; function creating scenes + sceneSwitch needed" />
-    <MESSAGE value="Fixed NameConvention in some classes, etc" />
-    <MESSAGE value="Fehler auskommentiert, um zu testen" />
-    <MESSAGE value="Fehler auskommentiert und imports behoben, um zu testen" />
-    <MESSAGE value="tested ApplicationView and javaFX functionality" />
-    <MESSAGE value="added workspace.xml to gitignore" />
-    <MESSAGE value="Implementation of PlayerStats" />
-    <MESSAGE value="First attempt: implemeentation of skeleton for GameScene and associated components" />
-    <MESSAGE value="First attempt: implemetation of gamesprites" />
-    <MESSAGE value="Full prototype implementation of GameSprites and associated modules" />
-    <MESSAGE value="Added handling for non-present sprites in GameSprites" />
-    <MESSAGE value="Configured height and width of game instances" />
-    <MESSAGE value="Worked on several parts of core frontend functionality. Full prototype implementation of ScoreBoardScene" />
-    <MESSAGE value="Stuck" />
-    <MESSAGE value="fixed and reworked Navigator" />
-    <MESSAGE value="GameScene: encapsulation of Scene setup&#10;ScoreBoardScene: assign naviigator to input receivers of both input types&#10;ApplicationView: call setup on active scene on render call" />
-    <MESSAGE value="throw exceptions on invalid render calls in ApplicationView. Imports fix." />
-    <MESSAGE value="fixed setup call in ApplicationView render" />
-    <MESSAGE value="Fixes in ApiHandler for string player info. GameScene display changes." />
-    <MESSAGE value="Fixed ScoreViewSinglePlayer" />
-    <MESSAGE value="reset of inputreceivers in SelectionInstanceView" />
-    <MESSAGE value="changes of render system of frontend. Generation of presentation layer in CarGameApplication." />
-    <MESSAGE value="reset input receivers in GameScene for ignoring inputs in game and correct InputReceiver." />
+    <MESSAGE value="Improved display for the SelectionInstanceView, but not finished" />
     <MESSAGE value="layouting of MenuScene" />
-    <option name="LAST_COMMIT_MESSAGE" value="layouting of MenuScene" />
+    <MESSAGE value="make multiplayer spawning work + fix boundaries of playercars in multiplayer" />
+    <MESSAGE value="add different sizes for multiplayer gameobjects" />
+    <MESSAGE value="adjust game screen size and therefore the problem with not enough space in multiplayer" />
+    <MESSAGE value="fix bug where after playing again one screen half is black" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug where after playing again one screen half is black" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/cargame/model/service/GameInstanceService.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

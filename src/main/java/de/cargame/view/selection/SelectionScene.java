@@ -72,6 +72,9 @@ public class SelectionScene extends CustomScene {
                 gameInstanceApi.startGamePlayerGamePad();
                 break;
 
+            case NOT_SET:
+                throw new IllegalStateException("Game mode not set yet");
+
         }
         apiHandler.getGameStateApi().setGameState(GameState.IN_GAME);
         apiHandler.switchScene(GameState.IN_GAME);

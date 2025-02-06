@@ -4,14 +4,13 @@ import de.cargame.controller.api.PlayerAPI;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
-import javafx.geometry.Pos;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameScene extends CustomScene {
-    private final List<GameInstanceView> gameInstanceViews = new ArrayList<>();;
+    private final List<GameInstanceView> gameInstanceViews = new ArrayList<>();
 
     public GameScene(ApiHandler apiHandler) {
         super(apiHandler);

@@ -63,11 +63,4 @@ public class GameInstanceService {
         gameInstances.clear();
     }
 
-    private List<GameInstance> getFinishedGameInstances() {
-        return gameInstances.stream()
-                .filter(GameInstance::isFinished)
-                .toList();
-    }
-
-
 }

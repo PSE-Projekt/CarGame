@@ -14,8 +14,7 @@ public class Keyboard extends InputDevice implements NativeKeyListener {
     private final UserInputBundle userInputBundle = new UserInputBundle();
     private final List<UserInputObserver> userInputObservers;
 
-    public Keyboard(String playerId) {
-        super(playerId);
+    public Keyboard() {
         userInputObservers = new ArrayList<>();
 
         GlobalScreen.addNativeKeyListener(this);

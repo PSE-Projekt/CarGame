@@ -22,7 +22,7 @@ public abstract class GameObjectSpawningStrategy {
     protected SpawnAreaList aiCarSpawnAreas = new SpawnAreaList();
 
 
-    public GameObjectSpawningStrategy() {
+    protected GameObjectSpawningStrategy() {
         this.SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
         this.SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
         this.PLAYER_SPAWN_X = SCREEN_WIDTH / 5;

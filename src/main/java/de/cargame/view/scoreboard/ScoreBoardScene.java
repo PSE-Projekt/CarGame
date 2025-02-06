@@ -1,7 +1,6 @@
 package de.cargame.view.scoreboard;
 
 import de.cargame.controller.api.GameStateAPI;
-import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
@@ -10,9 +9,7 @@ import de.cargame.view.config.TextConfig;
 import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 

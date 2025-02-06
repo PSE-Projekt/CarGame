@@ -18,8 +18,7 @@ public class GamePad extends InputDevice {
     private boolean deviceConnected = false;
     private Controller controller;
 
-    public GamePad(String id) {
-        super(id);
+    public GamePad() {
         //initController(); //Todo fix
     }
 

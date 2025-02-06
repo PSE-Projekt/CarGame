@@ -22,12 +22,6 @@ public class RectangularGameObjectBound extends GameObjectBound {
         coordinate = new Coordinate(x, y);
     }
 
-
-    @Override
-    public void moveBy(double xAmount, double yAmount) {
-        super.moveBy(xAmount, yAmount);
-    }
-
     @Override
     public Shape getBound() {
         double x = coordinate.getX();

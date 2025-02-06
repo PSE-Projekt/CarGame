@@ -10,6 +10,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.awt.*;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -46,7 +47,7 @@ public abstract class GameObject implements Collidable, Despawnable {
     protected boolean isCollidable;
     protected GameMode gameMode;
 
-    public GameObject(double x, double y, int width, int height, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
+    protected GameObject(double x, double y, int width, int height, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
         GAME_SPEED = GameConfigService.getInstance().loadDouble(ConfigKey.GAME_SPEED);
         GAME_SPEED_FAST_FORWARD = GameConfigService.getInstance().loadDouble(ConfigKey.GAME_SPEED_FAST_FORWARD);
         SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
@@ -56,15 +57,14 @@ public abstract class GameObject implements Collidable, Despawnable {
         setDespawnable();
         setIsStatic();
         setCollidable();
-        switch (gameObjectBoundType) {
-            case RECTANGLE:
-                gameObjectBound = new RectangularGameObjectBound(x, y, width, height);
-                return;
+        if (Objects.requireNonNull(gameObjectBoundType) == GameObjectBoundType.RECTANGLE) {
+            gameObjectBound = new RectangularGameObjectBound(x, y, width, height);
+            return;
         }
         log.error("A hitbox was tried to initialize with an illegal shape");
     }
 
-    public GameObject(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
+    protected GameObject(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
         this(coordinate.getX(), coordinate.getY(), dimension.getWidth(), dimension.getHeight(), gameObjectBoundType ,gameMode);
     }
 
@@ -116,9 +116,7 @@ public abstract class GameObject implements Collidable, Despawnable {
         // Objekt bewegen
         gameObjectBound.moveBy(xAmount, yAmount);
 
-        double xNew = gameObjectBound.getCoordinate().getX();
         double yNew = gameObjectBound.getCoordinate().getY();
-
 
         int heightBound = gameMode == GameMode.MULTIPLAYER ? SCREEN_HEIGHT / 2 : SCREEN_HEIGHT;
 

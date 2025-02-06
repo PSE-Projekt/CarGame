@@ -9,7 +9,6 @@ import de.cargame.model.entity.gameobject.car.player.AgileCar;
 import de.cargame.model.entity.gameobject.car.player.FastCar;
 import de.cargame.view.ApiHandler;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 
 public class GameInstanceView extends Pane {
@@ -27,9 +26,9 @@ public class GameInstanceView extends Pane {
 
         // add player stats to view and register in backend as observer
         PlayerStats stats = new PlayerStats();
-        apiHandler.getPlayerApi().registerPlayerObserver(stats, playerID); // TODO: discuss with backend team
+        apiHandler.getPlayerApi().registerPlayerObserver(stats, playerID);
 
-        for (GameModelData modelData : apiHandler.getGameInstanceApi().getModel()) {
+        for (GameModelData modelData : apiHandler.getGameInstanceApi().getModel()) { //TODO fix namensüberdeckung (modelData)
             if (modelData.getPlayerId().equals(playerID)) {
                 this.modelData = modelData;
             }

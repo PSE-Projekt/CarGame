@@ -77,7 +77,7 @@ public class GameObjectService {
 
     public void stopGame() {
         gameObjectSpawnScheduler.stopSpawning();
-        gameObjects.removeAll(gameObjects);
+        gameObjects.clear();
     }
 
 

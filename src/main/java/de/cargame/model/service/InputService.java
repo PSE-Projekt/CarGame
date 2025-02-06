@@ -14,20 +14,18 @@ public class InputService {
      * Initializes the keyboard input device for a specific player.
      * Creates a Keyboard instance associated with the given player ID.
      *
-     * @param playerId the identifier of the player for whom the keyboard is initialized
-     */
-    public void initKeyboard(String playerId) {
-        this.keyboard = new Keyboard(playerId);
+     * */
+    public void initKeyboard() {
+        this.keyboard = new Keyboard();
     }
 
     /**
      * Initializes the gamepad input device for a specific player.
      * Creates a GamePad instance associated with the given player ID.
      *
-     * @param playerId the identifier of the player for whom the gamepad is initialized
-     */
-    public void initGamepad(String playerId) {
-        this.gamePad = new GamePad(playerId);
+     * */
+    public void initGamepad() {
+        this.gamePad = new GamePad();
     }
 
 

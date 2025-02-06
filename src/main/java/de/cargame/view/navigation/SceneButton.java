@@ -60,10 +60,6 @@ public abstract class SceneButton extends Selectable implements Clickable {
         throw new RuntimeException("Could not load image at path: " + path);
     }
 
-
-    @Override
-    public abstract void onClick(ApiHandler apiHandler, String playerID);
-
     @Override
     public void select() {
         display.setImage(displayOnSelection);

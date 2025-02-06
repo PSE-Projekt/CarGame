@@ -2,7 +2,9 @@ package de.cargame.view.config;
 
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class TextConfig {
     public static final Font APPLICATION_FONT =
             Font.loadFont(TextConfig.class.getResourceAsStream("/frontend/monomaniacOne.ttf"), 100);

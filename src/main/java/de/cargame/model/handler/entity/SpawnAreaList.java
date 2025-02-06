@@ -8,6 +8,7 @@ import java.util.Random;
 
 public class SpawnAreaList {
     private final List<SpawnArea> spawnAreas;
+    private final Random random = new Random();
 
     public SpawnAreaList() {
         this.spawnAreas = new ArrayList<>();
@@ -26,7 +27,7 @@ public class SpawnAreaList {
     }
 
     public SpawnArea getRandomSpawnArea() {
-        return spawnAreas.get(new Random().nextInt(spawnAreas.size()));
+        return spawnAreas.get(random.nextInt(spawnAreas.size()));
     }
 
 
@@ -50,7 +51,7 @@ public class SpawnAreaList {
      * @return One random coordinate from one random SpawnArea which is present.
      */
     public Coordinate getRandomCoordinate() {
-        SpawnArea spawnArea = spawnAreas.get(new Random().nextInt(spawnAreas.size()));
+        SpawnArea spawnArea = spawnAreas.get(random.nextInt(spawnAreas.size()));
         return spawnArea.getRandomCoordinateInArea();
     }
 

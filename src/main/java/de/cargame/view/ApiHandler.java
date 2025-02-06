@@ -46,7 +46,6 @@ public class ApiHandler {
 
         String gamepadPlayerId = playerApi.getGamepadPlayerId();
         playerApi.registerInputObserver(inputReceiverGamePad, gamepadPlayerId);
-        // TODO: register InputReceivers as Observers in backend
     }
 
     public void switchScene(GameState newGameState) {

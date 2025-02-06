@@ -22,7 +22,7 @@ public class SoundService {
         this.carRaceSoundClip = new CarRaceSound();
     }
 
-    public synchronized static SoundService getInstance() {
+    public static synchronized SoundService getInstance() {
         if (INSTANCE == null) {
             INSTANCE = new SoundService();
         }

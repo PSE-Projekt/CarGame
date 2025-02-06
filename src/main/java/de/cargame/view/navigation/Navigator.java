@@ -1,11 +1,14 @@
 package de.cargame.view.navigation;
 
+import de.cargame.controller.input.UserInput;
 import de.cargame.controller.input.UserInputBundle;
 import de.cargame.controller.input.UserInputType;
 import de.cargame.model.service.SoundService;
 import de.cargame.view.ApiHandler;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.Optional;
 
 public abstract class Navigator {
     protected final ApiHandler apiHandler;
@@ -16,7 +19,7 @@ public abstract class Navigator {
     protected Selectable currentSelection;
     protected SoundService soundService = new SoundService();
 
-    public Navigator(ApiHandler apiHandler) {
+    protected Navigator(ApiHandler apiHandler) {
         this.currentSelection = new DummySelectable();
         this.initialSelectable = this.currentSelection;
         this.apiHandler = apiHandler;
@@ -26,12 +29,15 @@ public abstract class Navigator {
         if (userInputBundle.getLatestInput().isEmpty()) {
             return;
         }
+        Optional<UserInput> latestInput = userInputBundle.getLatestInput();
+        UserInputType latestInputType = UserInputType.NONE;
+        if(latestInput.isPresent()){
+            latestInputType = latestInput.get().getUserInputType();
+        }
 
-        UserInputType latestInputType = userInputBundle.getLatestInput().get().getUserInputType();
-
-        if (userInputBundle.isFastForward() && this.currentSelection instanceof Clickable) {
+        if (userInputBundle.isFastForward() && this.currentSelection instanceof Clickable selection) {
             soundService.playSelectSound();
-            ((Clickable) this.currentSelection).onClick(this.apiHandler, playerID);
+            selection.onClick(this.apiHandler, playerID);
         }
 
         Selectable newSelection = null;

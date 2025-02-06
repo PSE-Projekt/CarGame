@@ -16,7 +16,7 @@ public abstract class AICar extends Car {
     private final MovementStrategy movementStrategy;
 
 
-    public AICar(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, MovementStrategy movementStrategy, GameMode gameMode) {
+    protected AICar(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, MovementStrategy movementStrategy, GameMode gameMode) {
         super(coordinate, dimension, gameObjectBoundType, gameMode);
         this.movementStrategy = movementStrategy;
         AI_CAR_SPEED = GameConfigService.getInstance().loadDouble(ConfigKey.AI_CAR_SPEED);

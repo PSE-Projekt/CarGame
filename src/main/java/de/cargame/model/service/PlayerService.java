@@ -22,12 +22,12 @@ public class PlayerService {
 
 
     public void createPlayerKeyboard() {
-        inputService.initKeyboard(keyboardPlayer.getId());
+        inputService.initKeyboard();
         inputService.registerKeyboardObserver(keyboardPlayer);
     }
 
     public void createPlayerGamepad() {
-        inputService.initGamepad(gamepadPlayer.getId());
+        inputService.initGamepad();
         inputService.registerGamePadObserver(gamepadPlayer);
     }
 

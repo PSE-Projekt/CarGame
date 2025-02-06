@@ -1,6 +1,5 @@
 package de.cargame.view.selection;
 
-import de.cargame.controller.input.UserInputBundle;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.navigation.Navigator;
 

@@ -21,7 +21,7 @@ public abstract class Car extends GameObject {
 
     protected double speed;
 
-    public Car(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
+    protected Car(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
         super(coordinate, dimension, gameObjectBoundType, gameMode);
     }
 
@@ -30,6 +30,6 @@ public abstract class Car extends GameObject {
         this.isStatic = false;
     }
 
-    abstract protected void setSpeed();
+    protected abstract void setSpeed();
 
 }

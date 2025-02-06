@@ -3,16 +3,17 @@ package de.cargame.view.navigation;
 import javafx.scene.layout.Pane;
 import lombok.Setter;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Selectable extends Pane {
 
-    private final Map<Direction, Selectable> neighbours = new HashMap<>();
+    private final Map<Direction, Selectable> neighbours = new EnumMap<>(Direction.class);
     @Setter
     private boolean lockedInSelection;
 
-    public Selectable() {
+    protected Selectable() {
         neighbours.put(Direction.UP, null);
         neighbours.put(Direction.RIGHT, null);
         neighbours.put(Direction.DOWN, null);

@@ -19,7 +19,7 @@ public abstract class Reward extends GameObject {
 
     private boolean collected = false;
 
-    public Reward(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
+    protected Reward(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
         super(coordinate, dimension, gameObjectBoundType,gameMode);
     }
 

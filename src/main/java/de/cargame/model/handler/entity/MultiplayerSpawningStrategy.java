@@ -3,8 +3,6 @@ package de.cargame.model.handler.entity;
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
 
-import java.util.List;
-
 public class MultiplayerSpawningStrategy extends GameObjectSpawningStrategy {
 
     private final int BUILDING_HEIGHT;

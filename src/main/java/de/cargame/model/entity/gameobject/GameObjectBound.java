@@ -19,7 +19,7 @@ public abstract class GameObjectBound {
     protected Coordinate coordinate;
 
 
-    public GameObjectBound(double x, double y) {
+    protected GameObjectBound(double x, double y) {
         coordinate = new Coordinate(x, y);
     }
 
