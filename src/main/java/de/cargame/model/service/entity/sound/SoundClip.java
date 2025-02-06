@@ -2,6 +2,7 @@
 package de.cargame.model.service.entity.sound;
 
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.sound.sampled.*;
 import java.io.BufferedInputStream;
@@ -9,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 @Getter
+@Slf4j
 public abstract class SoundClip {
 
     protected String path;
@@ -41,9 +43,8 @@ public abstract class SoundClip {
             throw new RuntimeException("Sound file not found: " + soundFilePath);
         }
 
-        BufferedInputStream bufferedStream = null; // Declare this outside the try block to manage its lifecycle
+        BufferedInputStream bufferedStream = null;
         try {
-            // Wrap in a BufferedInputStream to support mark/reset
             bufferedStream = new BufferedInputStream(soundClipInputStream);
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(bufferedStream);
             this.clip = AudioSystem.getClip();
@@ -51,13 +52,12 @@ public abstract class SoundClip {
         } catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
             throw new RuntimeException("Failed to load sound file: " + soundFilePath, e);
         } finally {
-            // Ensure streams are closed properly without affecting the Clip or AudioInputStream
             try {
                 if (bufferedStream != null) {
-                    bufferedStream.close(); // Close the BufferedInputStream explicitly
+                    bufferedStream.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace(); // Print error if cleanup fails
+                log.error("Failed to close sound file stream: {}", soundFilePath, e);
             }
         }
     }
