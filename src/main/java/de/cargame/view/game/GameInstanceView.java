@@ -2,33 +2,42 @@ package de.cargame.view.game;
 
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
+import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.entity.GameModelData;
 import de.cargame.model.entity.gameobject.*;
 import de.cargame.model.entity.gameobject.car.ai.KamikazeCar;
 import de.cargame.model.entity.gameobject.car.player.AgileCar;
 import de.cargame.model.entity.gameobject.car.player.FastCar;
 import de.cargame.view.ApiHandler;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class GameInstanceView extends Pane {
     private final SpriteService spriteService;
-    private final int SCREEN_WIDTH;
+    private final ApiHandler apiHandler;
     private final int SCREEN_HEIGHT;
+    private final int SCREEN_WIDTH;
+    private final PlayerStats stats;
     private GameModelData modelData;
-
+    /**
+     * Creates a new GameInstanceView for the player using the apiHandler as well his playerID
+     */
     public GameInstanceView(ApiHandler apiHandler, String playerID) {
-
-        SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
-        SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
-
         this.spriteService = new SpriteService();
+        this.apiHandler = apiHandler;
+        this.SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
+        this.SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
 
         // add player stats to view and register in backend as observer
-        PlayerStats stats = new PlayerStats();
+        this.stats = new PlayerStats();
+        stats.setLayoutX(0);
+        stats.setLayoutY(0);
         apiHandler.getPlayerApi().registerPlayerObserver(stats, playerID);
 
-        for (GameModelData modelData : apiHandler.getGameInstanceApi().getModel()) { //TODO fix namensüberdeckung (modelData)
+        for (GameModelData modelData : apiHandler.getGameInstanceApi().getModel()) {
             if (modelData.getPlayerId().equals(playerID)) {
                 this.modelData = modelData;
             }
@@ -44,11 +53,17 @@ public class GameInstanceView extends Pane {
         this.setStyle("-fx-background-color: grey;");
         this.getChildren().add(stats);
     }
-
+    /**
+     * Renders the contents of this player's game instance.
+     */
     public void render() {
         this.getChildren().clear();
-        for (GameObject gameObject : modelData.getGameObjects()) {
-            ImageView objectView;
+
+        Queue<GameObjectView> gameObjectViews = new PriorityQueue<>(GameObjectView::compareTo);
+        List<GameObject> gameObjects = modelData.getGameObjects();
+
+        for (GameObject gameObject : gameObjects) {
+            GameObjectView objectView;
 
             if (gameObject instanceof Building) {
                 objectView = spriteService.getRandomBuildingSprite(gameObject.getId());
@@ -78,7 +93,59 @@ public class GameInstanceView extends Pane {
             objectView.setFitWidth(gameObject.getWidth());
             objectView.setFitHeight(gameObject.getHeight());
 
-            this.getChildren().add(objectView);
+            gameObjectViews.add(objectView);
         }
+        this.getChildren().addAll(configureGreenArea());
+
+        while (!gameObjectViews.isEmpty()) {
+            this.getChildren().add(gameObjectViews.poll());
+        }
+
+        stats.toFront();
+    }
+
+    private List<Pane> configureGreenArea() {
+        int BUILDING_HEIGHT;
+        int BUILDING_SPAWN_AREA;
+
+        if (apiHandler.getGameStateApi().getGameMode().equals(GameMode.MULTIPLAYER)) {
+            BUILDING_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT_MULTIPLAYER);
+            BUILDING_SPAWN_AREA = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_SINGLEPLAYER);
+        } else if (apiHandler.getGameStateApi().getGameMode().equals(GameMode.SINGLEPLAYER)) {
+            BUILDING_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT_SINGLEPLAYER);
+            BUILDING_SPAWN_AREA = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_MULTIPLAYER);
+        } else {
+            throw new IllegalStateException("Game mode invalid");
+        }
+
+        int greenAreaHeight = BUILDING_SPAWN_AREA + BUILDING_HEIGHT + 10;
+
+        Pane greenAreaUp = new Pane();
+        greenAreaUp.setPrefSize(SCREEN_WIDTH, greenAreaHeight);
+        greenAreaUp.setStyle("-fx-background-color: green;");
+
+        Pane greenAreaDown = new Pane();
+        greenAreaDown.setPrefSize(SCREEN_WIDTH, greenAreaHeight);
+        greenAreaDown.setStyle("-fx-background-color: green;");
+
+        greenAreaUp.setLayoutX(0);
+        greenAreaUp.setLayoutY(0);
+
+        greenAreaDown.setLayoutX(0);
+        greenAreaDown.setLayoutY(SCREEN_HEIGHT - greenAreaHeight);
+
+        Pane sideMarkUp = new Pane();
+        sideMarkUp.setPrefSize(SCREEN_WIDTH, 10);
+        sideMarkUp.setStyle("-fx-background-color: white;");
+        sideMarkUp.setLayoutX(0);
+        sideMarkUp.setLayoutY(greenAreaHeight + 10);
+
+        Pane sideMarkDown = new Pane();
+        sideMarkDown.setPrefSize(SCREEN_WIDTH, 10);
+        sideMarkDown.setStyle("-fx-background-color: white;");
+        sideMarkDown.setLayoutX(0);
+        sideMarkDown.setLayoutY(SCREEN_HEIGHT - greenAreaHeight - 20);
+
+        return List.of(greenAreaUp, greenAreaDown, sideMarkUp, sideMarkDown, stats);
     }
 }

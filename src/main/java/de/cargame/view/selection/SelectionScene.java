@@ -12,13 +12,21 @@ import javafx.scene.layout.VBox;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class provides a view over the two cars between the Players can choose, as well as the
+ * buttons necessary to enter the other imminent scenes.
+ */
 public class SelectionScene extends CustomScene {
-    private final List<SelectionInstanceView> selectionInstanceViews;
+    private final List<SelectionInstanceView> selectionInstanceViews = new ArrayList<>();
 
+    /**
+     * Creates a new SelectionScene, which will be show the user his choices for the game.
+     * @param apiHandler An instance of {@code ApiHandler} that provides functionality
+     *                   for managing game state transitions as well as other key operations.
+     */
     public SelectionScene(ApiHandler apiHandler) {
         super(apiHandler);
         this.configureRoot();
-        this.selectionInstanceViews = new ArrayList<>();
     }
 
     private void configureSceneRoot() {
@@ -27,7 +35,7 @@ public class SelectionScene extends CustomScene {
 
         configurableRoot.setMaxHeight(SCREEN_HEIGHT);
         configurableRoot.setMinHeight(SCREEN_HEIGHT);
-        configurableRoot.setPrefHeight(SCREEN_WIDTH); //todo bug?????
+        configurableRoot.setPrefHeight(SCREEN_HEIGHT);
         configurableRoot.setMaxWidth(SCREEN_WIDTH);
         configurableRoot.setMinWidth(SCREEN_WIDTH);
         configurableRoot.setPrefWidth(SCREEN_WIDTH);
@@ -36,6 +44,9 @@ public class SelectionScene extends CustomScene {
         configurableRoot.getChildren().addAll(selectionInstanceViews);
     }
 
+    /**
+     * checks whether every player made a decision, and switches to the GameScene if so
+     */
     void proceedToGame() {
 
         PlayerAPI playerApi = apiHandler.getPlayerApi();

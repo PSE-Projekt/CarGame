@@ -5,6 +5,7 @@ import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
 import de.cargame.view.common.BackToMenuButton;
+import de.cargame.view.config.ColorConfig;
 import de.cargame.view.config.TextConfig;
 import de.cargame.view.navigation.Direction;
 import de.cargame.view.navigation.Navigator;
@@ -13,16 +14,28 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+/**
+ * Renders the scoreboard view, displaying the scores and rankings as
+ * well as the buttons 'playAgainButton' or 'backToMenuButton'. It will present a summary of
+ * the game’s results in great detail, using data provided by the APIHandler.
+ */
 public class ScoreBoardScene extends CustomScene {
+    private final int SceneSegments = 3;
     private final HBox buttonContainer;
     private final Navigator navigator;
     private final VBox sceneContent;
 
+    /**
+     * Creates a new ScoreBoardScene instance.
+     * @param apiHandler An instance of {@code ApiHandler} that provides functionality
+     *                   for managing game state transitions as well as other key operations.
+     */
     public ScoreBoardScene(ApiHandler apiHandler) {
         super(apiHandler);
+
         sceneContent = new VBox();
         sceneContent.setStyle("-fx-background-color: #131d34;");
-        sceneContent.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT /2);
+        sceneContent.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT / 2);
         sceneContent.setAlignment(Pos.CENTER);
 
         this.navigator = new ScoreBoardNavigator(apiHandler);
@@ -40,23 +53,23 @@ public class ScoreBoardScene extends CustomScene {
         this.buttonContainer = new HBox(50);
         this.buttonContainer.getChildren().addAll(backToMenuButton, playAgainButton);
         this.buttonContainer.setAlignment(Pos.CENTER);
-        this.buttonContainer.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / 3);
+        this.buttonContainer.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / SceneSegments);
 
         ((VBox) this.getRoot()).getChildren().add(sceneContent);
 
         // configure root to have a vertical layout and black background and configured size
         this.configureRoot();
-
     }
-
+    @Override
     public void setup() throws IllegalStateException {
         sceneContent.getChildren().clear();
 
         Text scoreTitle = TextConfig.makeH1("Score Board");
+        scoreTitle.setFill(ColorConfig.PRIMARY_MAIN);
 
         VBox titleContainer = new VBox();
         titleContainer.setAlignment(Pos.CENTER);
-        titleContainer.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / 3);
+        titleContainer.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / SceneSegments);
         titleContainer.getChildren().add(scoreTitle);
 
         GameStateAPI gameStateApi = this.apiHandler.getGameStateApi();
@@ -68,7 +81,7 @@ public class ScoreBoardScene extends CustomScene {
         }
 
         ScoreView scoreView = new ScoreView(this.apiHandler);
-        scoreView.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / 3);
+        scoreView.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / SceneSegments);
 
         sceneContent.getChildren().addAll(titleContainer, scoreView, this.buttonContainer);
 

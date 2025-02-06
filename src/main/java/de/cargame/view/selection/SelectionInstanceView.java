@@ -17,6 +17,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+/**
+ * Contains the logic and elements for a selection screen instance.
+ * 'render()' will display said instance.
+ */
 public class SelectionInstanceView extends Pane {
     private final Navigator assignedNavigator;
     private final SelectionScene handlingScene;
@@ -30,8 +34,11 @@ public class SelectionInstanceView extends Pane {
     private final int SCREEN_HEIGHT;
     private boolean carChoiceMade = false;
 
+    /**
+     * Creates a new SelectionInstanceView for the player using the apiHandler as well his playerID
+     */
 
-    public SelectionInstanceView(SelectionScene handlingScene, ApiHandler apiHandler, String playerId) {
+    SelectionInstanceView(SelectionScene handlingScene, ApiHandler apiHandler, String playerId) {
 
         SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
         SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
@@ -48,10 +55,17 @@ public class SelectionInstanceView extends Pane {
         preparePaneContents();
     }
 
+    /**
+     * returns whether the player has decided on a car.
+     */
     boolean isReady() {
         return carChoiceMade;
     }
 
+    /**
+     * Confirms the player's choice and calls the SelectionScene's function
+     * to proceed to the game if possible.
+     */
     void confirmChoice() {
         carChoiceMade = true;
         handlingScene.proceedToGame();
@@ -76,12 +90,13 @@ public class SelectionInstanceView extends Pane {
         sceneContent.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT / 2);
         sceneContent.setAlignment(Pos.CENTER);
 
-        StackPane titleContainer = new StackPane();
+        Pane titleContainer = new StackPane();
         Text menuText = new Text("CarSelection");
         menuText.setStyle("-fx-font-size: 30px; -fx-font-weight: bold; -fx-fill: #009783;");
         menuText.setFont(Font.loadFont(getClass().getResourceAsStream("/frontend/monomaniacOne.ttf"), 30));
         titleContainer.getChildren().add(menuText);
         titleContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
+
 
         HBox selectionContainer = new HBox(30);
         selectionContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
@@ -89,15 +104,15 @@ public class SelectionInstanceView extends Pane {
 
         HBox buttonContainer = new HBox(30);
         buttonContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / 3);
-        buttonContainer.setAlignment(Pos.CENTER);
         buttonContainer.getChildren().addAll(backToMenuButton);
+        buttonContainer.setAlignment(Pos.CENTER);
 
-        sceneContent.getChildren().addAll(titleContainer, selectionContainer,  buttonContainer);
+        sceneContent.getChildren().addAll(titleContainer, selectionContainer, buttonContainer);
 
         this.getChildren().addAll(sceneContent);
     }
 
-    public void setup() {
+    void setup() {
         PlayerAPI playerApi = this.apiHandler.getPlayerApi();
         carChoiceMade = false;
         if (this.playerId.equals(playerApi.getGamepadPlayerId())) {

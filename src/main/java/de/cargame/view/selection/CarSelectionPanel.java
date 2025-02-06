@@ -5,12 +5,12 @@ import de.cargame.view.ApiHandler;
 import de.cargame.view.navigation.Clickable;
 import de.cargame.view.navigation.SceneButton;
 
-public class CarSelectionPanel extends SceneButton implements Clickable {
+class CarSelectionPanel extends SceneButton implements Clickable {
 
     private final CarType carType;
     private final SelectionInstanceView instanceView;
 
-    public CarSelectionPanel(CarType carType, SelectionInstanceView instanceView) {
+    CarSelectionPanel(CarType carType, SelectionInstanceView instanceView) {
 
 
         super(getDefaultCarImg(carType), getSelectedCarImg(carType));
@@ -18,7 +18,7 @@ public class CarSelectionPanel extends SceneButton implements Clickable {
         this.instanceView = instanceView;
     }
 
-    private static String getDefaultCarImg(CarType carType) { //TODO: static + switch best option?
+    private static String getDefaultCarImg(CarType carType) {
         return switch (carType) {
             case AGILE_CAR -> "/frontend/agileCar_default.png";
             case FAST_CAR -> "/frontend/fastCar_default.png";

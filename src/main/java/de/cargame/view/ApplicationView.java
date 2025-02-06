@@ -13,12 +13,20 @@ import javafx.stage.Stage;
 
 import java.util.Map;
 
+/**
+ * Displays the Application stage. Initialized once by operations in the
+ * Controller component and provides a 'render()' method for interacting with backend logic.
+ */
 public class ApplicationView {
     private final ApiHandler apiHandler;
     private final Map<GameState, CustomScene> sceneMap;
     private final Stage stage;
     private CustomScene currentScene;
 
+    /**
+     * Creates a new ApplicationView instance, which will create an ApiHandler and provide it
+     * to the CustomScenes.
+     */
     public ApplicationView(GameInstanceAPI gameInstanceApi, GameStateAPI gameStateApi, PlayerAPI playerApi, Stage stage) {
         this.stage = stage;
         this.apiHandler = new ApiHandler(gameInstanceApi, gameStateApi, playerApi, this);
@@ -38,7 +46,10 @@ public class ApplicationView {
         this.stage.setScene(sceneMap.get(GameState.MAIN_MENU));
         this.stage.show();
     }
-
+    /**
+     * Switches from the current Scene to the desired Scene.
+     * @param newGameState the desired Scene
+     */
     void switchScene(GameState newGameState) {
         currentScene = sceneMap.get(newGameState);
 
@@ -54,6 +65,9 @@ public class ApplicationView {
         });
     }
 
+    /**
+     * renders the current scene.
+     */
     public void renderGame() {
         GameState currentState = this.apiHandler.getGameStateApi().getGameState();
 

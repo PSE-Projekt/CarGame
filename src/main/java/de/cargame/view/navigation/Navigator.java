@@ -9,7 +9,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Optional;
-
+/**
+ * Provides structures for selectable objects.
+ * Endpoint for receiving inputs from InputReceivers of the View module.
+ * The inputs determine navigation over mentioned selectables and the triggering of
+ * related calls to the Controller.
+ */
 public abstract class Navigator {
     protected final ApiHandler apiHandler;
     @Getter
@@ -18,14 +23,19 @@ public abstract class Navigator {
     @Getter
     protected Selectable currentSelection;
     protected final SoundService soundService;
-
+    /**
+     * Creates a new Navigator instance, and passes a ApiHandler to it.
+     */
     protected Navigator(ApiHandler apiHandler) {
         soundService = SoundService.getInstance();
         this.currentSelection = new DummySelectable();
         this.initialSelectable = this.currentSelection;
         this.apiHandler = apiHandler;
     }
-
+    /**
+     * Receives input from receivers. Receiving an input is bound
+     * to the Id of the Player causing the call.
+     */
     public void receiveInput(UserInputBundle userInputBundle, String playerID) {
         if (userInputBundle.getLatestInput().isEmpty()) {
             return;
@@ -61,9 +71,11 @@ public abstract class Navigator {
             this.currentSelection.select();
         }
     }
-
+    /**
+     * Refreshes the navigator back to it's original state.
+     */
     public void reset() {
-        this.currentSelection.setLockedInSelection(false); //TODO: maybe?
+        this.currentSelection.setLockedInSelection(false);
         this.currentSelection.deselect();
         this.currentSelection = this.initialSelectable;
         this.currentSelection.select();

@@ -2,19 +2,21 @@ package de.cargame.view.game;
 
 import de.cargame.model.entity.player.PlayerObserver;
 import de.cargame.model.entity.player.PlayerUpdate;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-public class PlayerStats extends Pane implements PlayerObserver {
+public class PlayerStats extends HBox implements PlayerObserver {
     private static final String HEALTH_INDICATOR = "Health: ";
     private static final String SCORE_INDICATOR = "Score: ";
-    private Text score;
-    private Text health;
+    private final Text score;
+    private final Text health;
 
 
     public PlayerStats() {
         this.score = new Text(SCORE_INDICATOR + 0);
         this.health = new Text(HEALTH_INDICATOR + 3);
+        this.setSpacing(10);
         getChildren().addAll(score, health);
     }
 
