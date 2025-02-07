@@ -95,6 +95,7 @@ class GameInstanceView extends Pane {
 
             gameObjectViews.add(objectView);
         }
+
         this.getChildren().addAll(configureGreenArea());
 
         while (!gameObjectViews.isEmpty()) {
@@ -110,10 +111,10 @@ class GameInstanceView extends Pane {
 
         if (apiHandler.getGameStateApi().getGameMode().equals(GameMode.MULTIPLAYER)) {
             BUILDING_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT_MULTIPLAYER);
-            BUILDING_SPAWN_AREA = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_SINGLEPLAYER);
+            BUILDING_SPAWN_AREA = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_MULTIPLAYER);
         } else if (apiHandler.getGameStateApi().getGameMode().equals(GameMode.SINGLEPLAYER)) {
             BUILDING_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT_SINGLEPLAYER);
-            BUILDING_SPAWN_AREA = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_MULTIPLAYER);
+            BUILDING_SPAWN_AREA = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_SINGLEPLAYER);
         } else {
             throw new IllegalStateException("Game mode invalid");
         }
@@ -132,7 +133,7 @@ class GameInstanceView extends Pane {
         greenAreaUp.setLayoutY(0);
 
         greenAreaDown.setLayoutX(0);
-        greenAreaDown.setLayoutY(SCREEN_HEIGHT - greenAreaHeight);
+        greenAreaDown.setLayoutY(this.getPrefHeight() - greenAreaHeight);
 
         Pane sideMarkUp = new Pane();
         sideMarkUp.setPrefSize(SCREEN_WIDTH, 10);
@@ -144,7 +145,7 @@ class GameInstanceView extends Pane {
         sideMarkDown.setPrefSize(SCREEN_WIDTH, 10);
         sideMarkDown.setStyle("-fx-background-color: white;");
         sideMarkDown.setLayoutX(0);
-        sideMarkDown.setLayoutY(SCREEN_HEIGHT - greenAreaHeight - 20);
+        sideMarkDown.setLayoutY(this.getPrefHeight() - greenAreaHeight - 20);
 
         return List.of(greenAreaUp, greenAreaDown, sideMarkUp, sideMarkDown, stats);
     }

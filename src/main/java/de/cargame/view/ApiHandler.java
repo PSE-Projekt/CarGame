@@ -40,8 +40,8 @@ public class ApiHandler {
         this.playerApi = playerApi;
         this.applicationView = applicationView;
 
-        this.inputReceiverGamePad = new InputReceiver(playerApi.getGamepadPlayerId());
-        this.inputReceiverKeyboard = new InputReceiver(playerApi.getKeyboardPlayerId());
+        this.inputReceiverGamePad = new InputReceiver();
+        this.inputReceiverKeyboard = new InputReceiver();
 
 
         playerApi.createPlayerKeyboard();
@@ -55,7 +55,7 @@ public class ApiHandler {
     }
 
     /**
-     * Calls the ApplicationView to switch scenes.
+     * Calls the ApplicationView to switch scenes depending on given GameState.
      */
     public void switchScene(GameState newGameState) {
         this.applicationView.switchScene(newGameState);

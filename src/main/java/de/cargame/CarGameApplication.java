@@ -54,7 +54,7 @@ public class CarGameApplication extends Application {
         try {
             System.setProperty("jna.library.path", "target/natives");
         } catch (Exception e) {
-            e.printStackTrace(); //TODO: improve
+            System.err.println("Could not set jna.library.path");
         }
         try {GlobalScreen.registerNativeHook();
             GlobalScreen.setEventDispatcher(new SwingDispatchService());

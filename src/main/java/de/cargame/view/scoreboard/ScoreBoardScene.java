@@ -86,7 +86,11 @@ public class ScoreBoardScene extends CustomScene {
         sceneContent.getChildren().addAll(titleContainer, scoreView, this.buttonContainer);
 
         this.navigator.reset();
-        this.apiHandler.getInputReceiverGamePad().assignNavigator(this.navigator);
-        this.apiHandler.getInputReceiverKeyboard().assignNavigator(this.navigator);
+
+        String gamePadPlayerId = apiHandler.getPlayerApi().getGamepadPlayerId();
+        String keyboardPlayerId = apiHandler.getPlayerApi().getKeyboardPlayerId();
+
+        this.apiHandler.getInputReceiverGamePad().assignNavigator(gamePadPlayerId, this.navigator);
+        this.apiHandler.getInputReceiverKeyboard().assignNavigator(keyboardPlayerId, this.navigator);
     }
 }

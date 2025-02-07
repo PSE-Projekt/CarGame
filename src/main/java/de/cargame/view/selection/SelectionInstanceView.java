@@ -24,6 +24,7 @@ import javafx.scene.text.Text;
 public class SelectionInstanceView extends Pane {
     private final Navigator assignedNavigator;
     private final SelectionScene handlingScene;
+    private final boolean oneInputMode;
 
     private final Selectable backToMenuButton;
     private final Selectable fastCarButton;
@@ -38,7 +39,7 @@ public class SelectionInstanceView extends Pane {
      * Creates a new SelectionInstanceView for the player using the apiHandler as well his playerID
      */
 
-    SelectionInstanceView(SelectionScene handlingScene, ApiHandler apiHandler, String playerId) {
+    public SelectionInstanceView(SelectionScene handlingScene, ApiHandler apiHandler, String playerId, boolean oneInputMode) {
 
         SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
         SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
@@ -46,6 +47,7 @@ public class SelectionInstanceView extends Pane {
         this.assignedNavigator = new SelectionNavigator(apiHandler);
         this.handlingScene = handlingScene;
         this.apiHandler = apiHandler;
+        this.oneInputMode = oneInputMode;
 
         backToMenuButton = new BackToMenuButton();
         fastCarButton = new CarSelectionPanel(CarType.FAST_CAR, this);
@@ -112,21 +114,19 @@ public class SelectionInstanceView extends Pane {
         this.getChildren().addAll(sceneContent);
     }
 
-    void setup() {
+    public void setup() {
         PlayerAPI playerApi = this.apiHandler.getPlayerApi();
         carChoiceMade = false;
+
+
         if (this.playerId.equals(playerApi.getGamepadPlayerId())) {
-            this.apiHandler.getInputReceiverGamePad().assignNavigator(assignedNavigator);
-
-            //TODO ---REMOVE---
-            assignedNavigator.getInitialSelectable().getNeighbour(Direction.LEFT).select();
-            carChoiceMade = true;
-            playerApi.setPlaying(playerId, true);
-            playerApi.setCarSelection(playerId, CarType.AGILE_CAR);
-            //TODO ---REMOVE---
-
+            if (this.oneInputMode) {
+                this.apiHandler.getInputReceiverKeyboard().assignNavigator(playerId, assignedNavigator);
+            } else {
+                this.apiHandler.getInputReceiverGamePad().assignNavigator(playerId, assignedNavigator);
+            }
         } else if (this.playerId.equals(playerApi.getKeyboardPlayerId())) {
-            this.apiHandler.getInputReceiverKeyboard().assignNavigator(assignedNavigator);
+            this.apiHandler.getInputReceiverKeyboard().assignNavigator(playerId, assignedNavigator);
         } else {
             throw new IllegalStateException("the id of this selection instance belongs to no player");
         }

@@ -18,6 +18,7 @@ import java.util.List;
  */
 public class SelectionScene extends CustomScene {
     private final List<SelectionInstanceView> selectionInstanceViews = new ArrayList<>();
+    private final boolean oneInputMode;
 
     /**
      * Creates a new SelectionScene, which will be show the user his choices for the game.
@@ -27,21 +28,7 @@ public class SelectionScene extends CustomScene {
     public SelectionScene(ApiHandler apiHandler) {
         super(apiHandler);
         this.configureRoot();
-    }
-
-    private void configureSceneRoot() {
-        VBox configurableRoot = ((VBox) this.getRoot());
-        configurableRoot.getChildren().clear();
-
-        configurableRoot.setMaxHeight(SCREEN_HEIGHT);
-        configurableRoot.setMinHeight(SCREEN_HEIGHT);
-        configurableRoot.setPrefHeight(SCREEN_HEIGHT);
-        configurableRoot.setMaxWidth(SCREEN_WIDTH);
-        configurableRoot.setMinWidth(SCREEN_WIDTH);
-        configurableRoot.setPrefWidth(SCREEN_WIDTH);
-        configurableRoot.setAlignment(Pos.CENTER);
-
-        configurableRoot.getChildren().addAll(selectionInstanceViews);
+        this.oneInputMode = false;
     }
 
     /**
@@ -93,19 +80,32 @@ public class SelectionScene extends CustomScene {
 
     @Override
     public void setup() {
+        VBox root = (VBox) this.getRoot();
+
+        root.getChildren().clear();
         selectionInstanceViews.clear();
         GameMode currentGameMode = apiHandler.getGameStateApi().getGameMode();
+
         if (currentGameMode.equals(GameMode.MULTIPLAYER)) {
-            this.selectionInstanceViews.add(new SelectionInstanceView(this, apiHandler, apiHandler.getPlayerApi().getKeyboardPlayerId()));
-            this.selectionInstanceViews.add(new SelectionInstanceView(this, apiHandler, apiHandler.getPlayerApi().getGamepadPlayerId()));
+            this.selectionInstanceViews
+                    .add(new SelectionInstanceView(this, apiHandler, apiHandler.getPlayerApi().getKeyboardPlayerId(), oneInputMode));
+            this.selectionInstanceViews
+                    .add(new SelectionInstanceView(this, apiHandler, apiHandler.getPlayerApi().getGamepadPlayerId(), oneInputMode));
 
         } else if (currentGameMode.equals(GameMode.SINGLEPLAYER)) {
-            selectionInstanceViews.add(new SelectionInstanceView(this, apiHandler, this.apiHandler.getPlayerOneId()));
+            selectionInstanceViews
+                    .add(new SelectionInstanceView(this, apiHandler, this.apiHandler.getPlayerOneId(), oneInputMode));
         }
+
+        apiHandler.getInputReceiverKeyboard().clear();
+        apiHandler.getInputReceiverGamePad().clear();
+
         for (SelectionInstanceView selectionInstanceView : selectionInstanceViews) {
             selectionInstanceView.setup();
         }
-        configureSceneRoot();
+
+        this.configureRoot();
+        root.getChildren().addAll(selectionInstanceViews);
     }
 
 }

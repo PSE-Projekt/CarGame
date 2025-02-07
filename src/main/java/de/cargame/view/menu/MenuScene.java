@@ -77,7 +77,14 @@ public class MenuScene extends CustomScene {
     @Override
     public void setup() {
         assignedNavigator.reset();
-        this.apiHandler.getInputReceiverKeyboard().assignNavigator(this.assignedNavigator);
-        this.apiHandler.getInputReceiverGamePad().assignNavigator(this.assignedNavigator);
+
+        String gamePadPlayerId = apiHandler.getPlayerApi().getGamepadPlayerId();
+        String keyboardPlayerId = apiHandler.getPlayerApi().getKeyboardPlayerId();
+
+        this.apiHandler.getInputReceiverKeyboard().clear();
+        this.apiHandler.getInputReceiverGamePad().clear();
+
+        this.apiHandler.getInputReceiverKeyboard().assignNavigator(keyboardPlayerId, assignedNavigator);
+        this.apiHandler.getInputReceiverGamePad().assignNavigator(gamePadPlayerId, assignedNavigator);
     }
 }

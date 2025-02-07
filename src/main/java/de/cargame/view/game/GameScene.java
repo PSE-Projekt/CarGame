@@ -61,10 +61,9 @@ public class GameScene extends CustomScene {
 
         this.configureRoot();
 
-
         root.getChildren().addAll(gameInstanceViews);
 
-        this.apiHandler.getInputReceiverKeyboard().assignNavigator(null);
-        this.apiHandler.getInputReceiverGamePad().assignNavigator(null);
+        this.apiHandler.getInputReceiverKeyboard().clear();
+        this.apiHandler.getInputReceiverGamePad().clear();
     }
 }
