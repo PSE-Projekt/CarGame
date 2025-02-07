@@ -9,8 +9,11 @@ import de.cargame.model.entity.gameobject.car.ai.KamikazeCar;
 import de.cargame.model.entity.gameobject.car.player.AgileCar;
 import de.cargame.model.entity.gameobject.car.player.FastCar;
 import de.cargame.view.ApiHandler;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -34,7 +37,9 @@ class GameInstanceView extends Pane {
         // add player stats to view and register in backend as observer
         this.stats = new PlayerStats();
         stats.setLayoutX(0);
-        stats.setLayoutY(0);
+        stats.setLayoutY(10);
+        stats.setAlignment(Pos.CENTER);
+        stats.setPrefSize(SCREEN_WIDTH, 50);
         apiHandler.getPlayerApi().registerPlayerObserver(stats, playerID);
 
         for (GameModelData modelData : apiHandler.getGameInstanceApi().getModel()) {
@@ -96,11 +101,13 @@ class GameInstanceView extends Pane {
             gameObjectViews.add(objectView);
         }
 
-        this.getChildren().addAll(configureGreenArea());
+        List<Node> toRender = new ArrayList<>(configureGreenArea());
 
         while (!gameObjectViews.isEmpty()) {
-            this.getChildren().add(gameObjectViews.poll());
+            toRender.add(gameObjectViews.poll());
         }
+
+        this.getChildren().addAll(toRender);
 
         stats.toFront();
     }

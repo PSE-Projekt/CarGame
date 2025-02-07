@@ -8,10 +8,18 @@ import javafx.scene.text.Text;
 
 import java.util.Objects;
 
+/**
+ * Represents a single score display in the scoreboard.
+ */
 class ScoreDisplay extends VBox implements Comparable<ScoreDisplay> {
     private final int scoreValue;
 
-    ScoreDisplay(int score, int playerIndex) {
+    /**
+     * Creates a new ScoreDisplay instance.
+     * @param score The score value to be displayed.
+     * @param playerIndex The index of the player to be displayed.
+     */
+    public ScoreDisplay(int score, int playerIndex) {
         this.scoreValue = score;
 
         configureSelf();
@@ -29,9 +37,9 @@ class ScoreDisplay extends VBox implements Comparable<ScoreDisplay> {
     }
 
     private void configureSelf() {
-        setMaxSize(350, 75);
-        setMinSize(350, 75);
-        setPrefSize(350, 75);
+        setMaxSize(350, 70);
+        setMinSize(350, 70);
+        setPrefSize(350, 70);
 
         setAlignment(Pos.CENTER);
         setBorder(new Border(

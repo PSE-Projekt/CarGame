@@ -10,7 +10,16 @@ import javafx.scene.layout.VBox;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+/**
+ * A class displaying the score of the players in the game.
+ */
 class ScoreView extends VBox {
+
+    /**
+     * Creates a new ScoreView, which will display the score of the players.
+     * @param apiHandler An instance of {@code ApiHandler} that provides functionality
+     *                   for managing game state transitions as well as other key operations.
+     */
     ScoreView(ApiHandler apiHandler) throws IllegalArgumentException {
         configureSelf();
 
