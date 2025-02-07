@@ -18,6 +18,7 @@ public class BackToMenuButton extends SceneButton implements Clickable {
     public BackToMenuButton() {
         super("/frontend/backToMenu_default.png", "/frontend/backToMenu_selected.png");
     }
+
     /**
      * Returns to the Main Menu. Necessary data will be refreshed using
      * functions from the APIHandler

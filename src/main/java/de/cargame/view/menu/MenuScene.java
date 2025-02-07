@@ -28,10 +28,11 @@ public class MenuScene extends CustomScene {
 
     /**
      * Creates a new MenuScene, which will be used at the start of the application.
+     *
      * @param apiHandler An instance of {@code ApiHandler} that provides functionality
      *                   for managing game state transitions as well as other key operations.
      */
-    public MenuScene(ApiHandler apiHandler){
+    public MenuScene(ApiHandler apiHandler) {
         super(apiHandler);
         assignedNavigator = new MenuNavigator(apiHandler);
         singlePlayerButton = new SinglePlayerButton();
@@ -52,7 +53,7 @@ public class MenuScene extends CustomScene {
 
         VBox sceneContent = new VBox();
         sceneContent.setStyle("-fx-background-color: #131d34;");
-        sceneContent.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT /2);
+        sceneContent.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT / 2);
         sceneContent.setAlignment(Pos.CENTER);
 
         StackPane titleContainer = new StackPane();

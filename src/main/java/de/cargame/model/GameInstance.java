@@ -78,7 +78,7 @@ public class GameInstance implements Runnable {
         log.info("Player {} has lost all lives -> game for this player ends", playerId);
         isFinished = true;
         boolean allGamesFinished = gameInstanceService.checkGameState();
-        if(allGamesFinished){
+        if (allGamesFinished) {
             log.info("All games finished -> game ends");
             gameApplicationManager.renderGameInstance();
         }

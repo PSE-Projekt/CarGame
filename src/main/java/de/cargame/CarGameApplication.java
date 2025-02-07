@@ -60,11 +60,12 @@ public class CarGameApplication extends Application {
         } catch (Exception e) {
             System.err.println("Could not set jna.library.path");
         }
-        try {GlobalScreen.registerNativeHook();
+        try {
+            GlobalScreen.registerNativeHook();
             GlobalScreen.setEventDispatcher(new SwingDispatchService());
 
         } catch (NativeHookException e) {
-           throw new RuntimeException(e);
+            throw new RuntimeException(e);
         }
         System.setProperty("sun.java2d.opengl", "true");
         this.gameApplicationManager = new GameApplicationManager();

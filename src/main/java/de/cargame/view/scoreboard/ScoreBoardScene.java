@@ -27,6 +27,7 @@ public class ScoreBoardScene extends CustomScene {
 
     /**
      * Creates a new ScoreBoardScene instance.
+     *
      * @param apiHandler An instance of {@code ApiHandler} that provides functionality
      *                   for managing game state transitions as well as other key operations.
      */

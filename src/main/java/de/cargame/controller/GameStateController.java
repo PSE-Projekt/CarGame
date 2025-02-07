@@ -3,7 +3,6 @@ package de.cargame.controller;
 import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.entity.GameState;
-import de.cargame.model.GameInstance;
 import de.cargame.model.handler.GameStateHandler;
 import lombok.Getter;
 import lombok.Setter;

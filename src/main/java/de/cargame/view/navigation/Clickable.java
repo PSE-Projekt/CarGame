@@ -1,6 +1,7 @@
 package de.cargame.view.navigation;
 
 import de.cargame.view.ApiHandler;
+
 /**
  * Interface providing functions for behaviour upon Interaction.
  * Implemented by classes extending SceneButton.

@@ -61,8 +61,8 @@ public class GameObjectService {
      * 1. Retrieves the current player from the player handler.
      * 2. Switches the game state to "IN_GAME".
      * 3. Determines the game mode (SINGLEPLAYER or MULTIPLAYER):
-     *    - Configures the spawning strategy and game mode for single-player mode.
-     *    - Configures the spawning strategy and game mode for multiplayer mode.
+     * - Configures the spawning strategy and game mode for single-player mode.
+     * - Configures the spawning strategy and game mode for multiplayer mode.
      * 4. Initializes the game object creation service.
      * 5. Spawns the player's selected car based on their ID and car selection.
      * 6. Resets the player's score.
@@ -127,7 +127,6 @@ public class GameObjectService {
     }
 
 
-
     /**
      * Spawns a new set of buildings in the game.
      * <p>
@@ -158,7 +157,6 @@ public class GameObjectService {
      * obstacle objects and adds them to the game's collection of active
      * game objects. These obstacles can serve as challenges or interactable
      * objects within the game.
-     *
      */
     public void spawnObstacle() {
         List<Obstacle> obstacle = gameObjectCreationService.createObstacle();

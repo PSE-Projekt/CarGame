@@ -6,15 +6,15 @@ package de.cargame.model.entity.gameobject.car.player;
  * <p>
  * FAST_CAR:
  * - Represents a high-speed car with slower inertia. Designed for players
- *   seeking enhanced speed capabilities in exchange for reduced agility.
+ * seeking enhanced speed capabilities in exchange for reduced agility.
  * <p>
  * AGILE_CAR:
  * - Represents a car with enhanced agility and maneuverability. Designed for
- *   players seeking faster response times and quicker turns at the cost of speed.
+ * players seeking faster response times and quicker turns at the cost of speed.
  * <p>
  * NONE:
  * - Represents the absence of a car type, used as a default or placeholder when no
- *   specific car type is assigned.
+ * specific car type is assigned.
  */
 public enum CarType {
 

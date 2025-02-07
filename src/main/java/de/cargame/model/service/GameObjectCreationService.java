@@ -29,6 +29,7 @@ import java.util.Random;
 @Slf4j
 public class GameObjectCreationService {
 
+    private final GameConfigService configService = GameConfigService.getInstance();
     private int FAST_CAR_WIDTH;
     private int AGILE_CAR_WIDTH;
     private int BUILDING_WIDTH;
@@ -48,27 +49,24 @@ public class GameObjectCreationService {
     @Setter
     private GameMode gameMode;
 
-    private final GameConfigService configService = GameConfigService.getInstance();
-
-
     /**
      * Initializes the game configuration parameters based on the selected game mode.
-     *
+     * <p>
      * This method loads various dimensions for game objects such as cars, buildings,
      * road marks, obstacles, rewards, and AI cars, from the configuration service
      * depending on whether the game is in SINGLEPLAYER or MULTIPLAYER mode.
-     *
+     * <p>
      * SINGLEPLAYER mode configuration parameters are loaded using SINGLEPLAYER-specific
      * keys from the configuration service.
-     *
+     * <p>
      * MULTIPLAYER mode configuration parameters are loaded using MULTIPLAYER-specific
      * keys from the configuration service.
-     *
+     * <p>
      * This method ensures that the game objects are correctly initialized with their
      * dimensions for the appropriate game mode.
      */
-    public void init(){
-        if(gameMode == GameMode.SINGLEPLAYER) {
+    public void init() {
+        if (gameMode == GameMode.SINGLEPLAYER) {
             this.FAST_CAR_WIDTH = configService.loadInteger(ConfigKey.FAST_CAR_WIDTH_SINGLEPLAYER);
             this.AGILE_CAR_WIDTH = configService.loadInteger(ConfigKey.AGILE_CAR_WIDTH_SINGLEPLAYER);
             this.BUILDING_WIDTH = configService.loadInteger(ConfigKey.BUILDING_WIDTH_SINGLEPLAYER);
@@ -83,7 +81,7 @@ public class GameObjectCreationService {
             this.OBSTACLE_HEIGHT = configService.loadInteger(ConfigKey.OBSTACLE_HEIGHT_SINGLEPLAYER);
             this.REWARD_HEIGHT = configService.loadInteger(ConfigKey.REWARD_HEIGHT_SINGLEPLAYER);
             this.AI_CAR_HEIGHT = configService.loadInteger(ConfigKey.AI_CAR_HEIGHT_SINGLEPLAYER);
-        }else {
+        } else {
             this.FAST_CAR_WIDTH = configService.loadInteger(ConfigKey.FAST_CAR_WIDTH_MULTIPLAYER);
             this.AGILE_CAR_WIDTH = configService.loadInteger(ConfigKey.AGILE_CAR_WIDTH_MULTIPLAYER);
             this.BUILDING_WIDTH = configService.loadInteger(ConfigKey.BUILDING_WIDTH_MULTIPLAYER);
@@ -192,7 +190,7 @@ public class GameObjectCreationService {
      * constants for its size and shape.
      *
      * @return a Reward object instantiated with its position, dimensions,
-     *         and boundary specifications.
+     * and boundary specifications.
      */
     public Reward createReward() {
         SpawnAreaList spawnAreas = gameObjectSpawningStrategy.getRewardSpawnAreas();
@@ -208,7 +206,7 @@ public class GameObjectCreationService {
      * randomly, determining the movement strategy.
      *
      * @return a newly instantiated AICar object configured with its spawn position,
-     *         dimensions, movement strategy, and behavior type.
+     * dimensions, movement strategy, and behavior type.
      */
     public AICar createAICar() {
         Dimension dimension = new Dimension(AI_CAR_WIDTH, AI_CAR_HEIGHT);

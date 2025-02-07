@@ -14,8 +14,10 @@ import java.util.List;
  */
 public class GameScene extends CustomScene {
     private final List<GameInstanceView> gameInstanceViews = new ArrayList<>();
+
     /**
      * Creates a new GameScene, which will display the course of the game.
+     *
      * @param apiHandler An instance of {@code ApiHandler} that provides functionality
      *                   for managing game state transitions as well as other key operations.
      */

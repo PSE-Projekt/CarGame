@@ -1,4 +1,3 @@
-
 package de.cargame.model.service.entity.sound;
 
 import lombok.Getter;
@@ -14,10 +13,10 @@ import java.io.InputStream;
  * used in an application. It provides common functionality for managing audio
  * playback, including playing, looping, and resetting sounds, as well as
  * managing file loading and volume adjustments.
- *
+ * <p>
  * Subclasses of this abstract class are responsible for defining the specific
  * file path for the audio resource by implementing the abstract `setPath` method.
- *
+ * <p>
  * Key functionalities include:
  * - Loading a sound file from the specified path.
  * - Playing the sound in a single or looping manner.
@@ -50,10 +49,10 @@ public abstract class SoundClip {
      * <p>
      * Note:
      * - The playback is executed in a separate thread to prevent
-     *   potential UI or main-thread blocking.
+     * potential UI or main-thread blocking.
      * - Proper initialization of the `clip` object is required before invoking this method.
      * - If the audio clip is already playing and needs to be restarted,
-     *   reset() should be called prior to play().
+     * reset() should be called prior to play().
      * <p>
      * Preconditions:
      * - The `clip` object must be initialized and loaded with an audio file.

@@ -1,4 +1,5 @@
 package de.cargame.view.game.sprites;
+
 /**
  * Image assets for the road marks, used as elements for the ground.
  */

@@ -22,9 +22,9 @@ public abstract class AICarMovementStrategy implements MovementStrategy {
     protected final Coordinate gameObjectSpawnCoordinate;
     protected final int SCREEN_HEIGHT;
     protected final int SCREEN_WIDTH;
+    protected final Random random;
     protected Coordinate targetPos;
     protected GameMode gameMode;
-    protected final Random random;
 
 
     protected AICarMovementStrategy(Coordinate gameObjectSpawnCoordinate, GameMode gameMode) {

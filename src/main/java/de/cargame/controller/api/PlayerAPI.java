@@ -51,8 +51,8 @@ public interface PlayerAPI {
      * Retrieves the unique identifier of the player associated with a gamepad.
      *
      * @return a String representing the unique identifier of the gamepad player.
-     *         If no gamepad-controlled player exists, this method may return null or an empty string
-     *         depending on the implementation.
+     * If no gamepad-controlled player exists, this method may return null or an empty string
+     * depending on the implementation.
      */
     String getGamepadPlayerId();
 
@@ -78,7 +78,7 @@ public interface PlayerAPI {
      * Sets the car selection for a specific player.
      *
      * @param playerId the unique identifier of the player whose car selection is being set
-     * @param carType the type of car to assign to the player
+     * @param carType  the type of car to assign to the player
      */
     void setCarSelection(String playerId, CarType carType);
 

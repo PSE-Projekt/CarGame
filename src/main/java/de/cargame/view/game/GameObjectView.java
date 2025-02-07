@@ -13,8 +13,9 @@ public class GameObjectView extends ImageView implements Comparable<GameObjectVi
 
     /**
      * Creates a new GameObjectView instance.
-     * @param image The image to be displayed.
-     * @param weight The weight of the GameObjectView.
+     *
+     * @param image        The image to be displayed.
+     * @param weight       The weight of the GameObjectView.
      * @param gameObjectId The id of the GameObject.
      */
     public GameObjectView(Image image, int weight, String gameObjectId) {

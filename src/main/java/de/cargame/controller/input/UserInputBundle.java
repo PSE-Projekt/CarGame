@@ -12,7 +12,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * A class representing a collection of user inputs which are currently pressed by a player. It is designed to handle, manage, and retrieve
  * user input events. It supports adding and removing user inputs, checking the state of the inputs,
  * and retrieving the most recent inputs, optionally filtering certain input types.
- *
+ * <p>
  * The class maintains an internal list of {@code UserInput} objects, processes duplicate entries,
  * and manages a fast-forward mode based on specific user input types.
  */
@@ -87,14 +87,13 @@ public class UserInputBundle {
     }
 
 
-
     /**
      * Retrieves the most recently pressed user input from the list of user inputs.
      * The determination of the latest input is based on the pressed timestamp,
      * with a higher timestamp indicating a more recent input.
      *
      * @return an {@code Optional<UserInput>} containing the latest user input if present,
-     *         or an empty {@code Optional} if the input list is empty
+     * or an empty {@code Optional} if the input list is empty
      */
     public Optional<UserInput> getLatestInput() {
         return userInputs.stream()

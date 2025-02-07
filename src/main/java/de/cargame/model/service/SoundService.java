@@ -10,7 +10,7 @@ import javax.sound.sampled.Clip;
  * various sound effects within an application. It operates as a Singleton,
  * ensuring that only one instance is created and shared throughout the
  * application.
- *
+ * <p>
  * The class initializes and manages multiple sound clip objects, each of
  * which represents a specific sound effect. These sound effects include:
  * - Crash sound, triggered during collisions or crash events.
@@ -18,7 +18,7 @@ import javax.sound.sampled.Clip;
  * - Change selection sound, providing feedback for navigation actions.
  * - Reward collection sound, played when a reward is collected.
  * - Continuous car race background sound, looped during gameplay.
- *
+ * <p>
  * The SoundService also provides utility methods for playing, looping,
  * and stopping sounds, as well as ensuring sound clips are properly
  * reset before usage to maintain consistent playback behavior across

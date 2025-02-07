@@ -1,4 +1,5 @@
 package de.cargame.view.game.sprites;
+
 /**
  * Manages images used to render life bonuses that players can collect during the game.
  */

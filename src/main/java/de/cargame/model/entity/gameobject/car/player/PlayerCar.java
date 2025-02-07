@@ -11,7 +11,6 @@ import de.cargame.model.entity.gameobject.GameObjectBoundType;
 import de.cargame.model.entity.gameobject.car.Car;
 import de.cargame.model.handler.PlayerHandler;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Optional;

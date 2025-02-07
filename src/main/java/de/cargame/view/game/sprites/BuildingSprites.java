@@ -1,4 +1,5 @@
 package de.cargame.view.game.sprites;
+
 /**
  * Image assets for buildings, used as background elements
  */

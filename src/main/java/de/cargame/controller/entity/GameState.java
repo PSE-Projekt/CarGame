@@ -8,13 +8,13 @@ package de.cargame.controller.entity;
  * The following states are defined:
  * <p>
  * - MAIN_MENU: Represents the initial or main menu of the game, where the player
- *              can access options such as starting a game or configuring settings.
+ * can access options such as starting a game or configuring settings.
  * - CAR_SELECTION: Represents the car selection screen, where the player(s) can choose
- *                  a vehicle before starting the game.
+ * a vehicle before starting the game.
  * - IN_GAME: Represents the active gameplay state where the player is participating
- *            in the game.
+ * in the game.
  * - SCORE_BOARD: Represents the score board screen where scores and results of the game
- *                are displayed.
+ * are displayed.
  */
 public enum GameState {
 

@@ -17,6 +17,7 @@ class ScoreView extends VBox {
 
     /**
      * Creates a new ScoreView, which will display the score of the players.
+     *
      * @param apiHandler An instance of {@code ApiHandler} that provides functionality
      *                   for managing game state transitions as well as other key operations.
      */

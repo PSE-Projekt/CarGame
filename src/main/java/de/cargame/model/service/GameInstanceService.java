@@ -83,7 +83,7 @@ public class GameInstanceService {
      * and a log message is recorded.
      *
      * @return {@code true} if all game instances have finished, indicating the game
-     *         can transition to the SCORE_BOARD state; {@code false} otherwise.
+     * can transition to the SCORE_BOARD state; {@code false} otherwise.
      */
     public boolean checkGameState() {
         for (GameInstance gameInstance : gameInstances) {

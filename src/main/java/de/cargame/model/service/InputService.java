@@ -18,8 +18,7 @@ public class InputService {
     /**
      * Initializes the keyboard input device for a specific player.
      * Creates a Keyboard instance associated with the given player ID.
-     *
-     * */
+     */
     public void initKeyboard() {
         this.keyboard = new Keyboard();
     }
@@ -27,8 +26,7 @@ public class InputService {
     /**
      * Initializes the gamepad input device for a specific player.
      * Creates a GamePad instance associated with the given player ID.
-     *
-     * */
+     */
     public void initGamepad() {
         this.gamePad = new GamePad();
     }

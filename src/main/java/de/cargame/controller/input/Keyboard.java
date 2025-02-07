@@ -19,7 +19,6 @@ import java.util.Optional;
  * This class processes native key press and key release events, translates them into
  * application-specific user inputs using the UserInputType enum, and updates the state of the
  * UserInputBundle accordingly. Observers are notified whenever the input bundle changes.
- *
  */
 @Slf4j
 public class Keyboard extends InputDevice implements NativeKeyListener {

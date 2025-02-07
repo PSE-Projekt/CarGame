@@ -60,6 +60,7 @@ abstract class GameSprites {
 
     /**
      * Chooses a random Sprite of the fitting category, using the ID
+     *
      * @param gameObjectId ID of the sprite category
      */
     public GameObjectView getRandomSprite(String gameObjectId) {

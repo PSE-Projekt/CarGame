@@ -71,7 +71,7 @@ public class Player implements UserInputObserver, PlayerObservable {
     /**
      * Resets the player to their default state, initializing key components such as
      * user input, score, lives, and playing status.
-     *
+     * <p>
      * The method performs the following actions:
      * - Resets the user input bundle to its default state.
      * - Creates a new instance of the {@code Score} class to reset the player's score.
@@ -136,7 +136,7 @@ public class Player implements UserInputObserver, PlayerObservable {
     /**
      * Decreases the player's number of lives by one and notifies all registered observers
      * of the updated player state.
-     *
+     * <p>
      * This method modifies the player's state by decrementing the lives count. Following the
      * update, it triggers a notification to all {@link PlayerObserver} instances that have
      * subscribed to the player updates, allowing other components to react appropriately
@@ -173,7 +173,7 @@ public class Player implements UserInputObserver, PlayerObservable {
      * The returned input represents the most recent action or command provided by the player.
      *
      * @return An {@code Optional} containing the latest {@code UserInput} if available,
-     *         or an empty {@code Optional} if no input exists.
+     * or an empty {@code Optional} if no input exists.
      */
     public Optional<UserInput> getUserInput() {
         return this.userInputBundle.getLatestInputWithoutConfirm();

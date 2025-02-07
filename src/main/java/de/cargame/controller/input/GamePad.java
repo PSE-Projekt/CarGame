@@ -19,7 +19,7 @@ public class GamePad extends InputDevice {
     private Controller controller;
 
     public GamePad() {
-        //initController(); //Todo fix
+        //initController();
     }
 
     public void initController() {
@@ -37,14 +37,6 @@ public class GamePad extends InputDevice {
             System.out.println("No Gamepad found");
         }
     }
-
-    public void readInput() {
-    }
-
-
-    public void processInput() {
-    }
-
 
     @Override
     public void registerObserver(UserInputObserver o) {

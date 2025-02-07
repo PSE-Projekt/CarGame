@@ -7,6 +7,7 @@ import de.cargame.controller.entity.GameState;
 import de.cargame.view.navigation.InputReceiver;
 import lombok.Getter;
 import lombok.Setter;
+
 /**
  * Class handling the APIs handed out by the Controller component. Will be created in
  * ApplicationView and passed on to the different CustomScenes.

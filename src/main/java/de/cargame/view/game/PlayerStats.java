@@ -2,7 +2,6 @@ package de.cargame.view.game;
 
 import de.cargame.model.entity.player.PlayerObserver;
 import de.cargame.model.entity.player.PlayerUpdate;
-import de.cargame.view.config.ColorConfig;
 import de.cargame.view.config.TextConfig;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;

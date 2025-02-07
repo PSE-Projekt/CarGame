@@ -57,8 +57,8 @@ public class GameApplicationManager {
      * for rendering scenes and interacting with backend logic.
      *
      * @param applicationView the ApplicationView instance to register, responsible for
-     *                         handling the display and interaction with the application
-     *                         stages and scenes.
+     *                        handling the display and interaction with the application
+     *                        stages and scenes.
      */
     public void registerApplicationView(ApplicationView applicationView) {
         this.applicationView = applicationView;

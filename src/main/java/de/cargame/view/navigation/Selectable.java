@@ -4,8 +4,8 @@ import javafx.scene.layout.Pane;
 import lombok.Setter;
 
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.Map;
+
 /**
  * Class for selectable objects in the User Interface. Provides methods for interaction with them.
  */
@@ -14,6 +14,7 @@ public abstract class Selectable extends Pane {
     private final Map<Direction, Selectable> neighbours = new EnumMap<>(Direction.class);
     @Setter
     private boolean lockedInSelection;
+
     /**
      * Initializes a new Selectable object as well as with it's variables.
      */
@@ -25,14 +26,17 @@ public abstract class Selectable extends Pane {
 
         lockedInSelection = false;
     }
+
     /**
      * Sets the neighbor from the matching direction to the desired Selectable.
+     *
      * @param neighbour desired neighbour
-     * @param dir desired direction
+     * @param dir       desired direction
      */
     public void setNeighbour(Direction dir, Selectable neighbour) {
         neighbours.put(dir, neighbour);
     }
+
     /**
      * Returns neighbor from matching direction, otherwise null.
      */
@@ -47,6 +51,7 @@ public abstract class Selectable extends Pane {
      * Restores the button’s default appearance.
      */
     public abstract void deselect();
+
     /**
      * Changes the button’s appearance to the selected version.
      */

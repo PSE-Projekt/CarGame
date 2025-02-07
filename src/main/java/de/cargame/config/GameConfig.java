@@ -40,7 +40,7 @@ public class GameConfig {
      *
      * @param configKey the configuration key to retrieve the value for
      * @return an {@code Optional} containing the value associated with the given key,
-     *         or an empty {@code Optional} if the key is not found
+     * or an empty {@code Optional} if the key is not found
      */
     public Optional<String> getValueKey(ConfigKey configKey) {
         return Optional.of(configMap.get(configKey.toString()));

@@ -1,4 +1,5 @@
 package de.cargame.view.game.sprites;
+
 /**
  * Manages image assets for KamikazeCars. Ensures that their unique looks are
  * displayed in the game.

@@ -1,6 +1,7 @@
 package de.cargame.view.game;
 
 import de.cargame.view.game.sprites.*;
+
 /**
  * Utility class for handling all different GameSprites.
  * This includes the retrieval of random sprites based on the GameObject a sprite will represent.

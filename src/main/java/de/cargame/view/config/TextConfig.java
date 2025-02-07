@@ -17,6 +17,7 @@ public class TextConfig {
 
     /**
      * Creates a new Text instance with the given text and the application font.
+     *
      * @param text The text to be displayed.
      * @return The created Text instance.
      */
@@ -30,6 +31,7 @@ public class TextConfig {
 
     /**
      * Creates a new Text instance with the given text and the application font.
+     *
      * @param text The text to be displayed.
      * @return The created Text instance.
      */

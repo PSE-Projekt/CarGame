@@ -1,7 +1,6 @@
 package de.cargame.controller;
 
 import de.cargame.controller.api.GameInstanceAPI;
-import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.api.PlayerAPI;
 import de.cargame.controller.entity.GameModelData;
 import de.cargame.model.entity.player.Player;
@@ -59,7 +58,7 @@ public class GameInstanceController implements GameInstanceAPI {
      * including associated game objects and player details.
      *
      * @return a list of {@link GameModelData} representing the game state
-     *         for all active game instances.
+     * for all active game instances.
      */
     @Override
     public List<GameModelData> getModel() {

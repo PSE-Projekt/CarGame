@@ -16,7 +16,8 @@ class ScoreDisplay extends VBox implements Comparable<ScoreDisplay> {
 
     /**
      * Creates a new ScoreDisplay instance.
-     * @param score The score value to be displayed.
+     *
+     * @param score       The score value to be displayed.
      * @param playerIndex The index of the player to be displayed.
      */
     public ScoreDisplay(int score, int playerIndex) {

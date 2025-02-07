@@ -6,7 +6,6 @@ import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
-import javafx.geometry.Pos;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
@@ -22,6 +21,7 @@ public class SelectionScene extends CustomScene {
 
     /**
      * Creates a new SelectionScene, which will be show the user his choices for the game.
+     *
      * @param apiHandler An instance of {@code ApiHandler} that provides functionality
      *                   for managing game state transitions as well as other key operations.
      */
@@ -47,11 +47,11 @@ public class SelectionScene extends CustomScene {
         GameMode gameMode = apiHandler.getGameStateApi().getGameMode();
         String keyboardPlayerId = playerApi.getKeyboardPlayerId();
         String gamepadPlayerId = playerApi.getGamepadPlayerId();
-        switch (gameMode){
+        switch (gameMode) {
             case SINGLEPLAYER:
                 String playerOneId = apiHandler.getPlayerOneId();
 
-                if(playerOneId.equals(keyboardPlayerId)){
+                if (playerOneId.equals(keyboardPlayerId)) {
                     playerApi.setPlaying(keyboardPlayerId, true);
                     playerApi.setPlaying(gamepadPlayerId, false);
                     gameInstanceApi.startGamePlayerKeyboard();

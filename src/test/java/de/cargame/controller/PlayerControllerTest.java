@@ -1,6 +1,5 @@
 package de.cargame.controller;
 
-import de.cargame.exception.PlayerNotFoundException;
 import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.service.PlayerService;
@@ -11,7 +10,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

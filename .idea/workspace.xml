@@ -4,22 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="finishing javadoc in view">
+    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="add tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/ApplicationStarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/ApplicationStarter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/CarGameApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/CarGameApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/config/TextConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/config/TextConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameObjectView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameObjectView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/PlayerStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/PlayerStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/SpriteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/SpriteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/GameSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/GameSprites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/InputReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/InputReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreBoardScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreDisplay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionInstanceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/cargame/view/menu/MenuSceneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/menu/MenuSceneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/input/GamePad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/input/GamePad.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +34,12 @@
     &quot;assignee&quot;: &quot;famabenda&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/PSE-Projekt/CarGame.git&quot;,
-    &quot;accountId&quot;: &quot;d50244f2-6752-4609-9ade-cf6d55ff0b7e&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:PSE-Projekt/CarGame.git",
+    "accountId": "97e744bd-5562-45f1-9e33-25337e03e94f"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -65,8 +52,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.CarGameApplication.executor": "Run",
+    "JUnit.PlayerCarTest.executor": "Run",
+    "JUnit.SoundServiceTest.executor": "Run",
+    "JUnit.java in CarGameTest.executor": "Coverage",
+    "Maven.CarGame [clean,install,-DskipTests].executor": "Run",
+    "Maven.CarGame [clean,package].executor": "Run",
+    "Maven.CarGame [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/malik/IdeaProjects/CarGameOfficial_v2/src/main/resources/frontend",
@@ -83,7 +77,25 @@
       <recent name="C:\Users\malik\IdeaProjects\CarGameOfficial_v2\src\main\resources\frontend" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install -DskipTests" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.ApplicationStarter">
+    <configuration name="ApplicationStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.cargame.ApplicationStarter" />
+      <module name="CarGameTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.cargame.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CarGameApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.cargame.CarGameApplication" />
       <module name="CarGameTest" />
@@ -97,8 +109,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PlayerCarTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarGameTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.cargame.model.entity.gameobject.car.ai.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.cargame.model.entity.gameobject.car.ai" />
+      <option name="MAIN_CLASS_NAME" value="de.cargame.model.entity.gameobject.car.ai.PlayerCarTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SoundServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarGameTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.cargame.model.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.cargame.model.service" />
+      <option name="MAIN_CLASS_NAME" value="de.cargame.model.service.SoundServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java in CarGameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarGameTest" />
+      <option name="TEST_OBJECT" value="directory" />
+      <dir value="$PROJECT_DIR$/src/test/java" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ApplicationStarter" />
+        <item itemvalue="JUnit.java in CarGameTest" />
+        <item itemvalue="JUnit.PlayerCarTest" />
+        <item itemvalue="JUnit.SoundServiceTest" />
         <item itemvalue="Application.CarGameApplication" />
       </list>
     </recent_temporary>
@@ -106,8 +160,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
       </set>
     </attachedChunks>
   </component>
@@ -153,6 +207,7 @@
       <updated>1738804135250</updated>
       <workItem from="1738804137572" duration="2894000" />
       <workItem from="1738927123107" duration="18224000" />
+      <workItem from="1738958192971" duration="364000" />
     </task>
     <task id="LOCAL-00005" summary="overworked game render">
       <option name="closed" value="true" />
@@ -194,7 +249,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738943602113</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add java doc in backend">
+      <option name="closed" value="true" />
+      <created>1738957477719</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1738957477719</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add tests">
+      <option name="closed" value="true" />
+      <created>1738958464920</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1738958464920</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +295,9 @@
     <MESSAGE value="frontend multiplayer corrections" />
     <MESSAGE value="improved ingame stats" />
     <MESSAGE value="finishing javadoc in view" />
-    <option name="LAST_COMMIT_MESSAGE" value="finishing javadoc in view" />
+    <MESSAGE value="add java doc in backend" />
+    <MESSAGE value="add tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -236,6 +309,11 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="de.cargame.model.handler.PlayerHandler" memberName="player" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

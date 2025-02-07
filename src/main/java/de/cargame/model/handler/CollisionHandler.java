@@ -108,7 +108,7 @@ public class CollisionHandler {
             soundService.playCrashSound();
             playerHandler.decreaseLife();
             playerCar.setLastCrashTime();
-        }else{
+        } else {
             log.debug("PlayerCar of player {} crashed but is under cooldown -> no live decreased", playerCar.getPlayerId());
         }
     }

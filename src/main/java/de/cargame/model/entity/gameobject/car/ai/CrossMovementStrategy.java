@@ -4,8 +4,6 @@ import de.cargame.controller.entity.GameMode;
 import de.cargame.model.entity.gameobject.Coordinate;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Random;
-
 /**
  * A strategy implementation for AI car movement that involves crossing paths dynamically.
  * The CrossMovementStrategy determines the target position for the AI car by selecting a
@@ -23,7 +21,6 @@ import java.util.Random;
 public class CrossMovementStrategy extends AICarMovementStrategy {
 
 
-
     public CrossMovementStrategy(Coordinate gameObjectSpawnCoordinate, GameMode gameMode) {
         super(gameObjectSpawnCoordinate, gameMode);
     }
@@ -33,7 +30,7 @@ public class CrossMovementStrategy extends AICarMovementStrategy {
 
         double randomX = -SCREEN_WIDTH;
 
-        int targetYPossibleHeight = gameMode == GameMode.SINGLEPLAYER ? SCREEN_HEIGHT : SCREEN_HEIGHT/2;
+        int targetYPossibleHeight = gameMode == GameMode.SINGLEPLAYER ? SCREEN_HEIGHT : SCREEN_HEIGHT / 2;
 
         double randomY = random.nextInt(targetYPossibleHeight);
         this.targetPos = new Coordinate(randomX, randomY);

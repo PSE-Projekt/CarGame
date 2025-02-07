@@ -46,8 +46,10 @@ public class ApplicationView {
         this.stage.setScene(sceneMap.get(GameState.MAIN_MENU));
         this.stage.show();
     }
+
     /**
      * Switches from the current Scene to the desired Scene.
+     *
      * @param newGameState the desired Scene
      */
     void switchScene(GameState newGameState) {

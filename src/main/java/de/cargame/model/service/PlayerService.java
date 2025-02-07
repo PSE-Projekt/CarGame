@@ -96,7 +96,7 @@ public class PlayerService {
      * Sets the car selection for a specified player.
      *
      * @param playerId the unique identifier for the player whose car selection is to be set
-     * @param carType the type of car to be assigned to the player
+     * @param carType  the type of car to be assigned to the player
      */
     public void setCarSelection(String playerId, CarType carType) {
         log.debug("Setting car selection '{}' for player with id '{}'", carType, playerId);
@@ -107,7 +107,7 @@ public class PlayerService {
      * Sets the playing state for a player identified by their player ID.
      *
      * @param playerId the unique identifier of the player whose playing state is to be updated.
-     * @param playing the new playing state to set for the player.
+     * @param playing  the new playing state to set for the player.
      */
     public void setPlaying(String playerId, boolean playing) {
         log.debug("Setting playing state '{}' for player with id '{}'", playing, playerId);

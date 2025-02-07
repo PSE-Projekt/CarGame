@@ -11,7 +11,7 @@ import java.util.Random;
  * This class provides functionality for adding, removing, and retrieving random spawn areas
  * and coordinates within those spawn areas. It is designed to assist in handling multiple
  * spawn areas in scenarios like spawning game objects in a two-dimensional space.
- *
+ * <p>
  * Features:
  * - Ability to add individual {@code SpawnArea} objects.
  * - Ability to add multiple {@code SpawnArea} objects at once.

@@ -65,7 +65,7 @@ public abstract class GameObject implements Collidable, Despawnable {
     }
 
     protected GameObject(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, GameMode gameMode) {
-        this(coordinate.getX(), coordinate.getY(), dimension.getWidth(), dimension.getHeight(), gameObjectBoundType ,gameMode);
+        this(coordinate.getX(), coordinate.getY(), dimension.getWidth(), dimension.getHeight(), gameObjectBoundType, gameMode);
     }
 
     protected abstract void setIsStatic();
@@ -184,6 +184,6 @@ public abstract class GameObject implements Collidable, Despawnable {
 
     @Override
     public String toString() {
-        return "Type: "+getClass().getSimpleName()+", ID: "+id+", Position: "+getCoordinates();
+        return "Type: " + getClass().getSimpleName() + ", ID: " + id + ", Position: " + getCoordinates();
     }
 }

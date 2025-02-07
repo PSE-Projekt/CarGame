@@ -57,7 +57,7 @@ public class PlayerHandler {
      * The input represents the latest action or command provided by the user.
      *
      * @return An {@code Optional} containing the current {@code UserInput} if available,
-     *         or an empty {@code Optional} if no input exists.
+     * or an empty {@code Optional} if no input exists.
      */
     public Optional<UserInput> getCurrentUserInput() {
         return player.getUserInput();

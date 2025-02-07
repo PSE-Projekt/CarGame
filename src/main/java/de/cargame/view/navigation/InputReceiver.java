@@ -3,7 +3,6 @@ package de.cargame.view.navigation;
 import de.cargame.controller.input.UserInputBundle;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -20,6 +19,7 @@ public class InputReceiver implements UserInputObserver {
     public InputReceiver() {
         this.navigatorMap = new ConcurrentHashMap<>();
     }
+
     /**
      * calls 'receiveInput(...)' in the navigator,
      * passing on  a UserInputBundle and the playerID on as parameters.

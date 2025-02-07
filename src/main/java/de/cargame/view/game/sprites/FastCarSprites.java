@@ -1,4 +1,5 @@
 package de.cargame.view.game.sprites;
+
 /**
  * Manages image assets for FastCars.
  * Ensures that the correct visuals are loaded in when this CarType has been selected.

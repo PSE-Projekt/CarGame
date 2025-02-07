@@ -4,6 +4,7 @@ import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.navigation.Clickable;
 import de.cargame.view.navigation.SceneButton;
+
 /**
  * Provides functionality for returning to the selection screen
  * by implementing the onClick() method from Clickable.
@@ -15,6 +16,7 @@ public class PlayAgainButton extends SceneButton implements Clickable {
     public PlayAgainButton() {
         super("/frontend/replay_default.png", "/frontend/replay_selected.png");
     }
+
     /**
      * Returns to the corresponding CarSelectionScreen. Necessary data will be refreshed using
      * functions from the APIHandler
