@@ -28,10 +28,16 @@ public class InputReceiver implements UserInputObserver {
         navigatorMap.forEach((playerID, navigator) -> navigator.receiveInput(userInputBundle, playerID));
     }
 
+    /**
+     * Assigns a Navigator to a player by storing his ID.
+     */
     public void assignNavigator(String playerID, Navigator navigator) {
         navigatorMap.put(playerID, navigator);
     }
 
+    /**
+     * Removes the Navigator associated with the playerID.
+     */
     public void clear() {
         navigatorMap.clear();
     }

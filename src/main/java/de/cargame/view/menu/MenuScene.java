@@ -12,7 +12,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 /**
@@ -57,7 +56,7 @@ public class MenuScene extends CustomScene {
         sceneContent.setAlignment(Pos.CENTER);
 
         StackPane titleContainer = new StackPane();
-        Text menuText = TextConfig.makeH1("CarGame");
+        Text menuText = TextConfig.generateTitle("CarGame");
         menuText.setFill(ColorConfig.PRIMARY_MAIN);
         titleContainer.getChildren().add(menuText);
         titleContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / SegmentCount);

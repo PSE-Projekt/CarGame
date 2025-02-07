@@ -51,6 +51,7 @@ class PlayerStats extends HBox implements PlayerObserver {
 
         this.getChildren().addAll(score, healthContainer);
     }
+
     /**
      * Method will be invoked by the observable. Upon a change, the UI elements will
      * contain the refreshed new Player values.

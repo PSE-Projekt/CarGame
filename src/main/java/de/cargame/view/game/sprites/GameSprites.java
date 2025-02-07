@@ -16,6 +16,9 @@ abstract class GameSprites {
     protected final List<Image> images = new ArrayList<>();
     protected int weight;
 
+    /**
+     * Initializes the GameSprites object by setting the paths and weights of the sprites.
+     */
     GameSprites() {
         this.paths = new ArrayList<>();
 
@@ -30,6 +33,9 @@ abstract class GameSprites {
         });
     }
 
+    /**
+     * Sets the weight of the sprite for the z-index.
+     */
     protected abstract void setWeight();
 
     private Image loadSprite(String path) {
@@ -47,6 +53,9 @@ abstract class GameSprites {
         return image;
     }
 
+    /**
+     * Sets the paths of the sprites.
+     */
     protected abstract void setPaths();
 
     /**

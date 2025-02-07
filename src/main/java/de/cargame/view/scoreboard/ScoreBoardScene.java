@@ -60,11 +60,13 @@ public class ScoreBoardScene extends CustomScene {
         // configure root to have a vertical layout and black background and configured size
         this.configureRoot();
     }
+
+
     @Override
     public void setup() throws IllegalStateException {
         sceneContent.getChildren().clear();
 
-        Text scoreTitle = TextConfig.makeH1("Score Board");
+        Text scoreTitle = TextConfig.generateTitle("Score Board");
         scoreTitle.setFill(ColorConfig.PRIMARY_MAIN);
 
         VBox titleContainer = new VBox();
