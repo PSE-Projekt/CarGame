@@ -1,5 +1,6 @@
 package de.cargame.model.entity.gameobject.car.ai;
 
+import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.input.UserInput;
 import de.cargame.controller.input.UserInputType;
 import de.cargame.model.entity.gameobject.Coordinate;
@@ -47,7 +48,7 @@ public class PlayerCarTest {
         when(dimension.getWidth()).thenReturn(80);
         when(dimension.getHeight()).thenReturn(36);
 
-        playerCar = new AgileCar(coordinate, dimension, GameObjectBoundType.RECTANGLE);
+        playerCar = new AgileCar(coordinate, dimension, GameObjectBoundType.RECTANGLE, GameMode.SINGLEPLAYER);
 
         playerCar.setPlayerHandler(playerHandler);
 

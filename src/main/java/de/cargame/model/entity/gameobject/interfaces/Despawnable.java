@@ -7,5 +7,12 @@ package de.cargame.model.entity.gameobject.interfaces;
  */
 public interface Despawnable {
 
+    /**
+     * Determines if the object is despawnable within the game environment.
+     * This method is typically used to check whether an object can be removed
+     * or despawned from the game.
+     *
+     * @return true if the object is despawnable, false otherwise
+     */
     boolean isDespawnable();
 }

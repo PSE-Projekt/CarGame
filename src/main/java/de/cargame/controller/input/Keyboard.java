@@ -10,6 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The Keyboard class represents a keyboard input device. It extends the InputDevice class and
+ * implements the NativeKeyListener interface to listen for native keyboard events. The class
+ * manages user input and supports an observer pattern to notify registered observers of
+ * input changes.
+ * <p>
+ * This class processes native key press and key release events, translates them into
+ * application-specific user inputs using the UserInputType enum, and updates the state of the
+ * UserInputBundle accordingly. Observers are notified whenever the input bundle changes.
+ *
+ */
 @Slf4j
 public class Keyboard extends InputDevice implements NativeKeyListener {
 

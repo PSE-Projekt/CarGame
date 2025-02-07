@@ -1,5 +1,33 @@
 package de.cargame.config;
 
+/**
+ * Defines configuration keys used across the application to represent various
+ * configuration properties. These keys can be utilized to fetch appropriate
+ * configurations for UI settings, gameplay parameters, AI vehicle attributes,
+ * and other game elements from configuration files.
+ * <p>
+ * Each key in this enum corresponds to a specific configuration parameter that can
+ * be loaded or accessed using classes such as {@code GameConfig} and
+ * {@code GameConfigService}.
+ * <p>
+ * Usage in conjunction with {@code GameConfig}:
+ * Configurations associated with these keys are fetched from a predefined configuration file.
+ * <p>
+ * Groupings (indicated by comments):
+ * - UI: Settings related to screen dimensions and visual aspects.
+ * - GENERAL: Main gameplay settings like game speed and scoring mechanics.
+ * - AI CAR: Specifications for AI vehicles' dimensions, speed, and spawn timing.
+ * - FAST CAR: Attributes specific to the "fast car" type, including size, speed, and inertia.
+ * - AGILE CAR: Attributes specific to the "agile car" type, including size, speed, and inertia.
+ * - BUILDING: Configuration related to building elements, including dimensions and spawn area.
+ * - ROAD MARK: Settings for road markings, like their dimensions and timing.
+ * - OBSTACLE: Configuration for obstacles, covering dimensions and spawn intervals.
+ * - REWARD: Settings for reward items, such as dimensions and spawn intervals.
+ * <p>
+ * Each key can have an associated value in the configuration file that is dynamically
+ * loaded at runtime. The values can define dimensions, speeds, spawn timing, and other
+ * game mechanics crucial for functioning and balancing the game.
+ */
 public enum ConfigKey {
 
 

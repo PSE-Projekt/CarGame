@@ -4,6 +4,13 @@ import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * The MultiplayerSpawningStrategy class extends the GameObjectSpawningStrategy
+ * and provides a specific implementation for determining spawn areas for
+ * different game objects in a multiplayer game mode. It utilizes values
+ * from the game configuration to compute spawn areas for buildings,
+ * obstacles, rewards, road marks, players, and AI-controlled cars.
+ */
 @Slf4j
 public class MultiplayerSpawningStrategy extends GameObjectSpawningStrategy {
 

@@ -12,6 +12,12 @@ import de.cargame.model.service.GameObjectService;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * The GameInstance class represents an individual game session for a single player.
+ * It is responsible for managing the lifecycle, state, and logic of the game session.
+ * The class includes a game loop that executes continuously while the game is running,
+ * maintaining a consistent frame update and ensuring interactions between game objects.
+ */
 @Slf4j
 public class GameInstance implements Runnable {
 
@@ -78,6 +84,12 @@ public class GameInstance implements Runnable {
         }
     }
 
+    /**
+     * Retrieves the current score for the player within this game instance.
+     * The score is fetched from the player handler, which manages the player's state.
+     *
+     * @return the current score of the player as an integer
+     */
     public int getScore() {
         return (int) playerHandler.getScore();
     }
@@ -93,6 +105,13 @@ public class GameInstance implements Runnable {
         return new GameModelData(getPlayingPlayerId(), gameObjectService.getAllGameObjects());
     }
 
+    /**
+     * Retrieves the unique identifier of the currently playing player
+     * in this game instance. This identifier is managed by the player handler
+     * and is associated with the active player in the game.
+     *
+     * @return a String representing the unique identifier of the currently playing player
+     */
     public String getPlayingPlayerId() {
         return playerHandler.getPlayer().getId();
     }

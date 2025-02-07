@@ -10,5 +10,12 @@ package de.cargame.model.entity.gameobject.interfaces;
  * true or false through the isCollidable method.
  */
 public interface Collidable {
+    /**
+     * Determines if the object is collidable within the game environment.
+     * This method is typically used to check whether an object can engage
+     * in collision detection.
+     *
+     * @return true if the object is collidable, false otherwise
+     */
     boolean isCollidable();
 }

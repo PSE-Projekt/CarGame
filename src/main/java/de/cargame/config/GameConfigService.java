@@ -5,6 +5,17 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
+/**
+ * The GameConfigService class provides access to game configuration values
+ * using a singleton design pattern. It wraps the functionality of the
+ * {@code GameConfig} class, simplifying access to configuration data while
+ * ensuring that only a single instance of the service exists throughout the
+ * application.
+ * <p>
+ * The class enables retrieval of configuration values in specific data types,
+ * including integers and doubles, while handling parsing errors and missing
+ * keys gracefully with appropriate logging.
+ */
 @Slf4j
 @NoArgsConstructor(access = lombok.AccessLevel.PRIVATE)
 public class GameConfigService {
@@ -13,6 +24,13 @@ public class GameConfigService {
     private final GameConfig gameConfig = new GameConfig();
 
 
+    /**
+     * Provides access to the singleton instance of the GameConfigService.
+     * This method ensures that only one instance of the GameConfigService is created
+     * and globally accessible throughout the application.
+     *
+     * @return the singleton instance of GameConfigService
+     */
     public static GameConfigService getInstance() {
         return INSTANCE;
     }

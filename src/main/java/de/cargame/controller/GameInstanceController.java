@@ -10,6 +10,13 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
+/**
+ * The GameInstanceController class is responsible for managing game-related operations,
+ * serving as the implementation of the GameInstanceAPI interface. It coordinates the
+ * starting of game sessions for different player types, resetting game instances, and
+ * retrieving game model data. The controller interacts with the GameInstanceService to
+ * handle game logic and with the PlayerAPI to manage player-related operations.
+ */
 @Slf4j
 public class GameInstanceController implements GameInstanceAPI {
 
@@ -46,6 +53,14 @@ public class GameInstanceController implements GameInstanceAPI {
         gameInstanceService.resetGameInstances();
     }
 
+    /**
+     * Retrieves the current state of the game models for all active game instances.
+     * Each game model encapsulates data about a specific player's gameplay session,
+     * including associated game objects and player details.
+     *
+     * @return a list of {@link GameModelData} representing the game state
+     *         for all active game instances.
+     */
     @Override
     public List<GameModelData> getModel() {
         return gameInstanceService.getModel();

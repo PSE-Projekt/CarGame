@@ -22,6 +22,13 @@ public class PlayerController implements PlayerAPI {
     private final PlayerService playerService;
 
 
+    /**
+     * Constructs a new PlayerController with the specified PlayerService.
+     * The PlayerService is used to manage player-related operations, such as
+     * creating players, retrieving player data, and setting player states.
+     *
+     * @param playerService the PlayerService instance to be used for managing player operations
+     */
     public PlayerController(PlayerService playerService) {
         this.playerService = playerService;
     }

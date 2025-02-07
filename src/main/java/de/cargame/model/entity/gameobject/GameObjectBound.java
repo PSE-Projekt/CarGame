@@ -23,9 +23,21 @@ public abstract class GameObjectBound {
         coordinate = new Coordinate(x, y);
     }
 
+    /**
+     * Retrieves the bounding shape that defines the spatial boundary of the object.
+     * The specific shape of the boundary is determined by the subclass implementation.
+     *
+     * @return A {@code Shape} instance representing the boundary of the object.
+     */
     public abstract Shape getBound();
 
 
+    /**
+     * Adjusts the position of the object by modifying its x and y coordinates.
+     *
+     * @param xAmount The amount to move the object along the x-axis.
+     * @param yAmount The amount to move the object along the y-axis.
+     */
     public void moveBy(double xAmount, double yAmount) {
         coordinate.addX(xAmount);
         coordinate.addY(yAmount);

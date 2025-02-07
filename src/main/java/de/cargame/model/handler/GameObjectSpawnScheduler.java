@@ -11,6 +11,15 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
+/**
+ * The GameObjectSpawnScheduler is responsible for managing the timed creation and spawning
+ * of various game objects during gameplay. It schedules the spawning of AI cars, obstacles,
+ * rewards, buildings, and road markings at randomized intervals.
+ *
+ * This class uses a scheduled executor service to manage the spawning tasks. It also supports
+ * a fast-forwarding mode, where the spawn intervals are adjusted based on a speed factor.
+ * The spawn intervals and behavior are configured using values retrieved from the game configuration.
+ */
 @Slf4j
 public class GameObjectSpawnScheduler {
 

@@ -5,6 +5,16 @@ import de.cargame.model.entity.gameobject.Coordinate;
 import de.cargame.model.entity.gameobject.Dimension;
 import de.cargame.model.entity.gameobject.GameObjectBoundType;
 
+/**
+ * Represents a specific type of AI-controlled car with kamikaze-like behavior.
+ * The KamikazeCar class extends the functionality of {@link AICar} and specializes
+ * in aggressive movement towards a target, following its associated {@link MovementStrategy}.
+ * <p>
+ * A KamikazeCar dynamically moves towards a target position using the speed,
+ * direction, and time delta provided in the game environment. The speed is set
+ * to a predefined value specific to AI cars and adjusts based on whether the
+ * game is in fast-forward mode or not.
+ */
 public class KamikazeCar extends AICar {
 
     public KamikazeCar(Coordinate coordinate, Dimension dimension, GameObjectBoundType gameObjectBoundType, MovementStrategy movementStrategy, GameMode gameMode) {

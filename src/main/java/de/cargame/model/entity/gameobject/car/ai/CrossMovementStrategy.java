@@ -6,6 +6,19 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.Random;
 
+/**
+ * A strategy implementation for AI car movement that involves crossing paths dynamically.
+ * The CrossMovementStrategy determines the target position for the AI car by selecting a
+ * random y-coordinate within the bounds of the screen height. This movement strategy is designed to emulate cars crossing lanes
+ * or areas in the game environment.
+ * <p>
+ * This strategy adapts to the current {@link GameMode} by calculating the screen height limits
+ * differently for SINGLEPLAYER and MULTIPLAYER modes. Such behavior allows the strategy to
+ * function appropriately under varying gameplay scenarios.
+ * <p>
+ * It extends the {@link AICarMovementStrategy} and implements the calculation logic
+ * for setting the target position as part of the AI car's movement.
+ */
 @Slf4j
 public class CrossMovementStrategy extends AICarMovementStrategy {
 
@@ -18,7 +31,7 @@ public class CrossMovementStrategy extends AICarMovementStrategy {
     @Override
     public void calcTargetPos() {
 
-        double randomX = -500;
+        double randomX = -SCREEN_WIDTH;
 
         int targetYPossibleHeight = gameMode == GameMode.SINGLEPLAYER ? SCREEN_HEIGHT : SCREEN_HEIGHT/2;
 

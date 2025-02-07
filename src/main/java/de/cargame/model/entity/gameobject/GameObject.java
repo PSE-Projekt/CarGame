@@ -128,26 +128,56 @@ public abstract class GameObject implements Collidable, Despawnable {
     }
 
 
+    /**
+     * Retrieves the boundary of the game object as a {@link Shape}.
+     *
+     * @return The boundary of the game object represented as a Shape.
+     */
     public Shape getBound() {
         return gameObjectBound.getBound();
     }
 
+    /**
+     * Retrieves the coordinates of the game object's boundary.
+     *
+     * @return The {@code Coordinate} object representing the position of the game object's boundary.
+     */
     public Coordinate getCoordinates() {
         return gameObjectBound.getCoordinate();
     }
 
+    /**
+     * Retrieves the x-coordinate of the object's current position.
+     *
+     * @return The current x-coordinate as a double.
+     */
     public double getX() {
         return getCoordinates().getX();
     }
 
+    /**
+     * Retrieves the y-coordinate of the current GameObject's position.
+     *
+     * @return The y-coordinate as a double value.
+     */
     public double getY() {
         return getCoordinates().getY();
     }
 
+    /**
+     * Retrieves the width of this game object's boundary.
+     *
+     * @return The width of the boundary as an integer.
+     */
     public int getWidth() {
         return gameObjectBound.getBound().getBounds().width;
     }
 
+    /**
+     * Retrieves the height of the game object's boundary.
+     *
+     * @return the height of the boundary as an integer.
+     */
     public int getHeight() {
         return gameObjectBound.getBound().getBounds().height;
     }

@@ -9,6 +9,15 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * The GameStateController class implements the GameStateAPI interface.
+ * It provides methods to manage and modify the current game state and game mode,
+ * ensuring the game's progression and operational context are accurately maintained.
+ * <p>
+ * Collaboration:
+ * - Delegates game state and mode operations to the GameStateHandler.
+ * - Implements the methods defined in the GameStateAPI interface.
+ */
 @Getter
 @Setter
 @Slf4j

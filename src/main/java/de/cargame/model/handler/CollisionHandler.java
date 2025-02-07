@@ -12,6 +12,12 @@ import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Responsible for managing and detecting collisions within the game environment,
+ * specifically between the player's car and other game objects. The class supports
+ * collision handling for rewards and crash scenarios, applying appropriate game logic
+ * and triggering audio feedback.
+ */
 @Slf4j
 public class CollisionHandler {
 

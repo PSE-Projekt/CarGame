@@ -5,6 +5,12 @@ import de.cargame.config.GameConfigService;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Abstract class providing a base implementation for strategies responsible
+ * for spawning different game objects within a game environment.
+ * Subclasses are expected to define the specific spawn areas for each type of
+ * game object by implementing the abstract methods provided.
+ */
 @Getter
 @Slf4j
 public abstract class GameObjectSpawningStrategy {

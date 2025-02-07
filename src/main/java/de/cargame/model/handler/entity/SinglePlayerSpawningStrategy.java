@@ -4,6 +4,19 @@ import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * The SinglePlayerSpawningStrategy class provides a specific implementation
+ * for spawning game objects within a single-player game environment. It extends
+ * the GameObjectSpawningStrategy and customizes the spawn areas for buildings,
+ * obstacles, rewards, road marks, players, and AI cars tailored to a single-player mode.
+ * <p>
+ * The class utilizes configuration values loaded from the GameConfigService, ensuring
+ * the spawn areas are dynamically defined based on the game's configuration.
+ * <p>
+ * This class overrides the abstract methods of GameObjectSpawningStrategy to implement
+ * the logic specific to single-player mode, such as calculating spawn areas and logging
+ * details for debugging purposes.
+ */
 @Slf4j
 public class SinglePlayerSpawningStrategy extends GameObjectSpawningStrategy {
 

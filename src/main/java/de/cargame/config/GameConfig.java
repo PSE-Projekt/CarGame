@@ -9,6 +9,19 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Scanner;
 
+/**
+ * The GameConfig class is responsible for loading and managing configuration
+ * data required for the game. It reads configuration files and provides an
+ * interface to retrieve key-value pairs representing various settings.
+ * <p>
+ * The configuration data is stored in a map, allowing quick lookups of specific
+ * configuration keys. The keys are typically represented as enums of type
+ * {@code ConfigKey}.
+ * <p>
+ * The implementation is not necessarily thread-safe due to the potential concurrent
+ * access to the underlying configuration map. Ensure external synchronization if the
+ * object is accessed in multi-threaded environments.
+ */
 @Slf4j
 public class GameConfig {
 
@@ -20,6 +33,15 @@ public class GameConfig {
         parseConfigFile(GAME_CONFIG_FILE_NAME);
     }
 
+    /**
+     * Retrieves the value associated with the specified configuration key.
+     * This method looks up the configuration map for the provided key's string
+     * representation and returns the corresponding value wrapped in an {@code Optional}.
+     *
+     * @param configKey the configuration key to retrieve the value for
+     * @return an {@code Optional} containing the value associated with the given key,
+     *         or an empty {@code Optional} if the key is not found
+     */
     public Optional<String> getValueKey(ConfigKey configKey) {
         return Optional.of(configMap.get(configKey.toString()));
     }

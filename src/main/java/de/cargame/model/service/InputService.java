@@ -4,6 +4,11 @@ import de.cargame.controller.input.GamePad;
 import de.cargame.controller.input.Keyboard;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 
+/**
+ * This class provides input services for managing and initializing user input devices,
+ * such as keyboards and gamepads, and also enables observer-based input handling.
+ * It acts as a high-level abstraction for input management within the application.
+ */
 public class InputService {
 
     private Keyboard keyboard;

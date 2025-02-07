@@ -28,6 +28,10 @@ public class UserInput {
     }
 
 
+    /**
+     * Updates the `pressedTimeStamp` field to the current system time in milliseconds.
+     * This method is used to record the timestamp of the last user input interaction.
+     */
     private void setPressedTimeStamp() {
         this.pressedTimeStamp = System.currentTimeMillis();
     }

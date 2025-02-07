@@ -9,6 +9,14 @@ import de.cargame.model.entity.gameobject.GameObjectBoundType;
 import de.cargame.model.entity.gameobject.car.Car;
 import lombok.Getter;
 
+/**
+ * Represents an abstract AI-controlled car in the game.
+ * This class extends the {@link Car} class and provides additional functionality
+ * specifically tailored for autonomous behavior controlled through a movement strategy.
+ * AICar defines a standardized speed and handles the AI-specific configuration
+ * for its descendants.
+ * Subclasses of AICar are required to define their own specific movement behavior and other car-specific functionalities.
+ */
 public abstract class AICar extends Car {
 
     protected final double AI_CAR_SPEED;

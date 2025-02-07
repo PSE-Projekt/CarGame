@@ -9,6 +9,21 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * The SoundClip class is an abstract representation of a playable sound clip
+ * used in an application. It provides common functionality for managing audio
+ * playback, including playing, looping, and resetting sounds, as well as
+ * managing file loading and volume adjustments.
+ *
+ * Subclasses of this abstract class are responsible for defining the specific
+ * file path for the audio resource by implementing the abstract `setPath` method.
+ *
+ * Key functionalities include:
+ * - Loading a sound file from the specified path.
+ * - Playing the sound in a single or looping manner.
+ * - Resetting the playback position.
+ * - Adjusting the sound clip's volume.
+ */
 @Getter
 @Slf4j
 public abstract class SoundClip {
@@ -24,14 +39,53 @@ public abstract class SoundClip {
 
     protected abstract void setPath();
 
+    /**
+     * Plays the audio clip in a new thread to ensure non-blocking execution
+     * for the rest of the program. The method utilizes the `clip.start()`
+     * functionality of the Java Sound API to initiate playback.
+     * <p>
+     * This method is typically used to play short sound effects or audio
+     * tracks within an application, such as feedback sounds in a game or
+     * application interface.
+     * <p>
+     * Note:
+     * - The playback is executed in a separate thread to prevent
+     *   potential UI or main-thread blocking.
+     * - Proper initialization of the `clip` object is required before invoking this method.
+     * - If the audio clip is already playing and needs to be restarted,
+     *   reset() should be called prior to play().
+     * <p>
+     * Preconditions:
+     * - The `clip` object must be initialized and loaded with an audio file.
+     * <p>
+     * Postconditions:
+     * - The audio clip will begin playing once the thread is executed.
+     */
     public void play() {
         new Thread(clip::start).start();
     }
 
+    /**
+     * Sets the clip to play in a loop for the specified number of times.
+     *
+     * @param count the number of times the sound clip should loop. If set to
+     *              {@code Clip.LOOP_CONTINUOUSLY}, the clip will loop indefinitely.
+     */
     public void loop(int count) {
         clip.loop(count);
     }
 
+    /**
+     * Resets the audio clip to its initial state by stopping any playback
+     * and setting the playback position to the beginning.
+     * <p>
+     * This method is commonly used to ensure that the audio clip
+     * starts from the beginning before being played again or looped.
+     * <p>
+     * Key functionality:
+     * - Stops any ongoing playback of the audio clip.
+     * - Resets the playback position to the start of the clip.
+     */
     public void reset() {
         clip.stop();
         clip.setMicrosecondPosition(0);

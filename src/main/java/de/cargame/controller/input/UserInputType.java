@@ -4,6 +4,22 @@ import lombok.Getter;
 
 import java.util.Optional;
 
+/**
+ * Represents the types of user input actions recognized by the system.
+ * Each enum constant is mapped to a specific key code that represents
+ * a corresponding input action.
+ *
+ * The user input types include:
+ * - UP: Represents upward movement input.
+ * - LEFT: Represents leftward movement input.
+ * - DOWN: Represents downward movement input.
+ * - RIGHT: Represents rightward movement input.
+ * - CONFIRM: Represents an action to confirm a selection and fast-forward.
+ * - NONE: Represents no valid user input.
+ *
+ * This enum provides functionality to retrieve a specific
+ * {@code UserInputType} corresponding to a given key code.
+ */
 @Getter
 public enum UserInputType {
     UP(17),
@@ -31,7 +47,4 @@ public enum UserInputType {
         return Optional.empty();
     }
 
-    public int getKeyCode() {
-        return keyCode;
-    }
 }
