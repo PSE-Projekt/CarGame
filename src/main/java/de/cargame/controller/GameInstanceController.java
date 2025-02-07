@@ -18,10 +18,8 @@ public class GameInstanceController implements GameInstanceAPI {
     private final PlayerAPI playerAPI;
 
 
-    public GameInstanceController(GameApplicationManager gameApplicationManager,
-                                  GameStateAPI gameStateController,
-                                  PlayerAPI playerAPI) {
-        this.gameInstanceService = new GameInstanceService(gameApplicationManager, gameStateController);
+    public GameInstanceController(GameInstanceService gameInstanceService, PlayerAPI playerAPI) {
+        this.gameInstanceService = gameInstanceService;
         this.playerAPI = playerAPI;
     }
 

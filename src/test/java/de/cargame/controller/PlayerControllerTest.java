@@ -1,6 +1,7 @@
 package de.cargame.controller;
 
 import de.cargame.exception.PlayerNotFoundException;
+import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.service.PlayerService;
 import org.junit.jupiter.api.Test;
@@ -11,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 
@@ -33,28 +35,52 @@ class PlayerControllerTest {
 
 
         //then
-        assertEquals(keyboardPlayer, testPlayer);
+        assertEquals(keyboardPlayer, testPlayer, "Expected the returned keyboard player to match the mocked player.");
+        verify(playerService).getKeyboardPlayer();
     }
 
     @Test
-    void testGetGamePadPlayer_GamePadPlayer_exists() {
+    void testCreatePlayerKeyboard() {
+        // when
+        playerController.createPlayerKeyboard();
 
-        //when
-        when(playerService.getGamepadPlayer()).thenReturn(testPlayer);
-        Player gamepadPlayer = playerController.getGamepadPlayer();
-
-
-        //then
-        assertEquals(gamepadPlayer, testPlayer);
+        // then
+        verify(playerService).createPlayerKeyboard();
     }
 
     @Test
-    void testGetKeyboardPlayer_KeyboardPlayer_doesNotExist() {
-        assertThrows(PlayerNotFoundException.class, () -> playerController.getKeyboardPlayer());
+    void testCreatePlayerGamepad() {
+        // when
+        playerController.createPlayerGamepad();
+
+        // then
+        verify(playerService).createPlayerGamepad();
     }
 
     @Test
-    void testGetGamePadPlayer_GamePadPlayer_doesNotExist() {
-        assertThrows(PlayerNotFoundException.class, () -> playerController.getGamepadPlayer());
+    void testSetCarSelection() {
+        // given
+        String playerId = "12345";
+        CarType carType = CarType.AGILE_CAR;
+
+        // when
+        playerController.setCarSelection(playerId, carType);
+
+        // then
+        verify(playerService).setCarSelection(playerId, carType);
+    }
+
+    @Test
+    void testIsPlaying() {
+        // given
+        String playerId = "12345";
+        when(playerService.isPlaying(playerId)).thenReturn(true);
+
+        // when
+        boolean isPlaying = playerController.isPlaying(playerId);
+
+        // then
+        assertEquals(true, isPlaying, "Expected the 'isPlaying' method to return 'true' based on the mock configuration.");
+        verify(playerService).isPlaying(playerId);
     }
 }

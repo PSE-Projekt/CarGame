@@ -3,6 +3,8 @@ package de.cargame.controller;
 import de.cargame.controller.api.GameInstanceAPI;
 import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.api.PlayerAPI;
+import de.cargame.model.handler.GameStateHandler;
+import de.cargame.model.service.GameInstanceService;
 import de.cargame.model.service.PlayerService;
 import de.cargame.view.ApplicationView;
 import javafx.application.Platform;
@@ -14,9 +16,9 @@ import lombok.extern.slf4j.Slf4j;
 public class GameApplicationManager {
 
 
-    private final GameStateAPI gameStateAPI = new GameStateController();
+    private final GameStateAPI gameStateAPI = new GameStateController(new GameStateHandler());
     private final PlayerAPI playerAPI = new PlayerController(new PlayerService());
-    private final GameInstanceAPI gameInstanceAPI = new GameInstanceController(this, gameStateAPI, playerAPI);
+    private final GameInstanceAPI gameInstanceAPI = new GameInstanceController(new GameInstanceService(this, gameStateAPI), playerAPI);
 
     private ApplicationView applicationView;
 
