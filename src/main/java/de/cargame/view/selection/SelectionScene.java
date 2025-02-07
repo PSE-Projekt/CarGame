@@ -28,7 +28,7 @@ public class SelectionScene extends CustomScene {
     public SelectionScene(ApiHandler apiHandler) {
         super(apiHandler);
         this.configureRoot();
-        this.oneInputMode = false;
+        this.oneInputMode = true;
     }
 
     /**

@@ -77,11 +77,10 @@ public class ApplicationView {
             // (GameScene) currentScene.renderGameOverAnimation(); //TODO
             this.switchScene(GameState.SCORE_BOARD);
         } else if (currentState.equals(GameState.IN_GAME)) {
-            // Ensure the current scene is an instance of GameScene
-            if (!(this.currentScene instanceof GameScene)) {
-                throw new IllegalStateException("The current scene is not the game scene");
+            // Render the GameScene
+            if (currentScene instanceof GameScene) {
+                ((GameScene) currentScene).render();
             }
-            ((GameScene) currentScene).render();
         } else {
             // Invalid game state for rendering
             throw new IllegalStateException("Game state is not valid for rendering the game");

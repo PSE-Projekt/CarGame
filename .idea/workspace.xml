@@ -4,27 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="improved visibility from the entire view package">
+    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="frontend multiplayer corrections">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/frontend/heart.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/common/BackToMenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/common/BackToMenuButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/ApplicationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/config/TextConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/config/TextConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/PlayerStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/PlayerStats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/SpriteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/SpriteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/AgileCarSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/AgileCarSprites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/BuildingSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/BuildingSprites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/FastCarSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/FastCarSprites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/GameSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/GameSprites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/KamikazeCarSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/KamikazeCarSprites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/LifeSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/LifeSprites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/ObstacleSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/ObstacleSprites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/RoadMarkSprites.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/sprites/RoadMarkSprites.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MultiPlayerButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MultiPlayerButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/SinglePlayerButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/SinglePlayerButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Direction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/DummySelectable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/DummySelectable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/InputReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/InputReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/PlayAgainButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/PlayAgainButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/CarSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/CarSelectionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreDisplay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/scoreboard/ScoreView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/cargame/view/menu/MenuSceneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/menu/MenuSceneTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,13 +44,10 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:PSE-Projekt/CarGame.git&quot;,
-    &quot;accountId&quot;: &quot;97e744bd-5562-45f1-9e33-25337e03e94f&quot;
+    &quot;url&quot;: &quot;https://github.com/PSE-Projekt/CarGame.git&quot;,
+    &quot;accountId&quot;: &quot;d50244f2-6752-4609-9ade-cf6d55ff0b7e&quot;
   }
 }</component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -73,11 +60,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.CarGameApplication.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/malik/IdeaProjects/CarGameOfficial_v2/src/main/resources/frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -86,10 +73,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\malik\IdeaProjects\CarGameOfficial_v2\src\main\resources\frontend" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="CarGameApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.cargame.CarGameApplication" />
-      <module name="CarGameOfficial_v2" />
+      <module name="CarGameTest" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="de.cargame.*" />
@@ -105,6 +97,14 @@
         <item itemvalue="Application.CarGameApplication" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -147,6 +147,7 @@
       <option name="presentableId" value="Default" />
       <updated>1738804135250</updated>
       <workItem from="1738804137572" duration="2894000" />
+      <workItem from="1738927123107" duration="12814000" />
     </task>
     <task id="LOCAL-00005" summary="overworked game render">
       <option name="closed" value="true" />
@@ -164,31 +165,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738875186465</updated>
     </task>
-    <task id="LOCAL-00007" summary="improved visibility from selection package by removing public from most things">
+    <task id="LOCAL-00007" summary="beauty enhancement">
       <option name="closed" value="true" />
-      <created>1738883838523</created>
+      <created>1738878370764</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1738883838524</updated>
+      <updated>1738878370764</updated>
     </task>
-    <task id="LOCAL-00008" summary="improved visibility from menu and scoreboard package by removing public from most things">
+    <task id="LOCAL-00008" summary="frontend multiplayer corrections">
       <option name="closed" value="true" />
-      <created>1738884338239</created>
+      <created>1738938374494</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1738884338239</updated>
+      <updated>1738938374494</updated>
     </task>
-    <task id="LOCAL-00009" summary="improved visibility from the entire view package">
-      <option name="closed" value="true" />
-      <created>1738885623946</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1738885623946</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,10 +207,9 @@
     <MESSAGE value="fix bug where after playing again one screen half is black" />
     <MESSAGE value="overworked game render" />
     <MESSAGE value="beauty enhancement" />
-    <MESSAGE value="improved visibility from selection package by removing public from most things" />
-    <MESSAGE value="improved visibility from menu and scoreboard package by removing public from most things" />
-    <MESSAGE value="improved visibility from the entire view package" />
-    <option name="LAST_COMMIT_MESSAGE" value="improved visibility from the entire view package" />
+    <MESSAGE value="multiplayer corrections" />
+    <MESSAGE value="frontend multiplayer corrections" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend multiplayer corrections" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

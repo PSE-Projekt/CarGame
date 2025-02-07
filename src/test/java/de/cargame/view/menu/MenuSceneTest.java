@@ -1,17 +1,17 @@
 package de.cargame.view.menu;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import de.cargame.config.GameConfigService;
 import de.cargame.controller.entity.GameMode;
-import de.cargame.view.ApiHandler;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class MenuSceneTest {
 
     private GameConfigService gameConfigService = GameConfigService.getInstance();
 
     @Test
-    public boolean testSinglePlayerTransition(){
+    public void testSinglePlayerTransition(){
         //TODO: create ApiHandler, perhaps Inputreceiver,
 
         MenuScene testedScene = new MenuScene();
