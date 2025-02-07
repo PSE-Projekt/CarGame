@@ -61,5 +61,5 @@ public abstract class CustomScene extends Scene {
     /**
      * refreshes the Scene and it's contents to it's original, untouched state.
      */
-    public abstract void setup();
+    protected abstract void setup();
 }

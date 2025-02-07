@@ -6,8 +6,8 @@ import de.cargame.view.ApiHandler;
 import de.cargame.view.navigation.Clickable;
 import de.cargame.view.navigation.SceneButton;
 
-public class MultiPlayerButton extends SceneButton implements Clickable {
-    public MultiPlayerButton() {
+class MultiPlayerButton extends SceneButton implements Clickable {
+    MultiPlayerButton() {
         super("/frontend/multiP_default.png", "/frontend/multiP_selected.png");
     }
 

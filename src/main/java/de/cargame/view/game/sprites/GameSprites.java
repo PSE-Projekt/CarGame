@@ -7,12 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public abstract class GameSprites {
+abstract class GameSprites {
     protected final List<String> paths;
     protected final List<Image> images = new ArrayList<>();
     protected int weight;
 
-    public GameSprites() {
+    GameSprites() {
         this.paths = new ArrayList<>();
 
         setPaths();

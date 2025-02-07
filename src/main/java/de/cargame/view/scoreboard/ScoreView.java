@@ -10,8 +10,8 @@ import javafx.scene.layout.VBox;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class ScoreView extends VBox {
-    public ScoreView(ApiHandler apiHandler) throws IllegalArgumentException {
+class ScoreView extends VBox {
+    ScoreView(ApiHandler apiHandler) throws IllegalArgumentException {
         configureSelf();
 
         VBox scoreBox = new VBox();
