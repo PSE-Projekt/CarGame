@@ -12,8 +12,7 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
-
-public class GameStateControllerTest {
+class GameStateControllerTest {
 
 
     GameStateHandler gameStateHandler = spy(new GameStateHandler());

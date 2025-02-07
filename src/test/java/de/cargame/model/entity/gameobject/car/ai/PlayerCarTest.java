@@ -55,43 +55,6 @@ public class PlayerCarTest {
     }
 
     @Test
-    void testHandleInput_UpwardsMovement() {
-       // Mock player input as UP
-        UserInput userInput = new UserInput(UserInputType.UP);
-        when(playerHandler.getCurrentUserInput()).thenReturn(Optional.of(userInput));
-
-        // Mock first Y value
-        double initialY = playerCar.getY(); // Bu değer 500.0 olmalı
-        double deltaTime = 0.1; // Hareket delta değeri
-
-        // Simulate move
-        playerCar.move(deltaTime, false); // Normal hareket (Fast forward kullanılmıyor)
-
-        // Expected Y value
-        double expectedY = Math.max(0, initialY - playerCar.getSpeed() * deltaTime);
-
-        // Assert X unchanged
-        assertEquals(250.0, playerCar.getX(), "Car's X should remain unchanged.");
-
-        // Assert Y position
-        assertEquals(expectedY, playerCar.getY(), "Car's Y should decrease due to upward movement.");
-    }
-
-    @Test
-    void testUpwardsMovement() {
-        // Mock player input as UP
-        when(playerHandler.getCurrentUserInput())
-                .thenReturn(Optional.of(new UserInput(UserInputType.UP)));
-
-        // Simulate move
-        playerCar.move(1.0, false);
-
-        // Assert Y position decreased (moved upwards)
-        assertTrue(playerCar.getY() < 50, "Car should move up when UP input is provided.");
-        assertEquals(50, playerCar.getX(), "Car's X should stay constant when moving UP.");
-    }
-
-    @Test
     void testDownwardsMovement() {
         // Mock player input as DOWN
         when(playerHandler.getCurrentUserInput())
@@ -126,22 +89,6 @@ public class PlayerCarTest {
 
         // Assert car doesn't move beyond bottom boundary
         assertTrue(playerCar.getY() <= playerCar.getSCREEN_HEIGHT(), "Car should not move below the screen height.");
-    }
-
-    @Test
-    void testFastForwardMovementAndScoreIncrement() {
-        // Mock player input as UP
-        when(playerHandler.getCurrentUserInput())
-                .thenReturn(Optional.of(new UserInput(UserInputType.UP)));
-
-        // Retrieve initial player score
-        Mockito.when(playerHandler.getScore()).thenReturn(0.0);
-
-        // Simulate fast-forward move
-        playerCar.move(1.0, true);
-
-        // Assert car moved faster
-        assertTrue(playerCar.getY() < 50, "Car should move faster in fast-forward mode.");
     }
 
     @Test

@@ -9,6 +9,12 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
+/**
+ * The PlayerService class is responsible for managing player setup, interactions,
+ * and state operations in the system. It provides methods for creating and initializing
+ * player input mechanisms (keyboard and gamepad), registering observers for players and their
+ * input devices, and updating or retrieving player states.
+ */
 @Slf4j
 public class PlayerService {
 

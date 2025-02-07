@@ -6,20 +6,23 @@ import lombok.extern.slf4j.Slf4j;
 import javax.sound.sampled.Clip;
 
 /**
- * SoundService is a singleton class responsible for managing and playing various sound effects in the application.
- * It provides methods to play specific sounds, loop sounds, and stop continuous playback.
+ * The SoundService class provides a centralized manager for handling
+ * various sound effects within an application. It operates as a Singleton,
+ * ensuring that only one instance is created and shared throughout the
+ * application.
  *
- * This service manages a set of predefined sound effects, each associated with a specific game or application event,
- * such as crash sounds, selection sounds, and gameplay-related sounds.
+ * The class initializes and manages multiple sound clip objects, each of
+ * which represents a specific sound effect. These sound effects include:
+ * - Crash sound, triggered during collisions or crash events.
+ * - Selection sound, played when an item or option is selected.
+ * - Change selection sound, providing feedback for navigation actions.
+ * - Reward collection sound, played when a reward is collected.
+ * - Continuous car race background sound, looped during gameplay.
  *
- * The sound effects are represented by instances of the SoundClip class, which provides capabilities to play, loop,
- * and reset audio clips. Each sound effect corresponds to a unique subclass of SoundClip that defines the audio
- * file path specific to that sound.
- *
- * Key functionalities of the SoundService class include:
- * - Playing sound effects for crash events, menu selection, changing selections, and reward collection.
- * - Looping the car race sound continuously or until manually stopped.
- * - Ensuring that only one instance of the SoundService exists in the application (singleton pattern).
+ * The SoundService also provides utility methods for playing, looping,
+ * and stopping sounds, as well as ensuring sound clips are properly
+ * reset before usage to maintain consistent playback behavior across
+ * different scenarios.
  */
 @Slf4j
 public class SoundService {
@@ -55,12 +58,12 @@ public class SoundService {
 
     /**
      * Plays the crash sound effect.
-     *
+     * <p>
      * This method is used to trigger the playback of the crash sound,
      * typically in response to events such as collisions or crashes.
      * The crash sound effect is managed by the {@code crashSoundClip} instance
      * and is reset before playback to ensure consistent behavior.
-     *
+     * <p>
      * The sound clip is defined and initialized within the SoundService class
      * during its construction phase.
      */
@@ -73,7 +76,7 @@ public class SoundService {
      * Plays the sound effect associated with a selection action.
      * This method uses the selectSoundClip instance to produce the audio effect
      * for user interface or gameplay-related selection events.
-     *
+     * <p>
      * The sound clip is reset before being played to ensure it starts from the
      * beginning each time it is triggered.
      */
@@ -105,7 +108,7 @@ public class SoundService {
      * sound effect, represented by the `carRaceSoundClip` instance, is reset and then played
      * in a loop until manually stopped. It is typically used to simulate ongoing car race
      * gameplay scenarios by providing continuous background auditory feedback.
-     *
+     * <p>
      * The sound will loop indefinitely until the `stopCarRaceSoundLoop` method is invoked to
      * explicitly stop the playback.
      */
