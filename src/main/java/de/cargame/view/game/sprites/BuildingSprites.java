@@ -1,5 +1,7 @@
 package de.cargame.view.game.sprites;
-
+/**
+ * Image assets for buildings, used as background elements
+ */
 public class BuildingSprites extends GameSprites {
     @Override
     protected void setWeight() {

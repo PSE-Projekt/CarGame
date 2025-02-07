@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Base class for managing sprites of all GameObjects.
+ * Also defines paths of mentioned sprites and loads them upon initialization.
+ */
 abstract class GameSprites {
     protected final List<String> paths;
     protected final List<Image> images = new ArrayList<>();
@@ -45,6 +49,10 @@ abstract class GameSprites {
 
     protected abstract void setPaths();
 
+    /**
+     * Chooses a random Sprite of the fitting category, using the ID
+     * @param gameObjectId ID of the sprite category
+     */
     public GameObjectView getRandomSprite(String gameObjectId) {
         return new GameObjectView(images.get(Math.abs(gameObjectId.hashCode()) % images.size()), weight, gameObjectId);
     }

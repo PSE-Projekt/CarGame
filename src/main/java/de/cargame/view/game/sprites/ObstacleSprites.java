@@ -1,5 +1,8 @@
 package de.cargame.view.game.sprites;
-
+/**
+ * Image assets for obstacles in the game.
+ * Ensures obstacles appear visually distinct to improve gameplay clarity
+ */
 public class ObstacleSprites extends GameSprites {
 
     @Override

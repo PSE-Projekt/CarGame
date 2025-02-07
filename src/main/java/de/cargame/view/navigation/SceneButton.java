@@ -1,6 +1,5 @@
 package de.cargame.view.navigation;
 
-import de.cargame.view.ApiHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
@@ -11,12 +10,19 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Objects;
-
+/**
+ * Serves as the foundation for the buttons in navigable scenes. Child classes
+ * will implement the functions provided by Selectable.
+ */
 public abstract class SceneButton extends Selectable implements Clickable {
     private final Image defaultDisplay;
     private final Image displayOnSelection;
     private final ImageView display;
-
+    /**
+     * Creates a new SceneButton which will be displayed in a fitting scene.
+     * @param pathDefaultImg image for the idle button
+     * @param pathSelectedImg image for the button upon interaction
+     */
     public SceneButton(String pathDefaultImg, String pathSelectedImg) {
         this.defaultDisplay = loadImage(pathDefaultImg);
         this.displayOnSelection = loadImage(pathSelectedImg);
