@@ -14,6 +14,9 @@ class SpriteService {
     private final KamikazeCarSprites kamikazeCarSprites;
     private final ObstacleSprites obstacleSprites;
 
+    /**
+     * Creates a new SpriteService instance, initializing all different GameSprites.
+     */
     SpriteService() {
         this.fastCarSprites = new FastCarSprites();
         this.buildingSprites = new BuildingSprites();

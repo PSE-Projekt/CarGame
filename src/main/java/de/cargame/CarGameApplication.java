@@ -12,6 +12,10 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * The CarGameApplication class is the entry point for the application.
+ * It extends the JavaFX Application class and initializes the game lifecycle.
+ */
 @Slf4j
 public class CarGameApplication extends Application {
     private GameApplicationManager gameApplicationManager;

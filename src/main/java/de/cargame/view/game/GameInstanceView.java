@@ -18,6 +18,10 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
+/**
+ * Contains the logic and elements for a game instance view.
+ * 'render()' will display said instance.
+ */
 class GameInstanceView extends Pane {
     private final SpriteService spriteService;
     private final ApiHandler apiHandler;
@@ -25,6 +29,7 @@ class GameInstanceView extends Pane {
     private final int SCREEN_WIDTH;
     private final PlayerStats stats;
     private GameModelData modelData;
+
     /**
      * Creates a new GameInstanceView for the player using the apiHandler as well his playerID
      */
@@ -58,6 +63,7 @@ class GameInstanceView extends Pane {
         this.setStyle("-fx-background-color: grey;");
         this.getChildren().add(stats);
     }
+
     /**
      * Renders the contents of this player's game instance.
      */

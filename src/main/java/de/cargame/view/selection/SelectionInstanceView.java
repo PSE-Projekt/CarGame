@@ -114,6 +114,9 @@ public class SelectionInstanceView extends Pane {
         this.getChildren().addAll(sceneContent);
     }
 
+    /**
+     * Renders the contents of this player's selection instance.
+     */
     public void setup() {
         PlayerAPI playerApi = this.apiHandler.getPlayerApi();
         carChoiceMade = false;

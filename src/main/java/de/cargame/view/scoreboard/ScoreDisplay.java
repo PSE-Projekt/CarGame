@@ -30,7 +30,7 @@ class ScoreDisplay extends VBox implements Comparable<ScoreDisplay> {
             label = "";
         }
 
-        Text scoreText = TextConfig.makeH1(label + scoreValue + "pts");
+        Text scoreText = TextConfig.generateTitle(label + scoreValue + "pts");
         scoreText.setFill(ColorConfig.SECONDARY_MAIN);
 
         getChildren().add(scoreText);
