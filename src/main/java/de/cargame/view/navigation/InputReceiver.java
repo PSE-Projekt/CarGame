@@ -5,6 +5,7 @@ import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Registered in the Controller.
@@ -17,7 +18,7 @@ public class InputReceiver implements UserInputObserver {
 
 
     public InputReceiver() {
-        this.navigatorMap = new HashMap<>();
+        this.navigatorMap = new ConcurrentHashMap<>();
     }
     /**
      * calls 'receiveInput(...)' in the navigator,
