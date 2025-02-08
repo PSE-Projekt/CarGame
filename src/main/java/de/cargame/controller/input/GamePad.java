@@ -1,6 +1,7 @@
 package de.cargame.controller.input;
 
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
+import lombok.extern.slf4j.Slf4j;
 import net.java.games.input.Component;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
@@ -13,6 +14,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * and implements functionality specific to handling gamepad inputs. It supports the
  * observer pattern for notifying registered observers about user input events.
  */
+@Slf4j
 public class GamePad extends InputDevice {
 
     private final List<UserInputObserver> userInputObserverList = new CopyOnWriteArrayList<>();
@@ -59,8 +61,6 @@ public class GamePad extends InputDevice {
                     }
 
                     if ("y".equals(component.getName())) {
-                        System.out.println("Y-Component value: " + value); // Log-Werte für die Y-Achse
-
                         if (Math.abs(value) < DEADZONE) { // Neutraler Zustand
                             userInputBundle.removeUserInput(UserInputType.UP);
                             userInputBundle.removeUserInput(UserInputType.DOWN);
@@ -99,13 +99,13 @@ public class GamePad extends InputDevice {
 
     private Controller getGamepadController() {
         ControllerEnvironment ce = ControllerEnvironment.getDefaultEnvironment();
-        for (Controller controller : ce.getControllers()) {
-            System.out.println("Detected controller: " + controller.getName() + " (Type: " + controller.getType() + ")");
-            if (controller.getType() == Controller.Type.STICK || controller.getType() == Controller.Type.GAMEPAD) {
-                return controller;
+        for (Controller gamepad : ce.getControllers()) {
+            log.info("Detected controller: " + gamepad.getName() + " (Type: " + gamepad.getType() + ")");
+            if (gamepad.getType() == Controller.Type.STICK || gamepad.getType() == Controller.Type.GAMEPAD) {
+                return gamepad;
             }
         }
-        System.out.println("No compatible gamepad or stick found.");
+        log.info("No compatible gamepad or stick found.");
         return null; // No gamepad found
     }
 
@@ -121,7 +121,6 @@ public class GamePad extends InputDevice {
 
     @Override
     public void notifyObservers(UserInputBundle userInputBundle) {
-        System.out.println(userInputBundle.getLatestInput() + " "+ userInputBundle.size() + " "+userInputBundle.getLatestInput().get().getUserInputType().toString());
         userInputObserverList.forEach(o -> o.update(userInputBundle));
     }
 }
