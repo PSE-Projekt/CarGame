@@ -1,6 +1,7 @@
 package de.cargame.controller.input;
 
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
+import net.java.games.input.Component;
 import net.java.games.input.Controller;
 import net.java.games.input.ControllerEnvironment;
 
@@ -15,27 +16,97 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class GamePad extends InputDevice {
 
     private final List<UserInputObserver> userInputObserverList = new CopyOnWriteArrayList<>();
-    private boolean deviceConnected = false;
+    private final UserInputBundle userInputBundle;
     private Controller controller;
 
     public GamePad() {
-        //initController();
+        userInputBundle = new UserInputBundle();
+        init();
     }
 
-    public void initController() {
+    private void init() {
+        this.controller = getGamepadController(); // Ruft den Gamepad-Controller ab
 
-        Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
+        if (this.controller == null) {
+            throw new IllegalStateException("No gamepad controller found");
+        }
 
-        for (Controller controller : controllers) {
-            if (controller.getType() == Controller.Type.GAMEPAD) {
-                this.controller = controller;
-                deviceConnected = true;
-                break;
+        // Thread zum Abfragen des Gamepads starten
+        new Thread(() -> {
+            while (true) {
+                // Poll für Gamepad-Eingaben
+                controller.poll();
+                Component[] components = controller.getComponents();
+
+                for (Component component : components) {
+                    // Erfassen des aktuellen Wertes
+                    float value = component.getPollData();
+                    final float DEADZONE = 0.2f; // Deadzone-Wert
+
+                    // Deadzone-Logik für Achsen
+                    if ("x".equals(component.getName())) {
+                        if (Math.abs(value) < DEADZONE) { // Neutraler Zustand
+                            userInputBundle.removeUserInput(UserInputType.LEFT);
+                            userInputBundle.removeUserInput(UserInputType.RIGHT);
+                            userInputBundle.addUserInput(UserInputType.NONE);
+                        } else if (value < -DEADZONE) { // Bewegung nach links
+                            userInputBundle.removeUserInput(UserInputType.RIGHT);
+                            userInputBundle.addUserInput(UserInputType.LEFT);
+                        } else if (value > DEADZONE) { // Bewegung nach rechts
+                            userInputBundle.removeUserInput(UserInputType.LEFT);
+                            userInputBundle.addUserInput(UserInputType.RIGHT);
+                        }
+                    }
+
+                    if ("y".equals(component.getName())) {
+                        System.out.println("Y-Component value: " + value); // Log-Werte für die Y-Achse
+
+                        if (Math.abs(value) < DEADZONE) { // Neutraler Zustand
+                            userInputBundle.removeUserInput(UserInputType.UP);
+                            userInputBundle.removeUserInput(UserInputType.DOWN);
+                            userInputBundle.addUserInput(UserInputType.NONE);
+                        } else if (value < -DEADZONE) { // Bewegung nach oben
+                            userInputBundle.removeUserInput(UserInputType.DOWN);
+                            userInputBundle.addUserInput(UserInputType.UP);
+                        } else if (value > DEADZONE) { // Bewegung nach unten
+                            userInputBundle.removeUserInput(UserInputType.UP);
+                            userInputBundle.addUserInput(UserInputType.DOWN);
+                        }
+                    }
+
+                    // Beispiel für einen Button (z. B. Sprinten oder Bestätigen)
+                    if ("14".equals(component.getName())) {
+                        if (value > 0.5f) { // Wenn Taste gedrückt ist
+                            userInputBundle.setFastForward(true);
+                        } else { // Wenn Taste losgelassen wird
+                            userInputBundle.setFastForward(false);
+                            userInputBundle.removeUserInput(UserInputType.CONFIRM);
+                        }
+                    }
+
+                    // Benachrichtige alle Observer über Änderungen
+                    notifyObservers(userInputBundle);
+
+                    try {
+                        Thread.sleep(10); // Reduziere CPU-Last durch Sleep
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
+    }
+
+    private Controller getGamepadController() {
+        ControllerEnvironment ce = ControllerEnvironment.getDefaultEnvironment();
+        for (Controller controller : ce.getControllers()) {
+            System.out.println("Detected controller: " + controller.getName() + " (Type: " + controller.getType() + ")");
+            if (controller.getType() == Controller.Type.STICK || controller.getType() == Controller.Type.GAMEPAD) {
+                return controller;
             }
         }
-        if (!deviceConnected) {
-            System.out.println("No Gamepad found");
-        }
+        System.out.println("No compatible gamepad or stick found.");
+        return null; // No gamepad found
     }
 
     @Override
@@ -50,6 +121,7 @@ public class GamePad extends InputDevice {
 
     @Override
     public void notifyObservers(UserInputBundle userInputBundle) {
+        System.out.println(userInputBundle.getLatestInput() + " "+ userInputBundle.size() + " "+userInputBundle.getLatestInput().get().getUserInputType().toString());
         userInputObserverList.forEach(o -> o.update(userInputBundle));
     }
 }

@@ -14,11 +14,11 @@ public class DummySelectable extends Selectable {
 
     @Override
     public void deselect() {
-        //todo comment why empty
+        //empty because dummy
     }
 
     @Override
     public void select() {
-        //todo comment why empty
+        //empty because dummy
     }
 }
