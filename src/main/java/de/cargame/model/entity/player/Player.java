@@ -144,6 +144,7 @@ public class Player implements UserInputObserver, PlayerObservable {
      */
     public void decreaseLife() {
         lives--;
+        log.debug("Player {} lost a life, new life count: {}", id, lives);
         notifyPlayerObserversWithCurrentValues();
     }
 

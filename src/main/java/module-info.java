@@ -2,6 +2,7 @@ module cargame {
     requires javafx.graphics;
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.base;
     requires com.github.kwhat.jnativehook;
     requires slf4j.api;
     requires static lombok;

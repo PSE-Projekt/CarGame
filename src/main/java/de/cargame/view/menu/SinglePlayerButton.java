@@ -1,5 +1,6 @@
 package de.cargame.view.menu;
 
+import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
@@ -25,8 +26,9 @@ class SinglePlayerButton extends SceneButton implements Clickable {
      */
     @Override
     public void onClick(ApiHandler apiHandler, String playerID) {
-        apiHandler.getGameStateApi().setGameState(GameState.CAR_SELECTION);
-        apiHandler.getGameStateApi().setGameMode(GameMode.SINGLEPLAYER);
+        GameStateAPI gameStateApi = apiHandler.getGameStateApi();
+        gameStateApi.setGameState(GameState.CAR_SELECTION);
+        gameStateApi.setGameMode(GameMode.SINGLEPLAYER);
         apiHandler.setPlayerOneId(playerID);
         apiHandler.switchScene(GameState.CAR_SELECTION);
     }

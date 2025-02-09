@@ -33,7 +33,7 @@ public class PlayerService {
      * for keyboard inputs, and logs the process.
      */
     public void createPlayerKeyboard() {
-        log.debug("Creating keyboard player");
+        log.debug("Creating keyboard player: {}", keyboardPlayer.getId());
         inputService.initKeyboard();
         inputService.registerKeyboardObserver(keyboardPlayer);
         log.debug("Keyboard player created");
@@ -46,7 +46,7 @@ public class PlayerService {
      * The setup ensures the gamepad player can receive and respond to gamepad input.
      */
     public void createPlayerGamepad() {
-        log.debug("Creating gamepad player");
+        log.debug("Creating gamepad player: {}", gamepadPlayer.getId());
         inputService.initGamepad();
         inputService.registerGamePadObserver(gamepadPlayer);
         log.debug("Gamepad player created");

@@ -45,7 +45,6 @@ public class GameScene extends CustomScene {
         GameMode currentGameMode = this.apiHandler.getGameStateApi().getGameMode();
         PlayerAPI playerApi = this.apiHandler.getPlayerApi();
 
-
         if (currentGameMode.equals(GameMode.MULTIPLAYER)) {
 
             if (playerApi.getKeyboardPlayer() == null || playerApi.getGamepadPlayer() == null) {

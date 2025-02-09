@@ -35,12 +35,16 @@ public class Keyboard extends InputDevice implements NativeKeyListener {
 
     @Override
     public void registerObserver(UserInputObserver o) {
-        userInputObservers.add(o);
+        if(!userInputObservers.contains(o)){
+            userInputObservers.add(o);
+        }
     }
 
     @Override
     public void removeObserver(UserInputObserver o) {
-        userInputObservers.remove(o);
+        if(!userInputObservers.contains(o)) {
+            userInputObservers.remove(o);
+        }
     }
 
     @Override

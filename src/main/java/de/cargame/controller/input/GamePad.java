@@ -43,7 +43,7 @@ public class GamePad extends InputDevice {
                 for (Component component : components) {
                     // Erfassen des aktuellen Wertes
                     float value = component.getPollData();
-                    final float DEADZONE = 0.2f; // Deadzone-Wert
+                    final float DEADZONE = 0.4f; // Deadzone-Wert
 
                     // Deadzone-Logik für Achsen
                     if ("x".equals(component.getName())) {
@@ -75,7 +75,7 @@ public class GamePad extends InputDevice {
                     }
 
                     // Beispiel für einen Button (z. B. Sprinten oder Bestätigen)
-                    if ("14".equals(component.getName())) {
+                    if ("0".equals(component.getName())) {
                         if (value > 0.5f) { // Wenn Taste gedrückt ist
                             userInputBundle.setFastForward(true);
                         } else { // Wenn Taste losgelassen wird
@@ -88,7 +88,7 @@ public class GamePad extends InputDevice {
                     notifyObservers(userInputBundle);
 
                     try {
-                        Thread.sleep(10); // Reduziere CPU-Last durch Sleep
+                        Thread.sleep(5); // Reduziere CPU-Last durch Sleep
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -111,7 +111,9 @@ public class GamePad extends InputDevice {
 
     @Override
     public void registerObserver(UserInputObserver o) {
-        userInputObserverList.add(o);
+        if(!userInputObserverList.contains(o)) {
+            userInputObserverList.add(o);
+        }
     }
 
     @Override

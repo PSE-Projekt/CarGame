@@ -2,6 +2,7 @@ package de.cargame.view.game;
 
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
+import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.entity.GameModelData;
 import de.cargame.model.entity.gameobject.*;
@@ -47,9 +48,11 @@ class GameInstanceView extends Pane {
         stats.setPrefSize(SCREEN_WIDTH, 50);
         apiHandler.getPlayerApi().registerPlayerObserver(stats, playerID);
 
-        for (GameModelData modelData : apiHandler.getGameInstanceApi().getModel()) {
-            if (modelData.getPlayerId().equals(playerID)) {
-                this.modelData = modelData;
+        List<GameModelData> gameModels = apiHandler.getGameInstanceApi().getModel();
+
+        for (GameModelData data : gameModels) {
+            if (data.getPlayerId().equals(playerID)) {
+                this.modelData = data;
             }
         }
 
@@ -122,12 +125,15 @@ class GameInstanceView extends Pane {
         int BUILDING_HEIGHT;
         int BUILDING_SPAWN_AREA;
 
-        if (apiHandler.getGameStateApi().getGameMode().equals(GameMode.MULTIPLAYER)) {
-            BUILDING_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT_MULTIPLAYER);
-            BUILDING_SPAWN_AREA = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_MULTIPLAYER);
-        } else if (apiHandler.getGameStateApi().getGameMode().equals(GameMode.SINGLEPLAYER)) {
-            BUILDING_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_HEIGHT_SINGLEPLAYER);
-            BUILDING_SPAWN_AREA = GameConfigService.getInstance().loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_SINGLEPLAYER);
+        GameStateAPI gameStateApi = apiHandler.getGameStateApi();
+        GameConfigService configService = GameConfigService.getInstance();
+
+        if (gameStateApi.getGameMode().equals(GameMode.MULTIPLAYER)) {
+            BUILDING_HEIGHT = configService.loadInteger(ConfigKey.BUILDING_HEIGHT_MULTIPLAYER);
+            BUILDING_SPAWN_AREA = configService.loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_MULTIPLAYER);
+        } else if (gameStateApi.getGameMode().equals(GameMode.SINGLEPLAYER)) {
+            BUILDING_HEIGHT = configService.loadInteger(ConfigKey.BUILDING_HEIGHT_SINGLEPLAYER);
+            BUILDING_SPAWN_AREA = configService.loadInteger(ConfigKey.BUILDING_SPAWN_AREA_WIDTH_SINGLEPLAYER);
         } else {
             throw new IllegalStateException("Game mode invalid");
         }

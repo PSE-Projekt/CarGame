@@ -51,11 +51,16 @@ public class GameInstanceService {
      * @param player The player for whom the game instance is being started. The player's score
      *               will be reset, and they will be assigned to the new game instance.
      */
-    public void startGame(Player player) {
-        player.resetScore();
-        GameInstance gameInstance = new GameInstance(this, gameStateController, gameApplicationManager, player);
-        addGameInstance(gameInstance);
-        new Thread(gameInstance).start();
+    public synchronized void startGame(Player player) {
+        if (gameInstances.stream().anyMatch(instance -> instance.getPlayingPlayerId().equals(player.getId()))) {
+            log.warn("Spiel bereits gestartet für Player: {}", player.getId());
+            return;
+        }
+
+        log.info("Starte neues Spiel für Player: {}", player.getId());
+        GameInstance newInstance = new GameInstance(this, gameStateController, gameApplicationManager, player);
+        gameInstances.add(newInstance);
+        new Thread(newInstance).start();
     }
 
 
