@@ -51,7 +51,7 @@ public class GamePad extends InputDevice {
                 }
 
                 try {
-                    Thread.sleep(50); // Prevent high CPU usage
+                    Thread.sleep(5); // Prevent high CPU usage
                 } catch (InterruptedException e) {
                     log.error("Thread interrupted", e);
                 }
