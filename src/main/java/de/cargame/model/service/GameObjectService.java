@@ -51,7 +51,7 @@ public class GameObjectService {
         this.gameStateController = gameStateController;
         this.collisionHandler = new CollisionHandler(playerHandler);
         this.gameObjectCreationService = new GameObjectCreationService();
-        this.gameObjectSpawnScheduler = new GameObjectSpawnScheduler(this.playerHandler, this);
+        this.gameObjectSpawnScheduler = new GameObjectSpawnScheduler(this.playerHandler, this, gameStateController);
     }
 
 

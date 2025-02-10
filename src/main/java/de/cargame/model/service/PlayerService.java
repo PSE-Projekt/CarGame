@@ -61,7 +61,7 @@ public class PlayerService {
      * @param playerId the unique identifier of the player to be observed.
      *                 Must match the ID of an existing player (e.g., keyboard player or gamepad player).
      */
-    public void registerPlayerObserver(PlayerObserver observer, String playerId) {
+    public synchronized void registerPlayerObserver(PlayerObserver observer, String playerId) {
         log.debug("Registering player-observer for player with id '{}'", playerId);
         if (playerId.equals(keyboardPlayer.getId())) {
             keyboardPlayer.addObserver(observer);
@@ -81,7 +81,7 @@ public class PlayerService {
      *                 responsible for processing input updates.
      * @param playerId the unique identifier of the player whose input observer is being registered.
      */
-    public void registerInputObserver(UserInputObserver observer, String playerId) {
+    public synchronized void registerInputObserver(UserInputObserver observer, String playerId) {
         log.debug("Registering input-observer for player with id '{}'", playerId);
         if (playerId.equals(keyboardPlayer.getId())) {
             inputService.registerKeyboardObserver(observer);

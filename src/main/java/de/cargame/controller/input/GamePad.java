@@ -1,5 +1,7 @@
 package de.cargame.controller.input;
 
+import de.cargame.controller.input.gamepadmapping.GamePadMapping;
+import de.cargame.controller.input.gamepadmapping.GamePads;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import lombok.extern.slf4j.Slf4j;
 import net.java.games.input.Component;
@@ -19,7 +21,8 @@ public class GamePad extends InputDevice {
 
     private final List<UserInputObserver> userInputObserverList = new CopyOnWriteArrayList<>();
     private final UserInputBundle userInputBundle;
-    private Controller controller;
+    private Controller gamepad;
+    private GamePadMapping activeGamePadMapping;
 
     public GamePad() {
         userInputBundle = new UserInputBundle();
@@ -27,91 +30,118 @@ public class GamePad extends InputDevice {
     }
 
     private void init() {
-        this.controller = getGamepadController(); // Ruft den Gamepad-Controller ab
-
-        if (this.controller == null) {
-            throw new IllegalStateException("No gamepad controller found");
-        }
-
-        // Thread zum Abfragen des Gamepads starten
+        // Start a new thread to poll for gamepad inputs
         new Thread(() -> {
             while (true) {
-                // Poll für Gamepad-Eingaben
-                controller.poll();
-                Component[] components = controller.getComponents();
+                // Ensure gamepad is initialized and available
+                if (gamepad == null || !gamepad.poll()) {
+                    gamepad = getGamepadController();
 
-                for (Component component : components) {
-                    // Erfassen des aktuellen Wertes
-                    float value = component.getPollData();
-                    final float DEADZONE = 0.4f; // Deadzone-Wert
-
-                    // Deadzone-Logik für Achsen
-                    if ("x".equals(component.getName())) {
-                        if (Math.abs(value) < DEADZONE) { // Neutraler Zustand
-                            userInputBundle.removeUserInput(UserInputType.LEFT);
-                            userInputBundle.removeUserInput(UserInputType.RIGHT);
-                            userInputBundle.addUserInput(UserInputType.NONE);
-                        } else if (value < -DEADZONE) { // Bewegung nach links
-                            userInputBundle.removeUserInput(UserInputType.RIGHT);
-                            userInputBundle.addUserInput(UserInputType.LEFT);
-                        } else if (value > DEADZONE) { // Bewegung nach rechts
-                            userInputBundle.removeUserInput(UserInputType.LEFT);
-                            userInputBundle.addUserInput(UserInputType.RIGHT);
+                    // Wait if no gamepad is connected
+                    if (gamepad == null) {
+                        log.info("No compatible gamepad detected. Retrying in 2 seconds...");
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            log.error("Thread interrupted", e);
                         }
+                        continue;
                     }
+                }
 
-                    if ("y".equals(component.getName())) {
-                        if (Math.abs(value) < DEADZONE) { // Neutraler Zustand
-                            userInputBundle.removeUserInput(UserInputType.UP);
-                            userInputBundle.removeUserInput(UserInputType.DOWN);
-                            userInputBundle.addUserInput(UserInputType.NONE);
-                        } else if (value < -DEADZONE) { // Bewegung nach oben
-                            userInputBundle.removeUserInput(UserInputType.DOWN);
-                            userInputBundle.addUserInput(UserInputType.UP);
-                        } else if (value > DEADZONE) { // Bewegung nach unten
-                            userInputBundle.removeUserInput(UserInputType.UP);
-                            userInputBundle.addUserInput(UserInputType.DOWN);
-                        }
+                try {
+                    Component[] components = gamepad.getComponents();
+                    for (Component component : components) {
+                        processInput(component);
+                        notifyObservers(userInputBundle);
                     }
+                } catch (Exception e) {
+                    log.error("An error occurred while processing gamepad input", e);
+                }
 
-                    // Beispiel für einen Button (z. B. Sprinten oder Bestätigen)
-                    if ("0".equals(component.getName())) {
-                        if (value > 0.5f) { // Wenn Taste gedrückt ist
-                            userInputBundle.setFastForward(true);
-                        } else { // Wenn Taste losgelassen wird
-                            userInputBundle.setFastForward(false);
-                            userInputBundle.removeUserInput(UserInputType.CONFIRM);
-                        }
-                    }
-
-                    // Benachrichtige alle Observer über Änderungen
-                    notifyObservers(userInputBundle);
-
-                    try {
-                        Thread.sleep(5); // Reduziere CPU-Last durch Sleep
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                try {
+                    Thread.sleep(5); // Prevent high CPU usage
+                } catch (InterruptedException e) {
+                    log.error("Thread interrupted", e);
                 }
             }
         }).start();
     }
 
+    private void processInput(Component component) {
+        activeGamePadMapping = getGamePadMapping(gamepad.getName());
+        float value = component.getPollData();
+        final float DEADZONE = 0.15f;
+
+        if (activeGamePadMapping.getX_AxisComponentName().equals(component.getName())) {
+            if (Math.abs(value) < DEADZONE) { // Neutral
+                userInputBundle.removeUserInput(UserInputType.LEFT);
+                userInputBundle.removeUserInput(UserInputType.RIGHT);
+                userInputBundle.addUserInput(UserInputType.NONE);
+            } else if (value < -DEADZONE) { // Left
+                userInputBundle.removeUserInput(UserInputType.RIGHT);
+                userInputBundle.addUserInput(UserInputType.LEFT);
+            } else if (value > DEADZONE) { // Right
+                userInputBundle.removeUserInput(UserInputType.LEFT);
+                userInputBundle.addUserInput(UserInputType.RIGHT);
+            }
+        }
+
+        if (activeGamePadMapping.getY_AxisComponentName().equals(component.getName())) {
+            if (Math.abs(value) < DEADZONE) { // Neutral
+                userInputBundle.removeUserInput(UserInputType.UP);
+                userInputBundle.removeUserInput(UserInputType.DOWN);
+                userInputBundle.addUserInput(UserInputType.NONE);
+            } else if (value < -DEADZONE) { // Up
+                userInputBundle.removeUserInput(UserInputType.DOWN);
+                userInputBundle.addUserInput(UserInputType.UP);
+            } else if (value > DEADZONE) { // Down
+                userInputBundle.removeUserInput(UserInputType.UP);
+                userInputBundle.addUserInput(UserInputType.DOWN);
+            }
+        }
+
+        // Example for a button (e.g., Sprint or Confirm)
+        if (activeGamePadMapping.getFastForwardComponentName().equals(component.getName())) {
+            if (value > 0.5f) { // Press
+                userInputBundle.setFastForward(true);
+            } else { // Release
+                userInputBundle.setFastForward(false);
+                userInputBundle.removeUserInput(UserInputType.CONFIRM);
+            }
+        }
+    }
+
     private Controller getGamepadController() {
         ControllerEnvironment ce = ControllerEnvironment.getDefaultEnvironment();
-        for (Controller gamepad : ce.getControllers()) {
-            log.info("Detected controller: " + gamepad.getName() + " (Type: " + gamepad.getType() + ")");
-            if (gamepad.getType() == Controller.Type.STICK || gamepad.getType() == Controller.Type.GAMEPAD) {
-                return gamepad;
+        for (Controller polledGamepad : ce.getControllers()) {
+            log.info("Detected controller: " + polledGamepad.getName() + " (Type: " + polledGamepad.getType() + ")");
+            if (polledGamepad.getType() == Controller.Type.STICK || polledGamepad.getType() == Controller.Type.GAMEPAD) {
+                return polledGamepad;
             }
         }
         log.info("No compatible gamepad or stick found.");
         return null; // No gamepad found
     }
 
+    private GamePadMapping getGamePadMapping(String gamepadName) {
+        GamePadMapping mapping = null;
+        if (GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping().getControllerName().equals(gamepadName)) {
+            mapping = GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping();
+        }
+        if (mapping != null) {
+            if(mapping != activeGamePadMapping){
+                log.info("Gamepad mapping found: {}", mapping);
+            }
+            return mapping;
+        }
+        log.warn("No gamepad mapping found for gamepad {} - resume to default", gamepadName);
+        return GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping();
+    }
+
     @Override
     public void registerObserver(UserInputObserver o) {
-        if(!userInputObserverList.contains(o)) {
+        if (!userInputObserverList.contains(o)) {
             userInputObserverList.add(o);
         }
     }
