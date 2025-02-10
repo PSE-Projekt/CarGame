@@ -15,5 +15,6 @@ public class ObstacleSprites extends GameSprites {
     protected void setPaths() {
         this.paths.add("/sprites/obstacle#1.png");
         this.paths.add("/sprites/obstacle#2.png");
+        this.paths.add("/sprites/obstacle#3.png");
     }
 }

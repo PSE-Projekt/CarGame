@@ -130,6 +130,11 @@ public class UserInputBundle {
     }
 
 
+    public boolean contains(UserInputType userInputType) {
+        return userInputs.stream().anyMatch(input -> input.getUserInputType().equals(userInputType));
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

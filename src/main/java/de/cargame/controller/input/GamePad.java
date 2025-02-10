@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.java.games.input.*;
 
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.*;
 
 /**
  * Represents a gamepad input device. This class extends the {@code InputDevice} class
@@ -21,6 +21,8 @@ public class GamePad extends InputDevice {
     private final UserInputBundle userInputBundle;
     private Controller gamepad;
     private GamePadMapping activeGamePadMapping;
+    ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
 
     public GamePad() {
         userInputBundle = new UserInputBundle();
@@ -28,38 +30,48 @@ public class GamePad extends InputDevice {
     }
 
     private void init() {
-        // Start a new thread to poll for gamepad inputs
-        new Thread(() -> {
-            gamepad = getGamepadController();
+        gamepad = getGamepadController();
 
-            while (true) {
+        if (gamepad == null) {
+            log.info("No gamepad found - to connect a gamepad please connect it to the computer and restart the game");
+            return;
+        }
+
+        // Scheduler für konstante Abfragen in regelmäßigen Abständen einrichten
+        scheduler.scheduleAtFixedRate(() -> {
+            try {
                 gamepad.poll();
                 EventQueue queue = gamepad.getEventQueue();
                 Event event = new Event();
 
                 while (queue.getNextEvent(event)) {
-                // Ensure gamepad is initialized and available
+                    try {
+                        Component[] components = gamepad.getComponents();
+                        for (Component component : components) {
+                            processInput(component);
+                        }
 
-                try {
-                    Component[] components = gamepad.getComponents();
-                    for (Component component : components) {
-                        processInput(component);
+                        // Benachrichtige die Observer nach der Eingabeverarbeitung
+                        notifyObservers(userInputBundle);
+                    } catch (Exception e) {
+                        log.error("An error occurred while processing gamepad input", e);
                     }
-                    notifyObservers(userInputBundle);
-                } catch (Exception e) {
-                    log.error("An error occurred while processing gamepad input", e);
                 }
-
-                try {
-                    Thread.sleep(5); // Prevent high CPU usage
-                } catch (InterruptedException e) {
-                    log.error("Thread interrupted", e);
-                }
-                }
+            } catch (Exception e) {
+                log.error("An error occurred during gamepad polling", e);
             }
-        }).start();
+        }, 0, 5, TimeUnit.MILLISECONDS);
     }
 
+
+    /**
+     * Processes input received from a specific hardware component, such as a gamepad axis or button.
+     * Determines the type of user input based on the polling data from the component and
+     * updates the user input bundle accordingly.
+     *
+     * @param component The input hardware component being polled. This could be an axis, button, or any other
+     *                  input-related component that provides polling data for determining user interactions.
+     */
     private void processInput(Component component) {
         activeGamePadMapping = getGamePadMapping(gamepad.getName());
         float value = component.getPollData();
@@ -102,6 +114,7 @@ public class GamePad extends InputDevice {
 
     private Controller getGamepadController() {
         ControllerEnvironment ce = ControllerEnvironment.getDefaultEnvironment();
+
         for (Controller polledGamepad : ce.getControllers()) {
             log.info("Detected controller: " + polledGamepad.getName() + " (Type: " + polledGamepad.getType() + ")");
             if (polledGamepad.getType() == Controller.Type.STICK || polledGamepad.getType() == Controller.Type.GAMEPAD) {
@@ -116,11 +129,11 @@ public class GamePad extends InputDevice {
         GamePadMapping mapping = null;
         if (GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping().getControllerName().equals(gamepadName)) {
             mapping = GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping();
-        } else if (GamePads.PS3_Controller.getGamePadMapping().getControllerName().equals(gamepadName)){
+        } else if (GamePads.PS3_Controller.getGamePadMapping().getControllerName().equals(gamepadName)) {
             mapping = GamePads.PS3_Controller.getGamePadMapping();
         }
         if (mapping != null) {
-            if(mapping != activeGamePadMapping){
+            if (mapping != activeGamePadMapping) {
                 log.info("Gamepad mapping found: {}", mapping);
             }
             return mapping;
