@@ -3,10 +3,10 @@ module cargame {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.base;
-    requires com.github.kwhat.jnativehook;
     requires slf4j.api;
     requires static lombok;
     requires jinput;
+    requires java.desktop;
 
     opens de.cargame to javafx.graphics;
 

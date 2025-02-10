@@ -1,6 +1,5 @@
 package de.cargame.controller.input;
 
-import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import lombok.extern.slf4j.Slf4j;
 import net.java.games.input.*;

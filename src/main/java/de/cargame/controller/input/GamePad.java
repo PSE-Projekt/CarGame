@@ -39,27 +39,13 @@ public class GamePad extends InputDevice {
 
                 while (queue.getNextEvent(event)) {
                 // Ensure gamepad is initialized and available
-                if (gamepad == null || !gamepad.poll()) {
-                    gamepad = getGamepadController();
-
-                    // Wait if no gamepad is connected
-                    if (gamepad == null) {
-                        log.info("No compatible gamepad detected. Retrying in 2 seconds...");
-                        try {
-                            Thread.sleep(2000);
-                        } catch (InterruptedException e) {
-                            log.error("Thread interrupted", e);
-                        }
-                        continue;
-                    }
-                }
 
                 try {
                     Component[] components = gamepad.getComponents();
                     for (Component component : components) {
                         processInput(component);
-                        notifyObservers(userInputBundle);
                     }
+                    notifyObservers(userInputBundle);
                 } catch (Exception e) {
                     log.error("An error occurred while processing gamepad input", e);
                 }
@@ -108,11 +94,9 @@ public class GamePad extends InputDevice {
 
         // Example for a button (e.g., Sprint or Confirm)
         if (activeGamePadMapping.getFastForwardComponentName().equals(component.getName())) {
-            if (value > 0.5f) { // Press
-                userInputBundle.setFastForward(true);
-            } else { // Release
-                userInputBundle.setFastForward(false);
-            }
+            // Press
+            // Release
+            userInputBundle.setFastForward(value > 0.5f);
         }
     }
 
@@ -139,7 +123,6 @@ public class GamePad extends InputDevice {
             }
             return mapping;
         }
-       // log.warn("No gamepad mapping found for gamepad {} - resume to default", gamepadName);
         return GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping();
     }
 

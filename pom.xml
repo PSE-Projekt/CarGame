@@ -17,7 +17,6 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <jnativehook.version>2.2.2</jnativehook.version>
         <lombok.version>1.18.36</lombok.version>
         <jinput.version>2.0.10</jinput.version>
         <log4j.version>1.6.1</log4j.version>
@@ -33,11 +32,6 @@
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.github.kwhat</groupId>
-            <artifactId>jnativehook</artifactId>
-            <version>${jnativehook.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

@@ -29,10 +29,16 @@ public class UserInputBundle {
         reset();
     }
 
+    public UserInputBundle(UserInputBundle userInputBundle) {
+        this.userInputs.addAll(userInputBundle.getUserInputs());
+        this.fastForward = userInputBundle.isFastForward();
+    }
+
     public void reset() {
         this.userInputs.clear();
         this.fastForward = false;
     }
+
 
     /**
      * Adds a user input to the input bundle. If the input type is {@code UserInputType.CONFIRM},
@@ -121,5 +127,23 @@ public class UserInputBundle {
      */
     public int size() {
         return userInputs.size();
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserInputBundle that = (UserInputBundle) o;
+        return fastForward == that.fastForward &&
+                userInputs.equals(that.userInputs);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = userInputs.hashCode();
+        result = 31 * result + Boolean.hashCode(fastForward);
+        return result;
     }
 }
