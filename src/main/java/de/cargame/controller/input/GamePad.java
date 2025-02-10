@@ -4,9 +4,7 @@ import de.cargame.controller.input.gamepadmapping.GamePadMapping;
 import de.cargame.controller.input.gamepadmapping.GamePads;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import lombok.extern.slf4j.Slf4j;
-import net.java.games.input.Component;
-import net.java.games.input.Controller;
-import net.java.games.input.ControllerEnvironment;
+import net.java.games.input.*;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -32,7 +30,14 @@ public class GamePad extends InputDevice {
     private void init() {
         // Start a new thread to poll for gamepad inputs
         new Thread(() -> {
+            gamepad = getGamepadController();
+
             while (true) {
+                gamepad.poll();
+                EventQueue queue = gamepad.getEventQueue();
+                Event event = new Event();
+
+                while (queue.getNextEvent(event)) {
                 // Ensure gamepad is initialized and available
                 if (gamepad == null || !gamepad.poll()) {
                     gamepad = getGamepadController();
@@ -64,6 +69,7 @@ public class GamePad extends InputDevice {
                 } catch (InterruptedException e) {
                     log.error("Thread interrupted", e);
                 }
+                }
             }
         }).start();
     }
@@ -72,7 +78,6 @@ public class GamePad extends InputDevice {
         activeGamePadMapping = getGamePadMapping(gamepad.getName());
         float value = component.getPollData();
         final float DEADZONE = 0.15f;
-
         if (activeGamePadMapping.getX_AxisComponentName().equals(component.getName())) {
             if (Math.abs(value) < DEADZONE) { // Neutral
                 userInputBundle.removeUserInput(UserInputType.LEFT);
@@ -107,7 +112,6 @@ public class GamePad extends InputDevice {
                 userInputBundle.setFastForward(true);
             } else { // Release
                 userInputBundle.setFastForward(false);
-                userInputBundle.removeUserInput(UserInputType.CONFIRM);
             }
         }
     }
@@ -135,7 +139,7 @@ public class GamePad extends InputDevice {
             }
             return mapping;
         }
-        log.warn("No gamepad mapping found for gamepad {} - resume to default", gamepadName);
+       // log.warn("No gamepad mapping found for gamepad {} - resume to default", gamepadName);
         return GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping();
     }
 

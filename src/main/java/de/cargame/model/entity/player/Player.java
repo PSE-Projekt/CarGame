@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * The Player class represents a player within the game and their associated state.
@@ -42,7 +43,7 @@ public class Player implements UserInputObserver, PlayerObservable {
     private int lives;
     private boolean isPlaying;
     private CarType carSelection;
-    private List<PlayerObserver> playerObservers = new ArrayList<>();
+    private List<PlayerObserver> playerObservers = new CopyOnWriteArrayList<>();
 
     public Player() {
         this.id = UUID.randomUUID().toString();

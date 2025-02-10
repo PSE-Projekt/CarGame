@@ -53,11 +53,11 @@ public class GameInstanceService {
      */
     public synchronized void startGame(Player player) {
         if (gameInstances.stream().anyMatch(instance -> instance.getPlayingPlayerId().equals(player.getId()))) {
-            log.warn("Spiel bereits gestartet für Player: {}", player.getId());
+            log.warn("Game already running for Player: {}", player.getId());
             return;
         }
 
-        log.info("Starte neues Spiel für Player: {}", player.getId());
+        log.info("Start game for player: {}", player.getId());
         GameInstance newInstance = new GameInstance(this, gameStateController, gameApplicationManager, player);
         gameInstances.add(newInstance);
         new Thread(newInstance).start();

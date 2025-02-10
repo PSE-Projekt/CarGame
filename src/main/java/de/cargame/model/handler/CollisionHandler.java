@@ -54,7 +54,6 @@ public class CollisionHandler {
 
             boolean collision = shapesIntersect(playerCarBound, collidableObjectBound);
             if (collision) {
-                log.debug("Collision detected between {} and {}", playerCar, collidableObject);
                 handleCollision(playerCar, collidableObject);
             }
         }

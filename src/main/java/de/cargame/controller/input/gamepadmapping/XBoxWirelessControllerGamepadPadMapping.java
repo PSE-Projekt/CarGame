@@ -1,9 +1,9 @@
 package de.cargame.controller.input.gamepadmapping;
 
-public class XBoxOneGamePadMapping extends GamePadMapping {
+public class XBoxWirelessControllerGamepadPadMapping extends GamePadMapping {
 
 
-    public XBoxOneGamePadMapping() {
+    public XBoxWirelessControllerGamepadPadMapping() {
         super();
     }
 

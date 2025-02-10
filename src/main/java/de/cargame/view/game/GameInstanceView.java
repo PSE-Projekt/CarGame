@@ -34,7 +34,7 @@ class GameInstanceView extends Pane {
     /**
      * Creates a new GameInstanceView for the player using the apiHandler as well his playerID
      */
-    GameInstanceView(ApiHandler apiHandler, String playerID) {
+    public GameInstanceView(ApiHandler apiHandler, String playerID) {
         this.spriteService = new SpriteService();
         this.apiHandler = apiHandler;
         this.SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);

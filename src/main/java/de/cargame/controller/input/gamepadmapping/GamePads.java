@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum GamePads {
 
-    XBOX_WIRELESS_CONTROLLER(new XBoxOneGamePadMapping());
+    XBOX_WIRELESS_CONTROLLER(new XBoxWirelessControllerGamepadPadMapping());
 
 
     private final GamePadMapping gamePadMapping;
