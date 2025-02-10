@@ -22,11 +22,11 @@ import java.util.Optional;
  */
 @Getter
 public enum UserInputType {
-    UP(17),
-    LEFT(30),
-    DOWN(31),
-    RIGHT(32),
-    CONFIRM(28),
+    UP(119),
+    LEFT(97),
+    DOWN(115),
+    RIGHT(100),
+    CONFIRM(114),
     NONE(-1);
 
 

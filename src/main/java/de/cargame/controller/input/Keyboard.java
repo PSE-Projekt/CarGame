@@ -1,12 +1,12 @@
 package de.cargame.controller.input;
 
-import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
-import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import lombok.extern.slf4j.Slf4j;
+import net.java.games.input.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,16 +21,32 @@ import java.util.Optional;
  * UserInputBundle accordingly. Observers are notified whenever the input bundle changes.
  */
 @Slf4j
-public class Keyboard extends InputDevice implements NativeKeyListener {
+public class Keyboard extends InputDevice {
 
     private final UserInputBundle userInputBundle;
     private final List<UserInputObserver> userInputObservers;
+    Controller keyboard;
 
     public Keyboard() {
         userInputObservers = new ArrayList<>();
         userInputBundle = new UserInputBundle();
+        keyboard = findKeyboard();
+        processKeyboardInput();
+    }
 
-        GlobalScreen.addNativeKeyListener(this);
+    private Controller findKeyboard()
+    {
+        ControllerEnvironment controllerEnvironment =ControllerEnvironment.getDefaultEnvironment();
+        Controller[] aController = controllerEnvironment.getControllers();
+        for (Controller controller : aController) {
+            Component[] components = controller.getComponents();
+            boolean isKeyboard = Arrays.stream(components).anyMatch(component -> component.getIdentifier().getName().equals("Escape"));
+
+            if (controller.getType() == Controller.Type.KEYBOARD || isKeyboard) {
+                return controller;
+            }
+        }
+        return null;
     }
 
     @Override
@@ -54,45 +70,36 @@ public class Keyboard extends InputDevice implements NativeKeyListener {
         }
     }
 
-    /**
-     * Handles a native key press event from the keyboard. This method retrieves the key code
-     * from the event and attempts to map it to a {@code UserInputType}. If a valid input type
-     * is found, it is added to the {@code userInputBundle}, and all registered observers
-     * are notified of the updated bundle state.
-     *
-     * @param e the {@code NativeKeyEvent} representing the key press event
-     */
-    @Override
-    public void nativeKeyPressed(NativeKeyEvent e) {
-        int keyCode = e.getKeyCode();
-        Optional<UserInputType> userInputTypeOptional = UserInputType.getUserInputForKeyCode(keyCode);
-        if (userInputTypeOptional.isPresent()) {
-            UserInputType userInput = userInputTypeOptional.get();
-            log.debug("Valid user input detected: {}", userInput);
-            userInputBundle.addUserInput(userInput);
-            notifyObservers(userInputBundle);
-        }
 
-        //NO VALID INPUT -> ignored
-    }
+    private void processKeyboardInput() {
+        new Thread(()->{
+            while (true) {
+                keyboard.poll();
+                EventQueue queue = keyboard.getEventQueue();
+                Event event = new Event();
 
-    /**
-     * Handles a native key release event from the keyboard. This method retrieves
-     * the key code from the event and attempts to map it to a {@code UserInputType}.
-     * If a matching input type is found, it is removed from the {@code userInputBundle}.
-     * If the bundle becomes empty after this operation, it adds the {@code UserInputType.NONE}
-     * to the bundle. Finally, all registered observers are notified of the updated bundle state.
-     *
-     * @param e the {@code NativeKeyEvent} representing the key release event
-     */
-    @Override
-    public void nativeKeyReleased(NativeKeyEvent e) {
-        int keyCode = e.getKeyCode();
-        Optional<UserInputType> userInputTypeOptional = UserInputType.getUserInputForKeyCode(keyCode);
-        userInputTypeOptional.ifPresent(userInputBundle::removeUserInput);
-        if (userInputBundle.isEmpty()) {
-            userInputBundle.addUserInput(UserInputType.NONE);
-        }
-        notifyObservers(userInputBundle);
+                while (queue.getNextEvent(event)) {
+                    Component component = event.getComponent();
+                    char key = component.getName().toLowerCase().charAt(0);
+                    Optional<UserInputType> userInputTypeOptional = UserInputType.getUserInputForKeyCode(key);
+
+                    if(userInputTypeOptional.isPresent()){
+                        UserInputType userInput = userInputTypeOptional.get();
+                        float value = event.getValue();
+                        if(value == 1.0){
+                            userInputBundle.addUserInput(userInput);
+                            notifyObservers(userInputBundle);
+                        }else if(value == 0.0){
+                            userInputTypeOptional.ifPresent(userInputBundle::removeUserInput);
+                            if (userInputBundle.isEmpty()) {
+                                userInputBundle.addUserInput(UserInputType.NONE);
+                            }
+                        }
+                        notifyObservers(userInputBundle);
+                    }
+                }
+            }
+        }).start();
+
     }
 }

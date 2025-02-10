@@ -1,8 +1,5 @@
 package de.cargame;
 
-import com.github.kwhat.jnativehook.GlobalScreen;
-import com.github.kwhat.jnativehook.NativeHookException;
-import com.github.kwhat.jnativehook.dispatcher.SwingDispatchService;
 import de.cargame.controller.GameApplicationManager;
 import de.cargame.controller.api.GameInstanceAPI;
 import de.cargame.controller.api.GameStateAPI;
@@ -59,13 +56,6 @@ public class CarGameApplication extends Application {
             System.setProperty("jna.library.path", "target/natives");
         } catch (Exception e) {
             System.err.println("Could not set jna.library.path");
-        }
-        try {
-            GlobalScreen.registerNativeHook();
-            GlobalScreen.setEventDispatcher(new SwingDispatchService());
-
-        } catch (NativeHookException e) {
-            throw new RuntimeException(e);
         }
         System.setProperty("sun.java2d.opengl", "true");
         this.gameApplicationManager = new GameApplicationManager();
