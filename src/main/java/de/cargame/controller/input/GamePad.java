@@ -65,7 +65,7 @@ public class GamePad extends InputDevice {
                 }
 
                 try {
-                    Thread.sleep(5); // Prevent high CPU usage
+                    Thread.sleep(50); // Prevent high CPU usage
                 } catch (InterruptedException e) {
                     log.error("Thread interrupted", e);
                 }
@@ -132,6 +132,8 @@ public class GamePad extends InputDevice {
         GamePadMapping mapping = null;
         if (GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping().getControllerName().equals(gamepadName)) {
             mapping = GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping();
+        } else if (GamePads.PS3_Controller.getGamePadMapping().getControllerName().equals(gamepadName)){
+            mapping = GamePads.PS3_Controller.getGamePadMapping();
         }
         if (mapping != null) {
             if(mapping != activeGamePadMapping){

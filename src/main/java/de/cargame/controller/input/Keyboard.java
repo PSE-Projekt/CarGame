@@ -42,7 +42,7 @@ public class Keyboard extends InputDevice {
             Component[] components = controller.getComponents();
             boolean isKeyboard = Arrays.stream(components).anyMatch(component -> component.getIdentifier().getName().equals("Escape"));
 
-            if (controller.getType() == Controller.Type.KEYBOARD || isKeyboard) {
+            if (controller.getType() == Controller.Type.KEYBOARD || isKeyboard)  {
                 return controller;
             }
         }
