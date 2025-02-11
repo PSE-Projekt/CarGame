@@ -20,8 +20,11 @@ public abstract class GamePadMapping {
 
 
     protected abstract void setControllerName();
+
     protected abstract void setXAxisComponentName();
+
     protected abstract void setYAxisComponentName();
+
     protected abstract void setFastForwardComponentName();
 
 

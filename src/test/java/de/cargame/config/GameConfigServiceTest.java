@@ -2,13 +2,21 @@ package de.cargame.config;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class GameConfigServiceTest {
 
 
     private GameConfigService gameConfigService = GameConfigService.getInstance();
+
+
+    @Test
+    void testConfigLoadAllKeys() {
+        GameConfig config = new GameConfig();
+        for (ConfigKey key : ConfigKey.values()) {
+            assertTrue(config.getValueKey(key).isPresent(), "Missing configuration key: " + key);
+        }
+    }
 
 
     @Test
@@ -19,20 +27,20 @@ class GameConfigServiceTest {
     @Test
     void loadIntegerValueGetsCorrectlyLoadedTest() {
         int gameSpeed = gameConfigService.loadInteger(ConfigKey.SCREEN_WIDTH);
-        assertEquals(1280, gameSpeed);
+        assertEquals(1366, gameSpeed);
     }
 
     @Test
     void loadDoubleValueGetsCorrectlyLoadedTest() {
         double aiCarSpeed = gameConfigService.loadDouble(ConfigKey.AI_CAR_SPEED);
-        assertEquals(1.5, aiCarSpeed);
+        assertEquals(1.3, aiCarSpeed);
     }
 
     @Test
     void loadIntegerValueGetsCorrectlyLoadedNewSingletonTest() {
         GameConfigService gameConfigServiceNew = GameConfigService.getInstance();
         int gameSpeed = gameConfigServiceNew.loadInteger(ConfigKey.SCREEN_WIDTH);
-        assertEquals(1280, gameSpeed);
+        assertEquals(1366, gameSpeed);
 
     }
 

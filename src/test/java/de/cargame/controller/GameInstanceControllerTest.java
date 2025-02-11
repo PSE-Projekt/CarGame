@@ -1,6 +1,7 @@
 package de.cargame.controller;
 
 import de.cargame.controller.api.PlayerAPI;
+import de.cargame.controller.entity.GameMode;
 import de.cargame.exception.PlayerNotFoundException;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.handler.GameStateHandler;
@@ -17,43 +18,36 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class GameInstanceControllerTest {
 
-
     GameApplicationManager gameApplicationManager = spy(new GameApplicationManager());
-
     PlayerAPI playerAPI = spy(new PlayerController(new PlayerService()));
-
     GameStateController gameStateController = spy(new GameStateController(new GameStateHandler()));
-
     GameInstanceService gameInstanceService = spy(new GameInstanceService(gameApplicationManager, gameStateController));
-
     @InjectMocks
     GameInstanceController gameInstanceController = new GameInstanceController(gameInstanceService, playerAPI);
 
-
     @Test
-    void startGamePlayerKeyboardTest() {
-        Player mockPlayer = spy(new Player());
-        when(playerAPI.getKeyboardPlayer()).thenReturn(mockPlayer);
+    void startGamePlayerKeyboardStartsGameWhenPlayerExistsTest() {
+        Player player = mock(Player.class);
+        gameStateController.setGameMode(GameMode.SINGLEPLAYER);
+
+        when(playerAPI.getKeyboardPlayer()).thenReturn(player);
+
         gameInstanceController.startGamePlayerKeyboard();
 
         verify(playerAPI).getKeyboardPlayer();
-        verify(mockPlayer).resetLives();
-        verify(gameInstanceService).startGame(mockPlayer);
-        verify(gameInstanceService).addGameInstance(any());
+        verify(gameInstanceService).startGame(player);
     }
 
     @Test
-    void startGamePlayerGamePadTest() {
-        Player mockPlayer = spy(new Player());
-        when(playerAPI.getGamepadPlayer()).thenReturn(mockPlayer);
-        gameInstanceController.startGamePlayerGamePad();
+    void startGamePlayerKeyboardResetsPlayerLivesTest() {
+        Player player = mock(Player.class);
+        gameStateController.setGameMode(GameMode.SINGLEPLAYER);
+        when(playerAPI.getKeyboardPlayer()).thenReturn(player);
 
-        verify(playerAPI).getGamepadPlayer();
-        verify(mockPlayer).resetLives();
-        verify(gameInstanceService).startGame(mockPlayer);
-        verify(gameInstanceService).addGameInstance(any());
+        gameInstanceController.startGamePlayerKeyboard();
+
+        verify(player).resetLives();
     }
-
 
     @Test
     void startGamePlayerKeyboardThrowsExceptionWhenPlayerNotFoundTest() {

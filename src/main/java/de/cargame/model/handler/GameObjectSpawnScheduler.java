@@ -4,7 +4,6 @@ import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
 import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.entity.GameMode;
-import de.cargame.controller.entity.GameState;
 import de.cargame.model.service.GameObjectService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,7 +28,6 @@ public class GameObjectSpawnScheduler {
 
     private final GameObjectService gameObjectService;
     private final PlayerHandler playerHandler;
-    private final GameStateAPI gameStateController;
 
     private final int GAME_SPEED;
     private final int GAME_SPEED_FAST_FORWARD;
@@ -44,12 +42,11 @@ public class GameObjectSpawnScheduler {
     private final int ROAD_MARK_SPAWN_TIME_MIN;
     private final int ROAD_MARK_SPAWN_TIME_MAX;
     private final double fastForwardSpeedFactor;
-    private ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+    protected ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
     public GameObjectSpawnScheduler(PlayerHandler playerHandler, GameObjectService gameObjectService, GameStateAPI gameStateController) {
         this.playerHandler = playerHandler;
         this.gameObjectService = gameObjectService;
-        this.gameStateController = gameStateController;
         GameMode gameMode = gameStateController.getGameMode();
 
         GameConfigService configService = GameConfigService.getInstance();
@@ -66,13 +63,13 @@ public class GameObjectSpawnScheduler {
         fastForwardSpeedFactor = (double) GAME_SPEED / GAME_SPEED_FAST_FORWARD;
 
 
-        if(gameMode == GameMode.SINGLEPLAYER){
+        if (gameMode == GameMode.SINGLEPLAYER) {
             AI_CAR_SPAWN_TIME_MIN = configService.loadInteger(ConfigKey.AI_CAR_SPAWN_TIME_MIN_SINGLEPLAYER);
             AI_CAR_SPAWN_TIME_MAX = configService.loadInteger(ConfigKey.AI_CAR_SPAWN_TIME_MAX_SINGLEPLAYER);
             OBSTACLE_SPAWN_TIME_MIN = configService.loadInteger(ConfigKey.OBSTACLE_SPAWN_TIME_MIN_SINGLEPLAYER);
             OBSTACLE_SPAWN_TIME_MAX = configService.loadInteger(ConfigKey.OBSTACLE_SPAWN_TIME_MAX_SINGLEPLAYER);
             return;
-        } else if ( gameMode == GameMode.MULTIPLAYER ) {
+        } else if (gameMode == GameMode.MULTIPLAYER) {
             AI_CAR_SPAWN_TIME_MIN = configService.loadInteger(ConfigKey.AI_CAR_SPAWN_TIME_MIN_MULTIPLAYER);
             AI_CAR_SPAWN_TIME_MAX = configService.loadInteger(ConfigKey.AI_CAR_SPAWN_TIME_MAX_MULTIPLAYER);
             OBSTACLE_SPAWN_TIME_MIN = configService.loadInteger(ConfigKey.OBSTACLE_SPAWN_TIME_MIN_MULTIPLAYER);

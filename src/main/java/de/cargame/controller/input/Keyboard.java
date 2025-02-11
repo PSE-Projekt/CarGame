@@ -54,7 +54,7 @@ public class Keyboard extends InputDevice {
     /**
      * Starts processing keyboard input at fixed intervals using the ScheduledExecutorService.
      */
-    private void startKeyboardProcessing() {
+    protected void startKeyboardProcessing() {
         scheduler.scheduleAtFixedRate(() -> {
             try {
                 processKeyboardInput();
@@ -114,7 +114,9 @@ public class Keyboard extends InputDevice {
 
     @Override
     public void registerObserver(UserInputObserver o) {
-        userInputObservers.add(o);
+        if (!userInputObservers.contains(o)) {
+            userInputObservers.add(o);
+        }
     }
 
     @Override

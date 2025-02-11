@@ -83,7 +83,6 @@ class PlayerServiceTest {
     }
 
 
-
     @Test
     void testIsPlaying_GamepadPlayerALiveAndPlaying() {
         // Arrange
@@ -151,10 +150,6 @@ class PlayerServiceTest {
         // Assert
         assertFalse(result, "Expected keyboard player to be playing");
     }
-
-
-
-
 
 
     @Test

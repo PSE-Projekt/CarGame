@@ -67,7 +67,7 @@ public class PlayerService {
             keyboardPlayer.addObserver(observer);
         } else if (playerId.equals(gamepadPlayer.getId())) {
             gamepadPlayer.addObserver(observer);
-        }else {
+        } else {
             log.warn("For the player with id '{}' could no player-observer be registered, because there is no player with this id.", playerId);
         }
 
@@ -88,7 +88,7 @@ public class PlayerService {
             inputService.registerKeyboardObserver(observer);
         } else if (playerId.equals(gamepadPlayer.getId())) {
             inputService.registerGamePadObserver(observer);
-        }else {
+        } else {
             log.warn("For the player with id '{}' could no input-observer be registered, because there is no player with this id.", playerId);
         }
     }

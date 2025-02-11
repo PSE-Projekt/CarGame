@@ -7,7 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 import net.java.games.input.*;
 
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Represents a gamepad input device. This class extends the {@code InputDevice} class
@@ -19,9 +22,9 @@ public class GamePad extends InputDevice {
 
     private final List<UserInputObserver> userInputObserverList = new CopyOnWriteArrayList<>();
     private final UserInputBundle userInputBundle;
+    ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     private Controller gamepad;
     private GamePadMapping activeGamePadMapping;
-    ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
 
     public GamePad() {
@@ -125,7 +128,7 @@ public class GamePad extends InputDevice {
         return null; // No gamepad found
     }
 
-    private GamePadMapping getGamePadMapping(String gamepadName) {
+    protected GamePadMapping getGamePadMapping(String gamepadName) {
         GamePadMapping mapping = null;
         if (GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping().getControllerName().equals(gamepadName)) {
             mapping = GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping();

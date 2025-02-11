@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Objects;
+
 /**
  * Represents a coordinate in a 2D space.
  * <p>
@@ -49,4 +51,15 @@ public class Coordinate {
         return "(" + getX() + "," + getY() + ")";
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Coordinate that)) return false;
+        return Double.compare(x, that.x) == 0 && Double.compare(y, that.y) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
 }

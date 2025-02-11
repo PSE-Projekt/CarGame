@@ -57,7 +57,7 @@ class PlayerStats extends HBox implements PlayerObserver {
      */
     @Override
     public void update(PlayerUpdate playerUpdate) {
-        Platform.runLater(()->{
+        Platform.runLater(() -> {
             int newScore = playerUpdate.getScoreValue();
             int newHealth = playerUpdate.getLives();
 

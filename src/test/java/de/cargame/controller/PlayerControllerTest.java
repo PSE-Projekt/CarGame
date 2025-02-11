@@ -1,5 +1,6 @@
 package de.cargame.controller;
 
+import de.cargame.exception.PlayerNotFoundException;
 import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.service.PlayerService;
@@ -10,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -27,14 +29,24 @@ class PlayerControllerTest {
     @Test
     void testGetKeyboardPlayer_KeyboardPlayer_exists() {
 
-        //when
+        // when
         when(playerService.getKeyboardPlayer()).thenReturn(testPlayer);
         Player keyboardPlayer = playerController.getKeyboardPlayer();
 
-
-        //then
+        // then
         assertEquals(keyboardPlayer, testPlayer, "Expected the returned keyboard player to match the mocked player.");
         verify(playerService).getKeyboardPlayer();
+    }
+
+    @Test
+    void testGetKeyboardPlayer_PlayerNotFound() {
+
+        // when
+        when(playerService.getKeyboardPlayer()).thenReturn(null);
+
+        // then
+        assertThrows(PlayerNotFoundException.class, () -> playerController.getKeyboardPlayer(),
+                "Expected getKeyboardPlayer to throw PlayerNotFoundException when no player is returned by the service.");
     }
 
     @Test
