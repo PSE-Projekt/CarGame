@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="add tests">
+    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="add test for rumbling + refactor magic number">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/controller/input/GamePad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/controller/input/GamePad.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +33,19 @@
     &quot;assignee&quot;: &quot;famabenda&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:PSE-Projekt/CarGame.git",
-    "accountId": "97e744bd-5562-45f1-9e33-25337e03e94f"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:PSE-Projekt/CarGame.git&quot;,
+    &quot;accountId&quot;: &quot;97e744bd-5562-45f1-9e33-25337e03e94f&quot;
   }
-}]]></component>
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -51,12 +57,80 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.ApplicationStarter.executor": "Run",
     "Application.CarGameApplication.executor": "Run",
+    "JUnit.Applicationtest.shouldContainButtonWithText.executor": "Run",
+    "JUnit.Applicationtest.should_contain_button_with_text.executor": "Run",
+    "JUnit.BuildingTest.testMoveWithFastForwardingDisabled.executor": "Run",
+    "JUnit.BuildingTest.testMoveWithFastForwardingEnabled.executor": "Run",
+    "JUnit.CarGameApplicationTest.executor": "Coverage",
+    "JUnit.CarGameApplicationTest.testStartRegistersApplicationView.executor": "Run",
+    "JUnit.CollisionHandlerTest.executor": "Run",
+    "JUnit.CollisionHandlerTest.testCollisionWithCrashAndCooldown.executor": "Run",
+    "JUnit.CollisionHandlerTest.testCollisionWithCrashWithoutCooldown.executor": "Run",
+    "JUnit.CollisionHandlerTest.testCollisionWithNonCollidableObject.executor": "Run",
+    "JUnit.CollisionHandlerTest.testCollisionWithReward.executor": "Run",
+    "JUnit.CollisionHandlerTest.testNoCollision.executor": "Run",
+    "JUnit.CrossMovementStrategyTest (1).executor": "Coverage",
+    "JUnit.CrossMovementStrategyTest.executor": "Run",
+    "JUnit.CrossMovementStrategyTest.testCalcTargetPositionMultiplayer.executor": "Run",
+    "JUnit.CrossMovementStrategyTest.testCalcTargetPositionSinglePlayer.executor": "Run",
+    "JUnit.GameApplicationManagerTest.executor": "Run",
+    "JUnit.GameApplicationManagerTest.testRenderGameInstanceCallsRenderGameOnApplicationView.executor": "Run",
+    "JUnit.GameConfigServiceTest.loadDoubleValueGetsCorrectlyLoadedTest.executor": "Run",
+    "JUnit.GameConfigServiceTest.testConfigLoadAllKeys.executor": "Run",
+    "JUnit.GameInstanceControllerTest.executor": "Run",
+    "JUnit.GameInstanceControllerTest.startGamePlayerKeyboardResetsPlayerLivesTest.executor": "Run",
+    "JUnit.GameInstanceControllerTest.startGamePlayerKeyboardTest.executor": "Run",
+    "JUnit.GameInstanceServiceTest.executor": "Run",
+    "JUnit.GameInstanceTest.executor": "Run",
+    "JUnit.GameInstanceTest.testRunEndsWhenPlayerLosesLives.executor": "Run",
+    "JUnit.GameInstanceTest.testRun_HandlesGameLoopCorrectly.executor": "Run",
+    "JUnit.GameObjectCreationServiceTest.executor": "Run",
+    "JUnit.GameObjectCreationServiceTest.testCreatePlayerCar_withNoneCar_throwsInvalidCarSelectionException.executor": "Run",
+    "JUnit.GameObjectSpawnSchedulerTest.executor": "Debug",
+    "JUnit.GameObjectSpawnSchedulerTest.startSpawning_inMultiplayerMode_shouldScheduleAllSpawns.executor": "Run",
+    "JUnit.GameObjectSpawnSchedulerTest.startSpawning_shouldRespectConfigurations.executor": "Run",
+    "JUnit.GameObjectSpawnSchedulerTest.startSpawning_shouldScheduleAllSpawns.executor": "Run",
+    "JUnit.GameObjectTest.executor": "Run",
+    "JUnit.GameObjectTest.testMoveWithFastForwardingDisabled.executor": "Run",
+    "JUnit.GameObjectTest.testMoveWithFastForwardingEnabled.executor": "Run",
+    "JUnit.GamePadTest.executor": "Run",
+    "JUnit.GamePadTest.testNotifyObservers_withDuplicateObservers.executor": "Run",
+    "JUnit.GamePadTest.testNotifyObservers_withNoObservers.executor": "Run",
+    "JUnit.GamePadTest.testProcessInput_withXAxisComponent.executor": "Run",
+    "JUnit.GamePadTest.testRetrieveGamePadMappingsByName.executor": "Run",
+    "JUnit.GamePadTest.testRumble_withGamepad.executor": "Run",
+    "JUnit.KeyboardTest.executor": "Run",
+    "JUnit.KeyboardTest.testKeyBoardInput.executor": "Run",
+    "JUnit.KeyboardTest.testRegisterObserver_AddsObserverSuccessfully.executor": "Run",
+    "JUnit.LifeTest.executor": "Run",
     "JUnit.PlayerCarTest.executor": "Run",
+    "JUnit.PlayerControllerTest.testGetKeyboardPlayer_PlayerNotFound.executor": "Run",
+    "JUnit.PlayerControllerTest.testRegisterPlayerObserver_InvalidPlayer.executor": "Run",
+    "JUnit.PlayerHandlerTest.executor": "Run",
+    "JUnit.PlayerHandlerTest.testGetCurrentUserInputWhenInputIsPresent.executor": "Run",
+    "JUnit.PlayerHandlerTest.testIsPlayerAliveReturnsFalseWhenPlayerIsNotAlive.executor": "Run",
+    "JUnit.PlayerHandlerTest.testIsPlayerAliveReturnsTrueWhenPlayerIsAlive.executor": "Run",
+    "JUnit.PlayerServiceTest.executor": "Run",
+    "JUnit.ScoreTest.executor": "Run",
     "JUnit.SoundServiceTest.executor": "Run",
+    "JUnit.SpawnAreaListTest.executor": "Run",
+    "JUnit.SpawnAreaListTest.testGetRandomCoordinateOfEach_ReturnsCoordinatesForAllSpawnAreas.executor": "Run",
+    "JUnit.SpawnAreaListTest.testGetRandomCoordinateOfEach_ReturnsEmptyListWhenNoSpawnAreas.executor": "Run",
+    "JUnit.StraightMovementStrategyTest.executor": "Run",
+    "JUnit.StraightMovementStrategyTest.testCalcTargetPos_MaintainsInitialYCoordinate.executor": "Run",
+    "JUnit.UserInputBundleTest.executor": "Run",
+    "JUnit.UserInputBundleTest.testAddUserInput_AddsUniqueInputToList.executor": "Run",
+    "JUnit.UserInputBundleTest.testRemoveUserInput_NotResettingFastForwardWhenRemovingUserInput.executor": "Debug",
+    "JUnit.UserInputBundleTest.testRemoveUserInput_ResetsFastForwardWhenRemovingConfirm.executor": "Run",
+    "JUnit.UserInputTypeTest.executor": "Run",
+    "JUnit.java in CarGame.executor": "Coverage",
     "JUnit.java in CarGameTest.executor": "Coverage",
+    "Maven.CarGame [-U,clean,install].executor": "Run",
     "Maven.CarGame [clean,install,-DskipTests].executor": "Run",
     "Maven.CarGame [clean,package].executor": "Run",
+    "Maven.CarGame [dependency::resolve].executor": "Run",
     "Maven.CarGame [install].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -68,7 +142,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "sonarlint",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -76,16 +153,21 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\malik\IdeaProjects\CarGameOfficial_v2\src\main\resources\frontend" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/sprites" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean install -DskipTests" />
+      <command value="mvn -U clean install" />
+      <command value="mvn dependency::resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.ApplicationStarter">
+  <component name="RunManager" selected="JUnit.java in CarGame">
     <configuration name="ApplicationStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.cargame.ApplicationStarter" />
-      <module name="CarGameTest" />
+      <module name="CarGame" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="de.cargame.*" />
@@ -96,51 +178,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CarGameApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="de.cargame.CarGameApplication" />
-      <module name="CarGameTest" />
+    <configuration name="GamePadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarGame" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="de.cargame.*" />
+          <option name="PATTERN" value="de.cargame.controller.input.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayerCarTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CarGameTest" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.cargame.model.entity.gameobject.car.ai.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="de.cargame.model.entity.gameobject.car.ai" />
-      <option name="MAIN_CLASS_NAME" value="de.cargame.model.entity.gameobject.car.ai.PlayerCarTest" />
+      <option name="PACKAGE_NAME" value="de.cargame.controller.input" />
+      <option name="MAIN_CLASS_NAME" value="de.cargame.controller.input.GamePadTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SoundServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CarGameTest" />
+    <configuration name="GamePadTest.testRumble_withGamepad" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarGame" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="de.cargame.model.service.*" />
+          <option name="PATTERN" value="de.cargame.controller.input.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="de.cargame.model.service" />
-      <option name="MAIN_CLASS_NAME" value="de.cargame.model.service.SoundServiceTest" />
+      <option name="PACKAGE_NAME" value="de.cargame.controller.input" />
+      <option name="MAIN_CLASS_NAME" value="de.cargame.controller.input.GamePadTest" />
+      <option name="METHOD_NAME" value="testRumble_withGamepad" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserInputBundleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.cargame.controller.input.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.cargame.controller.input" />
+      <option name="MAIN_CLASS_NAME" value="de.cargame.controller.input.UserInputBundleTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="java in CarGameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CarGameTest" />
+    <configuration name="java in CarGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CarGame" />
       <option name="TEST_OBJECT" value="directory" />
       <dir value="$PROJECT_DIR$/src/test/java" />
       <method v="2">
@@ -149,11 +234,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.java in CarGame" />
+        <item itemvalue="JUnit.GamePadTest" />
+        <item itemvalue="JUnit.GamePadTest.testRumble_withGamepad" />
         <item itemvalue="Application.ApplicationStarter" />
-        <item itemvalue="JUnit.java in CarGameTest" />
-        <item itemvalue="JUnit.PlayerCarTest" />
-        <item itemvalue="JUnit.SoundServiceTest" />
-        <item itemvalue="Application.CarGameApplication" />
+        <item itemvalue="JUnit.UserInputBundleTest" />
       </list>
     </recent_temporary>
   </component>
@@ -208,6 +293,8 @@
       <workItem from="1738804137572" duration="2894000" />
       <workItem from="1738927123107" duration="18224000" />
       <workItem from="1738958192971" duration="364000" />
+      <workItem from="1739240835328" duration="30018000" />
+      <workItem from="1739448998087" duration="9152000" />
     </task>
     <task id="LOCAL-00005" summary="overworked game render">
       <option name="closed" value="true" />
@@ -265,7 +352,79 @@
       <option name="project" value="LOCAL" />
       <updated>1738958464920</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="reset sleep timer to 5ms">
+      <option name="closed" value="true" />
+      <created>1739223605880</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1739223605880</updated>
+    </task>
+    <task id="LOCAL-00013" summary="improve performance for input processing">
+      <option name="closed" value="true" />
+      <created>1739230620398</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1739230620398</updated>
+    </task>
+    <task id="LOCAL-00014" summary="resize agile player car so the sprite fits better to the model">
+      <option name="closed" value="true" />
+      <created>1739230653650</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1739230653650</updated>
+    </task>
+    <task id="LOCAL-00015" summary="massively increased test amount in backend">
+      <option name="closed" value="true" />
+      <created>1739244800882</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1739244800882</updated>
+    </task>
+    <task id="LOCAL-00016" summary="improve unit test coverage">
+      <option name="closed" value="true" />
+      <created>1739468706766</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1739468706766</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add rumbling to supporting gamepads when crashing + add null checks">
+      <option name="closed" value="true" />
+      <created>1739472115930</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1739472115930</updated>
+    </task>
+    <task id="LOCAL-00018" summary="bugfix for when a player crashes and no gamepad is connected, the game crashes because no rumblers found">
+      <option name="closed" value="true" />
+      <created>1739472537296</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1739472537296</updated>
+    </task>
+    <task id="LOCAL-00019" summary="removed possibility to gain more lives then MAX_LIVES count">
+      <option name="closed" value="true" />
+      <created>1739472592889</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1739472592889</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add test for rumbling + refactor magic number">
+      <option name="closed" value="true" />
+      <created>1739473976263</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1739473976263</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,7 +456,16 @@
     <MESSAGE value="finishing javadoc in view" />
     <MESSAGE value="add java doc in backend" />
     <MESSAGE value="add tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="add tests" />
+    <MESSAGE value="reset sleep timer to 5ms" />
+    <MESSAGE value="improve performance for input processing" />
+    <MESSAGE value="resize agile player car so the sprite fits better to the model" />
+    <MESSAGE value="massively increased test amount in backend" />
+    <MESSAGE value="improve unit test coverage" />
+    <MESSAGE value="add rumbling to supporting gamepads when crashing + add null checks" />
+    <MESSAGE value="bugfix for when a player crashes and no gamepad is connected, the game crashes because no rumblers found" />
+    <MESSAGE value="removed possibility to gain more lives then MAX_LIVES count" />
+    <MESSAGE value="add test for rumbling + refactor magic number" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test for rumbling + refactor magic number" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -307,10 +475,30 @@
           <line>38</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/de/cargame/model/handler/PlayerHandlerTest.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/de/cargame/controller/input/GamePad.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/de/cargame/config/GameConfigServiceTest.java</url>
+          <line>33</line>
+          <properties class="de.cargame.config.GameConfigServiceTest" method="loadDoubleValueGetsCorrectlyLoadedTest">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="net.java.games.input.EventQueue" memberName="head" />
         <PinnedItemInfo parentTag="de.cargame.model.handler.PlayerHandler" memberName="player" />
       </pinned-members>
     </pin-to-top-manager>
@@ -318,5 +506,15 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CarGame$CrossMovementStrategyTest__1_.ic" NAME="CrossMovementStrategyTest (1) Coverage Results" MODIFIED="1739233214804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>de.cargame.model.entity.gameobject.car.ai.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CarGame$CarGameApplicationTest.ic" NAME="CarGameApplicationTest Coverage Results" MODIFIED="1739285686166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>de.cargame.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CarGame$java_in_CarGameTest.ic" NAME="java in CarGameTest Coverage Results" MODIFIED="1739231523600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/CarGame$java_in_CarGame.ic" NAME="java in CarGame Coverage Results" MODIFIED="1739474194721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
