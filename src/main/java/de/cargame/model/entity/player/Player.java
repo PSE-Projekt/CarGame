@@ -132,8 +132,12 @@ public class Player implements UserInputObserver, PlayerObservable {
      * update UI elements or trigger other game behaviors).
      */
     public void increaseLife() {
-        lives++;
-        notifyPlayerObserversWithCurrentValues();
+        if( lives < MAX_LIVES ) {
+            lives++;
+            notifyPlayerObserversWithCurrentValues();
+            return;
+        }
+        log.debug("Player {} has reached maximum number of lives", id);
     }
 
     /**
