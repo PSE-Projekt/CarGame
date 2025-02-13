@@ -26,6 +26,9 @@ public class GamePad extends InputDevice {
     ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     private Controller gamepad;
     private GamePadMapping activeGamePadMapping;
+    private int POLLING_RATE = 5; //ms
+    private final double DEADZONE = 0.15; //prevent stick drift
+
 
 
     public GamePad() {
@@ -58,31 +61,7 @@ public class GamePad extends InputDevice {
             log.info("No gamepad found - to connect a gamepad please connect it to the computer and restart the game");
             return;
         }
-
-        // Scheduler für konstante Abfragen in regelmäßigen Abständen einrichten
-        scheduler.scheduleAtFixedRate(() -> {
-            try {
-                gamepad.poll();
-                EventQueue queue = gamepad.getEventQueue();
-                Event event = new Event();
-
-                while (queue.getNextEvent(event)) {
-                    try {
-                        Component[] components = gamepad.getComponents();
-                        for (Component component : components) {
-                            processInput(component);
-                        }
-
-                        // Benachrichtige die Observer nach der Eingabeverarbeitung
-                        notifyObservers(userInputBundle);
-                    } catch (Exception e) {
-                        log.error("An error occurred while processing gamepad input", e);
-                    }
-                }
-            } catch (Exception e) {
-                log.error("An error occurred during gamepad polling", e);
-            }
-        }, 0, 5, TimeUnit.MILLISECONDS);
+        scheduler.scheduleAtFixedRate(this::processGamePadInput, 0, POLLING_RATE, TimeUnit.MILLISECONDS);
     }
 
 
@@ -97,7 +76,6 @@ public class GamePad extends InputDevice {
     private void processInput(Component component) {
         activeGamePadMapping = getGamePadMapping(gamepad.getName());
         float value = component.getPollData();
-        final float DEADZONE = 0.15f;
         if (activeGamePadMapping.getX_AxisComponentName().equals(component.getName())) {
             if (Math.abs(value) < DEADZONE) { // Neutral
                 userInputBundle.removeUserInput(UserInputType.LEFT);
@@ -185,5 +163,27 @@ public class GamePad extends InputDevice {
     @Override
     public void notifyObservers(UserInputBundle userInputBundle) {
         userInputObserverList.forEach(o -> o.update(userInputBundle));
+    }
+
+    private void processGamePadInput() {
+        try {
+            gamepad.poll();
+            EventQueue queue = gamepad.getEventQueue();
+            Event event = new Event();
+
+            while (queue.getNextEvent(event)) {
+                try {
+                    Component[] components = gamepad.getComponents();
+                    for (Component component : components) {
+                        processInput(component);
+                    }
+                    notifyObservers(userInputBundle);
+                } catch (Exception e) {
+                    log.error("An error occurred while processing gamepad input", e);
+                }
+            }
+        } catch (Exception e) {
+            log.error("An error occurred during gamepad polling", e);
+        }
     }
 }
