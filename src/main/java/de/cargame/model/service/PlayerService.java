@@ -135,6 +135,13 @@ public class PlayerService {
         return Optional.empty();
     }
 
+    /**
+     * Activates the rumble feature of the connected gamepad with the specified intensity.
+     * The intensity determines the strength of the vibration effect.
+     *
+     * @param intensity the strength of the gamepad rumble effect, ranging from 0.0 (no rumble)
+     *                  to 1.0 (maximum rumble strength).
+     */
     public void rumbleGamepad(float intensity){
         inputService.rumble(intensity);
     }

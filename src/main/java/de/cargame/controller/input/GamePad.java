@@ -34,20 +34,20 @@ public class GamePad extends InputDevice {
     }
 
 
+    /**
+     * Activates the rumble functionality on all rumblers of the gamepad
+     * with the specified intensity level.
+     *
+     * @param intensity the strength of the rumble vibration, where a value of 0.0 represents no vibration
+     *                  and higher values represent stronger vibrations.
+     */
     public void rumble(float intensity){
-        log.info("Controller: " + gamepad.getName());
-        log.info("Type: " + gamepad.getType());
-        for (Component component : gamepad.getComponents()) {
-            log.info("Component: " + component.getName() + " (" + component.getIdentifier() + ")");
-        }
-        Rumbler[] rumblers = gamepad.getRumblers();
-        log.info("Number of rumblers: " + rumblers.length);
-        for (Rumbler rumbler : rumblers) {
-            log.info("Rumbler: " + rumbler.getAxisName());
-        }
+        if(gamepad != null) {
 
-        for (Rumbler rumbler : rumblers) {
-            rumbler.rumble(intensity);
+            Rumbler[] rumblers = gamepad.getRumblers();
+            for (Rumbler rumbler : rumblers) {
+                rumbler.rumble(intensity);
+            }
         }
     }
 

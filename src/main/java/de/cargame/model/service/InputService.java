@@ -54,6 +54,14 @@ public class InputService {
     }
 
 
+    /**
+     * Triggers the rumbling effect on the connected gamepad with the specified intensity.
+     * This method activates available rumblers on the gamepad to provide haptic feedback,
+     * enhancing the user's experience during gameplay or interactive scenarios.
+     *
+     * @param intensity the intensity of the rumble effect, where 0.0 represents no rumble
+     *                  and 1.0 represents full intensity.
+     */
     public void rumble(float intensity){
         this.gamePad.rumble(intensity);
     }
