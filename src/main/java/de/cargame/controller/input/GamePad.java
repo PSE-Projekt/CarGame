@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.java.games.input.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -130,6 +131,13 @@ public class GamePad extends InputDevice {
 
     protected GamePadMapping getGamePadMapping(String gamepadName) {
         GamePadMapping mapping = null;
+
+        Optional<GamePadMapping> gamePadMapping = GamePads.getGamePadMapping(gamepadName);
+        if(gamePadMapping.isPresent()){
+
+        }else {
+            mapping = GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping();
+        }
         if (GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping().getControllerName().equals(gamepadName)) {
             mapping = GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping();
         } else if (GamePads.PS3_Controller.getGamePadMapping().getControllerName().equals(gamepadName)) {

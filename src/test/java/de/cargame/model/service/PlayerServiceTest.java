@@ -165,4 +165,57 @@ class PlayerServiceTest {
         assertFalse(result, "Expected no player with the given ID to be playing");
     }
 
+    @Test
+    void testSetPlaying_KeyboardPlayer() {
+        // Arrange
+        playerService.createPlayerKeyboard();
+        Player keyboardPlayer = playerService.getKeyboardPlayer();
+        String playerId = keyboardPlayer.getId();
+
+        // Act
+        playerService.setPlaying(playerId, true);
+
+        // Assert
+        assertTrue(keyboardPlayer.isPlaying(), "Expected keyboard player to be playing");
+
+        // Act
+        playerService.setPlaying(playerId, false);
+
+        // Assert
+        assertFalse(keyboardPlayer.isPlaying(), "Expected keyboard player to not be playing");
+    }
+
+    @Test
+    void testSetPlaying_GamepadPlayer() {
+        // Arrange
+        playerService.createPlayerGamepad();
+        Player gamepadPlayer = playerService.getGamepadPlayer();
+        String playerId = gamepadPlayer.getId();
+
+        // Act
+        playerService.setPlaying(playerId, true);
+
+        // Assert
+        assertTrue(gamepadPlayer.isPlaying(), "Expected gamepad player to be playing");
+
+        // Act
+        playerService.setPlaying(playerId, false);
+
+        // Assert
+        assertFalse(gamepadPlayer.isPlaying(), "Expected gamepad player to not be playing");
+    }
+
+    @Test
+    void testSetPlaying_InvalidPlayerId() {
+        // Arrange
+        PlayerService playerService = new PlayerService();
+        String invalidPlayerId = "invalid-id";
+
+        // Act
+        playerService.setPlaying(invalidPlayerId, true);
+
+        // Assert
+        assertFalse(playerService.getKeyboardPlayer().isPlaying(), "Expected keyboard player to remain unaffected");
+        assertFalse(playerService.getGamepadPlayer().isPlaying(), "Expected gamepad player to remain unaffected");
+    }
 }

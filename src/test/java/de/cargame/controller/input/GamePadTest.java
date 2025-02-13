@@ -1,13 +1,20 @@
 package de.cargame.controller.input;
 
+import de.cargame.controller.input.gamepadmapping.GamePadMapping;
+import de.cargame.controller.input.gamepadmapping.GamePads;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.EnumSource;
 import org.mockito.Mockito;
 
+
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 class GamePadTest {
+
 
 
     @Test
@@ -124,5 +131,17 @@ class GamePadTest {
                 "notifyObservers should not throw an exception when there are no observers.");
     }
 
+
+    @Test
+    void testRetrieveGamePadMappingsByName() {
+        // Arrange
+        String gamePadName = "Xbox Wireless Controller";
+        GamePad gamePad = new GamePad();
+
+        GamePadMapping gamePadMapping = gamePad.getGamePadMapping(gamePadName);
+
+        assertEquals(gamePadName, gamePadMapping.getControllerName());
+
+    }
 
 }

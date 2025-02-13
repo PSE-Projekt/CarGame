@@ -110,25 +110,26 @@ public class GameObjectCreationService {
      * @throws InvalidCarSelectionException if an invalid or unsupported car type is specified.
      */
     public PlayerCar createPlayerCar(CarType carType) {
-        Dimension dimension;
-        SpawnAreaList playerSpawnAreas = gameObjectSpawningStrategy.getPlayerSpawnAreas();
-        SpawnArea spawnArea = playerSpawnAreas.getRandomSpawnArea();
-        playerSpawnAreas.remove(spawnArea);
-        Coordinate spawnCoordinate = spawnArea.getRandomCoordinateInArea();
-
-        switch (carType) {
-            case FAST_CAR:
-                dimension = new Dimension(FAST_CAR_WIDTH, FAST_CAR_HEIGHT);
-                return new FastCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, gameMode);
-            case AGILE_CAR:
-                dimension = new Dimension(AGILE_CAR_WIDTH, AGILE_CAR_HEIGHT);
-                return new AgileCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, gameMode);
-            case NONE:
-                log.error("No valid car-selection has been made");
-                throw new InvalidCarSelectionException("No valid car-selection has been made");
-            default:
+        if(carType != null){
+            Dimension dimension;
+            SpawnAreaList playerSpawnAreas = gameObjectSpawningStrategy.getPlayerSpawnAreas();
+            SpawnArea spawnArea = playerSpawnAreas.getRandomSpawnArea();
+            playerSpawnAreas.remove(spawnArea);
+            Coordinate spawnCoordinate = spawnArea.getRandomCoordinateInArea();
+            switch (carType) {
+                case FAST_CAR:
+                    dimension = new Dimension(FAST_CAR_WIDTH, FAST_CAR_HEIGHT);
+                    return new FastCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, gameMode);
+                case AGILE_CAR:
+                    dimension = new Dimension(AGILE_CAR_WIDTH, AGILE_CAR_HEIGHT);
+                    return new AgileCar(spawnCoordinate, dimension, GameObjectBoundType.RECTANGLE, gameMode);
+                case NONE:
+                    log.error("No valid car-selection has been made");
+                    throw new InvalidCarSelectionException("No valid car-selection has been made");
+                default:
+            }
+            log.error("No valid car-selection has been made");
         }
-        log.error("No valid car-selection has been made");
         throw new InvalidCarSelectionException("No valid car-selection has been made");
     }
 

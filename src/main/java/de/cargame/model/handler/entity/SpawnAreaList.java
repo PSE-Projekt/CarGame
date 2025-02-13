@@ -41,14 +41,6 @@ public class SpawnAreaList {
         spawnAreas.add(spawnArea);
     }
 
-    /**
-     * Adds all the {@code SpawnArea} objects from the provided list to the internal collection of spawn areas.
-     *
-     * @param spawnAreas the list of {@code SpawnArea} objects to be added to the collection
-     */
-    public void addAll(List<SpawnArea> spawnAreas) {
-        this.spawnAreas.addAll(spawnAreas);
-    }
 
     /**
      * Removes the specified {@code SpawnArea} from the collection of spawn areas.

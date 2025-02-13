@@ -36,7 +36,7 @@ public class CarGameApplication extends Application {
         this.gameApplicationManager.registerApplicationView(applicationView);
     }
 
-    private ApplicationView getApplicationView(Stage primaryStage) {
+    protected ApplicationView getApplicationView(Stage primaryStage) {
         GameStateAPI gameStateAPI = this.gameApplicationManager.getGameStateAPI();
         GameInstanceAPI gameInstanceAPI = this.gameApplicationManager.getGameInstanceAPI();
         PlayerAPI playerAPI = this.gameApplicationManager.getPlayerAPI();
@@ -48,17 +48,6 @@ public class CarGameApplication extends Application {
 
     @Override
     public void init() {
-        // Set java.library.path to include the extracted native libraries
-        System.setProperty("java.library.path", "target/natives");
-
-        // Force JVM to reload the library path
-        try {
-            System.setProperty("jna.library.path", "target/natives");
-        } catch (Exception e) {
-            System.err.println("Could not set jna.library.path");
-        }
-        System.setProperty("sun.java2d.opengl", "true");
         this.gameApplicationManager = new GameApplicationManager();
-        log.info("Initialized game application");
     }
 }

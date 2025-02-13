@@ -29,7 +29,9 @@ public class Score {
      *              to the current score.
      */
     public void increaseScore(double value) {
-        this.value += value;
+        if(value >= 0) {
+            this.value += value;
+        }
     }
 
 

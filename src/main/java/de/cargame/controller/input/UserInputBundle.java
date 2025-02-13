@@ -74,6 +74,7 @@ public class UserInputBundle {
         if (userInputType.equals(UserInputType.CONFIRM)) {
             fastForward = false;
             this.userInputs.remove(USER_INPUT_NONE);
+            this.userInputs.remove(new UserInput(UserInputType.CONFIRM));
         } else {
             userInputs.stream()
                     .filter(input -> input.getUserInputType().equals(userInputType))

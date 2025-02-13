@@ -57,4 +57,42 @@ class GameObjectTest {
         assertEquals(965.0, gameObject.getX());
         assertEquals(100, gameObject.getY());
     }
+
+    @ParameterizedTest
+    @MethodSource("getStaticGameObjects")
+    void testMoveByRespectingGameBoundariesWithinBounds(GameObject gameObject) {
+        double xAmount = 10;
+        double yAmount = 10;
+        double objectWidth = gameObject.getWidth();
+        double objectHeight = gameObject.getHeight();
+
+        double xOld = gameObject.getX();
+        double yOld = gameObject.getY();
+
+        // Act
+        gameObject.moveByRespectingGameBoundaries(xAmount, yAmount, objectWidth, objectHeight);
+
+        // Assert
+        assertEquals(xOld + xAmount, gameObject.getX());
+        assertEquals(yOld + yAmount, gameObject.getY());
+    }
+
+    @ParameterizedTest
+    @MethodSource("getStaticGameObjects")
+    void testMoveByRespectingGameBoundariesOutsideBounds(GameObject gameObject) {
+        double xAmount = 10;
+        double yAmount = 10000; // Move outside vertical bounds
+        double objectWidth = gameObject.getWidth();
+        double objectHeight = gameObject.getHeight();
+
+        double xOld = gameObject.getX();
+        double yOld = gameObject.getY();
+
+        // Act
+        gameObject.moveByRespectingGameBoundaries(xAmount, yAmount, objectWidth, objectHeight);
+
+        // Assert
+        assertEquals(xOld, gameObject.getX());
+        assertEquals(yOld, gameObject.getY());
+    }
 }

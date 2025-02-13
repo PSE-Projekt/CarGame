@@ -81,4 +81,49 @@ class UserInputBundleTest {
         assertTrue(userInputBundle.contains(input1));
         assertTrue(userInputBundle.contains(input2));
     }
+
+    @Test
+    void testRemoveUserInput_RemovesExistingInputFromList() {
+        // Arrange
+        UserInputBundle userInputBundle = new UserInputBundle();
+        UserInputType inputType = UserInputType.UP;
+        userInputBundle.addUserInput(inputType);
+
+        // Act
+        userInputBundle.removeUserInput(inputType);
+
+        // Assert
+        assertEquals(0, userInputBundle.size());
+        assertFalse(userInputBundle.contains(inputType));
+    }
+
+    @Test
+    void testRemoveUserInput_DoesNothingWhenInputDoesNotExist() {
+        // Arrange
+        UserInputBundle userInputBundle = new UserInputBundle();
+        UserInputType inputType = UserInputType.UP;
+
+        // Act
+        userInputBundle.removeUserInput(inputType);
+
+        // Assert
+        assertEquals(0, userInputBundle.size());
+        assertFalse(userInputBundle.contains(inputType));
+    }
+
+    @Test
+    void testRemoveUserInput_ResetsFastForwardWhenRemovingConfirm() {
+        // Arrange
+        UserInputBundle userInputBundle = new UserInputBundle();
+        UserInputType confirmType = UserInputType.CONFIRM;
+        userInputBundle.addUserInput(confirmType);
+        userInputBundle.setFastForward(true);
+
+        // Act
+        userInputBundle.removeUserInput(confirmType);
+
+        // Assert
+        assertFalse(userInputBundle.isFastForward());
+        assertFalse(userInputBundle.contains(confirmType));
+    }
 }

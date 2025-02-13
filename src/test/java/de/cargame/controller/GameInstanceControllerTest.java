@@ -12,11 +12,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class GameInstanceControllerTest {
+
 
     GameApplicationManager gameApplicationManager = spy(new GameApplicationManager());
     PlayerAPI playerAPI = spy(new PlayerController(new PlayerService()));
@@ -64,4 +66,5 @@ class GameInstanceControllerTest {
         assertThrows(PlayerNotFoundException.class, () -> gameInstanceController.startGamePlayerGamePad());
         verify(playerAPI).getGamepadPlayer();
     }
+
 }
