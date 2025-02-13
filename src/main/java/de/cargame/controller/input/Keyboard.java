@@ -30,7 +30,7 @@ public class Keyboard extends InputDevice {
         this.keyboard = findKeyboard();
 
         if (this.keyboard == null) {
-            log.error("No keyboard found!");
+            log.warn("No keyboard found!");
         } else {
             startKeyboardProcessing();
         }
