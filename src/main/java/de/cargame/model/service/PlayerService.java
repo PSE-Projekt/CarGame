@@ -21,10 +21,10 @@ public class PlayerService {
     private final InputService inputService = new InputService();
 
     @Getter
-    private Player keyboardPlayer = new Player();
+    private Player keyboardPlayer = new Player(this);
 
     @Getter
-    private Player gamepadPlayer = new Player();
+    private Player gamepadPlayer = new Player(this);
 
 
     /**
@@ -133,6 +133,10 @@ public class PlayerService {
             return Optional.of(gamepadPlayer);
         }
         return Optional.empty();
+    }
+
+    public void rumbleGamepad(float intensity){
+        inputService.rumble(intensity);
     }
 
 

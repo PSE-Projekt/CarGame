@@ -21,6 +21,50 @@ class UserInputBundleTest {
     }
 
     @Test
+    void testAddUserInput_DoesNothingWhenNull() {
+        // Arrange
+        UserInputBundle userInputBundle = new UserInputBundle();
+
+        // Act
+        userInputBundle.addUserInput(null);
+
+        // Assert
+        assertEquals(0, userInputBundle.size());
+        assertTrue(userInputBundle.isEmpty());
+    }
+
+    @Test
+    void testAddUserInput_AddsConfirmTwice() {
+        // Arrange
+        UserInputBundle userInputBundle = new UserInputBundle();
+
+        // Act
+        userInputBundle.addUserInput(UserInputType.CONFIRM);
+        userInputBundle.addUserInput(UserInputType.CONFIRM);
+
+        // Assert
+        assertEquals(1, userInputBundle.size());
+        assertTrue(userInputBundle.contains(UserInputType.CONFIRM));
+        assertTrue(userInputBundle.isFastForward());
+    }
+
+    @Test
+    void testAddUserInput_AddsAfterConfirmRemoved() {
+        // Arrange
+        UserInputBundle userInputBundle = new UserInputBundle();
+        userInputBundle.addUserInput(UserInputType.CONFIRM);
+        userInputBundle.removeUserInput(UserInputType.CONFIRM);
+
+        // Act
+        userInputBundle.addUserInput(UserInputType.UP);
+
+        // Assert
+        assertEquals(1, userInputBundle.size());
+        assertTrue(userInputBundle.contains(UserInputType.UP));
+        assertFalse(userInputBundle.isFastForward());
+    }
+
+    @Test
     void testAddUserInput_DoesNotAddDuplicateInput() {
         // Arrange
         UserInputBundle userInputBundle = new UserInputBundle();

@@ -1,13 +1,16 @@
 package de.cargame.controller;
 
 import de.cargame.exception.PlayerNotFoundException;
+import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.model.entity.player.Player;
+import de.cargame.model.entity.player.PlayerObserver;
 import de.cargame.model.service.PlayerService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,11 +23,14 @@ import static org.mockito.Mockito.when;
 class PlayerControllerTest {
 
 
-    Player testPlayer = new Player();
     @Mock
     private PlayerService playerService;
+    Player testPlayer = new Player(playerService);
     @InjectMocks
     private PlayerController playerController;
+
+    @Mock
+    private UserInputObserver userInputObserver;
 
     @Test
     void testGetKeyboardPlayer_KeyboardPlayer_exists() {
@@ -92,5 +98,49 @@ class PlayerControllerTest {
         // then
         assertEquals(true, isPlaying, "Expected the 'isPlaying' method to return 'true' based on the mock configuration.");
         verify(playerService).isPlaying(playerId);
+    }
+
+    @Test
+    void testRegisterInputObserver() {
+        // given
+        String playerId = "12345";
+
+        // when
+        playerController.registerInputObserver(userInputObserver, playerId);
+
+        // then
+        verify(playerService).registerInputObserver(userInputObserver, playerId);
+    }
+
+    @Test
+    void testRegisterPlayerObserver() {
+        // given
+        String playerId = "12345";
+        PlayerObserver playerObserver = update -> {
+        };
+
+        // when
+        playerController.registerPlayerObserver(playerObserver, playerId);
+
+        // then
+        verify(playerService).registerPlayerObserver(playerObserver, playerId);
+    }
+
+    @Test
+    void testRegisterPlayerObserver_InvalidPlayer() {
+        // given
+        String playerId = "unknown";
+        PlayerObserver playerObserver = update -> {
+        };
+
+        // when
+
+        Mockito.doThrow(new PlayerNotFoundException("Player not found"))
+                .when(playerService).registerPlayerObserver(playerObserver, playerId);
+
+        // then
+        assertThrows(PlayerNotFoundException.class,
+                () -> playerController.registerPlayerObserver(playerObserver, playerId),
+                "Expected registerPlayerObserver to throw PlayerNotFoundException when player is not found");
     }
 }

@@ -4,6 +4,7 @@ import de.cargame.controller.input.UserInput;
 import de.cargame.model.entity.gameobject.car.player.PlayerCar;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.entity.player.Score;
+import de.cargame.model.service.PlayerService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -61,7 +62,7 @@ class PlayerHandlerTest {
     @Test
     void testIsPlayerAliveReturnsFalseWhenPlayerIsNotAlive() {
         // Arrange
-        Player playerMock = spy(Player.class);
+        Player playerMock = spy(new Player(mock(PlayerService.class)));
         playerMock.setLives(0);
         playerMock.setPlaying(true);
         PlayerHandler playerHandler = new PlayerHandler(playerMock);
@@ -77,7 +78,7 @@ class PlayerHandlerTest {
     @Test
     void testIsPlayerAliveReturnsTrueWhenPlayerIsAlive() {
         // Arrange
-        Player playerMock = spy(Player.class);
+        Player playerMock = spy(new Player(mock(PlayerService.class)));
         playerMock.setLives(1);
         playerMock.setPlaying(true);
         PlayerHandler playerHandler = new PlayerHandler(playerMock);

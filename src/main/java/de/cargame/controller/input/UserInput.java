@@ -45,6 +45,6 @@ public class UserInput {
 
     @Override
     public int hashCode() {
-        return Objects.hash(userInputType, pressedTimeStamp);
+        return Objects.hash(userInputType);
     }
 }

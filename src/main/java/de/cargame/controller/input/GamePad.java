@@ -33,6 +33,24 @@ public class GamePad extends InputDevice {
         init();
     }
 
+
+    public void rumble(float intensity){
+        log.info("Controller: " + gamepad.getName());
+        log.info("Type: " + gamepad.getType());
+        for (Component component : gamepad.getComponents()) {
+            log.info("Component: " + component.getName() + " (" + component.getIdentifier() + ")");
+        }
+        Rumbler[] rumblers = gamepad.getRumblers();
+        log.info("Number of rumblers: " + rumblers.length);
+        for (Rumbler rumbler : rumblers) {
+            log.info("Rumbler: " + rumbler.getAxisName());
+        }
+
+        for (Rumbler rumbler : rumblers) {
+            rumbler.rumble(intensity);
+        }
+    }
+
     private void init() {
         gamepad = getGamepadController();
 
@@ -118,13 +136,12 @@ public class GamePad extends InputDevice {
 
     private Controller getGamepadController() {
         ControllerEnvironment ce = ControllerEnvironment.getDefaultEnvironment();
-
-        for (Controller polledGamepad : ce.getControllers()) {
-            log.info("Detected controller: " + polledGamepad.getName() + " (Type: " + polledGamepad.getType() + ")");
-            if (polledGamepad.getType() == Controller.Type.STICK || polledGamepad.getType() == Controller.Type.GAMEPAD) {
-                return polledGamepad;
+            for (Controller polledGamepad : ce.getControllers()) {
+                log.info("Detected controller: " + polledGamepad.getName() + " (Type: " + polledGamepad.getType() + ")");
+                if (polledGamepad.getType() == Controller.Type.STICK || polledGamepad.getType() == Controller.Type.GAMEPAD) {
+                    return polledGamepad;
+                }
             }
-        }
         log.info("No compatible gamepad or stick found.");
         return null; // No gamepad found
     }
@@ -151,6 +168,7 @@ public class GamePad extends InputDevice {
         }
         return GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping();
     }
+
 
     @Override
     public void registerObserver(UserInputObserver o) {

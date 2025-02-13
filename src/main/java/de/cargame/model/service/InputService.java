@@ -53,4 +53,9 @@ public class InputService {
         this.gamePad.registerObserver(inputObserver);
     }
 
+
+    public void rumble(float intensity){
+        this.gamePad.rumble(intensity);
+    }
+
 }

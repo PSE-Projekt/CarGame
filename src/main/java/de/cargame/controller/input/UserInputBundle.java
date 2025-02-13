@@ -3,6 +3,7 @@ package de.cargame.controller.input;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +17,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * The class maintains an internal list of {@code UserInput} objects, processes duplicate entries,
  * and manages a fast-forward mode based on specific user input types.
  */
+@Slf4j
 @Getter
 @Setter
 public class UserInputBundle {
@@ -48,11 +50,18 @@ public class UserInputBundle {
      * @param userInputType the type of user input to be added
      */
     public void addUserInput(UserInputType userInputType) {
+        if(userInputType == null){
+            log.warn("Null has been tried to be added to the user input bundle");
+            return;
+        }
         UserInput userInput = new UserInput(userInputType);
         userInputs.remove(USER_INPUT_NONE);
 
         if (userInput.getUserInputType().equals(UserInputType.CONFIRM)) {
             fastForward = true;
+            if(userInputs.contains(userInput)){
+                this.userInputs.remove(userInput);
+            }
             this.userInputs.add(userInput);
         } else {
             if (!userInputs.contains(userInput)) {

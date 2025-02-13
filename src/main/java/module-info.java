@@ -9,6 +9,9 @@ module cargame {
     requires java.desktop;
 
     opens de.cargame to javafx.graphics;
+    opens de.cargame.model.handler;
+    opens de.cargame.controller.input;
+
 
     exports de.cargame.view;
     exports de.cargame.model;

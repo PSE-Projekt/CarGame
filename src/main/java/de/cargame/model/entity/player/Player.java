@@ -9,6 +9,7 @@ import de.cargame.model.PlayerObservable;
 import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.model.entity.gameobject.car.player.PlayerCar;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
+import de.cargame.model.service.PlayerService;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -43,9 +44,11 @@ public class Player implements UserInputObserver, PlayerObservable {
     private boolean isPlaying;
     private CarType carSelection;
     private List<PlayerObserver> playerObservers = new CopyOnWriteArrayList<>();
+    private PlayerService playerService;
 
-    public Player() {
+    public Player(PlayerService playerService) {
         this.id = UUID.randomUUID().toString();
+        this.playerService = playerService;
         this.userInputBundle = new UserInputBundle();
         this.isPlaying = false;
         this.MAX_LIVES = GameConfigService.getInstance().loadInteger(ConfigKey.MAX_LIVES);
@@ -145,6 +148,7 @@ public class Player implements UserInputObserver, PlayerObservable {
     public void decreaseLife() {
         lives--;
         log.debug("Player {} lost a life, new life count: {}", id, lives);
+        playerService.rumbleGamepad(1);
         notifyPlayerObserversWithCurrentValues();
     }
 
