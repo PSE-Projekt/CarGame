@@ -27,7 +27,7 @@ public class GamePad extends InputDevice {
     private Controller gamepad;
     private GamePadMapping activeGamePadMapping;
     private int POLLING_RATE = 5; //ms
-    private final double DEADZONE = 0.15; //prevent stick drift
+    private final double DEADZONE = 0.4; //prevent stick drift
 
 
 
@@ -91,6 +91,7 @@ public class GamePad extends InputDevice {
         }
 
         if (activeGamePadMapping.getY_AxisComponentName().equals(component.getName())) {
+            System.out.println(component.getName() + " "+value);
             if (Math.abs(value) < DEADZONE) { // Neutral
                 userInputBundle.removeUserInput(UserInputType.UP);
                 userInputBundle.removeUserInput(UserInputType.DOWN);
