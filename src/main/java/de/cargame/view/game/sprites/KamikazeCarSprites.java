@@ -14,5 +14,7 @@ public class KamikazeCarSprites extends GameSprites {
     protected void setPaths() {
         this.paths.add("/sprites/kamikaze_car#1.png");
         this.paths.add("/sprites/kamikaze_car#2.png");
+        this.paths.add("/sprites/kamikaze_car#3.png");
+        this.paths.add("/sprites/kamikaze_car#4.png");
     }
 }
