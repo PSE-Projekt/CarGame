@@ -2,11 +2,13 @@ package de.cargame.view.game;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import lombok.Getter;
 
 /**
  * Represents a GameObjectView, which is a ImageView with a weight and a gameObjectId.
  * The weight is used to sort the GameObjectViews in the GameObjectViewList.
  */
+@Getter
 public class GameObjectView extends ImageView implements Comparable<GameObjectView> {
     private final int weight;
     private final String gameObjectId;

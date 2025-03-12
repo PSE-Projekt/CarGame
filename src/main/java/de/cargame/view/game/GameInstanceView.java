@@ -121,7 +121,7 @@ class GameInstanceView extends Pane {
         stats.toFront();
     }
 
-    private List<Pane> configureGreenArea() {
+    List<Pane> configureGreenArea() {
         int BUILDING_HEIGHT;
         int BUILDING_SPAWN_AREA;
 

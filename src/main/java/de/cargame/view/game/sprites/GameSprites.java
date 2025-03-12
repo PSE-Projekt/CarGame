@@ -25,11 +25,7 @@ abstract class GameSprites {
         setPaths();
         setWeight();
         paths.forEach(path -> {
-            try {
-                images.add(loadSprite(path));
-            } catch (RuntimeException e) {
-                System.err.println(e.getMessage());
-            }
+            images.add(loadSprite(path));
         });
     }
 

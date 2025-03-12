@@ -21,7 +21,6 @@ public enum GameState {
     MAIN_MENU,
     CAR_SELECTION,
     IN_GAME,
-    SCORE_BOARD
-
-
+    SCORE_BOARD,
+    TEST_INVALID
 }

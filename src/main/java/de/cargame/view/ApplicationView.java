@@ -10,6 +10,8 @@ import de.cargame.view.scoreboard.ScoreBoardScene;
 import de.cargame.view.selection.SelectionScene;
 import javafx.application.Platform;
 import javafx.stage.Stage;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Map;
 
@@ -19,9 +21,13 @@ import java.util.Map;
  */
 public class ApplicationView {
     private final ApiHandler apiHandler;
-    private final Map<GameState, CustomScene> sceneMap;
     private final Stage stage;
+    @Setter
+    private Map<GameState, CustomScene> sceneMap;
+    @Getter
     private CustomScene currentScene;
+    @Getter
+    private GameState viewGameState;
 
     /**
      * Creates a new ApplicationView instance, which will create an ApiHandler and provide it
@@ -44,7 +50,9 @@ public class ApplicationView {
         });
         stage.setResizable(false);
         this.stage.setScene(sceneMap.get(GameState.MAIN_MENU));
+        this.currentScene = sceneMap.get(GameState.MAIN_MENU);
         this.stage.show();
+        this.viewGameState = GameState.MAIN_MENU;
     }
 
     /**
@@ -57,13 +65,14 @@ public class ApplicationView {
 
         if (currentScene == null) {
             throw new IllegalStateException(
-                    "scene is not set for specified for current game mode: " + newGameState
+                    "scene is not set for specified for current game state: " + newGameState
             );
         }
 
         Platform.runLater(() -> {
             this.stage.setScene(currentScene);
             currentScene.setup();
+            this.viewGameState = newGameState;
         });
     }
 
@@ -87,4 +96,5 @@ public class ApplicationView {
             throw new IllegalStateException("Game state is not valid for rendering the game");
         }
     }
+
 }
