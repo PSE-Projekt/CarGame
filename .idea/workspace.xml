@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="add test for rumbling + refactor magic number">
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/game/sprites/BuildingSpritesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/game/sprites/FastCarSpritesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/game/sprites/KamikazeCarSpritesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/game/sprites/ObstacleSpritesTest.java" afterDir="false" />
+    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="PlayerStatsTest for testing player stats">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/cargame/view/game/sprites/AgileCarSpritesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/game/sprites/AgileCarSpritesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,12 +35,12 @@
     &quot;assignee&quot;: &quot;famabenda&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:PSE-Projekt/CarGame.git&quot;,
-    &quot;accountId&quot;: &quot;97e744bd-5562-45f1-9e33-25337e03e94f&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/PSE-Projekt/CarGame.git",
+    "accountId": "d50244f2-6752-4609-9ade-cf6d55ff0b7e"
   }
-}</component>
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -60,102 +57,104 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ApplicationStarter.executor": "Run",
-    "Application.CarGameApplication.executor": "Run",
-    "JUnit.Applicationtest.shouldContainButtonWithText.executor": "Run",
-    "JUnit.Applicationtest.should_contain_button_with_text.executor": "Run",
-    "JUnit.BuildingTest.testMoveWithFastForwardingDisabled.executor": "Run",
-    "JUnit.BuildingTest.testMoveWithFastForwardingEnabled.executor": "Run",
-    "JUnit.CarGameApplicationTest.executor": "Coverage",
-    "JUnit.CarGameApplicationTest.testStartRegistersApplicationView.executor": "Run",
-    "JUnit.CollisionHandlerTest.executor": "Run",
-    "JUnit.CollisionHandlerTest.testCollisionWithCrashAndCooldown.executor": "Run",
-    "JUnit.CollisionHandlerTest.testCollisionWithCrashWithoutCooldown.executor": "Run",
-    "JUnit.CollisionHandlerTest.testCollisionWithNonCollidableObject.executor": "Run",
-    "JUnit.CollisionHandlerTest.testCollisionWithReward.executor": "Run",
-    "JUnit.CollisionHandlerTest.testNoCollision.executor": "Run",
-    "JUnit.CrossMovementStrategyTest (1).executor": "Coverage",
-    "JUnit.CrossMovementStrategyTest.executor": "Run",
-    "JUnit.CrossMovementStrategyTest.testCalcTargetPositionMultiplayer.executor": "Run",
-    "JUnit.CrossMovementStrategyTest.testCalcTargetPositionSinglePlayer.executor": "Run",
-    "JUnit.GameApplicationManagerTest.executor": "Run",
-    "JUnit.GameApplicationManagerTest.testRenderGameInstanceCallsRenderGameOnApplicationView.executor": "Run",
-    "JUnit.GameConfigServiceTest.loadDoubleValueGetsCorrectlyLoadedTest.executor": "Run",
-    "JUnit.GameConfigServiceTest.testConfigLoadAllKeys.executor": "Run",
-    "JUnit.GameInstanceControllerTest.executor": "Run",
-    "JUnit.GameInstanceControllerTest.startGamePlayerKeyboardResetsPlayerLivesTest.executor": "Run",
-    "JUnit.GameInstanceControllerTest.startGamePlayerKeyboardTest.executor": "Run",
-    "JUnit.GameInstanceServiceTest.executor": "Run",
-    "JUnit.GameInstanceTest.executor": "Run",
-    "JUnit.GameInstanceTest.testRunEndsWhenPlayerLosesLives.executor": "Run",
-    "JUnit.GameInstanceTest.testRun_HandlesGameLoopCorrectly.executor": "Run",
-    "JUnit.GameObjectCreationServiceTest.executor": "Run",
-    "JUnit.GameObjectCreationServiceTest.testCreatePlayerCar_withNoneCar_throwsInvalidCarSelectionException.executor": "Run",
-    "JUnit.GameObjectSpawnSchedulerTest.executor": "Debug",
-    "JUnit.GameObjectSpawnSchedulerTest.startSpawning_inMultiplayerMode_shouldScheduleAllSpawns.executor": "Run",
-    "JUnit.GameObjectSpawnSchedulerTest.startSpawning_shouldRespectConfigurations.executor": "Run",
-    "JUnit.GameObjectSpawnSchedulerTest.startSpawning_shouldScheduleAllSpawns.executor": "Run",
-    "JUnit.GameObjectTest.executor": "Run",
-    "JUnit.GameObjectTest.testMoveWithFastForwardingDisabled.executor": "Run",
-    "JUnit.GameObjectTest.testMoveWithFastForwardingEnabled.executor": "Run",
-    "JUnit.GamePadTest.executor": "Run",
-    "JUnit.GamePadTest.testNotifyObservers_withDuplicateObservers.executor": "Run",
-    "JUnit.GamePadTest.testNotifyObservers_withNoObservers.executor": "Run",
-    "JUnit.GamePadTest.testProcessInput_withXAxisComponent.executor": "Run",
-    "JUnit.GamePadTest.testRetrieveGamePadMappingsByName.executor": "Run",
-    "JUnit.GamePadTest.testRumble_withGamepad.executor": "Run",
-    "JUnit.KeyboardTest.executor": "Run",
-    "JUnit.KeyboardTest.testKeyBoardInput.executor": "Run",
-    "JUnit.KeyboardTest.testRegisterObserver_AddsObserverSuccessfully.executor": "Run",
-    "JUnit.LifeTest.executor": "Run",
-    "JUnit.PlayerCarTest.executor": "Run",
-    "JUnit.PlayerControllerTest.testGetKeyboardPlayer_PlayerNotFound.executor": "Run",
-    "JUnit.PlayerControllerTest.testRegisterPlayerObserver_InvalidPlayer.executor": "Run",
-    "JUnit.PlayerHandlerTest.executor": "Run",
-    "JUnit.PlayerHandlerTest.testGetCurrentUserInputWhenInputIsPresent.executor": "Run",
-    "JUnit.PlayerHandlerTest.testIsPlayerAliveReturnsFalseWhenPlayerIsNotAlive.executor": "Run",
-    "JUnit.PlayerHandlerTest.testIsPlayerAliveReturnsTrueWhenPlayerIsAlive.executor": "Run",
-    "JUnit.PlayerServiceTest.executor": "Run",
-    "JUnit.ScoreTest.executor": "Run",
-    "JUnit.SoundServiceTest.executor": "Run",
-    "JUnit.SpawnAreaListTest.executor": "Run",
-    "JUnit.SpawnAreaListTest.testGetRandomCoordinateOfEach_ReturnsCoordinatesForAllSpawnAreas.executor": "Run",
-    "JUnit.SpawnAreaListTest.testGetRandomCoordinateOfEach_ReturnsEmptyListWhenNoSpawnAreas.executor": "Run",
-    "JUnit.StraightMovementStrategyTest.executor": "Run",
-    "JUnit.StraightMovementStrategyTest.testCalcTargetPos_MaintainsInitialYCoordinate.executor": "Run",
-    "JUnit.UserInputBundleTest.executor": "Run",
-    "JUnit.UserInputBundleTest.testAddUserInput_AddsUniqueInputToList.executor": "Run",
-    "JUnit.UserInputBundleTest.testRemoveUserInput_NotResettingFastForwardWhenRemovingUserInput.executor": "Debug",
-    "JUnit.UserInputBundleTest.testRemoveUserInput_ResetsFastForwardWhenRemovingConfirm.executor": "Run",
-    "JUnit.UserInputTypeTest.executor": "Run",
-    "JUnit.java in CarGame.executor": "Coverage",
-    "JUnit.java in CarGameTest.executor": "Coverage",
-    "JUnit.sprites in CarGameTest.executor": "Coverage",
-    "JUnit.view in CarGameTest.executor": "Run",
-    "Maven.CarGame [-U,clean,install].executor": "Run",
-    "Maven.CarGame [clean,install,-DskipTests].executor": "Run",
-    "Maven.CarGame [clean,package].executor": "Run",
-    "Maven.CarGame [dependency::resolve].executor": "Run",
-    "Maven.CarGame [install].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "frontend__tests",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/malik/IdeaProjects/CarGameOfficial_v2/src/main/resources/frontend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ApplicationStarter.executor&quot;: &quot;Run&quot;,
+    &quot;Application.CarGameApplication.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Applicationtest.shouldContainButtonWithText.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Applicationtest.should_contain_button_with_text.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BuildingTest.testMoveWithFastForwardingDisabled.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BuildingTest.testMoveWithFastForwardingEnabled.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CarGameApplicationTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.CarGameApplicationTest.testStartRegistersApplicationView.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollisionHandlerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollisionHandlerTest.testCollisionWithCrashAndCooldown.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollisionHandlerTest.testCollisionWithCrashWithoutCooldown.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollisionHandlerTest.testCollisionWithNonCollidableObject.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollisionHandlerTest.testCollisionWithReward.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CollisionHandlerTest.testNoCollision.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CrossMovementStrategyTest (1).executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.CrossMovementStrategyTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CrossMovementStrategyTest.testCalcTargetPositionMultiplayer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CrossMovementStrategyTest.testCalcTargetPositionSinglePlayer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameApplicationManagerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameApplicationManagerTest.testRenderGameInstanceCallsRenderGameOnApplicationView.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameConfigServiceTest.loadDoubleValueGetsCorrectlyLoadedTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameConfigServiceTest.testConfigLoadAllKeys.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameInstanceControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameInstanceControllerTest.startGamePlayerKeyboardResetsPlayerLivesTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameInstanceControllerTest.startGamePlayerKeyboardTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameInstanceServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameInstanceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameInstanceTest.testRunEndsWhenPlayerLosesLives.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameInstanceTest.testRun_HandlesGameLoopCorrectly.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameObjectCreationServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameObjectCreationServiceTest.testCreatePlayerCar_withNoneCar_throwsInvalidCarSelectionException.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameObjectSpawnSchedulerTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.GameObjectSpawnSchedulerTest.startSpawning_inMultiplayerMode_shouldScheduleAllSpawns.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameObjectSpawnSchedulerTest.startSpawning_shouldRespectConfigurations.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameObjectSpawnSchedulerTest.startSpawning_shouldScheduleAllSpawns.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameObjectTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameObjectTest.testMoveWithFastForwardingDisabled.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameObjectTest.testMoveWithFastForwardingEnabled.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GamePadTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GamePadTest.testNotifyObservers_withDuplicateObservers.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GamePadTest.testNotifyObservers_withNoObservers.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GamePadTest.testProcessInput_withXAxisComponent.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GamePadTest.testRetrieveGamePadMappingsByName.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GamePadTest.testRumble_withGamepad.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KeyboardTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KeyboardTest.testKeyBoardInput.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KeyboardTest.testRegisterObserver_AddsObserverSuccessfully.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LifeTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlayerCarTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlayerControllerTest.testGetKeyboardPlayer_PlayerNotFound.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlayerControllerTest.testRegisterPlayerObserver_InvalidPlayer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlayerHandlerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlayerHandlerTest.testGetCurrentUserInputWhenInputIsPresent.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlayerHandlerTest.testIsPlayerAliveReturnsFalseWhenPlayerIsNotAlive.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlayerHandlerTest.testIsPlayerAliveReturnsTrueWhenPlayerIsAlive.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlayerServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PlayerStatsTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ScoreTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SoundServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SpawnAreaListTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SpawnAreaListTest.testGetRandomCoordinateOfEach_ReturnsCoordinatesForAllSpawnAreas.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SpawnAreaListTest.testGetRandomCoordinateOfEach_ReturnsEmptyListWhenNoSpawnAreas.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StraightMovementStrategyTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StraightMovementStrategyTest.testCalcTargetPos_MaintainsInitialYCoordinate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserInputBundleTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserInputBundleTest.testAddUserInput_AddsUniqueInputToList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserInputBundleTest.testRemoveUserInput_NotResettingFastForwardWhenRemovingUserInput.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.UserInputBundleTest.testRemoveUserInput_ResetsFastForwardWhenRemovingConfirm.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserInputTypeTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.java in CarGame.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.java in CarGameTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.sprites in CarGameTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.view in CarGameTest.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CarGame [-U,clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CarGame [clean,install,-DskipTests].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CarGame [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CarGame [dependency::resolve].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.CarGame [install].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;frontend__tests&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/malik/IdeaProjects/CarGameOfficial_v2/src/main/resources/frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\malik\IdeaProjects\CarGameOfficial_v2\src\main\resources\frontend" />
@@ -171,7 +170,7 @@
       <command value="mvn dependency::resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.view in CarGameTest">
+  <component name="RunManager" selected="JUnit.GamePadTest">
     <configuration name="GamePadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CarGame" />
       <extension name="coverage">
@@ -240,8 +239,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
       </set>
     </attachedChunks>
   </component>
@@ -290,6 +289,8 @@
       <workItem from="1738958192971" duration="364000" />
       <workItem from="1739240835328" duration="30018000" />
       <workItem from="1739448998087" duration="9152000" />
+      <workItem from="1741807113630" duration="462000" />
+      <workItem from="1741808186813" duration="1326000" />
     </task>
     <task id="LOCAL-00005" summary="overworked game render">
       <option name="closed" value="true" />
@@ -419,7 +420,23 @@
       <option name="project" value="LOCAL" />
       <updated>1739473976263</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="sprites package high test coverage">
+      <option name="closed" value="true" />
+      <created>1741797964445</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1741797964445</updated>
+    </task>
+    <task id="LOCAL-00022" summary="PlayerStatsTest for testing player stats">
+      <option name="closed" value="true" />
+      <created>1741807420259</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1741807420259</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +477,9 @@
     <MESSAGE value="bugfix for when a player crashes and no gamepad is connected, the game crashes because no rumblers found" />
     <MESSAGE value="removed possibility to gain more lives then MAX_LIVES count" />
     <MESSAGE value="add test for rumbling + refactor magic number" />
-    <option name="LAST_COMMIT_MESSAGE" value="add test for rumbling + refactor magic number" />
+    <MESSAGE value="sprites package high test coverage" />
+    <MESSAGE value="PlayerStatsTest for testing player stats" />
+    <option name="LAST_COMMIT_MESSAGE" value="PlayerStatsTest for testing player stats" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -510,7 +529,7 @@
       <FILTER>de.cargame.view.game.sprites.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/CarGameOfficial_v2$java_in_CarGameTest.ic" NAME="java in CarGameTest Coverage Results" MODIFIED="1741790805978" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
-    <SUITE FILE_PATH="coverage/CarGameOfficial_v2$sprites_in_CarGameTest.ic" NAME="sprites in CarGameTest Coverage Results" MODIFIED="1741797785874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/CarGameOfficial_v2$sprites_in_CarGameTest.ic" NAME="sprites in CarGameTest Coverage Results" MODIFIED="1741797837946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/CarGame$java_in_CarGameTest.ic" NAME="java in CarGameTest Coverage Results" MODIFIED="1739231523600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/CarGameOfficial_v2$CarGameApplicationTest.ic" NAME="CarGameApplicationTest Coverage Results" MODIFIED="1741790005648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>de.cargame.*</FILTER>
@@ -528,7 +547,7 @@
     <SUITE FILE_PATH="coverage/CarGame$CarGameApplicationTest.ic" NAME="CarGameApplicationTest Coverage Results" MODIFIED="1739285686166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>de.cargame.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/CarGameOfficial_v2$view_in_CarGameTest.ic" NAME="view in CarGameTest Coverage Results" MODIFIED="1741795338035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/CarGameOfficial_v2$view_in_CarGameTest.ic" NAME="view in CarGameTest Coverage Results" MODIFIED="1741798305971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/CarGameOfficial_v2$GameObjectViewTest.ic" NAME="GameObjectViewTest Coverage Results" MODIFIED="1741792243459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>de.cargame.view.game.*</FILTER>
     </SUITE>

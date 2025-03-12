@@ -4,7 +4,12 @@ import de.cargame.controller.api.PlayerAPI;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +19,9 @@ import java.util.List;
  */
 public class GameScene extends CustomScene {
     private final List<GameInstanceView> gameInstanceViews = new ArrayList<>();
+    private final Timeline timeline;
+    @Getter
+    private boolean active;
 
     /**
      * Creates a new GameScene, which will display the course of the game.
@@ -24,12 +32,15 @@ public class GameScene extends CustomScene {
     public GameScene(ApiHandler apiHandler) {
         super(apiHandler);
         this.configureRoot();
+        this.active = false;
+        this.timeline = new Timeline(new KeyFrame(Duration.millis(1000.0 / 60), e -> render()));
+        this.timeline.setCycleCount(Animation.INDEFINITE);
     }
 
     /**
      * Renders the game course of each player currently playing.
      */
-    public void render() {
+    void render() {
         for (GameInstanceView gameInstanceView : gameInstanceViews) {
             gameInstanceView.render();
         }
@@ -66,5 +77,19 @@ public class GameScene extends CustomScene {
 
         this.apiHandler.getInputReceiverKeyboard().clear();
         this.apiHandler.getInputReceiverGamePad().clear();
+    }
+
+    public void startRendering() {
+        if (!active) {
+            this.active = true;
+            this.timeline.play();
+        }
+    }
+
+    public void stopRendering() {
+        if (active) {
+            this.active = false;
+            this.timeline.stop();
+        }
     }
 }

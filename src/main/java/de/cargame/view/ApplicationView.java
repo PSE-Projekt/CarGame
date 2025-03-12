@@ -61,6 +61,10 @@ public class ApplicationView {
      * @param newGameState the desired Scene
      */
     void switchScene(GameState newGameState) {
+        if (currentScene instanceof GameScene) {
+            ((GameScene) currentScene).stopRendering();
+        }
+
         currentScene = sceneMap.get(newGameState);
 
         if (currentScene == null) {
@@ -87,9 +91,9 @@ public class ApplicationView {
             // Switch to the ScoreBoardScene
             this.switchScene(GameState.SCORE_BOARD);
         } else if (currentState.equals(GameState.IN_GAME)) {
-            // Render the GameScene
+            // trigger GameScene rendering
             if (currentScene instanceof GameScene) {
-                ((GameScene) currentScene).render();
+                ((GameScene) currentScene).startRendering();
             }
         } else {
             // Invalid game state for rendering
