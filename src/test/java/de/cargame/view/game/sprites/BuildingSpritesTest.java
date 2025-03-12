@@ -10,34 +10,34 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class AgileCarSpritesTest extends ApplicationTest {
+class BuildingSpritesTest extends ApplicationTest {
 
-    private AgileCarSprites agileCarSprites;
+    private BuildingSprites buildingSprites;
 
     @BeforeEach
     void setUp() {
-        agileCarSprites = new AgileCarSprites();
+        buildingSprites = new BuildingSprites();
     }
 
     @Test
     void testInitialization() {
-        assertNotNull(agileCarSprites.paths, "Paths should be initialized");
-        assertNotNull(agileCarSprites.images, "Images should be initialized");
-        assertFalse(agileCarSprites.images.isEmpty(), "Images list should not be empty after initialization");
+        assertNotNull(buildingSprites.paths, "Paths should be initialized");
+        assertNotNull(buildingSprites.images, "Images should be initialized");
+        assertFalse(buildingSprites.images.isEmpty(), "Images list should not be empty after initialization");
     }
 
     @Test
     void testWeightAssignment() {
-        assertEquals(3, agileCarSprites.weight, "Weight should be set to 1");
+        assertEquals(1, buildingSprites.weight, "Weight should be set to 1");
     }
 
     @Test
     void testGetRandomSprite() {
         String gameObjectId = "agile_car";
 
-        GameObjectView sprite = agileCarSprites.getRandomSprite(gameObjectId);
+        GameObjectView sprite = buildingSprites.getRandomSprite(gameObjectId);
 
         assertNotNull(sprite, "Generated sprite should not be null");
-        assertEquals(3, sprite.getWeight(), "GameObjectView should have the correct weight");
+        assertEquals(1, sprite.getWeight(), "GameObjectView should have the correct weight");
     }
 }
