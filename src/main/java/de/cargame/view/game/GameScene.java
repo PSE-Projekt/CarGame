@@ -19,6 +19,7 @@ import java.util.List;
  */
 public class GameScene extends CustomScene {
     private final List<GameInstanceView> gameInstanceViews = new ArrayList<>();
+    @Getter
     private final Timeline timeline;
     @Getter
     private boolean active;
@@ -33,7 +34,7 @@ public class GameScene extends CustomScene {
         super(apiHandler);
         this.configureRoot();
         this.active = false;
-        this.timeline = new Timeline(new KeyFrame(Duration.millis(1000.0 / 60), e -> render()));
+        this.timeline = new Timeline(new KeyFrame(Duration.millis(1000.0 / 120), e -> render()));
         this.timeline.setCycleCount(Animation.INDEFINITE);
     }
 
@@ -81,15 +82,19 @@ public class GameScene extends CustomScene {
 
     public void startRendering() {
         if (!active) {
-            this.active = true;
-            this.timeline.play();
+            active = true;
+            if (timeline.getStatus() == Animation.Status.STOPPED) {
+                timeline.play();
+            }
         }
     }
 
     public void stopRendering() {
         if (active) {
-            this.active = false;
-            this.timeline.stop();
+            active = false;
+            if (timeline.getStatus() == Animation.Status.RUNNING) {
+                timeline.stop();
+            }
         }
     }
 }

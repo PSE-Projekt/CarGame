@@ -24,19 +24,20 @@ import java.util.*;
  */
 class GameInstanceView extends Pane {
     private final SpriteService spriteService;
+    private final Set<Pane> gameUiSet;
     private final Map<GameObject, GameObjectView> objectViewMap;
     private final ApiHandler apiHandler;
     private final int SCREEN_HEIGHT;
     private final int SCREEN_WIDTH;
     private final PlayerStats stats;
     private GameModelData modelData;
-    private boolean isRunning = false;
 
     /**
      * Creates a new GameInstanceView for the player using the apiHandler as well as his playerID
      */
     public GameInstanceView(ApiHandler apiHandler, String playerID) {
         this.objectViewMap = new HashMap<>();
+        this.gameUiSet = new HashSet<>();
         this.spriteService = new SpriteService();
         this.apiHandler = apiHandler;
         this.SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
@@ -59,7 +60,9 @@ class GameInstanceView extends Pane {
         int playerCount = apiHandler.getGameInstanceApi().getModel().size();
         this.setPrefSize(SCREEN_WIDTH, (double) SCREEN_HEIGHT / playerCount);
         this.setStyle("-fx-background-color: grey;");
+
         this.getChildren().add(stats);
+        configureGreenArea();
     }
 
     /**
@@ -79,7 +82,6 @@ class GameInstanceView extends Pane {
                 updateObjectView(objectView, gameObject);
             }
         }
-
         stats.toFront();
     }
 
@@ -142,7 +144,7 @@ class GameInstanceView extends Pane {
     /**
      * Configures the green area with buildings.
      */
-    List<Pane> configureGreenArea() {
+    void configureGreenArea() {
         GameStateAPI gameStateApi = apiHandler.getGameStateApi();
         GameConfigService configService = GameConfigService.getInstance();
 
@@ -164,7 +166,7 @@ class GameInstanceView extends Pane {
         Pane sideMarkUp = createSideMark(greenAreaHeight + 10);
         Pane sideMarkDown = createSideMark(this.getPrefHeight() - greenAreaHeight - 20);
 
-        return List.of(greenAreaUp, greenAreaDown, sideMarkUp, sideMarkDown, stats);
+        this.getChildren().addAll(greenAreaUp, greenAreaDown, sideMarkUp, sideMarkDown);
     }
 
     private Pane createGreenPane(int height, double y) {

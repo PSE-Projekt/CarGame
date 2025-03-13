@@ -131,7 +131,7 @@ class ApplicationViewTest {
         WaitForAsyncUtils.waitForFxEvents();
 
         verify(mockStage, times(2)).setScene(any(Scene.class));
-        verify(mockedGameScene, times(1)).render();
+        verify(mockedGameScene, times(1)).startRendering();
         assertEquals(GameState.IN_GAME, applicationView.getViewGameState(), "Application should switch to IN_GAME state");
     }
 
