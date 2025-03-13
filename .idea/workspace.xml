@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="attempt to let rendering happen in seperate thread">
+    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="Complete tests for view.game package">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/cargame/view/ApplicationViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/ApplicationViewTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/cargame/view/game/GameInstanceViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/game/GameInstanceViewTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/cargame/view/game/GameSceneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/game/GameSceneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/cargame/view/navigation/NavigatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/navigation/NavigatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +109,7 @@
     "JUnit.KeyboardTest.testKeyBoardInput.executor": "Run",
     "JUnit.KeyboardTest.testRegisterObserver_AddsObserverSuccessfully.executor": "Run",
     "JUnit.LifeTest.executor": "Run",
+    "JUnit.NavigatorTest.executor": "Run",
     "JUnit.PlayerCarTest.executor": "Run",
     "JUnit.PlayerControllerTest.testGetKeyboardPlayer_PlayerNotFound.executor": "Run",
     "JUnit.PlayerControllerTest.testRegisterPlayerObserver_InvalidPlayer.executor": "Run",
@@ -137,7 +134,7 @@
     "JUnit.java in CarGame.executor": "Coverage",
     "JUnit.java in CarGameTest.executor": "Coverage",
     "JUnit.sprites in CarGameTest.executor": "Coverage",
-    "JUnit.view in CarGameTest.executor": "Coverage",
+    "JUnit.view in CarGameTest.executor": "Run",
     "Maven.CarGame [-U,clean,install].executor": "Run",
     "Maven.CarGame [clean,install,-DskipTests].executor": "Run",
     "Maven.CarGame [clean,package].executor": "Run",
@@ -176,7 +173,7 @@
       <command value="mvn dependency::resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.view in CarGameTest">
+  <component name="RunManager">
     <configuration name="GamePadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CarGame" />
       <extension name="coverage">
@@ -297,7 +294,7 @@
       <workItem from="1739448998087" duration="9152000" />
       <workItem from="1741807113630" duration="462000" />
       <workItem from="1741808186813" duration="5494000" />
-      <workItem from="1741879326184" duration="2561000" />
+      <workItem from="1741879326184" duration="3767000" />
     </task>
     <task id="LOCAL-00005" summary="overworked game render">
       <option name="closed" value="true" />
@@ -451,7 +448,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741810838641</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Complete tests for view.game package">
+      <option name="closed" value="true" />
+      <created>1741882045589</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1741882045589</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +474,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="layouting of MenuScene" />
     <MESSAGE value="make multiplayer spawning work + fix boundaries of playercars in multiplayer" />
     <MESSAGE value="add different sizes for multiplayer gameobjects" />
     <MESSAGE value="adjust game screen size and therefore the problem with not enough space in multiplayer" />
@@ -494,7 +498,8 @@
     <MESSAGE value="sprites package high test coverage" />
     <MESSAGE value="PlayerStatsTest for testing player stats" />
     <MESSAGE value="attempt to let rendering happen in seperate thread" />
-    <option name="LAST_COMMIT_MESSAGE" value="attempt to let rendering happen in seperate thread" />
+    <MESSAGE value="Complete tests for view.game package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete tests for view.game package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -562,7 +567,7 @@
     <SUITE FILE_PATH="coverage/CarGame$CarGameApplicationTest.ic" NAME="CarGameApplicationTest Coverage Results" MODIFIED="1739285686166" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>de.cargame.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/CarGameOfficial_v2$view_in_CarGameTest.ic" NAME="view in CarGameTest Coverage Results" MODIFIED="1741881294698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/CarGameOfficial_v2$view_in_CarGameTest.ic" NAME="view in CarGameTest Coverage Results" MODIFIED="1741881922905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/CarGameOfficial_v2$GameObjectViewTest.ic" NAME="GameObjectViewTest Coverage Results" MODIFIED="1741792243459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>de.cargame.view.game.*</FILTER>
     </SUITE>
