@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="ScoreBoardScene tests in scoreboard package">
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/menu/MenuSceneTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/selection/SelectionSceneTest.java" afterDir="false" />
+    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="view package test 78% line cvrg">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/menu/MenuScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/selection/SelectionScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/cargame/view/scoreboard/ScoreBoardSceneTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/scoreboard/ScoreBoardSceneTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/de/cargame/view/ApplicationViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/ApplicationViewTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +190,7 @@
       <command value="mvn dependency::resolve" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.java in CarGameTest">
+  <component name="RunManager">
     <configuration name="SelectionSceneTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CarGameTest" />
       <extension name="coverage">
@@ -308,7 +306,7 @@
       <workItem from="1741879326184" duration="4410000" />
       <workItem from="1741891019389" duration="496000" />
       <workItem from="1741894229928" duration="280000" />
-      <workItem from="1741962315085" duration="9708000" />
+      <workItem from="1741962315085" duration="10476000" />
     </task>
     <task id="LOCAL-00005" summary="overworked game render">
       <option name="closed" value="true" />
@@ -494,7 +492,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741966938660</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="view package test 78% line cvrg">
+      <option name="closed" value="true" />
+      <created>1741972623429</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1741972623429</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +518,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix bug where after playing again one screen half is black" />
     <MESSAGE value="overworked game render" />
     <MESSAGE value="beauty enhancement" />
     <MESSAGE value="multiplayer corrections" />
@@ -537,7 +542,8 @@
     <MESSAGE value="first navigator test" />
     <MESSAGE value="navigation package tests" />
     <MESSAGE value="ScoreBoardScene tests in scoreboard package" />
-    <option name="LAST_COMMIT_MESSAGE" value="ScoreBoardScene tests in scoreboard package" />
+    <MESSAGE value="view package test 78% line cvrg" />
+    <option name="LAST_COMMIT_MESSAGE" value="view package test 78% line cvrg" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -595,7 +601,7 @@
     <SUITE FILE_PATH="coverage/CarGameOfficial_v2$de_cargame_in_CarGameTest.ic" NAME="de.cargame in CarGameTest Coverage Results" MODIFIED="1741967607519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>de.cargame.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/CarGameOfficial_v2$java_in_CarGameTest.ic" NAME="java in CarGameTest Coverage Results" MODIFIED="1741969995827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/CarGameOfficial_v2$java_in_CarGameTest.ic" NAME="java in CarGameTest Coverage Results" MODIFIED="1741972432268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/CarGame$java_in_CarGameTest.ic" NAME="java in CarGameTest Coverage Results" MODIFIED="1739231523600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/CarGameOfficial_v2$CarGameApplicationTest.ic" NAME="CarGameApplicationTest Coverage Results" MODIFIED="1741790005648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>de.cargame.*</FILTER>

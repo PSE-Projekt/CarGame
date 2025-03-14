@@ -33,7 +33,6 @@ class ApplicationViewTest {
     private MenuScene mockedMenuScene;
     private SelectionScene mockedSelectionScene;
     private GameScene mockedGameScene;
-    private ScoreBoardScene mockedScoreBoardScene;
 
     @BeforeEach
     void setUp() {
@@ -65,7 +64,6 @@ class ApplicationViewTest {
                 MockedConstruction<ScoreBoardScene> ignored2 = Mockito.mockConstruction(ScoreBoardScene.class,
                         (mock, context) -> {
                             doNothing().when(mock).setup();
-                            mockedScoreBoardScene = mock;
                         });
                 MockedConstruction<GameScene> ignored3 = Mockito.mockConstruction(GameScene.class,
                         (mock, context) -> {

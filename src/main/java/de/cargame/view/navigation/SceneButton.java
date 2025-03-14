@@ -34,31 +34,6 @@ public abstract class SceneButton extends Selectable implements Clickable {
         this.getChildren().add(display);
     }
 
-//    private static Image loadAndDisplayImage(String path) {
-//        try (InputStream input = SceneButton.class.getClassLoader().getResourceAsStream(path)) {
-//            if (input == null) {
-//                throw new IOException("Image not found at path: " + path);
-//            }
-//            BufferedImage image = ImageIO.read(input);
-//            if (image == null) {
-//                throw new IOException("Failed to decode image at path: " + path);
-//            }
-//            System.out.println("Successfully loaded: " + path);
-//            WritableImage wr = new WritableImage(image.getWidth(), image.getHeight());
-//            PixelWriter pw = wr.getPixelWriter();
-//            for (int x = 0; x < image.getWidth(); x++) {
-//                for (int y = 0; y < image.getHeight(); y++) {
-//                    pw.setArgb(x, y, image.getRGB(x, y));
-//                }
-//            }
-//
-//            return new ImageView(wr).getImage();
-//        } catch (IOException e) {
-//            System.err.println("Error loading image: " + e.getMessage());
-//        }
-//        throw new RuntimeException("Could not load image at path: " + path);
-//    }
-
     private Image loadImage(String path) {
         Image image = null;
         try {

@@ -6,7 +6,6 @@ package de.cargame.view.navigation;
  * (existing) neighbor.
  */
 public enum Direction {
-
     UP,
     DOWN,
     LEFT,
