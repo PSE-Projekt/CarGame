@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import lombok.Getter;
 
 /**
  * This scene is displayed upon launching the application and includes two buttons - one
@@ -22,7 +23,9 @@ import javafx.scene.text.Text;
 public class MenuScene extends CustomScene {
     private final Navigator assignedNavigator;
 
+    @Getter
     private final Selectable singlePlayerButton;
+    @Getter
     private final Selectable multiPlayerButton;
     private final int SegmentCount = 3;
 

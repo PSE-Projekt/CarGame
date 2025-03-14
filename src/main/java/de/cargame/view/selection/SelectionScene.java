@@ -7,6 +7,7 @@ import de.cargame.controller.entity.GameState;
 import de.cargame.view.ApiHandler;
 import de.cargame.view.CustomScene;
 import javafx.scene.layout.VBox;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.List;
  * buttons necessary to enter the other imminent scenes.
  */
 public class SelectionScene extends CustomScene {
+    @Getter
     private final List<SelectionInstanceView> selectionInstanceViews = new ArrayList<>();
     private final boolean oneInputMode;
 

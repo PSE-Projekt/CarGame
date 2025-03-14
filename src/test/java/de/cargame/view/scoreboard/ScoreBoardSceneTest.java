@@ -15,6 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.ApplicationTest;
 import org.testfx.framework.junit5.Start;
 import javafx.stage.Stage;
@@ -25,7 +27,8 @@ import java.util.concurrent.atomic.AtomicReference;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class ScoreBoardSceneTest extends ApplicationTest {
+@ExtendWith(ApplicationExtension.class)
+public class ScoreBoardSceneTest {
 
     private ScoreBoardScene scoreBoardScene;
     private ApiHandler mockApiHandler;
@@ -36,7 +39,7 @@ public class ScoreBoardSceneTest extends ApplicationTest {
     private Player playerMock;
 
     @Start
-    public void start(Stage stage) {
+    private void start(Stage stage) {
         mockApiHandler = mock(ApiHandler.class);
         mockGameStateApi = mock(GameStateAPI.class);
         mockPlayerApi = mock(PlayerAPI.class);
