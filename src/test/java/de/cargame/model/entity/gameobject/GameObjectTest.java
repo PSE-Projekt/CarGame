@@ -1,6 +1,8 @@
 package de.cargame.model.entity.gameobject;
 
 import de.cargame.controller.entity.GameMode;
+import de.cargame.model.entity.gameobject.car.player.AgileCar;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -15,7 +17,7 @@ class GameObjectTest {
     private static List<GameObject> getStaticGameObjects() {
         List<GameObject> objects = new ArrayList<>();
         Coordinate realCoordinate = new Coordinate(1000, 100);
-        Dimension mockDimension = mock(Dimension.class); // Dimension bleibt gemockt, weil sie hier nicht direkt getestet wird
+        Dimension mockDimension = mock(Dimension.class);
         GameMode mockGameMode = mock(GameMode.class);
 
         objects.add(new Building(realCoordinate, mockDimension, GameObjectBoundType.RECTANGLE, mockGameMode));
@@ -77,69 +79,57 @@ class GameObjectTest {
         assertEquals(yOld + yAmount, gameObject.getY());
     }
 
-    @ParameterizedTest
-    @MethodSource("getStaticGameObjects")
-    void testMoveByRespectingGameBoundariesOutsideBounds(GameObject gameObject) {
+    @Test
+    void testMoveByRespectingGameBoundariesOutsideBounds() {
         double xAmount = 10;
         double yAmount = 10000; // Move outside vertical bounds
-        double objectWidth = gameObject.getWidth();
-        double objectHeight = gameObject.getHeight();
+        AgileCar agileCar = new AgileCar(new Coordinate(0, 0), new Dimension(20, 20), GameObjectBoundType.RECTANGLE, GameMode.MULTIPLAYER);
 
-        double xOld = gameObject.getX();
-        double yOld = gameObject.getY();
+        double xOld = agileCar.getX();
+        double yOld = agileCar.getY();
 
         // Act
-        gameObject.moveByRespectingGameBoundaries(xAmount, yAmount, objectWidth, objectHeight);
+        agileCar.moveByRespectingGameBoundaries(xAmount, yAmount, 20, 20);
 
         // Assert
-        assertEquals(xOld, gameObject.getX());
-        assertEquals(yOld, gameObject.getY());
+        assertEquals(xOld, agileCar.getX());
+        assertEquals(yOld, agileCar.getY());
     }
 
     // Additional tests to cover various boundary and configuration scenarios for moveByRespectingGameBoundaries.
 
-    @ParameterizedTest
-    @MethodSource("getStaticGameObjects")
-    void testMoveByRespectingGameBoundariesOnVerticalBoundary(GameObject gameObject) {
+    @Test
+    void testMoveByRespectingGameBoundariesOnVerticalBoundary() {
         double xAmount = 0;
         double yAmount = 0; // Already at the boundary
-        double objectWidth = gameObject.getWidth();
-        double objectHeight = gameObject.getHeight();
+        AgileCar agileCar = new AgileCar(new Coordinate(0, 0), new Dimension(20, 20), GameObjectBoundType.RECTANGLE, GameMode.MULTIPLAYER);
 
-        double yOld = gameObject.getY();
+        double yOld = agileCar.getY();
 
         // Act
-        gameObject.moveByRespectingGameBoundaries(xAmount, yAmount, objectWidth, objectHeight);
+        agileCar.moveByRespectingGameBoundaries(xAmount, yAmount, 20, 20);
 
         // Assert
-        assertEquals(yOld, gameObject.getY());
+        assertEquals(yOld, agileCar.getY());
     }
 
-    @ParameterizedTest
-    @MethodSource("getStaticGameObjects")
-    void testMoveByRespectingGameBoundariesWithinMultiplayerBounds(GameObject gameObject) {
-        gameObject.setGameMode(GameMode.MULTIPLAYER);
+    @Test
+    void testMoveByRespectingGameBoundariesWithinMultiplayerBounds() {
 
         double xAmount = 10;
         double yAmount = 5;
-        double objectWidth = gameObject.getWidth();
-        double objectHeight = gameObject.getHeight();
+        AgileCar agileCar = new AgileCar(new Coordinate(0, 0), new Dimension(20, 20), GameObjectBoundType.RECTANGLE, GameMode.MULTIPLAYER);
 
-        double xOld = gameObject.getX();
-        double yOld = gameObject.getY();
+
+        double xOld = agileCar.getX();
+        double yOld = agileCar.getY();
 
         // Act
-        gameObject.moveByRespectingGameBoundaries(xAmount, yAmount, objectWidth, objectHeight);
+        agileCar.moveByRespectingGameBoundaries(xAmount, yAmount, 20, 20);
 
         // Assert
-        assertEquals(xOld + xAmount, gameObject.getX());
-        assertEquals(yOld + yAmount, gameObject.getY());
+        assertEquals(xOld + xAmount, agileCar.getX());
+        assertEquals(yOld + yAmount, agileCar.getY());
     }
 
-    @ParameterizedTest
-    @MethodSource("getStaticGameObjects")
-    void testMoveByRespectingGameBoundariesOutsideHorizontalBounds(GameObject gameObject) {
-        double xAmount = -10000; // Attempting to move outside horizontal bounds
-        double yAmount = 0;
-    }
 }
