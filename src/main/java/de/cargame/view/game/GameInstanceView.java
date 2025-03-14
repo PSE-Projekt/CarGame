@@ -10,12 +10,9 @@ import de.cargame.model.entity.gameobject.car.ai.KamikazeCar;
 import de.cargame.model.entity.gameobject.car.player.AgileCar;
 import de.cargame.model.entity.gameobject.car.player.FastCar;
 import de.cargame.view.ApiHandler;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.geometry.Pos;
 import javafx.scene.layout.Pane;
-import javafx.util.Duration;
+
 import java.util.*;
 
 /**

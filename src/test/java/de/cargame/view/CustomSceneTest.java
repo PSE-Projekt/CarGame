@@ -2,17 +2,16 @@ package de.cargame.view;
 
 import de.cargame.config.ConfigKey;
 import de.cargame.config.GameConfigService;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.testfx.framework.junit5.ApplicationTest;
-import org.testfx.util.WaitForAsyncUtils;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 
 class CustomSceneTest extends ApplicationTest {

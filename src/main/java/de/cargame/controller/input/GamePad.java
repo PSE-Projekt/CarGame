@@ -45,7 +45,7 @@ public class GamePad extends InputDevice {
      *                  and higher values represent stronger vibrations.
      */
     public void rumble(float intensity){
-        if(gamepad != null) {
+        if(gamepad != null && intensity >= 0) {
 
             Rumbler[] rumblers = gamepad.getRumblers();
             for (Rumbler rumbler : rumblers) {

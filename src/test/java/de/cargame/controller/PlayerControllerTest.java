@@ -1,8 +1,8 @@
 package de.cargame.controller;
 
 import de.cargame.exception.PlayerNotFoundException;
-import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import de.cargame.model.entity.gameobject.car.player.CarType;
+import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.entity.player.PlayerObserver;
 import de.cargame.model.service.PlayerService;
@@ -33,7 +33,7 @@ class PlayerControllerTest {
     private UserInputObserver userInputObserver;
 
     @Test
-    void testGetKeyboardPlayer_KeyboardPlayer_exists() {
+    void testGetKeyboardPlayer_whenKeyboardPlayerExists_thenReturnPlayer() {
 
         // when
         when(playerService.getKeyboardPlayer()).thenReturn(testPlayer);
@@ -45,7 +45,7 @@ class PlayerControllerTest {
     }
 
     @Test
-    void testGetKeyboardPlayer_PlayerNotFound() {
+    void testGetKeyboardPlayer_whenNoKeyboardPlayer_thenThrowPlayerNotFoundException() {
 
         // when
         when(playerService.getKeyboardPlayer()).thenReturn(null);

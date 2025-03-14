@@ -1,20 +1,19 @@
 package de.cargame.controller.input;
 
 import de.cargame.controller.input.gamepadmapping.GamePadMapping;
-import de.cargame.controller.input.gamepadmapping.GamePads;
+import de.cargame.controller.input.gamepadmapping.XBoxWirelessControllerGamepadPadMapping;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
+import net.java.games.input.Component;
 import net.java.games.input.Controller;
 import net.java.games.input.Rumbler;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.EnumSource;
 import org.mockito.Mockito;
 
-
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class GamePadTest {
@@ -191,12 +190,200 @@ class GamePadTest {
     }
 
     @Test
+    void testRumble_withZeroIntensity() throws NoSuchFieldException, IllegalAccessException {
+        // Arrange
+        GamePad gamePad = new GamePad();
+        Controller mockController = Mockito.mock(Controller.class);
+        Rumbler mockRumbler1 = Mockito.mock(Rumbler.class);
+        Rumbler mockRumbler2 = Mockito.mock(Rumbler.class);
+
+        when(mockController.getRumblers()).thenReturn(new Rumbler[]{mockRumbler1, mockRumbler2});
+
+        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        gamepadField.setAccessible(true);
+        gamepadField.set(gamePad, mockController);
+
+        // Act
+        gamePad.rumble(0.0f);
+
+        // Assert
+        verify(mockRumbler1, times(1)).rumble(0.0f);
+        verify(mockRumbler2, times(1)).rumble(0.0f);
+    }
+
+    @Test
+    void testRumble_withNegativeIntensity() throws NoSuchFieldException, IllegalAccessException {
+        // Arrange
+        GamePad gamePad = new GamePad();
+        Controller mockController = Mockito.mock(Controller.class);
+        Rumbler mockRumbler1 = Mockito.mock(Rumbler.class);
+
+        when(mockController.getRumblers()).thenReturn(new Rumbler[]{mockRumbler1});
+
+        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        gamepadField.setAccessible(true);
+        gamepadField.set(gamePad, mockController);
+
+        // Act
+        gamePad.rumble(-0.5f);
+
+        // Assert
+        verify(mockRumbler1, never()).rumble(-0.5f);
+    }
+
+    @Test
+    void testRumble_withSequentialCalls() throws NoSuchFieldException, IllegalAccessException {
+        // Arrange
+        GamePad gamePad = new GamePad();
+        Controller mockController = Mockito.mock(Controller.class);
+        Rumbler mockRumbler1 = Mockito.mock(Rumbler.class);
+
+        when(mockController.getRumblers()).thenReturn(new Rumbler[]{mockRumbler1});
+
+        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        gamepadField.setAccessible(true);
+        gamepadField.set(gamePad, mockController);
+
+        // Act
+        gamePad.rumble(0.3f);
+        gamePad.rumble(0.6f);
+
+        // Assert
+        verify(mockRumbler1, times(1)).rumble(0.3f);
+        verify(mockRumbler1, times(1)).rumble(0.6f);
+    }
+
+    @Test
     void testRumble_noGamepad() {
         // Arrange
         GamePad gamePad = new GamePad();
 
         // Act and Assert
         assertDoesNotThrow(() -> gamePad.rumble(0.5f), "Rumble should not throw an exception if no gamepad is connected.");
+    }
+
+
+    @Test
+    void testProcessInput_UP() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
+        GamePad gamePad = spy(new GamePad());
+        XBoxWirelessControllerGamepadPadMapping gamepadMapping = new XBoxWirelessControllerGamepadPadMapping();
+        Controller mockController = Mockito.mock(Controller.class);
+
+        Field gamepadMappingField = GamePad.class.getDeclaredField("activeGamePadMapping");
+        gamepadMappingField.setAccessible(true);
+        gamepadMappingField.set(gamePad, gamepadMapping);
+
+        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        gamepadField.setAccessible(true);
+        gamepadField.set(gamePad, mockController);
+
+        Component mockComponent = Mockito.mock(Component.class);
+        when(mockComponent.getPollData()).thenReturn(-1.0f);
+        when(mockComponent.getName()).thenReturn(gamepadMapping.getY_AxisComponentName());
+
+
+        Method processInputFunction = GamePad.class.getDeclaredMethod("processInput", Component.class);
+        processInputFunction.setAccessible(true);
+        processInputFunction.invoke(gamePad, mockComponent);
+
+        Field userInputBundle = GamePad.class.getDeclaredField("userInputBundle");
+        userInputBundle.setAccessible(true);
+        UserInputBundle userInputBundleInstance = (UserInputBundle) userInputBundle.get(gamePad);
+
+        assertTrue(userInputBundleInstance.contains(UserInputType.UP));
+
+
+    }
+
+    @Test
+    void testProcessInput_DOWN() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
+        GamePad gamePad = spy(new GamePad());
+        XBoxWirelessControllerGamepadPadMapping gamepadMapping = new XBoxWirelessControllerGamepadPadMapping();
+        Controller mockController = Mockito.mock(Controller.class);
+
+        Field gamepadMappingField = GamePad.class.getDeclaredField("activeGamePadMapping");
+        gamepadMappingField.setAccessible(true);
+        gamepadMappingField.set(gamePad, gamepadMapping);
+
+        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        gamepadField.setAccessible(true);
+        gamepadField.set(gamePad, mockController);
+
+        Component mockComponent = Mockito.mock(Component.class);
+        when(mockComponent.getPollData()).thenReturn(1.0f);
+        when(mockComponent.getName()).thenReturn(gamepadMapping.getY_AxisComponentName());
+
+
+        Method processInputFunction = GamePad.class.getDeclaredMethod("processInput", Component.class);
+        processInputFunction.setAccessible(true);
+        processInputFunction.invoke(gamePad, mockComponent);
+
+        Field userInputBundle = GamePad.class.getDeclaredField("userInputBundle");
+        userInputBundle.setAccessible(true);
+        UserInputBundle userInputBundleInstance = (UserInputBundle) userInputBundle.get(gamePad);
+
+        assertTrue(userInputBundleInstance.contains(UserInputType.DOWN));
+    }
+
+
+    @Test
+    void testProcessInput_RIGHT() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
+        GamePad gamePad = spy(new GamePad());
+        XBoxWirelessControllerGamepadPadMapping gamepadMapping = new XBoxWirelessControllerGamepadPadMapping();
+        Controller mockController = Mockito.mock(Controller.class);
+
+        Field gamepadMappingField = GamePad.class.getDeclaredField("activeGamePadMapping");
+        gamepadMappingField.setAccessible(true);
+        gamepadMappingField.set(gamePad, gamepadMapping);
+
+        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        gamepadField.setAccessible(true);
+        gamepadField.set(gamePad, mockController);
+
+        Component mockComponent = Mockito.mock(Component.class);
+        when(mockComponent.getPollData()).thenReturn(1.0f);
+        when(mockComponent.getName()).thenReturn(gamepadMapping.getX_AxisComponentName());
+
+
+        Method processInputFunction = GamePad.class.getDeclaredMethod("processInput", Component.class);
+        processInputFunction.setAccessible(true);
+        processInputFunction.invoke(gamePad, mockComponent);
+
+        Field userInputBundle = GamePad.class.getDeclaredField("userInputBundle");
+        userInputBundle.setAccessible(true);
+        UserInputBundle userInputBundleInstance = (UserInputBundle) userInputBundle.get(gamePad);
+
+        assertTrue(userInputBundleInstance.contains(UserInputType.RIGHT));
+    }
+
+    @Test
+    void testProcessInput_LEFT() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
+        GamePad gamePad = spy(new GamePad());
+        XBoxWirelessControllerGamepadPadMapping gamepadMapping = new XBoxWirelessControllerGamepadPadMapping();
+        Controller mockController = Mockito.mock(Controller.class);
+
+        Field gamepadMappingField = GamePad.class.getDeclaredField("activeGamePadMapping");
+        gamepadMappingField.setAccessible(true);
+        gamepadMappingField.set(gamePad, gamepadMapping);
+
+        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        gamepadField.setAccessible(true);
+        gamepadField.set(gamePad, mockController);
+
+        Component mockComponent = Mockito.mock(Component.class);
+        when(mockComponent.getPollData()).thenReturn(-1.0f);
+        when(mockComponent.getName()).thenReturn(gamepadMapping.getX_AxisComponentName());
+
+
+        Method processInputFunction = GamePad.class.getDeclaredMethod("processInput", Component.class);
+        processInputFunction.setAccessible(true);
+        processInputFunction.invoke(gamePad, mockComponent);
+
+        Field userInputBundle = GamePad.class.getDeclaredField("userInputBundle");
+        userInputBundle.setAccessible(true);
+        UserInputBundle userInputBundleInstance = (UserInputBundle) userInputBundle.get(gamePad);
+
+        assertTrue(userInputBundleInstance.contains(UserInputType.LEFT));
     }
 
 }

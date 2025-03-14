@@ -5,8 +5,8 @@ import de.cargame.model.entity.player.Player;
 import de.cargame.model.handler.PlayerHandler;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class LifeTest {
 

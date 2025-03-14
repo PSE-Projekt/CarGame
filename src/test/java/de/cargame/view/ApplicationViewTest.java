@@ -1,21 +1,21 @@
 package de.cargame.view;
 
+import de.cargame.controller.api.GameInstanceAPI;
+import de.cargame.controller.api.GameStateAPI;
+import de.cargame.controller.api.PlayerAPI;
 import de.cargame.controller.entity.GameState;
+import de.cargame.view.game.GameScene;
+import de.cargame.view.menu.MenuScene;
+import de.cargame.view.scoreboard.ScoreBoardScene;
+import de.cargame.view.selection.SelectionScene;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.MockedConstruction;
 import org.mockito.Mockito;
 import org.testfx.framework.junit5.ApplicationExtension;
-import de.cargame.view.menu.MenuScene;
-import de.cargame.view.selection.SelectionScene;
-import de.cargame.view.scoreboard.ScoreBoardScene;
-import de.cargame.view.game.GameScene;
-import de.cargame.controller.api.GameInstanceAPI;
-import de.cargame.controller.api.GameStateAPI;
-import de.cargame.controller.api.PlayerAPI;
-import javafx.stage.Stage;
 import org.testfx.util.WaitForAsyncUtils;
 
 import static org.junit.jupiter.api.Assertions.*;

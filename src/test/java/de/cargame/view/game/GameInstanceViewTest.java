@@ -5,9 +5,11 @@ import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.api.PlayerAPI;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.controller.entity.GameModelData;
-import de.cargame.model.entity.gameobject.*;
+import de.cargame.model.entity.gameobject.Coordinate;
+import de.cargame.model.entity.gameobject.Dimension;
+import de.cargame.model.entity.gameobject.GameObjectBoundType;
+import de.cargame.model.entity.gameobject.Obstacle;
 import de.cargame.view.ApiHandler;
-import javafx.scene.layout.Pane;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,7 +20,7 @@ import org.testfx.framework.junit5.ApplicationTest;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class GameInstanceViewTest extends ApplicationTest {

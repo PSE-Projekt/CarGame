@@ -1,9 +1,6 @@
 package de.cargame;
 
 import de.cargame.controller.GameApplicationManager;
-import de.cargame.controller.api.GameInstanceAPI;
-import de.cargame.controller.api.GameStateAPI;
-import de.cargame.controller.api.PlayerAPI;
 import de.cargame.view.ApplicationView;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
@@ -12,10 +9,6 @@ import org.mockito.Mockito;
 import java.lang.reflect.Field;
 
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
-
-import javafx.stage.Stage;
-import org.mockito.Mockito;
 
 class CarGameApplicationTest {
 

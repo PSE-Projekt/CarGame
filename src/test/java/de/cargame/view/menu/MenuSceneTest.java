@@ -1,24 +1,21 @@
 package de.cargame.view.menu;
 
-import de.cargame.view.ApiHandler;
-import de.cargame.view.navigation.Navigator;
-import de.cargame.view.navigation.InputReceiver;
-import de.cargame.view.navigation.Selectable;
-import de.cargame.view.navigation.Direction;
 import de.cargame.controller.api.PlayerAPI;
+import de.cargame.view.ApiHandler;
+import de.cargame.view.navigation.Direction;
+import de.cargame.view.navigation.InputReceiver;
+import de.cargame.view.navigation.Navigator;
+import de.cargame.view.navigation.Selectable;
 import javafx.application.Platform;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import org.junit.jupiter.api.BeforeEach;
+import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mockito;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
 import org.testfx.util.WaitForAsyncUtils;
 
 import static org.junit.jupiter.api.Assertions.*;

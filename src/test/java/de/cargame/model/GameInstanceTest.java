@@ -5,8 +5,6 @@ import de.cargame.controller.GameApplicationManager;
 import de.cargame.controller.GameStateController;
 import de.cargame.controller.api.GameStateAPI;
 import de.cargame.controller.entity.GameMode;
-import de.cargame.controller.entity.GameModelData;
-import de.cargame.model.entity.gameobject.GameObject;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.handler.GameStateHandler;
 import de.cargame.model.handler.PlayerHandler;
@@ -15,14 +13,10 @@ import de.cargame.model.service.GameObjectService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
-
 import java.lang.reflect.Field;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class GameInstanceTest {
 

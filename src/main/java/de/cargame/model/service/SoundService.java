@@ -3,8 +3,6 @@ package de.cargame.model.service;
 import de.cargame.model.service.entity.sound.*;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.sound.sampled.Clip;
-
 /**
  * The SoundService class provides a centralized manager for handling
  * various sound effects within an application. It operates as a Singleton,
@@ -104,19 +102,6 @@ public class SoundService {
 
 
     /**
-     * Plays the car race sound in a continuous loop. This method ensures that the car race
-     * sound effect, represented by the `carRaceSoundClip` instance, is reset and then played
-     * in a loop until manually stopped. It is typically used to simulate ongoing car race
-     * gameplay scenarios by providing continuous background auditory feedback.
-     * <p>
-     * The sound will loop indefinitely until the `stopCarRaceSoundLoop` method is invoked to
-     * explicitly stop the playback.
-     */
-    public void playCarRaceSoundLoop() {
-        playSoundAndWaitForFinish(carRaceSoundClip);
-    }
-
-    /**
      * Stops the looping sound associated with the car race.
      * This method resets the sound clip used for the car race sound effects,
      * ensuring it stops playing immediately.
@@ -129,10 +114,5 @@ public class SoundService {
     private void playSound(SoundClip soundClip) {
         soundClip.reset();
         soundClip.play();
-    }
-
-    private void playSoundAndWaitForFinish(SoundClip soundClip) {
-        soundClip.reset();
-        soundClip.loop(Clip.LOOP_CONTINUOUSLY);
     }
 }

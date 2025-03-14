@@ -1,21 +1,19 @@
 package de.cargame.view.navigation;
 
-import de.cargame.controller.input.UserInput;
 import de.cargame.controller.input.UserInputBundle;
 import de.cargame.controller.input.UserInputType;
 import de.cargame.model.service.SoundService;
 import de.cargame.view.ApiHandler;
-import javafx.scene.Scene;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class NavigatorTest {

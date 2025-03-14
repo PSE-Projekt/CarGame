@@ -6,7 +6,6 @@ import de.cargame.model.entity.gameobject.car.player.PlayerCar;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.service.SoundService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.awt.*;
 import java.lang.reflect.Field;
