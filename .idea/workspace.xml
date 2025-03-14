@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="view package test 78% line cvrg">
+    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="remove unnecessary code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/Direction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/navigation/SceneButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/de/cargame/view/ApplicationViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/de/cargame/view/ApplicationViewTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameInstanceView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/cargame/view/game/GameScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="frontend_tests" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -144,7 +143,7 @@
     &quot;JUnit.cargame in CarGameTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.de.cargame in CarGameTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.java in CarGame.executor&quot;: &quot;Coverage&quot;,
-    &quot;JUnit.java in CarGameTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;JUnit.java in CarGameTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.navigation in CarGameTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.selection in CarGameTest.executor&quot;: &quot;Coverage&quot;,
     &quot;JUnit.sprites in CarGameTest.executor&quot;: &quot;Coverage&quot;,
@@ -306,7 +305,8 @@
       <workItem from="1741879326184" duration="4410000" />
       <workItem from="1741891019389" duration="496000" />
       <workItem from="1741894229928" duration="280000" />
-      <workItem from="1741962315085" duration="10476000" />
+      <workItem from="1741962315085" duration="12321000" />
+      <workItem from="1741983425350" duration="4171000" />
     </task>
     <task id="LOCAL-00005" summary="overworked game render">
       <option name="closed" value="true" />
@@ -500,7 +500,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741972623429</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="remove unnecessary code">
+      <option name="closed" value="true" />
+      <created>1741973228030</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1741973228030</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,7 +526,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="overworked game render" />
     <MESSAGE value="beauty enhancement" />
     <MESSAGE value="multiplayer corrections" />
     <MESSAGE value="frontend multiplayer corrections" />
@@ -543,7 +550,8 @@
     <MESSAGE value="navigation package tests" />
     <MESSAGE value="ScoreBoardScene tests in scoreboard package" />
     <MESSAGE value="view package test 78% line cvrg" />
-    <option name="LAST_COMMIT_MESSAGE" value="view package test 78% line cvrg" />
+    <MESSAGE value="remove unnecessary code" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unnecessary code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -601,7 +609,7 @@
     <SUITE FILE_PATH="coverage/CarGameOfficial_v2$de_cargame_in_CarGameTest.ic" NAME="de.cargame in CarGameTest Coverage Results" MODIFIED="1741967607519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>de.cargame.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/CarGameOfficial_v2$java_in_CarGameTest.ic" NAME="java in CarGameTest Coverage Results" MODIFIED="1741972432268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/CarGameOfficial_v2$java_in_CarGameTest.ic" NAME="java in CarGameTest Coverage Results" MODIFIED="1741980520990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/CarGame$java_in_CarGameTest.ic" NAME="java in CarGameTest Coverage Results" MODIFIED="1739231523600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
     <SUITE FILE_PATH="coverage/CarGameOfficial_v2$CarGameApplicationTest.ic" NAME="CarGameApplicationTest Coverage Results" MODIFIED="1741790005648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
       <FILTER>de.cargame.*</FILTER>

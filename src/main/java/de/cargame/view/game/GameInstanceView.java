@@ -21,7 +21,6 @@ import java.util.*;
  */
 class GameInstanceView extends Pane {
     private final SpriteService spriteService;
-    private final Set<Pane> gameUiSet;
     private final Map<GameObject, GameObjectView> objectViewMap;
     private final ApiHandler apiHandler;
     private final int SCREEN_HEIGHT;
@@ -29,16 +28,17 @@ class GameInstanceView extends Pane {
     private final PlayerStats stats;
     private GameModelData modelData;
 
+
     /**
      * Creates a new GameInstanceView for the player using the apiHandler as well as his playerID
      */
     public GameInstanceView(ApiHandler apiHandler, String playerID) {
         this.objectViewMap = new HashMap<>();
-        this.gameUiSet = new HashSet<>();
         this.spriteService = new SpriteService();
         this.apiHandler = apiHandler;
         this.SCREEN_WIDTH = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_WIDTH);
         this.SCREEN_HEIGHT = GameConfigService.getInstance().loadInteger(ConfigKey.SCREEN_HEIGHT);
+
 
         // Initialize player stats
         this.stats = new PlayerStats();
@@ -63,35 +63,75 @@ class GameInstanceView extends Pane {
     }
 
     /**
-     * Renders the game instance.
+     * Renders the game instance safely, avoiding ConcurrentModificationException.
      */
     void render() {
         List<GameObject> gameObjects = modelData.getGameObjects();
 
         // Remove objects that no longer exist in the game
-        objectViewMap.entrySet().removeIf(entry -> !gameObjects.contains(entry.getKey()));
+        objectViewMap.entrySet().removeIf(entry -> {
+            if (!gameObjects.contains(entry.getKey())) {
+                return true;
+            } else if (entry.getKey() instanceof Life life && life.isCollected()) {
+                gameObjects.remove(entry.getKey());
+                this.getChildren().remove(entry.getValue());
+                return true;
+            }
 
+            return false;
+        });
+
+        // Collect missing objects first to avoid modifying the map while iterating
+        List<GameObject> missingObjects = new ArrayList<>();
         for (GameObject gameObject : gameObjects) {
-            objectViewMap.computeIfAbsent(gameObject, this::createObjectView);
-            GameObjectView objectView = objectViewMap.get(gameObject);
+            if (!objectViewMap.containsKey(gameObject)) {
+                missingObjects.add(gameObject);
+            }
+        }
 
+        // Add missing objects separately
+        for (GameObject gameObject : missingObjects) {
+            GameObjectView objectView = createObjectView(gameObject);
+            if (objectView != null) {
+                objectViewMap.put(gameObject, objectView);
+            }
+        }
+
+        // Update existing objects
+        for (GameObject gameObject : gameObjects) {
+            GameObjectView objectView = objectViewMap.get(gameObject);
             if (objectView != null) {
                 updateObjectView(objectView, gameObject);
             }
         }
+
         stats.toFront();
     }
 
+
     /**
-     * Creates a GameObjectView for a given GameObject.
+     * Creates a GameObjectView for a given GameObject and inserts it at the correct layer.
      */
     private GameObjectView createObjectView(GameObject gameObject) {
         GameObjectView objectView = getSpriteForGameObject(gameObject);
         if (objectView != null) {
-            this.getChildren().add(objectView);
+            objectViewMap.put(gameObject, objectView);
+
+            // Find the correct insertion index using compareTo
+            int index = 0;
+            for (; index < this.getChildren().size(); index++) {
+                if (this.getChildren().get(index) instanceof GameObjectView existingView) {
+                    if (existingView.compareTo(objectView) > 0) { // Uses compareTo method
+                        break;
+                    }
+                }
+            }
+
+            this.getChildren().add(index, objectView);
         }
         return objectView;
     }
+
 
     /**
      * Retrieves the appropriate sprite for the given GameObject.
@@ -135,6 +175,14 @@ class GameInstanceView extends Pane {
         }
         if (objectView.getFitHeight() != gameObject.getHeight()) {
             objectView.setFitHeight(gameObject.getHeight());
+        }
+
+        if (gameObject instanceof AgileCar agileCar && agileCar.hasCrashCooldown()) {
+            objectView.setOpacity(0.5);
+        } else if (gameObject instanceof FastCar fastCar && fastCar.hasCrashCooldown()) {
+            objectView.setOpacity(0.5);
+        } else {
+            objectView.setOpacity(1);
         }
     }
 

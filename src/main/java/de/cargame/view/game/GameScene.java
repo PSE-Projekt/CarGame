@@ -1,5 +1,7 @@
 package de.cargame.view.game;
 
+import de.cargame.config.ConfigKey;
+import de.cargame.config.GameConfigService;
 import de.cargame.controller.api.PlayerAPI;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.view.ApiHandler;
@@ -34,7 +36,8 @@ public class GameScene extends CustomScene {
         super(apiHandler);
         this.configureRoot();
         this.active = false;
-        this.timeline = new Timeline(new KeyFrame(Duration.millis(1000.0 / 120), e -> render()));
+        int fpsIndex = GameConfigService.getInstance().loadInteger(ConfigKey.FPS);
+        this.timeline = new Timeline(new KeyFrame(Duration.millis(fpsIndex), e -> render()));
         this.timeline.setCycleCount(Animation.INDEFINITE);
     }
 
