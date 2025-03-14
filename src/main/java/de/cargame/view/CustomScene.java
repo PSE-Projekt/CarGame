@@ -49,11 +49,7 @@ public abstract class CustomScene extends Scene {
 
         root.setAlignment(Pos.CENTER);
         root.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
-        root.setMaxHeight(SCREEN_HEIGHT);
-        root.setMinHeight(SCREEN_HEIGHT);
         root.setPrefHeight(SCREEN_WIDTH);
-        root.setMaxWidth(SCREEN_WIDTH);
-        root.setMinWidth(SCREEN_WIDTH);
         root.setPrefWidth(SCREEN_WIDTH);
         root.setAlignment(Pos.CENTER);
     }

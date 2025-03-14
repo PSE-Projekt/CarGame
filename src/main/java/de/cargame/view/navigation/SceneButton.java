@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -15,6 +16,7 @@ import java.util.Objects;
  * Serves as the foundation for the buttons in navigable scenes. Child classes
  * will implement the functions provided by Selectable.
  */
+@Slf4j
 public abstract class SceneButton extends Selectable implements Clickable {
     protected final Image defaultDisplay;
     protected final Image displayOnSelection;
@@ -39,7 +41,7 @@ public abstract class SceneButton extends Selectable implements Clickable {
         try {
             image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(path)));
         } catch (NullPointerException | IllegalArgumentException e) {
-            System.err.println("image in path: " + path + " couldn't be loaded");
+            log.error("image in path: " + path + " couldn't be loaded");
         }
         return image;
     }

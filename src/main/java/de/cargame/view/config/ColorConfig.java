@@ -7,5 +7,4 @@ import lombok.NoArgsConstructor;
 public class ColorConfig {
     public static final Color PRIMARY_MAIN = Color.web("#009783");
     public static final Color SECONDARY_MAIN = Color.web("#5F38B5");
-    public static final Color BACKGROUND_MAIN = Color.web("#131D34");
 }

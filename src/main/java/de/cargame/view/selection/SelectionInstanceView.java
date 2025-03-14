@@ -25,7 +25,6 @@ public class SelectionInstanceView extends Pane {
     private final Navigator assignedNavigator;
     private final SelectionScene handlingScene;
     private final boolean oneInputMode;
-
     private final Selectable backToMenuButton;
     private final Selectable fastCarButton;
     private final Selectable agileCarButton;
