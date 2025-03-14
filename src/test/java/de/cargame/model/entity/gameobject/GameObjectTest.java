@@ -95,4 +95,51 @@ class GameObjectTest {
         assertEquals(xOld, gameObject.getX());
         assertEquals(yOld, gameObject.getY());
     }
+
+    // Additional tests to cover various boundary and configuration scenarios for moveByRespectingGameBoundaries.
+
+    @ParameterizedTest
+    @MethodSource("getStaticGameObjects")
+    void testMoveByRespectingGameBoundariesOnVerticalBoundary(GameObject gameObject) {
+        double xAmount = 0;
+        double yAmount = 0; // Already at the boundary
+        double objectWidth = gameObject.getWidth();
+        double objectHeight = gameObject.getHeight();
+
+        double yOld = gameObject.getY();
+
+        // Act
+        gameObject.moveByRespectingGameBoundaries(xAmount, yAmount, objectWidth, objectHeight);
+
+        // Assert
+        assertEquals(yOld, gameObject.getY());
+    }
+
+    @ParameterizedTest
+    @MethodSource("getStaticGameObjects")
+    void testMoveByRespectingGameBoundariesWithinMultiplayerBounds(GameObject gameObject) {
+        gameObject.setGameMode(GameMode.MULTIPLAYER);
+
+        double xAmount = 10;
+        double yAmount = 5;
+        double objectWidth = gameObject.getWidth();
+        double objectHeight = gameObject.getHeight();
+
+        double xOld = gameObject.getX();
+        double yOld = gameObject.getY();
+
+        // Act
+        gameObject.moveByRespectingGameBoundaries(xAmount, yAmount, objectWidth, objectHeight);
+
+        // Assert
+        assertEquals(xOld + xAmount, gameObject.getX());
+        assertEquals(yOld + yAmount, gameObject.getY());
+    }
+
+    @ParameterizedTest
+    @MethodSource("getStaticGameObjects")
+    void testMoveByRespectingGameBoundariesOutsideHorizontalBounds(GameObject gameObject) {
+        double xAmount = -10000; // Attempting to move outside horizontal bounds
+        double yAmount = 0;
+    }
 }

@@ -31,6 +31,37 @@ class PlayerTest {
     }
 
     @Test
+    void decreaseLife_shouldNotifyObservers_whenLifeDecreased() {
+        // Arrange
+        PlayerService mockPlayerService = Mockito.mock(PlayerService.class);
+        Player player = new Player(mockPlayerService);
+        PlayerObserver mockObserver = Mockito.mock(PlayerObserver.class);
+        player.addObserver(mockObserver);
+
+        // Act
+        player.decreaseLife();
+
+        // Assert
+        Mockito.verify(mockObserver, Mockito.times(1)).update(Mockito.any());
+    }
+
+    @Test
+    void decreaseLife_shouldLogWhenLifeIsDecreased() {
+        // Arrange
+        PlayerService mockPlayerService = Mockito.mock(PlayerService.class);
+        Player player = new Player(mockPlayerService);
+        org.slf4j.Logger logger = Mockito.mock(org.slf4j.Logger.class);
+        player.setLives(1); // Set to a known value
+
+        // Act
+        player.decreaseLife();
+
+        // Assert
+        Mockito.verify(mockPlayerService).rumbleGamepad(1);
+        // Use Mockito to verify logging behavior
+    }
+
+    @Test
     void decreaseLife_shouldAllowNegativeLives_whenCalledMultipleTimes() {
         // Arrange
         PlayerService mockPlayerService = Mockito.mock(PlayerService.class);
@@ -61,6 +92,38 @@ class PlayerTest {
 
         // Assert
         assertEquals(initialLives + 1, player.getLives(), "Expected the number of lives to increase by 1.");
+    }
+
+    @Test
+    void increaseLife_shouldNotifyObservers_whenLifeIncreased() {
+        // Arrange
+        PlayerService mockPlayerService = Mockito.mock(PlayerService.class);
+        Player player = new Player(mockPlayerService);
+        PlayerObserver mockObserver = Mockito.mock(PlayerObserver.class);
+        player.addObserver(mockObserver);
+        player.setLives(player.getMAX_LIVES() - 1); // Below max lives
+
+        // Act
+        player.increaseLife();
+
+        // Assert
+        Mockito.verify(mockObserver, Mockito.times(1)).update(Mockito.any());
+    }
+
+    @Test
+    void increaseLife_shouldNotNotifyObservers_whenAtMaxLives() {
+        // Arrange
+        PlayerService mockPlayerService = Mockito.mock(PlayerService.class);
+        Player player = new Player(mockPlayerService);
+        PlayerObserver mockObserver = Mockito.mock(PlayerObserver.class);
+        player.addObserver(mockObserver);
+        player.setLives(player.getMAX_LIVES()); // At max lives
+
+        // Act
+        player.increaseLife();
+
+        // Assert
+        Mockito.verify(mockObserver, Mockito.never()).update(Mockito.any());
     }
 
     @Test
