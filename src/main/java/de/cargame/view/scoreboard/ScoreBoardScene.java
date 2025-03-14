@@ -13,6 +13,7 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import lombok.Getter;
 
 /**
  * Renders the scoreboard view, displaying the scores and rankings as
@@ -21,6 +22,7 @@ import javafx.scene.text.Text;
  */
 public class ScoreBoardScene extends CustomScene {
     private final int SceneSegments = 3;
+    @Getter
     private final HBox buttonContainer;
     private final Navigator navigator;
     private final VBox sceneContent;
