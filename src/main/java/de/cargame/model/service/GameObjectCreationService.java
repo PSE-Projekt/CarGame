@@ -30,6 +30,7 @@ import java.util.Random;
 public class GameObjectCreationService {
 
     private final GameConfigService configService = GameConfigService.getInstance();
+    Random r = new Random();
     private int FAST_CAR_WIDTH;
     private int AGILE_CAR_WIDTH;
     private int BUILDING_WIDTH;
@@ -110,7 +111,7 @@ public class GameObjectCreationService {
      * @throws InvalidCarSelectionException if an invalid or unsupported car type is specified.
      */
     public PlayerCar createPlayerCar(CarType carType) {
-        if(carType != null){
+        if (carType != null) {
             Dimension dimension;
             SpawnAreaList playerSpawnAreas = gameObjectSpawningStrategy.getPlayerSpawnAreas();
             SpawnArea spawnArea = playerSpawnAreas.getRandomSpawnArea();
@@ -226,7 +227,7 @@ public class GameObjectCreationService {
 
 
     AICarType getRandomAICarType() {
-        return AICarType.values()[new Random().nextInt(AICarType.values().length)];
+        return AICarType.values()[r.nextInt(AICarType.values().length)];
     }
 
 }

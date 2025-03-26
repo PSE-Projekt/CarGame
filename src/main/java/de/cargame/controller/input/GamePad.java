@@ -21,14 +21,13 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class GamePad extends InputDevice {
 
+    private static final double DEADZONE = 0.4; //prevent stick drift
     private final List<UserInputObserver> userInputObserverList = new CopyOnWriteArrayList<>();
     private final UserInputBundle userInputBundle;
     ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-    private Controller gamepad;
+    private Controller jinputGamepad;
     private GamePadMapping activeGamePadMapping;
     private int POLLING_RATE = 5; //ms
-    private final double DEADZONE = 0.4; //prevent stick drift
-
 
 
     public GamePad() {
@@ -44,10 +43,10 @@ public class GamePad extends InputDevice {
      * @param intensity the strength of the rumble vibration, where a value of 0.0 represents no vibration
      *                  and higher values represent stronger vibrations.
      */
-    public void rumble(float intensity){
-        if(gamepad != null && intensity >= 0) {
+    public void rumble(float intensity) {
+        if (jinputGamepad != null && intensity >= 0) {
 
-            Rumbler[] rumblers = gamepad.getRumblers();
+            Rumbler[] rumblers = jinputGamepad.getRumblers();
             for (Rumbler rumbler : rumblers) {
                 rumbler.rumble(intensity);
             }
@@ -55,9 +54,9 @@ public class GamePad extends InputDevice {
     }
 
     private void init() {
-        gamepad = getGamepadController();
+        jinputGamepad = getGamepadController();
 
-        if (gamepad == null) {
+        if (jinputGamepad == null) {
             log.info("No gamepad found - to connect a gamepad please connect it to the computer and restart the game");
             return;
         }
@@ -74,7 +73,7 @@ public class GamePad extends InputDevice {
      *                  input-related component that provides polling data for determining user interactions.
      */
     private void processInput(Component component) {
-        activeGamePadMapping = getGamePadMapping(gamepad.getName());
+        activeGamePadMapping = getGamePadMapping(jinputGamepad.getName());
         float value = component.getPollData();
         if (activeGamePadMapping.getX_AxisComponentName().equals(component.getName())) {
             if (Math.abs(value) < DEADZONE) { // Neutral
@@ -91,7 +90,6 @@ public class GamePad extends InputDevice {
         }
 
         if (activeGamePadMapping.getY_AxisComponentName().equals(component.getName())) {
-            System.out.println(component.getName() + " "+value);
             if (Math.abs(value) < DEADZONE) { // Neutral
                 userInputBundle.removeUserInput(UserInputType.UP);
                 userInputBundle.removeUserInput(UserInputType.DOWN);
@@ -115,12 +113,12 @@ public class GamePad extends InputDevice {
 
     private Controller getGamepadController() {
         ControllerEnvironment ce = ControllerEnvironment.getDefaultEnvironment();
-            for (Controller polledGamepad : ce.getControllers()) {
-                log.info("Detected controller: " + polledGamepad.getName() + " (Type: " + polledGamepad.getType() + ")");
-                if (polledGamepad.getType() == Controller.Type.STICK || polledGamepad.getType() == Controller.Type.GAMEPAD) {
-                    return polledGamepad;
-                }
+        for (Controller polledGamepad : ce.getControllers()) {
+            log.info("Detected controller: " + polledGamepad.getName() + " (Type: " + polledGamepad.getType() + ")");
+            if (polledGamepad.getType() == Controller.Type.STICK || polledGamepad.getType() == Controller.Type.GAMEPAD) {
+                return polledGamepad;
             }
+        }
         log.info("No compatible gamepad or stick found.");
         return null; // No gamepad found
     }
@@ -129,9 +127,9 @@ public class GamePad extends InputDevice {
         GamePadMapping mapping = null;
 
         Optional<GamePadMapping> gamePadMapping = GamePads.getGamePadMapping(gamepadName);
-        if(gamePadMapping.isPresent()){
-
-        }else {
+        if (gamePadMapping.isPresent()) {
+            mapping = gamePadMapping.get();
+        } else {
             mapping = GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping();
         }
         if (GamePads.XBOX_WIRELESS_CONTROLLER.getGamePadMapping().getControllerName().equals(gamepadName)) {
@@ -168,23 +166,27 @@ public class GamePad extends InputDevice {
 
     private void processGamePadInput() {
         try {
-            gamepad.poll();
-            EventQueue queue = gamepad.getEventQueue();
+            jinputGamepad.poll();
+            EventQueue queue = jinputGamepad.getEventQueue();
             Event event = new Event();
 
             while (queue.getNextEvent(event)) {
-                try {
-                    Component[] components = gamepad.getComponents();
-                    for (Component component : components) {
-                        processInput(component);
-                    }
-                    notifyObservers(userInputBundle);
-                } catch (Exception e) {
-                    log.error("An error occurred while processing gamepad input", e);
-                }
+                processEvent();
             }
         } catch (Exception e) {
             log.error("An error occurred during gamepad polling", e);
+        }
+    }
+
+    private void processEvent() {
+        try {
+            Component[] components = jinputGamepad.getComponents();
+            for (Component component : components) {
+                processInput(component);
+            }
+            notifyObservers(userInputBundle);
+        } catch (Exception e) {
+            log.error("An error occurred while processing gamepad input", e);
         }
     }
 }

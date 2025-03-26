@@ -14,6 +14,21 @@ import static org.mockito.Mockito.mock;
 
 class GameObjectTest {
 
+    private static List<GameObject> getStaticGameObjects() {
+        List<GameObject> objects = new ArrayList<>();
+        Coordinate realCoordinate = new Coordinate(1000, 100);
+        Dimension mockDimension = mock(Dimension.class);
+        GameMode mockGameMode = mock(GameMode.class);
+
+        objects.add(new Building(realCoordinate, mockDimension, GameObjectBoundType.RECTANGLE, mockGameMode));
+        objects.add(new Obstacle(realCoordinate, mockDimension, GameObjectBoundType.RECTANGLE, mockGameMode));
+        objects.add(new Life(realCoordinate, mockDimension, GameObjectBoundType.RECTANGLE, mockGameMode));
+        objects.add(new RoadMark(realCoordinate, mockDimension, GameObjectBoundType.RECTANGLE, mockGameMode));
+
+
+        return objects;
+    }
+
     @Test
     void testMoveByRespectingGameBoundariesOutsideHorizontalBounds() {
         double xAmount = 10;
@@ -47,22 +62,6 @@ class GameObjectTest {
         assertEquals(xOld, agileCar.getX());
         assertEquals(yOld, agileCar.getY());
     }
-
-    private static List<GameObject> getStaticGameObjects() {
-        List<GameObject> objects = new ArrayList<>();
-        Coordinate realCoordinate = new Coordinate(1000, 100);
-        Dimension mockDimension = mock(Dimension.class);
-        GameMode mockGameMode = mock(GameMode.class);
-
-        objects.add(new Building(realCoordinate, mockDimension, GameObjectBoundType.RECTANGLE, mockGameMode));
-        objects.add(new Obstacle(realCoordinate, mockDimension, GameObjectBoundType.RECTANGLE, mockGameMode));
-        objects.add(new Life(realCoordinate, mockDimension, GameObjectBoundType.RECTANGLE, mockGameMode));
-        objects.add(new RoadMark(realCoordinate, mockDimension, GameObjectBoundType.RECTANGLE, mockGameMode));
-
-
-        return objects;
-    }
-
 
     @ParameterizedTest
     @MethodSource("getStaticGameObjects")

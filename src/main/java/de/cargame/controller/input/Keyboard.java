@@ -18,18 +18,21 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class Keyboard extends InputDevice {
 
+    private static final float KEY_PRESSED = 1.0f;
+    private static final float KEY_RELEASED = 0.0f;
     private final UserInputBundle userInputBundle;
     private final List<UserInputObserver> userInputObservers;
     private final ScheduledExecutorService scheduler;
-    private Controller keyboard;
+    private Controller jinputKeyboard;
+
 
     public Keyboard() {
         this.userInputBundle = new UserInputBundle();
         this.userInputObservers = new ArrayList<>();
         this.scheduler = Executors.newSingleThreadScheduledExecutor();
-        this.keyboard = findKeyboard();
+        this.jinputKeyboard = findKeyboard();
 
-        if (this.keyboard == null) {
+        if (this.jinputKeyboard == null) {
             log.warn("No keyboard found!");
         } else {
             startKeyboardProcessing();
@@ -72,45 +75,66 @@ public class Keyboard extends InputDevice {
      * corresponding user input state in the `userInputBundle`.
      */
     private void processKeyboardInput() {
-        if (keyboard == null) {
+        if (jinputKeyboard == null) {
             log.warn("No keyboard available to process input.");
             return;
         }
 
-        keyboard.poll();
-        EventQueue queue = keyboard.getEventQueue();
+        jinputKeyboard.poll();
+        EventQueue eventQueue = jinputKeyboard.getEventQueue();
         Event event = new Event();
 
-        while (queue.getNextEvent(event)) {
-            Component component = event.getComponent();
-            String componentName = component.getName();
-
-            if (componentName != null && !componentName.isBlank()) {
-                log.debug("Processing keyboard input: {}", componentName);
-
-                char key = componentName.toLowerCase().charAt(0);
-                Optional<UserInputType> userInputTypeOptional = UserInputType.getUserInputForKeyCode(key);
-
-                if (userInputTypeOptional.isPresent()) {
-                    UserInputType userInput = userInputTypeOptional.get();
-                    float value = event.getValue();
-
-                    if (value == 1.0) { // Key pressed
-                        userInputBundle.addUserInput(userInput);
-                    } else if (value == 0.0) { // Key released
-                        userInputBundle.removeUserInput(userInput);
-
-                        // Ensure at least NONE is present if no input remains
-                        if (userInputBundle.isEmpty() && !userInputBundle.contains(UserInputType.NONE)) {
-                            userInputBundle.addUserInput(UserInputType.NONE);
-                        }
-                    }
-
-                    notifyObservers(userInputBundle);
-                }
-            }
+        while (eventQueue.getNextEvent(event)) {
+            handleKeyboardEvent(event);
         }
     }
+
+    private void handleKeyboardEvent(Event event) {
+        Component component = event.getComponent();
+        String componentName = component.getName();
+
+        if (isInvalidComponentName(componentName)) {
+            return;
+        }
+
+        log.debug("Processing keyboard input: {}", componentName);
+        char keyChar = componentName.toLowerCase().charAt(0);
+        Optional<UserInputType> userInputTypeOptional = UserInputType.getUserInputForKeyCode(keyChar);
+
+        userInputTypeOptional.ifPresent(userInput -> processUserInput(event, userInput));
+    }
+
+    private void processUserInput(Event event, UserInputType userInput) {
+        float eventValue = event.getValue();
+
+        if (isKeyPressed(eventValue)) {
+            userInputBundle.addUserInput(userInput);
+        } else if (isKeyReleased(eventValue)) {
+            userInputBundle.removeUserInput(userInput);
+            ensureNoneIsPresentIfEmpty();
+        }
+
+        notifyObservers(userInputBundle);
+    }
+
+    private boolean isKeyPressed(float value) {
+        return value == KEY_PRESSED;
+    }
+
+    private boolean isKeyReleased(float value) {
+        return value == KEY_RELEASED;
+    }
+
+    private boolean isInvalidComponentName(String name) {
+        return name == null || name.isBlank();
+    }
+
+    private void ensureNoneIsPresentIfEmpty() {
+        if (userInputBundle.isEmpty() && !userInputBundle.contains(UserInputType.NONE)) {
+            userInputBundle.addUserInput(UserInputType.NONE);
+        }
+    }
+
 
     @Override
     public void registerObserver(UserInputObserver o) {

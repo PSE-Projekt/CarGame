@@ -17,7 +17,7 @@ import lombok.Getter;
  */
 public class Score {
 
-    private final double DEFAULT_VALUE = 0;
+    private static final double DEFAULT_VALUE = 0;
     @Getter
     private double value = 0;
 
@@ -29,7 +29,7 @@ public class Score {
      *              to the current score.
      */
     public void increaseScore(double value) {
-        if(value >= 0) {
+        if (value >= 0) {
             this.value += value;
         }
     }

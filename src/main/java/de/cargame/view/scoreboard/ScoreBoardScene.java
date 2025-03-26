@@ -21,7 +21,7 @@ import lombok.Getter;
  * the game’s results in great detail, using data provided by the APIHandler.
  */
 public class ScoreBoardScene extends CustomScene {
-    private final int SceneSegments = 3;
+    private static final int SCENE_SEGMENTS = 3;
     @Getter
     private final HBox buttonContainer;
     private final Navigator navigator;
@@ -56,7 +56,7 @@ public class ScoreBoardScene extends CustomScene {
         this.buttonContainer = new HBox(50);
         this.buttonContainer.getChildren().addAll(backToMenuButton, playAgainButton);
         this.buttonContainer.setAlignment(Pos.CENTER);
-        this.buttonContainer.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / SceneSegments);
+        this.buttonContainer.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / SCENE_SEGMENTS);
 
         ((VBox) this.getRoot()).getChildren().add(sceneContent);
 
@@ -74,7 +74,7 @@ public class ScoreBoardScene extends CustomScene {
 
         VBox titleContainer = new VBox();
         titleContainer.setAlignment(Pos.CENTER);
-        titleContainer.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / SceneSegments);
+        titleContainer.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / SCENE_SEGMENTS);
         titleContainer.getChildren().add(scoreTitle);
 
         GameStateAPI gameStateApi = this.apiHandler.getGameStateApi();
@@ -86,7 +86,7 @@ public class ScoreBoardScene extends CustomScene {
         }
 
         ScoreView scoreView = new ScoreView(this.apiHandler);
-        scoreView.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / SceneSegments);
+        scoreView.setPrefSize(sceneContent.getPrefWidth(), sceneContent.getPrefHeight() / SCENE_SEGMENTS);
 
         sceneContent.getChildren().addAll(titleContainer, scoreView, this.buttonContainer);
 

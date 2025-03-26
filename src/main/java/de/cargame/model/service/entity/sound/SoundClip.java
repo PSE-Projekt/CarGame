@@ -1,5 +1,6 @@
 package de.cargame.model.service.entity.sound;
 
+import de.cargame.exception.SoundFileException;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -93,7 +94,7 @@ public abstract class SoundClip {
     protected void loadSoundFile(String soundFilePath) {
         InputStream soundClipInputStream = getClass().getResourceAsStream(soundFilePath);
         if (soundClipInputStream == null) {
-            throw new RuntimeException("Sound file not found: " + soundFilePath);
+            throw new SoundFileException("Sound file not found: " + soundFilePath);
         }
 
         BufferedInputStream bufferedStream = null;
@@ -103,7 +104,7 @@ public abstract class SoundClip {
             this.clip = AudioSystem.getClip();
             this.clip.open(audioIn);
         } catch (LineUnavailableException | UnsupportedAudioFileException | IOException e) {
-            throw new RuntimeException("Failed to load sound file: " + soundFilePath, e);
+            throw new SoundFileException("Failed to load sound file: " + soundFilePath);
         } finally {
             try {
                 if (bufferedStream != null) {

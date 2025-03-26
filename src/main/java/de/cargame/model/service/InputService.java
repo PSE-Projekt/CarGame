@@ -62,7 +62,7 @@ public class InputService {
      * @param intensity the intensity of the rumble effect, where 0.0 represents no rumble
      *                  and 1.0 represents full intensity.
      */
-    public void rumble(float intensity){
+    public void rumble(float intensity) {
         this.gamePad.rumble(intensity);
     }
 

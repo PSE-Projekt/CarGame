@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(ApplicationExtension.class)
-public class MenuSceneTest {
+class MenuSceneTest {
 
     private MenuScene menuScene;
     private ApiHandler mockApiHandler;
@@ -49,7 +49,7 @@ public class MenuSceneTest {
     }
 
     @Test
-    public void testUIElementsAreInitialized() {
+    void testUIElementsAreInitialized() {
         VBox root = (VBox) menuScene.getRoot();
         assertNotNull(root, "Root should not be null");
 
@@ -63,7 +63,7 @@ public class MenuSceneTest {
     }
 
     @Test
-    public void testButtonsAreConfiguredCorrectly() {
+    void testButtonsAreConfiguredCorrectly() {
         Selectable singlePlayerButton = menuScene.getSinglePlayerButton();
         Selectable multiPlayerButton = menuScene.getMultiPlayerButton();
 
@@ -75,7 +75,7 @@ public class MenuSceneTest {
     }
 
     @Test
-    public void testSetup_CorrectlyAssignsNavigators() {
+    void testSetup_CorrectlyAssignsNavigators() {
         when(mockPlayerApi.getGamepadPlayerId()).thenReturn("gamepadPlayer");
         when(mockPlayerApi.getKeyboardPlayerId()).thenReturn("keyboardPlayer");
 

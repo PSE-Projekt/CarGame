@@ -20,7 +20,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-public class PlayerCarTest {
+class PlayerCarTest {
 
     @Mock
     private Coordinate coordinate;

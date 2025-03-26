@@ -11,7 +11,7 @@ public abstract class GamePadMapping {
     protected String fastForwardComponentName;
 
 
-    public GamePadMapping() {
+    protected GamePadMapping() {
         setControllerName();
         setXAxisComponentName();
         setYAxisComponentName();

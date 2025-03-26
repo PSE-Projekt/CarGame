@@ -50,7 +50,6 @@ class PlayerTest {
         // Arrange
         PlayerService mockPlayerService = Mockito.mock(PlayerService.class);
         Player player = new Player(mockPlayerService);
-        org.slf4j.Logger logger = Mockito.mock(org.slf4j.Logger.class);
         player.setLives(1); // Set to a known value
 
         // Act

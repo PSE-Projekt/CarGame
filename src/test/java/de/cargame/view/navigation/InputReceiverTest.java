@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(ApplicationExtension.class)
-public class InputReceiverTest {
+class InputReceiverTest {
 
     private InputReceiver inputReceiver;
     private Navigator mockNavigator;
@@ -24,7 +24,7 @@ public class InputReceiverTest {
     }
 
     @Test
-    public void testAssignNavigator() {
+    void testAssignNavigator() {
         String playerID = "Player1";
 
         inputReceiver.assignNavigator(playerID, mockNavigator);
@@ -34,7 +34,7 @@ public class InputReceiverTest {
     }
 
     @Test
-    public void testUpdate_NotifiesAllNavigators() {
+    void testUpdate_NotifiesAllNavigators() {
         String player1ID = "Player1";
         String player2ID = "Player2";
         Navigator mockNavigator2 = Mockito.mock(Navigator.class);
@@ -50,7 +50,7 @@ public class InputReceiverTest {
     }
 
     @Test
-    public void testClear_RemovesAllNavigators() {
+    void testClear_RemovesAllNavigators() {
         inputReceiver.assignNavigator("Player1", mockNavigator);
         inputReceiver.assignNavigator("Player2", Mockito.mock(Navigator.class));
 
@@ -61,7 +61,7 @@ public class InputReceiverTest {
     }
 
     @Test
-    public void testUpdate_UsesCorrectArguments() {
+    void testUpdate_UsesCorrectArguments() {
         String playerID = "Player1";
         inputReceiver.assignNavigator(playerID, mockNavigator);
 

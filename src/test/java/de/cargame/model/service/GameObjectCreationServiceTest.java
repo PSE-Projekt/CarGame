@@ -3,7 +3,10 @@ package de.cargame.model.service;
 import de.cargame.controller.entity.GameMode;
 import de.cargame.exception.InvalidCarSelectionException;
 import de.cargame.model.entity.gameobject.*;
-import de.cargame.model.entity.gameobject.car.ai.*;
+import de.cargame.model.entity.gameobject.car.ai.AICar;
+import de.cargame.model.entity.gameobject.car.ai.AICarType;
+import de.cargame.model.entity.gameobject.car.ai.KamikazeCar;
+import de.cargame.model.entity.gameobject.car.ai.StraightMovementStrategy;
 import de.cargame.model.entity.gameobject.car.player.AgileCar;
 import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.model.entity.gameobject.car.player.FastCar;
@@ -28,7 +31,7 @@ class GameObjectCreationServiceTest {
      */
 
     @Test
-    void testCreateBuildings_createsListOfBuildings () {
+    void testCreateBuildings_createsListOfBuildings() {
         GameObjectCreationService service = new GameObjectCreationService();
         GameObjectSpawningStrategy mockStrategy = Mockito.mock(GameObjectSpawningStrategy.class);
         SpawnAreaList mockSpawnAreas = Mockito.mock(SpawnAreaList.class);
@@ -52,7 +55,7 @@ class GameObjectCreationServiceTest {
     }
 
     @Test
-    void testCreateBuildings_noSpawnAreas_returnsEmptyList () {
+    void testCreateBuildings_noSpawnAreas_returnsEmptyList() {
         GameObjectCreationService service = new GameObjectCreationService();
         GameObjectSpawningStrategy mockStrategy = Mockito.mock(GameObjectSpawningStrategy.class);
         SpawnAreaList mockSpawnAreas = Mockito.mock(SpawnAreaList.class);

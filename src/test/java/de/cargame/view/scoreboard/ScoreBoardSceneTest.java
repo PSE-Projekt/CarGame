@@ -20,13 +20,11 @@ import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 import org.testfx.util.WaitForAsyncUtils;
 
-import java.util.concurrent.atomic.AtomicReference;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(ApplicationExtension.class)
-public class ScoreBoardSceneTest {
+class ScoreBoardSceneTest {
 
     private ScoreBoardScene scoreBoardScene;
     private ApiHandler mockApiHandler;
@@ -69,7 +67,7 @@ public class ScoreBoardSceneTest {
     }
 
     @Test
-    public void testUIElementsAreInitialized() {
+    void testUIElementsAreInitialized() {
         VBox sceneContent = (VBox) scoreBoardScene.getRoot();
         HBox buttonContainer = scoreBoardScene.getButtonContainer();
 
@@ -79,7 +77,7 @@ public class ScoreBoardSceneTest {
     }
 
     @Test
-    public void testSetup_CorrectlyRendersScoreBoard() {
+    void testSetup_CorrectlyRendersScoreBoard() {
         Platform.runLater(() -> scoreBoardScene.setup());
 
         WaitForAsyncUtils.waitForFxEvents();
@@ -96,12 +94,11 @@ public class ScoreBoardSceneTest {
     }
 
     @Test
-    public void testSetup_ThrowsExceptionIfGameStateNotScoreBoard() {
+    void testSetup_ThrowsExceptionIfGameStateNotScoreBoard() {
         when(mockGameStateApi.getGameState()).thenReturn(GameState.IN_GAME);
-        AtomicReference<IllegalStateException> exception;
 
         Platform.runLater(() -> {
-             assertThrows(IllegalStateException.class, () -> scoreBoardScene.setup());
+            assertThrows(IllegalStateException.class, () -> scoreBoardScene.setup());
         });
     }
 }

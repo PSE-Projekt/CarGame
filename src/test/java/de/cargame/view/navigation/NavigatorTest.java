@@ -57,9 +57,10 @@ class NavigatorTest {
     void testReceiveInputNavigation() {
         Selectable selectableSpy2 = spy(new Selectable() {
             @Override
-            public void deselect() {}
+            public void deselect() { /* dummy */ }
+
             @Override
-            public void select() {}
+            public void select() { /* dummy */ }
         });
 
         UserInputBundle inputBundle = new UserInputBundle();

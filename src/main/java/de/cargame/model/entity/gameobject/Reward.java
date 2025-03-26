@@ -49,4 +49,14 @@ public abstract class Reward extends GameObject {
     protected void setCollidable() {
         this.isCollidable = true;
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
 }

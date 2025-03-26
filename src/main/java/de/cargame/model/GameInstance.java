@@ -73,6 +73,7 @@ public class GameInstance implements Runnable {
                 Thread.sleep(FPS);
             } catch (InterruptedException e) {
                 log.error(e.getMessage());
+                Thread.currentThread().interrupt();
             }
         }
         log.info("Player {} has lost all lives -> game for this player ends", playerId);

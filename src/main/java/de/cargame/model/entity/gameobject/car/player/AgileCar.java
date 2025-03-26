@@ -32,4 +32,14 @@ public class AgileCar extends PlayerCar {
     protected void setSpeed() {
         this.speed = AGILE_CAR_SPEED;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 }

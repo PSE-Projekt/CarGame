@@ -18,11 +18,6 @@ public enum GamePads {
         this.gamePadMapping = gamePadMapping;
     }
 
-
-    public GamePadMapping getGamePadMapping() {
-        return gamePadMapping;
-    }
-
     public static Optional<GamePadMapping> getGamePadMapping(String controllerName) {
         GamePads[] values = GamePads.values();
         for (GamePads value : values) {
@@ -31,5 +26,9 @@ public enum GamePads {
             }
         }
         return Optional.empty();
+    }
+
+    public GamePadMapping getGamePadMapping() {
+        return gamePadMapping;
     }
 }

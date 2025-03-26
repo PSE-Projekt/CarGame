@@ -5,7 +5,6 @@ import de.cargame.controller.input.gamepadmapping.XBoxWirelessControllerGamepadP
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import net.java.games.input.Component;
 import net.java.games.input.Controller;
-import net.java.games.input.EventQueue;
 import net.java.games.input.Rumbler;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -18,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class GamePadTest {
-
 
 
     @Test

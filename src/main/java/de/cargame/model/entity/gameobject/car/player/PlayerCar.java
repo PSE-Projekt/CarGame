@@ -162,4 +162,14 @@ public abstract class PlayerCar extends Car {
     public void setLastCrashTime() {
         lastCrashTime = System.currentTimeMillis();
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
 }

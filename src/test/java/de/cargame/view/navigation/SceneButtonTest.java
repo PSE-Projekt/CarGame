@@ -12,7 +12,7 @@ import org.testfx.framework.junit5.Start;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(ApplicationExtension.class)
-public class SceneButtonTest {
+class SceneButtonTest {
 
     private TestSceneButton sceneButton;
 
@@ -22,19 +22,19 @@ public class SceneButtonTest {
     }
 
     @Test
-    public void testInitialDisplayIsDefault() {
+    void testInitialDisplayIsDefault() {
         ImageView display = sceneButton.getDisplay();
         assertEquals(sceneButton.getDefaultImage(), display.getImage(), "Default image should be displayed initially.");
     }
 
     @Test
-    public void testSelectChangesImage() {
+    void testSelectChangesImage() {
         sceneButton.select();
         assertEquals(sceneButton.getSelectedImage(), sceneButton.getDisplay().getImage(), "Selecting should update the image.");
     }
 
     @Test
-    public void testDeselectRevertsImage() {
+    void testDeselectRevertsImage() {
         sceneButton.select();
         sceneButton.deselect();
         assertEquals(sceneButton.getDefaultImage(), sceneButton.getDisplay().getImage(), "Deselecting should revert to default image.");

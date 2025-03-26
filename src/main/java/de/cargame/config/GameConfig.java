@@ -26,8 +26,8 @@ import java.util.Scanner;
 public class GameConfig {
 
 
+    private static final String GAME_CONFIG_FILE_NAME = "config";
     private final Map<String, String> configMap = new HashMap<>();
-    private final String GAME_CONFIG_FILE_NAME = "config";
 
     public GameConfig() {
         parseConfigFile(GAME_CONFIG_FILE_NAME);

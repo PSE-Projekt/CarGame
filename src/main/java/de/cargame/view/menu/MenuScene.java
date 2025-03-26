@@ -21,13 +21,12 @@ import lombok.Getter;
  * player(s) to the according SelectionScene.
  */
 public class MenuScene extends CustomScene {
+    private static final int SEGMENT_COUNT = 3;
     private final Navigator assignedNavigator;
-
     @Getter
     private final Selectable singlePlayerButton;
     @Getter
     private final Selectable multiPlayerButton;
-    private final int SegmentCount = 3;
 
     /**
      * Creates a new MenuScene, which will be used at the start of the application.
@@ -63,13 +62,13 @@ public class MenuScene extends CustomScene {
         Text menuText = TextConfig.generateTitle("CarGame");
         menuText.setFill(ColorConfig.PRIMARY_MAIN);
         titleContainer.getChildren().add(menuText);
-        titleContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / SegmentCount);
+        titleContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / SEGMENT_COUNT);
 
         Pane spacer = new Pane();
-        spacer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / SegmentCount);
+        spacer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / SEGMENT_COUNT);
 
         HBox buttonContainer = new HBox(30);
-        buttonContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / SegmentCount);
+        buttonContainer.setPrefSize(SCREEN_WIDTH, sceneContent.getPrefHeight() / SEGMENT_COUNT);
         buttonContainer.setAlignment(Pos.CENTER);
         buttonContainer.getChildren().addAll(singlePlayerButton, multiPlayerButton);
 

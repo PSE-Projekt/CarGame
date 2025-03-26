@@ -22,7 +22,7 @@ public abstract class SceneButton extends Selectable implements Clickable {
      * @param pathDefaultImg  image for the idle button
      * @param pathSelectedImg image for the button upon interaction
      */
-    public SceneButton(String pathDefaultImg, String pathSelectedImg) {
+    protected SceneButton(String pathDefaultImg, String pathSelectedImg) {
         this.defaultDisplay = loadImage(pathDefaultImg);
         this.displayOnSelection = loadImage(pathSelectedImg);
         this.display = new ImageView(defaultDisplay);

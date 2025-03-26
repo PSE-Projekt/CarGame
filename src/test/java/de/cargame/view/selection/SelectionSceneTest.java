@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(ApplicationExtension.class)
-public class SelectionSceneTest {
+class SelectionSceneTest {
 
     private SelectionScene selectionScene;
     private ApiHandler mockApiHandler;
@@ -32,7 +32,7 @@ public class SelectionSceneTest {
     private GameStateAPI mockGameStateApi;
 
     @Start
-    public void start(Stage stage) {
+    void start(Stage stage) {
         mockApiHandler = mock(ApiHandler.class);
         mockPlayerApi = mock(PlayerAPI.class);
         mockGameInstanceApi = mock(GameInstanceAPI.class);
@@ -60,7 +60,7 @@ public class SelectionSceneTest {
     }
 
     @Test
-    public void testSetup_CreatesCorrectSelectionViews_Singleplayer() {
+    void testSetup_CreatesCorrectSelectionViews_Singleplayer() {
         when(mockGameStateApi.getGameMode()).thenReturn(GameMode.SINGLEPLAYER);
 
         Platform.runLater(() -> selectionScene.setup());
@@ -71,7 +71,7 @@ public class SelectionSceneTest {
     }
 
     @Test
-    public void testSetup_CreatesCorrectSelectionViews_Multiplayer() {
+    void testSetup_CreatesCorrectSelectionViews_Multiplayer() {
         when(mockGameStateApi.getGameMode()).thenReturn(GameMode.MULTIPLAYER);
 
         Platform.runLater(() -> selectionScene.setup());
@@ -82,7 +82,7 @@ public class SelectionSceneTest {
     }
 
     @Test
-    public void testProceedToGame_SingleplayerMode() {
+    void testProceedToGame_SingleplayerMode() {
         when(mockGameStateApi.getGameMode()).thenReturn(GameMode.SINGLEPLAYER);
         SelectionInstanceView mockSelectionView = mock(SelectionInstanceView.class);
         when(mockSelectionView.isReady()).thenReturn(true);
@@ -98,7 +98,7 @@ public class SelectionSceneTest {
     }
 
     @Test
-    public void testProceedToGame_MultiplayerMode() {
+    void testProceedToGame_MultiplayerMode() {
         when(mockGameStateApi.getGameMode()).thenReturn(GameMode.MULTIPLAYER);
         SelectionInstanceView mockSelectionView1 = mock(SelectionInstanceView.class);
         SelectionInstanceView mockSelectionView2 = mock(SelectionInstanceView.class);
@@ -118,7 +118,7 @@ public class SelectionSceneTest {
     }
 
     @Test
-    public void testProceedToGame_DoesNotStartIfNotAllReady() {
+    void testProceedToGame_DoesNotStartIfNotAllReady() {
         when(mockGameStateApi.getGameMode()).thenReturn(GameMode.MULTIPLAYER);
         SelectionInstanceView mockSelectionView1 = mock(SelectionInstanceView.class);
         SelectionInstanceView mockSelectionView2 = mock(SelectionInstanceView.class);
@@ -138,7 +138,7 @@ public class SelectionSceneTest {
     }
 
     @Test
-    public void testProceedToGame_ThrowsExceptionIfGameModeNotSet() {
+    void testProceedToGame_ThrowsExceptionIfGameModeNotSet() {
         when(mockGameStateApi.getGameMode()).thenReturn(GameMode.NOT_SET);
 
         Platform.runLater(() -> assertThrows(IllegalStateException.class, () -> selectionScene.proceedToGame()));

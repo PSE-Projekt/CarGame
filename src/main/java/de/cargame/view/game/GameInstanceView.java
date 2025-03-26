@@ -13,7 +13,9 @@ import de.cargame.view.ApiHandler;
 import javafx.geometry.Pos;
 import javafx.scene.layout.Pane;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Contains the logic and elements for a game instance view.
@@ -66,50 +68,84 @@ class GameInstanceView extends Pane {
      * Renders the game instance safely, avoiding ConcurrentModificationException.
      */
     void render() {
-        // Step 1: Collect current objects from the model data
-        List<GameObject> currentObjects = modelData.getGameObjects();
+        List<GameObject> currentGameObjects = modelData.getGameObjects();
 
-        // Step 2: Remove outdated or irrelevant GameObject views
+        removeOutdatedViews(currentGameObjects);
+        addNewObjectViews(currentGameObjects);
+        updateExistingObjectViews(currentGameObjects);
+
+        // Ensure stats are displayed on top
+        stats.toFront();
+    }
+
+    /**
+     * Removes views for outdated or irrelevant GameObjects from the objectViewMap and this Pane.
+     */
+    private void removeOutdatedViews(List<GameObject> currentGameObjects) {
         objectViewMap.keySet().removeIf(gameObject -> {
-            // Remove if collected or no longer in current objects
-            if (!currentObjects.contains(gameObject) || (gameObject instanceof Life && ((Life) gameObject).isCollected())) {
-                GameObjectView outdatedView = objectViewMap.get(gameObject);
-                if (this.getChildren().contains(outdatedView)) {
-                    this.getChildren().remove(outdatedView);
-                }
-                return true; // Mark for removal from the map
+            boolean isOutdated = isOutdatedObject(gameObject, currentGameObjects);
+            if (isOutdated) {
+                removeGameObjectView(gameObject);
             }
-            return false; // Keep in map
+            return isOutdated;
         });
+    }
 
-        // Step 3: Add new GameObject views
-        for (GameObject gameObject : currentObjects) {
-            // Skip collected Life objects
-            if ((gameObject instanceof Life) && ((Life) gameObject).isCollected()) {
-                continue; // Don't create a view for collected Lives
-            }
-
-            if (!objectViewMap.containsKey(gameObject)) {
+    /**
+     * Adds views for new GameObjects to the objectViewMap and this Pane.
+     */
+    private void addNewObjectViews(List<GameObject> currentGameObjects) {
+        for (GameObject gameObject : currentGameObjects) {
+            if (isRelevant(gameObject) && !objectViewMap.containsKey(gameObject)) {
                 GameObjectView newView = createObjectView(gameObject);
                 objectViewMap.put(gameObject, newView);
-
-                // Avoid duplicates: add only if not already present
-                if (!this.getChildren().contains(newView)) {
-                    this.getChildren().add(newView);
-                }
+                addViewToPane(newView);
             }
         }
+    }
 
-        // Step 4: Update properties of views that already exist
-        for (GameObject gameObject : currentObjects) {
-            GameObjectView view = objectViewMap.get(gameObject);
-            if (view != null) {
-                updateObjectView(view, gameObject);
+    /**
+     * Updates views for existing GameObjects present in the objectViewMap.
+     */
+    private void updateExistingObjectViews(List<GameObject> currentGameObjects) {
+        for (GameObject gameObject : currentGameObjects) {
+            GameObjectView existingView = objectViewMap.get(gameObject);
+            if (existingView != null) {
+                updateObjectView(existingView, gameObject);
             }
         }
+    }
 
-        // Keep stats element on top
-        stats.toFront();
+    /**
+     * Determines if a GameObject is outdated.
+     */
+    private boolean isOutdatedObject(GameObject gameObject, List<GameObject> currentGameObjects) {
+        return !currentGameObjects.contains(gameObject) ||
+                (gameObject instanceof Life life && life.isCollected());
+    }
+
+    /**
+     * Determines if a GameObject is relevant (i.e., should have a view).
+     */
+    private boolean isRelevant(GameObject gameObject) {
+        return !(gameObject instanceof Life life && life.isCollected());
+    }
+
+    /**
+     * Removes a GameObjectView from the objectViewMap and this Pane.
+     */
+    private void removeGameObjectView(GameObject gameObject) {
+        GameObjectView view = objectViewMap.get(gameObject);
+        this.getChildren().remove(view);
+    }
+
+    /**
+     * Adds a GameObjectView to this Pane if it's not already present.
+     */
+    private void addViewToPane(GameObjectView view) {
+        if (!this.getChildren().contains(view)) {
+            this.getChildren().add(view);
+        }
     }
 
 
@@ -212,7 +248,7 @@ class GameInstanceView extends Pane {
 
         Pane greenAreaUp = createGreenPane(greenAreaHeight, 0);
         Pane greenAreaDown = createGreenPane(greenAreaHeight, this.getPrefHeight() - greenAreaHeight);
-        Pane sideMarkUp = createSideMark(greenAreaHeight + 10);
+        Pane sideMarkUp = createSideMark((double) greenAreaHeight + 10);
         Pane sideMarkDown = createSideMark(this.getPrefHeight() - greenAreaHeight - 20);
 
         this.getChildren().addAll(greenAreaUp, greenAreaDown, sideMarkUp, sideMarkDown);

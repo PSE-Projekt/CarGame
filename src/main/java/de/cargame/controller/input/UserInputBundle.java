@@ -50,7 +50,7 @@ public class UserInputBundle {
      * @param userInputType the type of user input to be added
      */
     public void addUserInput(UserInputType userInputType) {
-        if(userInputType == null){
+        if (userInputType == null) {
             log.warn("Null has been tried to be added to the user input bundle");
             return;
         }
@@ -59,7 +59,7 @@ public class UserInputBundle {
 
         if (userInput.getUserInputType().equals(UserInputType.CONFIRM)) {
             fastForward = true;
-            if(userInputs.contains(userInput)){
+            if (userInputs.contains(userInput)) {
                 this.userInputs.remove(userInput);
             }
             this.userInputs.add(userInput);

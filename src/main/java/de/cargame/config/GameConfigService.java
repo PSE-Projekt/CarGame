@@ -32,7 +32,7 @@ public class GameConfigService {
      * @return the singleton instance of GameConfigService
      */
     public static GameConfigService getInstance() {
-        if( INSTANCE == null){
+        if (INSTANCE == null) {
             INSTANCE = new GameConfigService();
         }
         return INSTANCE;
