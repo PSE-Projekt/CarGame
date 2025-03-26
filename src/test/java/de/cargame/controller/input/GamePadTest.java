@@ -5,6 +5,7 @@ import de.cargame.controller.input.gamepadmapping.XBoxWirelessControllerGamepadP
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import net.java.games.input.Component;
 import net.java.games.input.Controller;
+import net.java.games.input.EventQueue;
 import net.java.games.input.Rumbler;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -386,4 +387,19 @@ class GamePadTest {
         assertTrue(userInputBundleInstance.contains(UserInputType.LEFT));
     }
 
+    @Test
+    void testProcessGamePadInput_noGamepadConnected() throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException {
+        // Arrange
+        GamePad gamePad = new GamePad();
+        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        gamepadField.setAccessible(true);
+        gamepadField.set(gamePad, null);  // No gamepad connected
+
+        // Act and Assert
+
+        Method processGamePadInput = GamePad.class.getDeclaredMethod("processGamePadInput");
+        processGamePadInput.setAccessible(true);
+
+        assertDoesNotThrow(() -> processGamePadInput.invoke(gamePad));
+    }
 }

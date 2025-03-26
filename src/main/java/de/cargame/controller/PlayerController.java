@@ -10,11 +10,10 @@ import de.cargame.model.service.PlayerService;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * The PlayerController class provides implementation for the PlayerAPI interface.
- * It acts as a bridge between higher-level application logic and the underlying PlayerService,
- * which manages the creation, data retrieval, and state configuration of players.
- * Players can be controlled using either a keyboard or a gamepad, and the class
- * provides methods to manage both types.
+ * The PlayerController class provides an implementation of the PlayerAPI interface
+ * and acts as a controller for managing player-related actions within the game.
+ * It interacts with the PlayerService to perform operations such as creating players,
+ * retrieving player data, setting player states, and managing observers for players.
  */
 @Slf4j
 public class PlayerController implements PlayerAPI {

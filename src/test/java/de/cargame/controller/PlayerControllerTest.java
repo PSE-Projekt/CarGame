@@ -5,6 +5,7 @@ import de.cargame.model.entity.gameobject.car.player.CarType;
 import de.cargame.model.entity.gameobject.interfaces.UserInputObserver;
 import de.cargame.model.entity.player.Player;
 import de.cargame.model.entity.player.PlayerObserver;
+import de.cargame.model.entity.player.PlayerUpdate;
 import de.cargame.model.service.PlayerService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -124,6 +125,20 @@ class PlayerControllerTest {
 
         // then
         verify(playerService).registerPlayerObserver(playerObserver, playerId);
+    }
+
+    @Test
+    void testNotifyPlayerObservers() {
+        // given
+        PlayerObserver playerObserver = Mockito.mock(PlayerObserver.class);
+        testPlayer.addObserver(playerObserver);
+        PlayerUpdate update = new PlayerUpdate("", 2, 1);
+
+        // when
+        testPlayer.notifyObservers(update);
+
+        // then
+        verify(playerObserver).update(update);
     }
 
     @Test

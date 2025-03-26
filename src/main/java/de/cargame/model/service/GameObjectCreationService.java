@@ -225,7 +225,7 @@ public class GameObjectCreationService {
     }
 
 
-    private AICarType getRandomAICarType() {
+    AICarType getRandomAICarType() {
         return AICarType.values()[new Random().nextInt(AICarType.values().length)];
     }
 

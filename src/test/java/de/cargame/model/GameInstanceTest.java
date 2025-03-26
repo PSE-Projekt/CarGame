@@ -54,4 +54,36 @@ class GameInstanceTest {
         // Assert
         assertTrue(gameInstance.isFinished());
     }
+
+
+    @Test
+    void testRunExitsImmediatelyForMultiplayerWhenAllPlayersAreDead() throws NoSuchFieldException, IllegalAccessException {
+        // Arrange
+        Player mockPlayer = mock(Player.class);
+        GameInstanceService mockService = mock(GameInstanceService.class);
+        GameApplicationManager mockAppManager = mock(GameApplicationManager.class);
+        GameStateHandler gameStateHandlerMock = mock(GameStateHandler.class);
+        GameStateAPI mockGameStateAPI = spy(new GameStateController(gameStateHandlerMock));
+        PlayerHandler mockPlayerHandler = mock(PlayerHandler.class);
+        when(mockPlayerHandler.isPlayerAlive()).thenReturn(false);
+
+        when(gameStateHandlerMock.getGameMode()).thenReturn(GameMode.MULTIPLAYER);
+
+        GameObjectService mockGameObjectService = spy(new GameObjectService(mockGameStateAPI, mockPlayerHandler));
+        GameInstance gameInstance = new GameInstance(mockService, mockGameStateAPI, mockAppManager, mockPlayer);
+
+        Field gameObjectService = GameInstance.class.getDeclaredField("gameObjectService");
+        gameObjectService.setAccessible(true);
+        gameObjectService.set(gameInstance, mockGameObjectService);
+
+        doNothing().when(mockGameObjectService).startGame();
+
+        // Act
+        gameInstance.run();
+
+        // Assert
+        assertTrue(gameInstance.isFinished());
+        verify(mockGameObjectService, times(0)).update(anyDouble());
+    }
+
 }

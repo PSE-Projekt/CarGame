@@ -186,4 +186,15 @@ public abstract class GameObject implements Collidable, Despawnable {
     public String toString() {
         return "Type: " + getClass().getSimpleName() + ", ID: " + id + ", Position: " + getCoordinates();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof GameObject that)) return false;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }

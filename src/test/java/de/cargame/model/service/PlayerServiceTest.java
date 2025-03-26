@@ -4,8 +4,7 @@ import de.cargame.model.entity.player.Player;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 class PlayerServiceTest {
@@ -217,5 +216,29 @@ class PlayerServiceTest {
         // Assert
         assertFalse(playerService.getKeyboardPlayer().isPlaying(), "Expected keyboard player to remain unaffected");
         assertFalse(playerService.getGamepadPlayer().isPlaying(), "Expected gamepad player to remain unaffected");
+    }
+
+    @Test
+    void testCreatePlayerKeyboard_Initialization() {
+        // Act
+        playerService.createPlayerKeyboard();
+        Player keyboardPlayer = playerService.getKeyboardPlayer();
+
+        // Assert
+        assertNotNull(keyboardPlayer, "Expected keyboard player to be initialized");
+    }
+
+    @Test
+    void testCreatePlayerKeyboard_UniquePlayerId() {
+        // Arrange
+        playerService.createPlayerKeyboard();
+        Player keyboardPlayer = playerService.getKeyboardPlayer();
+
+        // Act
+        String playerId = keyboardPlayer.getId();
+
+        // Assert
+        assertNotNull(playerId, "Expected keyboard player to have a unique ID");
+        assertFalse(playerId.isEmpty(), "Expected keyboard player to have a non-empty ID");
     }
 }

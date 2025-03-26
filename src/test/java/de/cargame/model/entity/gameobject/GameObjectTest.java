@@ -14,6 +14,40 @@ import static org.mockito.Mockito.mock;
 
 class GameObjectTest {
 
+    @Test
+    void testMoveByRespectingGameBoundariesOutsideHorizontalBounds() {
+        double xAmount = 10;
+        double yAmount = 10000;// Move outside vertical bounds
+        AgileCar agileCar = new AgileCar(new Coordinate(0, 0), new Dimension(20, 20), GameObjectBoundType.RECTANGLE, GameMode.MULTIPLAYER);
+
+        double xOld = agileCar.getX();
+        double yOld = agileCar.getY();
+
+        // Act
+        agileCar.moveByRespectingGameBoundaries(xAmount, yAmount, 20, 20);
+
+        // Assert
+        assertEquals(xOld, agileCar.getX());
+        assertEquals(yOld, agileCar.getY());
+    }
+
+    @Test
+    void testMoveByRespectingGameBoundariesCornerCase() {
+        double xAmount = 0; // No movement
+        double yAmount = 0; // No movement
+        AgileCar agileCar = new AgileCar(new Coordinate(0, 0), new Dimension(20, 20), GameObjectBoundType.RECTANGLE, GameMode.SINGLEPLAYER);
+
+        double xOld = agileCar.getX();
+        double yOld = agileCar.getY();
+
+        // Act
+        agileCar.moveByRespectingGameBoundaries(xAmount, yAmount, 20, 20);
+
+        // Assert
+        assertEquals(xOld, agileCar.getX());
+        assertEquals(yOld, agileCar.getY());
+    }
+
     private static List<GameObject> getStaticGameObjects() {
         List<GameObject> objects = new ArrayList<>();
         Coordinate realCoordinate = new Coordinate(1000, 100);

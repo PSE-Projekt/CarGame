@@ -66,45 +66,49 @@ class GameInstanceView extends Pane {
      * Renders the game instance safely, avoiding ConcurrentModificationException.
      */
     void render() {
-        List<GameObject> gameObjects = modelData.getGameObjects();
+        // Step 1: Collect current objects from the model data
+        List<GameObject> currentObjects = modelData.getGameObjects();
 
-        // Remove objects that no longer exist in the game
-        objectViewMap.entrySet().removeIf(entry -> {
-            if (!gameObjects.contains(entry.getKey())) {
-                return true;
-            } else if (entry.getKey() instanceof Life life && life.isCollected()) {
-                gameObjects.remove(entry.getKey());
-                this.getChildren().remove(entry.getValue());
-                return true;
+        // Step 2: Remove outdated or irrelevant GameObject views
+        objectViewMap.keySet().removeIf(gameObject -> {
+            // Remove if collected or no longer in current objects
+            if (!currentObjects.contains(gameObject) || (gameObject instanceof Life && ((Life) gameObject).isCollected())) {
+                GameObjectView outdatedView = objectViewMap.get(gameObject);
+                if (this.getChildren().contains(outdatedView)) {
+                    this.getChildren().remove(outdatedView);
+                }
+                return true; // Mark for removal from the map
             }
-
-            return false;
+            return false; // Keep in map
         });
 
-        // Collect missing objects first to avoid modifying the map while iterating
-        List<GameObject> missingObjects = new ArrayList<>();
-        for (GameObject gameObject : gameObjects) {
+        // Step 3: Add new GameObject views
+        for (GameObject gameObject : currentObjects) {
+            // Skip collected Life objects
+            if ((gameObject instanceof Life) && ((Life) gameObject).isCollected()) {
+                continue; // Don't create a view for collected Lives
+            }
+
             if (!objectViewMap.containsKey(gameObject)) {
-                missingObjects.add(gameObject);
+                GameObjectView newView = createObjectView(gameObject);
+                objectViewMap.put(gameObject, newView);
+
+                // Avoid duplicates: add only if not already present
+                if (!this.getChildren().contains(newView)) {
+                    this.getChildren().add(newView);
+                }
             }
         }
 
-        // Add missing objects separately
-        for (GameObject gameObject : missingObjects) {
-            GameObjectView objectView = createObjectView(gameObject);
-            if (objectView != null) {
-                objectViewMap.put(gameObject, objectView);
+        // Step 4: Update properties of views that already exist
+        for (GameObject gameObject : currentObjects) {
+            GameObjectView view = objectViewMap.get(gameObject);
+            if (view != null) {
+                updateObjectView(view, gameObject);
             }
         }
 
-        // Update existing objects
-        for (GameObject gameObject : gameObjects) {
-            GameObjectView objectView = objectViewMap.get(gameObject);
-            if (objectView != null) {
-                updateObjectView(objectView, gameObject);
-            }
-        }
-
+        // Keep stats element on top
         stats.toFront();
     }
 
