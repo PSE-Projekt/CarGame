@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="remove unnecessary code">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ea66a102-05b1-4688-9a91-df4997efd9d9" name="Changes" comment="Added necessessary JinputStuff for runscript" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +37,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/PSE-Projekt/CarGame.git&quot;,
-    &quot;accountId&quot;: &quot;d50244f2-6752-4609-9ade-cf6d55ff0b7e&quot;
+    &quot;accountId&quot;: &quot;4a71344b-b870-491f-853f-36c270244d08&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -189,7 +186,7 @@
       <command value="mvn dependency::resolve" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.cargame in CarGameTest">
     <configuration name="SelectionSceneTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CarGameTest" />
       <extension name="coverage">
@@ -250,8 +247,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
       </set>
     </attachedChunks>
   </component>
@@ -307,6 +304,7 @@
       <workItem from="1741894229928" duration="280000" />
       <workItem from="1741962315085" duration="12321000" />
       <workItem from="1741983425350" duration="4171000" />
+      <workItem from="1743110241067" duration="133000" />
     </task>
     <task id="LOCAL-00005" summary="overworked game render">
       <option name="closed" value="true" />
@@ -508,7 +506,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741973228030</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Added necessessary JinputStuff for runscript">
+      <option name="closed" value="true" />
+      <created>1743110357571</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1743110357571</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,7 +532,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="beauty enhancement" />
     <MESSAGE value="multiplayer corrections" />
     <MESSAGE value="frontend multiplayer corrections" />
     <MESSAGE value="improved ingame stats" />
@@ -551,7 +556,8 @@
     <MESSAGE value="ScoreBoardScene tests in scoreboard package" />
     <MESSAGE value="view package test 78% line cvrg" />
     <MESSAGE value="remove unnecessary code" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove unnecessary code" />
+    <MESSAGE value="Added necessessary JinputStuff for runscript" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added necessessary JinputStuff for runscript" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
