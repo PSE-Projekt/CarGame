@@ -155,7 +155,7 @@ class GamePadTest {
 
         when(mockController.getRumblers()).thenReturn(new Rumbler[]{mockRumbler});
 
-        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        Field gamepadField = GamePad.class.getDeclaredField("jinputGamepad");
         gamepadField.setAccessible(true);
         gamepadField.set(gamePad, mockController);
 
@@ -176,7 +176,7 @@ class GamePadTest {
 
         when(mockController.getRumblers()).thenReturn(new Rumbler[]{mockRumbler1, mockRumbler2});
 
-        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        Field gamepadField = GamePad.class.getDeclaredField("jinputGamepad");
         gamepadField.setAccessible(true);
         gamepadField.set(gamePad, mockController);
 
@@ -198,7 +198,7 @@ class GamePadTest {
 
         when(mockController.getRumblers()).thenReturn(new Rumbler[]{mockRumbler1, mockRumbler2});
 
-        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        Field gamepadField = GamePad.class.getDeclaredField("jinputGamepad");
         gamepadField.setAccessible(true);
         gamepadField.set(gamePad, mockController);
 
@@ -219,7 +219,7 @@ class GamePadTest {
 
         when(mockController.getRumblers()).thenReturn(new Rumbler[]{mockRumbler1});
 
-        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        Field gamepadField = GamePad.class.getDeclaredField("jinputGamepad");
         gamepadField.setAccessible(true);
         gamepadField.set(gamePad, mockController);
 
@@ -239,7 +239,7 @@ class GamePadTest {
 
         when(mockController.getRumblers()).thenReturn(new Rumbler[]{mockRumbler1});
 
-        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        Field gamepadField = GamePad.class.getDeclaredField("jinputGamepad");
         gamepadField.setAccessible(true);
         gamepadField.set(gamePad, mockController);
 
@@ -272,7 +272,7 @@ class GamePadTest {
         gamepadMappingField.setAccessible(true);
         gamepadMappingField.set(gamePad, gamepadMapping);
 
-        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        Field gamepadField = GamePad.class.getDeclaredField("jinputGamepad");
         gamepadField.setAccessible(true);
         gamepadField.set(gamePad, mockController);
 
@@ -304,7 +304,7 @@ class GamePadTest {
         gamepadMappingField.setAccessible(true);
         gamepadMappingField.set(gamePad, gamepadMapping);
 
-        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        Field gamepadField = GamePad.class.getDeclaredField("jinputGamepad");
         gamepadField.setAccessible(true);
         gamepadField.set(gamePad, mockController);
 
@@ -335,7 +335,7 @@ class GamePadTest {
         gamepadMappingField.setAccessible(true);
         gamepadMappingField.set(gamePad, gamepadMapping);
 
-        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        Field gamepadField = GamePad.class.getDeclaredField("jinputGamepad");
         gamepadField.setAccessible(true);
         gamepadField.set(gamePad, mockController);
 
@@ -365,7 +365,7 @@ class GamePadTest {
         gamepadMappingField.setAccessible(true);
         gamepadMappingField.set(gamePad, gamepadMapping);
 
-        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        Field gamepadField = GamePad.class.getDeclaredField("jinputGamepad");
         gamepadField.setAccessible(true);
         gamepadField.set(gamePad, mockController);
 
@@ -389,7 +389,7 @@ class GamePadTest {
     void testProcessGamePadInput_noGamepadConnected() throws NoSuchFieldException, IllegalAccessException, NoSuchMethodException {
         // Arrange
         GamePad gamePad = new GamePad();
-        Field gamepadField = GamePad.class.getDeclaredField("gamepad");
+        Field gamepadField = GamePad.class.getDeclaredField("jinputGamepad");
         gamepadField.setAccessible(true);
         gamepadField.set(gamePad, null);  // No gamepad connected
 
